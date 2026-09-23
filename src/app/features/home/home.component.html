@@ -1,11 +1,1247 @@
-<section class="flex max-w-[80vw] items-center justify-center w-full h-full gap-4 p-4">
-    <div class="">
+<section
+    class="relative min-h-[850px] overflow-hidden
+           bg-[#130735] text-white"
+>
 
-        <img src="/banner/banner1.png" alt="Hero Image" class="w-6xl h-auto" />
+    <!-- ==================================================
+         FONDO
+    =================================================== -->
+
+    <!-- Glow morado -->
+    <div
+        class="pointer-events-none absolute
+               -left-40 top-1/3
+               h-[500px] w-[500px]
+               rounded-full
+               bg-[#6C5CE7]/20
+               blur-[140px]"
+    ></div>
+
+    <!-- Glow cyan -->
+    <div
+        class="pointer-events-none absolute
+               -right-40 top-1/3
+               h-[500px] w-[500px]
+               rounded-full
+               bg-[#00F2FE]/10
+               blur-[140px]"
+    ></div>
+
+
+    <!-- ==================================================
+         LÍNEAS DE FONDO
+    =================================================== -->
+
+    <svg
+        class="pointer-events-none absolute inset-0
+               h-full w-full opacity-50"
+        viewBox="0 0 1600 900"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+    >
+
+        <path
+            d="M-100 180
+               C200 20 420 40 650 200
+               C900 380 1180 300 1700 40"
+            stroke="url(#gradient1)"
+            stroke-width="1.5"
+        />
+
+        <path
+            d="M-100 380
+               C220 120 450 180 700 360
+               C980 560 1240 450 1700 160"
+            stroke="url(#gradient2)"
+            stroke-width="1.5"
+        />
+
+        <path
+            d="M-100 620
+               C220 340 470 390 760 560
+               C1060 740 1320 650 1700 400"
+            stroke="url(#gradient1)"
+            stroke-width="1.5"
+        />
+
+        <path
+            d="M0 820
+               C250 600 520 620 800 760
+               C1080 900 1400 760 1650 560"
+            stroke="url(#gradient2)"
+            stroke-width="1.2"
+        />
+
+        <defs>
+
+            <linearGradient
+                id="gradient1"
+                x1="0"
+                y1="0"
+                x2="1"
+                y2="1"
+            >
+                <stop
+                    offset="0%"
+                    stop-color="#6C5CE7"
+                    stop-opacity="0"
+                />
+
+                <stop
+                    offset="50%"
+                    stop-color="#6C5CE7"
+                />
+
+                <stop
+                    offset="100%"
+                    stop-color="#00F2FE"
+                    stop-opacity="0"
+                />
+            </linearGradient>
+
+
+            <linearGradient
+                id="gradient2"
+                x1="0"
+                y1="1"
+                x2="1"
+                y2="0"
+            >
+                <stop
+                    offset="0%"
+                    stop-color="#00F2FE"
+                    stop-opacity="0"
+                />
+
+                <stop
+                    offset="50%"
+                    stop-color="#6C8CFF"
+                />
+
+                <stop
+                    offset="100%"
+                    stop-color="#6C5CE7"
+                    stop-opacity="0"
+                />
+            </linearGradient>
+
+        </defs>
+
+    </svg>
+
+
+    <!-- ==================================================
+         CONTENIDO PRINCIPAL
+    =================================================== -->
+
+    <div
+        class="relative z-10 mx-auto
+               flex w-full max-w-[80vw]
+               flex-col items-center
+               px-6 pt-24
+               lg:px-10"
+    >
+
+        <!-- TAG -->
+        <div
+            class="mb-6 inline-flex
+                   rounded-full
+                   border border-[#6C5CE7]/30
+                   bg-[#6C5CE7]/10
+                   px-4 py-2"
+        >
+            <span
+                class="text-xs font-semibold
+                       uppercase
+                       tracking-[0.3em]
+                       text-[#A99CFF]"
+            >
+                Automatización inteligente
+            </span>
+        </div>
+
+
+        <!-- ==================================================
+             TÍTULO
+        =================================================== -->
+
+        <h2
+            class="max-w-5xl
+                   text-center
+                   text-5xl
+                   font-black
+                   leading-[1.02]
+                   tracking-tight
+                   sm:text-6xl
+                   lg:text-7xl"
+        >
+
+            CONECTAMOS TU NEGOCIO.
+
+            <br />
+
+            <span
+                class="bg-gradient-to-r
+                       from-[#6C5CE7]
+                       via-[#6C8CFF]
+                       to-[#00F2FE]
+                       bg-clip-text
+                       text-transparent"
+            >
+                AUTOMATIZAMOS EL RESTO.
+            </span>
+
+        </h2>
+
+
+        <!-- ==================================================
+             SUBTÍTULO
+        =================================================== -->
+
+        <p
+            class="mt-7 max-w-2xl
+                   text-center
+                   text-base
+                   leading-7
+                   text-white/60
+                   sm:text-lg"
+        >
+            Diseñamos flujos personalizados que conectan
+            tus canales, CRM, inteligencia artificial y
+            procesos para que tu equipo deje de hacer tareas
+            repetitivas.
+        </p>
+
+
+        <!-- ==================================================
+             BOTONES
+        =================================================== -->
+
+        <div
+            class="mt-9 flex
+                   flex-wrap
+                   items-center
+                   justify-center
+                   gap-4"
+        >
+
+            <!-- CTA PRINCIPAL -->
+            <a
+                hlmBtn
+                routerLink="/solicitar-reunion"
+                class="inline-flex
+                       items-center
+                       gap-3
+                       rounded-xl
+                       bg-gradient-to-r
+                       from-[#6C5CE7]
+                       via-[#6C8CFF]
+                       to-[#00F2FE]
+                       px-7
+                       py-3.5
+                       font-bold
+                       text-[#080911]
+                       shadow-[0_10px_35px_rgba(108,92,231,0.35)]
+                       transition-all
+                       duration-300
+                       hover:-translate-y-1
+                       hover:shadow-[0_15px_45px_rgba(108,92,231,0.45)]"
+            >
+
+                <ng-icon
+                    name="lucideSparkles"
+                    size="19"
+                />
+
+                <span>
+                    Solicitar Auditoría
+                </span>
+
+                <ng-icon
+                    name="lucideArrowRight"
+                    size="19"
+                />
+
+            </a>
+
+
+            <!-- CTA SECUNDARIO -->
+            <a
+                routerLink="/soluciones"
+                class="inline-flex
+                       items-center
+                       gap-3
+                       rounded-xl
+                       border
+                       border-white/20
+                       bg-white/5
+                       px-7
+                       py-3.5
+                       font-semibold
+                       text-white
+                       backdrop-blur-sm
+                       transition-all
+                       duration-300
+                       hover:border-[#6C5CE7]
+                       hover:bg-[#6C5CE7]/10"
+            >
+
+                <ng-icon
+                    name="lucideWorkflow"
+                    size="19"
+                />
+
+                <span>
+                    Ver cómo funciona
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- ==================================================
+             COMPOSICIÓN VISUAL
+        =================================================== -->
+
+        <div
+            class="relative mt-20
+                   flex h-[470px]
+                   w-full
+                   items-end
+                   justify-center"
+        >
+
+            <!-- Glow central -->
+            <div
+                class="absolute
+                       bottom-0
+                       left-1/2
+                       h-[300px]
+                       w-[700px]
+                       -translate-x-1/2
+                       rounded-full
+                       bg-[#6C5CE7]/20
+                       blur-[100px]"
+            ></div>
+
+
+         
+
+
+            <!-- ==========================================
+                 DASHBOARD
+            =========================================== -->
+
+            <div
+                class="absolute
+                       bottom-[-30px]
+                       left-1/2
+                       z-30
+                       w-[68%]
+                       -translate-x-1/2
+                       overflow-hidden
+                       rounded-2xl
+                       bg-white
+                       shadow-[0_30px_100px_rgba(0,0,0,0.5)]"
+            >
+
+                <!-- Barra superior -->
+                <div
+                    class="flex h-10
+                           items-center
+                           gap-2
+                           border-b
+                           border-gray-200
+                           bg-gray-50
+                           px-4"
+                >
+
+                    <span
+                        class="h-2.5 w-2.5 rounded-full
+                               bg-red-400"
+                    ></span>
+
+                    <span
+                        class="h-2.5 w-2.5 rounded-full
+                               bg-yellow-400"
+                    ></span>
+
+                    <span
+                        class="h-2.5 w-2.5 rounded-full
+                               bg-green-400"
+                    ></span>
+
+                </div>
+
+
+                <!-- Dashboard -->
+                <img
+                    src="/banner/crm-dashboard.png"
+                    alt="Dashboard CRM y automatizaciones"
+                    class="block h-auto w-full
+                           object-contain"
+                />
+
+            </div>
+
+
+            <!-- ==========================================
+                 FLOATING FLOW
+            =========================================== -->
+
+            <div
+                class="absolute
+                       left-[7%]
+                       top-[30%]
+                       z-40
+                       hidden
+                       items-center
+                       gap-3
+                       rounded-xl
+                       border border-white/10
+                       bg-[#111525]/90
+                       px-4 py-3
+                       shadow-xl
+                       backdrop-blur-md
+                       lg:flex"
+            >
+
+                <div
+                    class="flex h-9 w-9
+                           items-center justify-center
+                           rounded-lg
+                           bg-[#6C5CE7]/20
+                           text-[#A99CFF]"
+                >
+                    <ng-icon
+                        name="lucideBot"
+                        size="19"
+                    />
+                </div>
+
+                <div>
+                    <p
+                        class="text-xs
+                               font-bold
+                               text-white"
+                    >
+                        IA responde
+                    </p>
+
+                    <p
+                        class="text-[11px]
+                               text-white/50"
+                    >
+                        Flujo automático
+                    </p>
+                </div>
+
+            </div>
+
+
+            <!-- Segundo elemento -->
+            <div
+                class="absolute
+                       left-[18%]
+                       top-[15%]
+                       z-40
+                       hidden
+                       items-center
+                       gap-3
+                       rounded-xl
+                       border border-white/10
+                       bg-[#111525]/90
+                       px-4 py-3
+                       shadow-xl
+                       backdrop-blur-md
+                       lg:flex"
+            >
+
+                <div
+                    class="flex h-9 w-9
+                           items-center
+                           justify-center
+                           rounded-lg
+                           bg-[#00F2FE]/10
+                           text-[#00F2FE]"
+                >
+                    <ng-icon
+                        name="lucideZap"
+                        size="19"
+                    />
+                </div>
+
+                <div>
+                    <p
+                        class="text-xs
+                               font-bold
+                               text-white"
+                    >
+                        Workflow activo
+                    </p>
+
+                    <p
+                        class="text-[11px]
+                               text-white/50"
+                    >
+                        Ejecutando acciones
+                    </p>
+                </div>
+
+            </div>
+
+
+            <!-- ==========================================
+                 CONECTORES
+            =========================================== -->
+
+            <div
+                class="absolute
+                       bottom-[55%]
+                       left-[24%]
+                       z-10
+                       hidden
+                       h-px
+                       w-[20%]
+                       bg-gradient-to-r
+                       from-[#6C5CE7]
+                       to-[#00F2FE]
+                       lg:block"
+            ></div>
+
+        </div>
+
+
+        <!-- ==================================================
+             TEXTO INFERIOR
+        =================================================== -->
+
+        <div
+            class="mt-2
+                   flex flex-wrap
+                   items-center
+                   justify-center
+                   gap-x-5 gap-y-2
+                   text-xs
+                   uppercase
+                   tracking-[0.25em]
+                   text-white/35"
+        >
+        </div>
+
     </div>
 
-    <div >
-        <h1>Hola</h1>
+
+       <!-- ==========================================
+                 ROBOT
+            =========================================== -->
+
+            <img
+                src="/banner/banner1.png"
+                alt="IA y automatización"
+                class="absolute
+                       top-[40%]
+                       right-[8%]
+                       z-20
+                       w-[20vw]
+                       max-w-[42vw]
+                       object-contain
+                       animate-floating
+                       drop-shadow-[0_30px_70px_rgba(108,92,231,0.35)]"
+            />
+
+</section>
+
+<hr class="mx-auto " />
+
+<section class="relative overflow-hidden py-24 max-w-[80vw] mx-auto">
+
+    <!-- =========================
+         HEADER
+    ========================== -->
+    <div class="mx-auto mb-14 px-6 text-center">
+
+        <span class="mb-4 inline-block text-xs
+                   font-semibold uppercase
+                   tracking-[0.3em]
+                   text-[#6C5CE7]">
+            Todo conectado
+        </span>
+
+        <h2 class="text-4xl font-black
+                   tracking-tight text-[#080911]
+                   sm:text-5xl">
+            Una sola plataforma.
+            <br />
+
+            <span class="bg-gradient-to-r
+                       from-[#6C5CE7]
+                       via-[#6C8CFF]
+                       to-[#00F2FE]
+                       bg-clip-text
+                       text-transparent">
+                Infinitas automatizaciones.
+            </span>
+        </h2>
+
+        <p class="mx-auto mt-5 max-w-2xl
+                   text-base leading-7
+                   text-gray-500 sm:text-lg">
+            Conecta tus canales, CRM, inteligencia artificial
+            y procesos en un solo ecosistema.
+        </p>
+
+    </div>
+
+
+    <!-- =========================
+         CARRUSEL
+    ========================== -->
+    <div class="relative mx-auto max-w-[80vw]">
+
+        <!-- Glow lateral -->
+        <div class="pointer-events-none absolute
+                   left-0 top-0 z-10
+                   h-full w-40
+                   bg-gradient-to-r
+                   from-white
+                   to-transparent"></div>
+
+        <div class="pointer-events-none absolute
+                   right-0 top-0 z-10
+                   h-full w-40
+                   bg-gradient-to-l
+                   from-white
+                   to-transparent"></div>
+
+
+        <hlm-carousel class="w-full" [options]="{
+                align: 'start',
+                loop: true
+            }" [plugins]="plugins">
+
+            <hlm-carousel-content>
+
+                @for (item of items; track item.title) {
+
+                <hlm-carousel-item class="basis-auto">
+
+                    <div class="group flex items-center
+                               gap-4 px-7 py-4">
+
+                        <!-- ICONO -->
+                        <div class="flex h-12 w-12
+                                   shrink-0 items-center
+                                   justify-center
+                                   rounded-full
+                                   bg-gradient-to-br
+                                   from-[#6C5CE7]
+                                   to-[#6C8CFF]
+                                   text-white
+                                   shadow-[0_5px_20px_rgba(108,92,231,0.25)]
+                                   transition-transform
+                                   duration-300
+                                   group-hover:scale-110">
+
+                            <ng-icon [name]="item.icon" size="22" />
+
+                        </div>
+
+
+                        <!-- TEXTO -->
+                        <div class="whitespace-nowrap">
+
+                            <p class="text-base
+                                       font-bold
+                                       text-[#080911]">
+                                {{ item.title }}
+                            </p>
+
+                            <p class="text-xs
+                                       text-gray-400">
+                                {{ item.subtitle }}
+                            </p>
+
+                        </div>
+
+
+                        <!-- SEPARADOR -->
+                        <div class="ml-5 h-px w-12
+                                   bg-gradient-to-r
+                                   from-[#6C5CE7]
+                                   to-transparent"></div>
+
+                    </div>
+
+                </hlm-carousel-item>
+
+                }
+
+            </hlm-carousel-content>
+
+        </hlm-carousel>
+
+    </div>
+
+
+    <!-- =========================
+         CENTRO / MENSAJE
+    ========================== -->
+    <div class="mx-auto mt-14 flex
+               flex-wrap items-center
+               justify-center gap-x-6
+               gap-y-3 px-6">
+
+        <div class="flex items-center gap-2
+                   text-sm font-medium
+                   text-gray-500">
+            <span class="h-2 w-2 rounded-full
+                       bg-[#6C5CE7]
+                       shadow-[0_0_10px_#6C5CE7]"></span>
+
+            WhatsApp
+        </div>
+
+        <span class="text-gray-300">+</span>
+
+        <div class="flex items-center gap-2
+                   text-sm font-medium
+                   text-gray-500">
+            <span class="h-2 w-2 rounded-full
+                       bg-[#6C8CFF]
+                       shadow-[0_0_10px_#6C8CFF]"></span>
+
+            IA
+        </div>
+
+        <span class="text-gray-300">+</span>
+
+        <div class="flex items-center gap-2
+                   text-sm font-medium
+                   text-gray-500">
+            <span class="h-2 w-2 rounded-full
+                       bg-[#00F2FE]
+                       shadow-[0_0_10px_#00F2FE]"></span>
+
+            CRM
+        </div>
+
+        <span class="text-gray-300">+</span>
+
+        <div class="flex items-center gap-2
+                   text-sm font-medium
+                   text-gray-500">
+            <span class="h-2 w-2 rounded-full
+                       bg-[#6C5CE7]"></span>
+
+            Automatizaciones
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<section class="relative overflow-hidden py-16 ">
+
+    <!-- =========================
+         FONDO
+    ========================== -->
+    <div
+        class="absolute inset-0 -z-10
+               bg-gradient-to-b
+               from-white
+               via-[#F8F7FF]
+               to-white"
+    ></div>
+
+    <!-- Glow izquierdo -->
+    <div
+        class="absolute left-[-180px] top-1/2
+               h-[400px] w-[400px]
+               -translate-y-1/2
+               rounded-full
+               bg-[#6C5CE7]/10
+               blur-[120px]"
+    ></div>
+
+    <!-- Glow derecho -->
+    <div
+        class="absolute right-[-180px] top-1/2
+               h-[400px] w-[400px]
+               -translate-y-1/2
+               rounded-full
+               bg-[#00F2FE]/10
+               blur-[120px]"
+    ></div>
+
+
+    <!-- =========================
+         TÍTULO DE LA SECCIÓN
+    ========================== -->
+    <div class="mx-auto mb-16 max-w-4xl px-6 text-center">
+
+        <span
+            class="mb-5 inline-flex
+                   rounded-full
+                   border border-[#6C5CE7]/20
+                   bg-[#6C5CE7]/5
+                   px-4 py-2
+                   text-xs font-semibold
+                   uppercase tracking-[0.25em]
+                   text-[#6C5CE7]"
+        >
+            Cómo lo hacemos
+        </span>
+
+        <h2
+            class="text-4xl
+                   font-black
+                   leading-[1.05]
+                   tracking-tight
+                   text-[#080911]
+                   sm:text-5xl lg:text-6xl"
+        >
+            Diseñamos el sistema.
+            <br />
+
+            <span
+                class="bg-gradient-to-r
+                       from-[#6C5CE7]
+                       via-[#6C8CFF]
+                       to-[#00F2FE]
+                       bg-clip-text
+                       text-transparent"
+            >
+                Tú te ocupas de hacerlo crecer.
+            </span>
+        </h2>
+
+        <p
+            class="mx-auto mt-6
+                   max-w-2xl
+                   text-base
+                   leading-7
+                   text-gray-600
+                   sm:text-lg"
+        >
+            Conectamos tus canales, herramientas y procesos
+            para eliminar tareas repetitivas y crear un sistema
+            que trabaje de forma automática.
+        </p>
+
+    </div>
+
+
+    <!-- =========================
+         CONTENIDO
+    ========================== -->
+    <div
+        class="mx-auto flex w-full max-w-[80vw]
+               items-center gap-24 px-6
+               lg:px-10"
+    >
+
+
+        <!-- =========================
+             ROBOT
+        ========================== -->
+        <div
+            class="relative flex w-full
+                   items-center justify-center
+                   lg:w-1/2"
+        >
+
+            <!-- Glow -->
+            <div
+                class="absolute left-1/2 top-1/2
+                       h-[420px] w-[420px]
+                       -translate-x-1/2
+                       -translate-y-1/2
+                       rounded-full
+                       bg-[#6C5CE7]/20
+                       blur-[100px]"
+            ></div>
+
+
+            <!-- Líneas -->
+            <svg
+                class="absolute inset-0
+                       h-full w-full"
+                viewBox="0 0 700 600"
+                fill="none"
+            >
+
+                <path
+                    d="M-50 430
+                       C120 260 220 250
+                       350 350
+                       C460 430 560 400
+                       760 180"
+                    stroke="url(#flowGradient)"
+                    stroke-width="2"
+                    opacity="0.35"
+                />
+
+                <path
+                    d="M-30 300
+                       C120 120 230 150
+                       350 240
+                       C470 330 580 270
+                       740 100"
+                    stroke="url(#flowGradient)"
+                    stroke-width="2"
+                    opacity="0.25"
+                />
+
+                <defs>
+
+                    <linearGradient
+                        id="flowGradient"
+                        x1="0"
+                        y1="0"
+                        x2="1"
+                        y2="1"
+                    >
+                        <stop
+                            offset="0%"
+                            stop-color="#6C5CE7"
+                        />
+
+                        <stop
+                            offset="50%"
+                            stop-color="#6C8CFF"
+                        />
+
+                        <stop
+                            offset="100%"
+                            stop-color="#00F2FE"
+                        />
+                    </linearGradient>
+
+                </defs>
+
+            </svg>
+
+
+            <!-- Robot -->
+            <img
+                src="./prueba1.png"
+                alt="Automatización con inteligencia artificial"
+                class="relative z-10
+                       w-[45vw]
+                       max-w-none
+                       object-contain
+                       drop-shadow-[0_30px_60px_rgba(108,92,231,0.20)]"
+            />
+
+        </div>
+
+
+        <!-- =========================
+             FLUJO
+        ========================== -->
+        <div
+            class="w-full max-w-xl
+                   lg:w-1/2"
+        >
+
+            <!-- Título interno -->
+            <h3
+                class="text-3xl
+                       font-black
+                       leading-tight
+                       tracking-tight
+                       text-[#080911]
+                       sm:text-4xl"
+            >
+                Cada proceso.
+                <br />
+
+                <span
+                    class="text-[#6C5CE7]"
+                >
+                    En el momento correcto.
+                </span>
+            </h3>
+
+            <p
+                class="mt-5
+                       text-base
+                       leading-7
+                       text-gray-600"
+            >
+                Construimos flujos personalizados según la forma
+                en que funciona tu empresa.
+            </p>
+
+
+            <!-- =========================
+                 FLUJO
+            ========================== -->
+            <div class="mt-8 space-y-3">
+
+
+                <!-- 01 -->
+                <div class="flex items-center gap-4">
+
+                    <div
+                        class="flex h-11 w-11
+                               shrink-0
+                               items-center justify-center
+                               rounded-xl
+                               bg-[#6C5CE7]/10
+                               text-[#6C5CE7]"
+                    >
+                        <span class="text-sm font-black">
+                            01
+                        </span>
+                    </div>
+
+                    <div>
+                        <p
+                            class="font-bold
+                                   text-[#080911]"
+                        >
+                            Entrada
+                        </p>
+
+                        <p
+                            class="text-sm
+                                   text-gray-500"
+                        >
+                            Cada contacto entra por el canal correcto.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <!-- Conector -->
+                <div
+                    class="ml-5 h-5
+                           w-px
+                           bg-gradient-to-b
+                           from-[#6C5CE7]
+                           to-[#6C8CFF]"
+                ></div>
+
+
+                <!-- 02 -->
+                <div class="flex items-center gap-4">
+
+                    <div
+                        class="flex h-11 w-11
+                               shrink-0
+                               items-center justify-center
+                               rounded-xl
+                               bg-[#6C8CFF]/10
+                               text-[#6C8CFF]"
+                    >
+                        <span class="text-sm font-black">
+                            02
+                        </span>
+                    </div>
+
+                    <div>
+                        <p
+                            class="font-bold
+                                   text-[#080911]"
+                        >
+                            Procesamiento
+                        </p>
+
+                        <p
+                            class="text-sm
+                                   text-gray-500"
+                        >
+                            El sistema interpreta y toma decisiones.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <!-- Conector -->
+                <div
+                    class="ml-5 h-5
+                           w-px
+                           bg-gradient-to-b
+                           from-[#6C8CFF]
+                           to-[#00F2FE]"
+                ></div>
+
+
+                <!-- 03 -->
+                <div class="flex items-center gap-4">
+
+                    <div
+                        class="flex h-11 w-11
+                               shrink-0
+                               items-center justify-center
+                               rounded-xl
+                               bg-[#00F2FE]/10
+                               text-[#6C8CFF]"
+                    >
+                        <span class="text-sm font-black">
+                            03
+                        </span>
+                    </div>
+
+                    <div>
+                        <p
+                            class="font-bold
+                                   text-[#080911]"
+                        >
+                            Organización
+                        </p>
+
+                        <p
+                            class="text-sm
+                                   text-gray-500"
+                        >
+                            La información queda centralizada y ordenada.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <!-- Conector -->
+                <div
+                    class="ml-5 h-5
+                           w-px
+                           bg-gradient-to-b
+                           from-[#00F2FE]
+                           to-[#6C5CE7]"
+                ></div>
+
+
+                <!-- 04 -->
+                <div class="flex items-center gap-4">
+
+                    <div
+                        class="flex h-11 w-11
+                               shrink-0
+                               items-center justify-center
+                               rounded-xl
+                               bg-[#6C5CE7]/10
+                               text-[#6C5CE7]"
+                    >
+                        <span class="text-sm font-black">
+                            04
+                        </span>
+                    </div>
+
+                    <div>
+                        <p
+                            class="font-bold
+                                   text-[#080911]"
+                        >
+                            Automatización
+                        </p>
+
+                        <p
+                            class="text-sm
+                                   text-gray-500"
+                        >
+                            Se ejecutan acciones sin intervención manual.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <!-- Conector -->
+                <div
+                    class="ml-5 h-5
+                           w-px
+                           bg-gradient-to-b
+                           from-[#6C5CE7]
+                           to-[#00F2FE]"
+                ></div>
+
+
+                <!-- 05 -->
+                <div class="flex items-center gap-4">
+
+                    <div
+                        class="flex h-11 w-11
+                               shrink-0
+                               items-center justify-center
+                               rounded-xl
+                               bg-gradient-to-br
+                               from-[#6C5CE7]
+                               to-[#00F2FE]
+                               text-[#080911]"
+                    >
+                        <span class="text-sm font-black">
+                            05
+                        </span>
+                    </div>
+
+                    <div>
+                        <p
+                            class="font-bold
+                                   text-[#080911]"
+                        >
+                            Resultado
+                        </p>
+
+                        <p
+                            class="text-sm
+                                   text-gray-500"
+                        >
+                            El proceso continúa de forma automática.
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- CTA -->
+            <div class="mt-10">
+
+                <a
+                    routerLink="/solicitar-reunion"
+                    class="inline-flex items-center gap-3
+                           rounded-xl
+                           bg-gradient-to-r
+                           from-[#6C5CE7]
+                           via-[#6C8CFF]
+                           to-[#00F2FE]
+                           px-7 py-3.5
+                           font-bold
+                           text-[#080911]
+                           shadow-[0_12px_35px_rgba(108,92,231,0.30)]
+                           transition-all duration-300
+                           hover:-translate-y-1"
+                >
+
+                    <ng-icon
+                        name="lucideSparkles"
+                        size="19"
+                    />
+
+                    <span>
+                        Quiero automatizar mi negocio
+                    </span>
+
+                    <ng-icon
+                        name="lucideArrowRight"
+                        size="19"
+                    />
+
+                </a>
+
+            </div>
+
+        </div>
+
     </div>
 
 </section>

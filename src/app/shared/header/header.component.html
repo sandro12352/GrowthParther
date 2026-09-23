@@ -1,9 +1,10 @@
-<header class="flex max-w-[80vw] m-auto  h-20 items-center justify-between  bg-background px-6 lg:px-10">
+<header class="flex max-w-[80vw] mx-auto  h-20 items-center justify-between px-6 lg:px-10 lg:py-10">
 
     <!-- LOGO + FRASE -->
     <div class="flex items-center">
         <a routerLink="/" class="flex items-center">
-            <img src="./logo2.png" alt="Logo" class="h-14 w-auto hover:scale-102 transition-transform duration-300 hover:cursor-pointer" />
+            <img src="./logo2.png" alt="Logo"
+                class="h-16 w-auto hover:scale-102 transition-transform duration-300 hover:cursor-pointer" />
         </a>
     </div>
 
@@ -13,7 +14,7 @@
         <ul hlmNavigationMenuList class="flex-wrap">
 
             <li hlmNavigationMenuItem>
-                <button hlmNavigationMenuTrigger>
+                <button hlmNavigationMenuTrigger class="text-[16px] font-semibold">
                     Soluciones
                 </button>
 
@@ -65,7 +66,7 @@
             </li>
 
             <li hlmNavigationMenuItem>
-                <button hlmNavigationMenuTrigger>
+                <button hlmNavigationMenuTrigger class="text-[16px] font-semibold">
                     Automatización
                 </button>
 
@@ -89,24 +90,32 @@
             </li>
 
 
-            <!-- IA PARA EMPRESAS -->
-            <li hlmNavigationMenuItem class="hidden md:flex">
-                <a hlmNavigationMenuLink align="center" href="#">
-                    IA para empresas
-                </a>
-            </li>
-
-            <!--CRM & GHL -->
-            <li hlmNavigationMenuItem class="hidden md:flex">
-                <a hlmNavigationMenuLink align="center" href="#">
-                    CRM & GHL
-                </a>
-            </li>
-
-
             <li hlmNavigationMenuItem>
-                <button hlmNavigationMenuTrigger>
+                <button hlmNavigationMenuTrigger class="text-[16px] font-semibold">
                     Integraciones
+                </button>
+
+                <hlm-navigation-menu-content *hlmNavigationMenuPortal>
+                    <ul class="w-96">
+                        <li>
+                            <a hlmNavigationMenuLink routerLink="/documentation/introduction">
+                                <div class="flex flex-col gap-1 text-sm">
+                                    <div class="leading-none font-medium">
+                                        IA para empresas
+                                    </div>
+
+                                    <div class="text-muted-foreground line-clamp-2">
+                                        CRM & GHL
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </hlm-navigation-menu-content>
+            </li>
+            <li hlmNavigationMenuItem>
+                <button hlmNavigationMenuTrigger class="text-[16px] font-semibold">
+                    Recursos
                 </button>
 
                 <hlm-navigation-menu-content *hlmNavigationMenuPortal>
@@ -130,34 +139,12 @@
 
             <!--CASOS DE EXITO -->
             <li hlmNavigationMenuItem class="hidden md:flex">
-                <a hlmNavigationMenuLink align="center" href="#">
+                <a hlmNavigationMenuLink align="center" href="#" class="text-[16px] font-semibold">
                     Casos de exito
                 </a>
             </li>
 
-            <li hlmNavigationMenuItem>
-                <button hlmNavigationMenuTrigger>
-                    Recursos
-                </button>
 
-                <hlm-navigation-menu-content *hlmNavigationMenuPortal>
-                    <ul class="w-96">
-                        <li>
-                            <a hlmNavigationMenuLink routerLink="/documentation/introduction">
-                                <div class="flex flex-col gap-1 text-sm">
-                                    <div class="leading-none font-medium">
-                                        IA para empresas
-                                    </div>
-
-                                    <div class="text-muted-foreground line-clamp-2">
-                                        CRM & GHL
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-                    </ul>
-                </hlm-navigation-menu-content>
-            </li>
 
         </ul>
     </nav>
@@ -167,12 +154,13 @@
     <div class="flex items-center gap-3">
 
         <!-- INICIAR SESIÓN -->
-        <a routerLink="/login" aria-label="Iniciar sesión" title="Iniciar sesión" class="inline-flex h-10 w-10 items-center justify-center ">
+        <a routerLink="/login" aria-label="Iniciar sesión" title="Iniciar sesión"
+            class="inline-flex h-10 w-10 items-center justify-center ">
             <ng-icon name="lucideUserRound" size="24" />
         </a>
 
         <!-- SOLICITAR REUNIÓN -->
-        <a routerLink="/solicitar-reunion" class="inline-flex items-center gap-2 rounded-lg
+        <a hlmBtn routerLink="/solicitar-reunion" class="inline-flex items-center gap-2 
                bg-gradient-to-r from-[#6C5CE7] via-[#6C8CFF] to-[#00F2FE]
                px-5 py-2.5 text-sm font-semibold text-[#080911]
                shadow-[0_4px_20px_rgba(108,92,231,0.25)]
