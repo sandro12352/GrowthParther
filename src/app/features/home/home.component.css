@@ -13,3 +13,61 @@
 .animate-floating {
     animation: floating 3.5s ease-in-out infinite;
 }
+
+@keyframes float1 {
+    0%, 100% {
+        transform: translateY(0) rotate(-2deg);
+    }
+
+    50% {
+        transform: translateY(-10px) rotate(1deg);
+    }
+}
+
+@keyframes float2 {
+    0%, 100% {
+        transform: translateY(0) rotate(2deg);
+    }
+
+    50% {
+        transform: translateY(-12px) rotate(-1deg);
+    }
+}
+
+@keyframes float3 {
+    0%, 100% {
+        transform: translateY(0) rotate(1deg);
+    }
+
+    50% {
+        transform: translateY(9px) rotate(-2deg);
+    }
+}
+
+@keyframes float4 {
+    0%, 100% {
+        transform: translateY(0) rotate(-1deg);
+    }
+
+    50% {
+        transform: translateY(-9px) rotate(2deg);
+    }
+}
+
+.animate-float1{
+    animation: float1 5s ease-out infinite
+}
+
+.animate-float2{
+    animation: float2 5s ease-out infinite
+}
+
+
+.animate-float3{
+    animation: float1 5s ease-out infinite
+}
+
+
+.animate-float4{
+    animation: float1 5s ease-out infinite
+}
