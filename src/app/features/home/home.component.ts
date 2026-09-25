@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { NgIcon, provideIcons } from '@ng-icons/core';
-import { lucideArrowRight, lucideArrowUpRight, lucideBot, lucideBrainCircuit, lucideCalendar, lucideCalendarCheck, lucideCalendarDays, lucideChartNoAxesCombined, lucideClipboardList, lucideClock3, lucideCreditCard, lucideDatabase, lucideFacebook, lucideFilter, lucideInstagram, lucideMail, lucideMessageCircle, lucideMessageSquare, lucideMusic2, lucidePlay, lucidePlus, lucideRefreshCw, lucideSettings2, lucideShare2, lucideSmartphone, lucideSparkles, lucideStar, lucideUsers, lucideWebhook, lucideWorkflow, lucideZap } from '@ng-icons/lucide';
+import { lucideArrowRight, lucideArrowUpRight, lucideBellRing, lucideBot, lucideBrainCircuit, lucideCalendar, lucideCalendarCheck, lucideCalendarDays, lucideChartNoAxesCombined, lucideCheck, lucideClipboardList, lucideClock3, lucideCreditCard, lucideDatabase, lucideFacebook, lucideFilter, lucideInstagram, lucideLink, lucideMail, lucideMessageCircle, lucideMessageSquare, lucideMusic2, lucidePlay, lucidePlus, lucideRefreshCw, lucideRotateCcw, lucideSettings2, lucideShare2, lucideSmartphone, lucideSparkles, lucideStar, lucideUserPlus, lucideUserRoundCheck, lucideUsers, lucideUsersRound, lucideWebhook, lucideWorkflow, lucideZap } from '@ng-icons/lucide';
 import { HlmCardImports } from '@spartan-ng/helm/card';
 import { HlmCarouselImports } from '@spartan-ng/helm/carousel';
 import AutoScroll from 'embla-carousel-auto-scroll'
@@ -39,7 +39,15 @@ import AutoScroll from 'embla-carousel-auto-scroll'
     lucideMessageSquare,
     lucideCalendarCheck,
     lucideArrowUpRight,
-    lucidePlus
+    lucidePlus,
+    lucideLink,
+    lucideCheck,
+    lucideUserPlus,
+    lucideUserRoundCheck,
+    lucideRotateCcw,
+    lucideUsersRound,
+    lucideBellRing,
+    
   })],
   selector: 'app-home',
   styleUrl: './home.component.css',

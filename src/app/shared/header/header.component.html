@@ -1,176 +1,608 @@
-<header class="flex max-w-[80vw] mx-auto  h-20 items-center justify-between px-6 lg:px-10 lg:py-10">
+<header class="fixed left-0 top-0 z-50 w-full px-4 pt-8 lg:px-6">
+    <div class="mx-auto flex h-15 max-w-[80vw]
+               items-center justify-between
+              rounded-2xl
+               border border-black/[0.08]
+               bg-white
+                px-4
+               shadow-[0_10px_40px_rgba(8,9,17,0.08)]
+               backdrop-blur-xl
+               lg:px-6">
 
-    <!-- LOGO + FRASE -->
-    <div class="flex items-center">
-        <a routerLink="/" class="flex items-center">
-            <img src="./logo2.png" alt="Logo"
-                class="h-16 w-auto hover:scale-102 transition-transform duration-300 hover:cursor-pointer" />
-        </a>
+        <!-- ================================= -->
+        <!-- LOGO -->
+        <!-- ================================= -->
+
+        <div class="flex shrink-0 items-center">
+
+            <a routerLink="/" class="group flex items-center">
+
+                <img src="./logo2.png" alt="Growth Partner" class="h-14 w-auto
+                           object-contain
+                           transition-transform duration-300
+                           group-hover:scale-[1.02]" />
+
+            </a>
+
+        </div>
+
+
+        <!-- ================================= -->
+        <!-- NAVIGATION -->
+        <!-- ================================= -->
+
+        <nav hlmNavigationMenu class="hidden lg:block">
+
+            <ul hlmNavigationMenuList class="flex items-center gap-1">
+
+
+                <!-- ============================= -->
+                <!-- SOLUCIONES -->
+                <!-- ============================= -->
+
+                <li hlmNavigationMenuItem>
+
+                    <button hlmNavigationMenuTrigger class="rounded-lg
+                               px-4 py-2
+                               text-[15px]
+                               font-semibold
+                               text-[#080911]/75
+                               transition-all
+                               hover:bg-black/[0.035]
+                               hover:text-[#080911]">
+                        Soluciones
+                    </button>
+
+
+                    <hlm-navigation-menu-content *hlmNavigationMenuPortal>
+
+
+
+                        <div class="flex flex-col gap-2">
+
+                            <a hlmNavigationMenuLink routerLink="/automatizacion" class="group rounded-xl p-3
+                                           transition
+                                           hover:bg-[#6C5CE7]/5">
+
+                                <div class="flex h-9 w-9
+                                               items-center justify-center
+                                               rounded-lg
+                                               bg-[#6C5CE7]/10
+                                               text-[#6C5CE7]">
+                                    <ng-icon name="lucideWorkflow" size="18" />
+                                </div>
+
+                                <div class="mt-3">
+
+                                    <p class="text-sm font-semibold
+                                                   text-[#080911]">
+                                        Automatización
+                                    </p>
+
+                                    <p class="mt-1 text-xs
+                                                   leading-5
+                                                   text-black/40">
+                                        Automatiza tareas y procesos
+                                        repetitivos.
+                                    </p>
+
+                                </div>
+
+                            </a>
+
+
+                            <a hlmNavigationMenuLink routerLink="/inteligencia-artificial" class="group rounded-xl p-3
+                                           transition
+                                           hover:bg-[#6C8CFF]/5">
+
+                                <div class="flex h-9 w-9
+                                               items-center justify-center
+                                               rounded-lg
+                                               bg-[#6C8CFF]/10
+                                               text-[#6C8CFF]">
+                                    <ng-icon name="lucideBot" size="18" />
+                                </div>
+
+                                <div class="mt-3">
+
+                                    <p class="text-sm font-semibold
+                                                   text-[#080911]">
+                                        Inteligencia Artificial
+                                    </p>
+
+                                    <p class="mt-1 text-xs
+                                                   leading-5
+                                                   text-black/40">
+                                        IA aplicada a procesos
+                                        y atención.
+                                    </p>
+
+                                </div>
+
+                            </a>
+
+
+                            <a hlmNavigationMenuLink routerLink="/crm" class="group rounded-xl p-3
+                                           transition
+                                           hover:bg-[#00F2FE]/5">
+
+                                <div class="flex h-9 w-9
+                                               items-center justify-center
+                                               rounded-lg
+                                               bg-[#00F2FE]/10
+                                               text-[#168a92]">
+                                    <ng-icon name="lucideDatabase" size="18" />
+                                </div>
+
+                                <div class="mt-3">
+
+                                    <p class="text-sm font-semibold
+                                                   text-[#080911]">
+                                        CRM
+                                    </p>
+
+                                    <p class="mt-1 text-xs
+                                                   leading-5
+                                                   text-black/40">
+                                        Centraliza leads,
+                                        clientes y seguimiento.
+                                    </p>
+
+                                </div>
+
+                            </a>
+
+
+                            <a hlmNavigationMenuLink routerLink="/integraciones" class="group rounded-xl p-3
+                                           transition
+                                           hover:bg-black/[0.03]">
+
+                                <div class="flex h-9 w-9
+                                               items-center justify-center
+                                               rounded-lg
+                                               bg-black/5
+                                               text-black/60">
+                                    <ng-icon name="lucideLink" size="18" />
+                                </div>
+
+                                <div class="mt-3">
+
+                                    <p class="text-sm font-semibold
+                                                   text-[#080911]">
+                                        Integraciones
+                                    </p>
+
+                                    <p class="mt-1 text-xs
+                                                   leading-5
+                                                   text-black/40">
+                                        Conecta todas tus
+                                        herramientas.
+                                    </p>
+
+                                </div>
+
+                            </a>
+
+                        </div>
+
+
+                    </hlm-navigation-menu-content>
+
+                </li>
+
+
+                <!-- ============================= -->
+                <!-- AUTOMATIZACIÓN -->
+                <!-- ============================= -->
+
+                <li hlmNavigationMenuItem>
+
+                    <button hlmNavigationMenuTrigger class="rounded-lg
+                               px-4 py-2
+                               text-[15px]
+                               font-semibold
+                               text-[#080911]/75
+                               transition-all
+                               hover:bg-black/[0.035]
+                               hover:text-[#080911]">
+                        Automatización
+                    </button>
+
+
+                    <hlm-navigation-menu-content *hlmNavigationMenuPortal>
+
+                        <a hlmNavigationMenuLink routerLink="/automatizacion" class="group block rounded-xl p-4
+                                       transition
+                                       hover:bg-[#6C5CE7]/5">
+
+                            <div class="flex items-start gap-3">
+
+                                <div class="flex h-10 w-10
+                                               shrink-0
+                                               items-center
+                                               justify-center
+                                               rounded-xl
+                                               bg-[#6C5CE7]/10
+                                               text-[#6C5CE7]">
+
+                                    <ng-icon name="lucideWorkflow" size="19" />
+
+                                </div>
+
+                                <div>
+
+                                    <p class="font-semibold
+                                                   text-[#080911]">
+                                        Automatización de procesos
+                                    </p>
+
+                                    <p class="mt-1 text-xs
+                                                   leading-5
+                                                   text-black/40">
+                                        Workflows que ejecutan tareas,
+                                        seguimientos y acciones automáticamente.
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+                        </a>
+
+
+                        <a hlmNavigationMenuLink routerLink="/ia-para-empresas" class="group block rounded-xl p-4
+                                       transition
+                                       hover:bg-[#6C8CFF]/5">
+
+                            <div class="flex items-start gap-3">
+
+                                <div class="flex h-10 w-10
+                                               shrink-0
+                                               items-center
+                                               justify-center
+                                               rounded-xl
+                                               bg-[#6C8CFF]/10
+                                               text-[#6C8CFF]">
+
+                                    <ng-icon name="lucideBot" size="19" />
+
+                                </div>
+
+                                <div>
+
+                                    <p class="font-semibold
+                                                   text-[#080911]">
+                                        IA para empresas
+                                    </p>
+
+                                    <p class="mt-1 text-xs
+                                                   leading-5
+                                                   text-black/40">
+                                        Asistentes inteligentes para
+                                        atención, calificación y seguimiento.
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+                        </a>
+
+
+                    </hlm-navigation-menu-content>
+
+                </li>
+
+
+                <!-- ============================= -->
+                <!-- INTEGRACIONES -->
+                <!-- ============================= -->
+
+                <li hlmNavigationMenuItem>
+
+                    <button hlmNavigationMenuTrigger class="rounded-lg
+                               px-4 py-2
+                               text-[15px]
+                               font-semibold
+                               text-[#080911]/75
+                               transition-all
+                               hover:bg-black/[0.035]
+                               hover:text-[#080911]">
+                        Integraciones
+                    </button>
+
+
+                    <hlm-navigation-menu-content *hlmNavigationMenuPortal>
+
+                        <div class="grid grid-cols-2 gap-2">
+
+                            <!-- WHATSAPP -->
+                            <a hlmNavigationMenuLink routerLink="/integraciones/whatsapp"
+                                class="group rounded-xl p-4 transition hover:bg-[#25D366]/5">
+                                <div class="flex items-start gap-3">
+
+                                    <div
+                                        class="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[#25D366]/10">
+                                        <svg viewBox="0 0 24 24" class="h-5 w-5 text-[#25D366]" fill="currentColor"
+                                            aria-hidden="true">
+                                            <path
+                                                d="M20.52 3.48A11.93 11.93 0 0 0 12.05 0C5.48 0 .13 5.35.13 11.92c0 2.1.55 4.15 1.59 5.96L0 24l6.26-1.64a11.9 11.9 0 0 0 5.78 1.5h.01c6.57 0 11.92-5.35 11.92-11.92 0-3.18-1.24-6.17-3.45-8.46ZM12.05 21.85h-.01a9.9 9.9 0 0 1-5.05-1.38l-.36-.22-3.72.98.99-3.63-.23-.37a9.88 9.88 0 1 1 8.38 4.62Zm5.42-7.41c-.3-.15-1.77-.87-2.04-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.25-.46-2.38-1.47-.88-.79-1.47-1.76-1.64-2.06-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.03 1.01-1.03 2.46s1.06 2.85 1.21 3.05c.15.2 2.08 3.18 5.04 4.46.7.3 1.25.48 1.68.61.7.22 1.34.19 1.84.12.56-.08 1.77-.72 2.02-1.42.25-.7.25-1.29.17-1.42-.07-.12-.27-.2-.57-.35Z" />
+                                        </svg>
+                                    </div>
+
+                                    <div>
+                                        <p class="text-sm font-semibold text-[#080911]">
+                                            WhatsApp
+                                        </p>
+
+                                        <p class="mt-1 text-xs text-black/40">
+                                            Atención y seguimiento
+                                        </p>
+                                    </div>
+
+                                </div>
+                            </a>
+
+
+                            <!-- META -->
+                            <a hlmNavigationMenuLink routerLink="/integraciones/meta"
+                                class="group rounded-xl p-4 transition hover:bg-blue-500/5">
+                                <div class="flex items-start gap-3">
+
+                                    <div
+                                        class="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-blue-500/10">
+                                        <svg viewBox="0 0 24 24" class="h-5 w-5 text-blue-600" fill="none"
+                                            stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
+                                            stroke-linejoin="round" aria-hidden="true">
+                                            <path
+                                                d="M4 15.5c0-4.4 2.1-7.5 4.9-7.5 2.1 0 3.4 1.7 4.7 4 1.3 2.3 2.6 4 4.7 4 1.2 0 1.7-.7 1.7-1.9 0-1.2-.5-2-1.6-2-1.2 0-1.8.9-2.5 2.2l-1.1 2c-.8 1.5-2.1 2.3-3.7 2.3-2.4 0-3.8-1.9-5.1-4.3-1.2-2.2-2.2-4.4-4-4.4-1.4 0-2.3 1.3-2.3 3.6 0 1.2.3 2.2.8 3" />
+                                        </svg>
+                                    </div>
+
+                                    <div>
+                                        <p class="text-sm font-semibold text-[#080911]">
+                                            Meta
+                                        </p>
+
+                                        <p class="mt-1 text-xs text-black/40">
+                                            Facebook + Instagram
+                                        </p>
+                                    </div>
+
+                                </div>
+                            </a>
+
+
+                            <!-- N8N -->
+                            <a hlmNavigationMenuLink routerLink="/integraciones/n8n"
+                                class="group rounded-xl p-4 transition hover:bg-orange-500/5">
+                                <div class="flex items-start gap-3">
+
+                                    <div
+                                        class="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-orange-500/10">
+                                        <svg viewBox="0 0 24 24" class="h-5 w-5 text-orange-500" fill="none"
+                                            stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" aria-hidden="true">
+                                            <rect x="3" y="3" width="6" height="6" rx="1.5" />
+                                            <rect x="15" y="3" width="6" height="6" rx="1.5" />
+                                            <rect x="9" y="15" width="6" height="6" rx="1.5" />
+                                            <path d="M9 6h6" />
+                                            <path d="M6 9v3a3 3 0 0 0 3 3h3" />
+                                            <path d="M18 9v3a3 3 0 0 1-3 3h-3" />
+                                        </svg>
+                                    </div>
+
+                                    <div>
+                                        <p class="text-sm font-semibold text-[#080911]">
+                                            n8n
+                                        </p>
+
+                                        <p class="mt-1 text-xs text-black/40">
+                                            Automatizaciones avanzadas
+                                        </p>
+                                    </div>
+
+                                </div>
+                            </a>
+
+
+                            <!-- GOHIGHLEVEL -->
+                            <a hlmNavigationMenuLink routerLink="/integraciones/gohighlevel"
+                                class="group rounded-xl p-4 transition hover:bg-[#6C5CE7]/5">
+                                <div class="flex items-start gap-3">
+
+                                    <div
+                                        class="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[#6C5CE7]/10">
+                                        <svg viewBox="0 0 24 24" class="h-5 w-5 text-[#6C5CE7]" fill="none"
+                                            stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
+                                            stroke-linejoin="round" aria-hidden="true">
+                                            <path d="M18.5 7.5a6.5 6.5 0 1 0 0 9" />
+                                            <path d="M18.5 12h-5" />
+                                            <path d="M13.5 12v4" />
+                                        </svg>
+                                    </div>
+
+                                    <div>
+                                        <p class="text-sm font-semibold text-[#080911]">
+                                            GoHighLevel
+                                        </p>
+
+                                        <p class="mt-1 text-xs text-black/40">
+                                            CRM + Workflows
+                                        </p>
+                                    </div>
+
+                                </div>
+                            </a>
+
+                        </div>
+
+                    </hlm-navigation-menu-content>
+
+                </li>
+
+
+                <!-- ============================= -->
+                <!-- RECURSOS -->
+                <!-- ============================= -->
+
+                <li hlmNavigationMenuItem>
+
+                    <button hlmNavigationMenuTrigger class="rounded-lg
+                               px-4 py-2
+                               text-[15px]
+                               font-semibold
+                               text-[#080911]/75
+                               transition-all
+                               hover:bg-black/[0.035]
+                               hover:text-[#080911]">
+                        Recursos
+                    </button>
+
+
+                    <hlm-navigation-menu-content *hlmNavigationMenuPortal>
+
+                    
+
+                            <a hlmNavigationMenuLink routerLink="/blog" class="group block rounded-xl p-4
+                                       transition
+                                       hover:bg-[#6C5CE7]/5">
+
+                                <p class="text-sm font-semibold
+                                           text-[#080911]">
+                                    Blog
+                                </p>
+
+                                <p class="mt-1 text-xs
+                                           leading-5
+                                           text-black/40">
+                                    Automatización, IA, CRM y
+                                    estrategias de crecimiento.
+                                </p>
+
+                            </a>
+
+
+                            <a hlmNavigationMenuLink routerLink="/nosotros" class="group block rounded-xl p-4
+                                       transition
+                                       hover:bg-[#6C8CFF]/5">
+
+                                <p class="text-sm font-semibold
+                                           text-[#080911]">
+                                    Nosotros
+                                </p>
+
+                                <p class="mt-1 text-xs
+                                           leading-5
+                                           text-black/40">
+                                    Conoce Growth Partner.
+                                </p>
+
+                            </a>
+
+
+                    </hlm-navigation-menu-content>
+
+                </li>
+
+
+                <!-- ============================= -->
+                <!-- CASOS -->
+                <!-- ============================= -->
+
+                <li hlmNavigationMenuItem class="hidden xl:flex">
+
+                    <a hlmNavigationMenuLink routerLink="/casos-de-exito" class="rounded-lg
+                               px-4 py-2
+                               text-[15px]
+                               font-semibold
+                               text-[#080911]/75
+                               transition-all
+                               hover:bg-black/[0.035]
+                               hover:text-[#080911]">
+                        Casos de éxito
+                    </a>
+
+                </li>
+
+            </ul>
+
+        </nav>
+
+
+        <!-- ================================= -->
+        <!-- ACTIONS -->
+        <!-- ================================= -->
+
+        <div class="lg:flex items-center gap-2 hidden">
+
+
+            <!-- LOGIN -->
+
+            <a routerLink="/login" aria-label="Iniciar sesión" title="Iniciar sesión" class="group flex h-11 w-11
+                       items-center justify-center
+                       rounded-xl
+                       border border-black/10
+                       bg-white
+                       text-[#080911]/70
+                       transition-all duration-300
+                       hover:border-[#6C5CE7]/30
+                       hover:bg-[#6C5CE7]/5
+                       hover:text-[#6C5CE7]">
+
+                <ng-icon name="lucideUserRound" size="20" />
+
+            </a>
+
+
+            <!-- CTA -->
+
+            <a hlmBtn routerLink="/solicitar-reunion" class="group relative
+                       inline-flex
+                       h-11
+                       items-center
+                       gap-2
+                       overflow-hidden
+                       rounded-xl
+                       bg-[#491eff]
+                       px-5
+                       text-sm
+                       font-bold
+                       text-white
+                       shadow-[0_8px_25px_rgba(73,30,255,0.20)]
+                       transition-all duration-300
+                       hover:-translate-y-0.5
+                       hover:bg-[#5b32ff]
+                       hover:shadow-[0_10px_30px_rgba(73,30,255,0.30)]">
+
+                <!-- brillo -->
+
+                <span class="absolute inset-0
+                           -translate-x-full
+                           bg-gradient-to-r
+                           from-transparent
+                           via-white/10
+                           to-transparent
+                           transition-transform
+                           duration-700
+                           group-hover:translate-x-full"></span>
+
+
+                <ng-icon name="lucideCalendar" size="17" class="relative" />
+
+                <span class="relative">
+                    Solicitar reunión
+                </span>
+
+                <ng-icon name="lucideArrowUpRight" size="16" class="relative
+                           transition-transform
+                           duration-300
+                           group-hover:translate-x-0.5
+                           group-hover:-translate-y-0.5" />
+
+            </a>
+
+        </div>
+
     </div>
-
-
-    <!-- MENÚ -->
-    <nav hlmNavigationMenu class="hidden lg:block">
-        <ul hlmNavigationMenuList class="flex-wrap">
-
-            <li hlmNavigationMenuItem>
-                <button hlmNavigationMenuTrigger class="text-[16px] font-semibold">
-                    Soluciones
-                </button>
-
-                <hlm-navigation-menu-content *hlmNavigationMenuPortal>
-                    <ul class="w-96">
-                        <li>
-                            <a hlmNavigationMenuLink routerLink="/documentation/introduction">
-                                <div class="flex flex-col gap-1 text-sm">
-                                    <div class="leading-none font-medium">
-                                        Introduction
-                                    </div>
-
-                                    <div class="text-muted-foreground line-clamp-2">
-                                        Re-usable components built with Tailwind CSS.
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-
-                        <li>
-                            <a hlmNavigationMenuLink routerLink="/documentation/installation">
-                                <div class="flex flex-col gap-1 text-sm">
-                                    <div class="leading-none font-medium">
-                                        Installation
-                                    </div>
-
-                                    <div class="text-muted-foreground line-clamp-2">
-                                        How to install dependencies and structure your app.
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-
-                        <li>
-                            <a hlmNavigationMenuLink routerLink="/documentation/typography">
-                                <div class="flex flex-col gap-1 text-sm">
-                                    <div class="leading-none font-medium">
-                                        Typography
-                                    </div>
-
-                                    <div class="text-muted-foreground line-clamp-2">
-                                        Styles for headings, paragraphs, lists...etc
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-                    </ul>
-                </hlm-navigation-menu-content>
-            </li>
-
-            <li hlmNavigationMenuItem>
-                <button hlmNavigationMenuTrigger class="text-[16px] font-semibold">
-                    Automatización
-                </button>
-
-                <hlm-navigation-menu-content *hlmNavigationMenuPortal>
-                    <ul class="w-96">
-                        <li>
-                            <a hlmNavigationMenuLink routerLink="/documentation/introduction">
-                                <div class="flex flex-col gap-1 text-sm">
-                                    <div class="leading-none font-medium">
-                                        IA para empresas
-                                    </div>
-
-                                    <div class="text-muted-foreground line-clamp-2">
-                                        CRM & GHL
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-                    </ul>
-                </hlm-navigation-menu-content>
-            </li>
-
-
-            <li hlmNavigationMenuItem>
-                <button hlmNavigationMenuTrigger class="text-[16px] font-semibold">
-                    Integraciones
-                </button>
-
-                <hlm-navigation-menu-content *hlmNavigationMenuPortal>
-                    <ul class="w-96">
-                        <li>
-                            <a hlmNavigationMenuLink routerLink="/documentation/introduction">
-                                <div class="flex flex-col gap-1 text-sm">
-                                    <div class="leading-none font-medium">
-                                        IA para empresas
-                                    </div>
-
-                                    <div class="text-muted-foreground line-clamp-2">
-                                        CRM & GHL
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-                    </ul>
-                </hlm-navigation-menu-content>
-            </li>
-            <li hlmNavigationMenuItem>
-                <button hlmNavigationMenuTrigger class="text-[16px] font-semibold">
-                    Recursos
-                </button>
-
-                <hlm-navigation-menu-content *hlmNavigationMenuPortal>
-                    <ul class="w-96">
-                        <li>
-                            <a hlmNavigationMenuLink routerLink="/documentation/introduction">
-                                <div class="flex flex-col gap-1 text-sm">
-                                    <div class="leading-none font-medium">
-                                        IA para empresas
-                                    </div>
-
-                                    <div class="text-muted-foreground line-clamp-2">
-                                        CRM & GHL
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-                    </ul>
-                </hlm-navigation-menu-content>
-            </li>
-
-            <!--CASOS DE EXITO -->
-            <li hlmNavigationMenuItem class="hidden md:flex">
-                <a hlmNavigationMenuLink align="center" href="#" class="text-[16px] font-semibold">
-                    Casos de exito
-                </a>
-            </li>
-
-
-
-        </ul>
-    </nav>
-
-
-    <!-- ACCIONES -->
-    <div class="flex items-center gap-3">
-
-        <!-- INICIAR SESIÓN -->
-        <a routerLink="/login" aria-label="Iniciar sesión" title="Iniciar sesión"
-            class="inline-flex h-10 w-10 items-center justify-center ">
-            <ng-icon name="lucideUserRound" size="24" />
-        </a>
-
-        <!-- SOLICITAR REUNIÓN -->
-        <a hlmBtn routerLink="/solicitar-reunion" class="inline-flex items-center gap-2 
-               bg-gradient-to-r from-[#6C5CE7] via-[#6C8CFF] to-[#00F2FE]
-               px-5 py-2.5 text-sm font-semibold text-[#080911]
-               shadow-[0_4px_20px_rgba(108,92,231,0.25)]
-               transition-all duration-300
-               hover:-translate-y-0.5
-               hover:shadow-[0_6px_25px_rgba(108,92,231,0.40)]">
-            <ng-icon name="lucideCalendar" size="18" />
-            <span>Solicitar reunión</span>
-        </a>
-
-    </div>
-
 </header>

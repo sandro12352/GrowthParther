@@ -1,72 +1,26 @@
-<section class="relative min-h-[850px] overflow-hidden
-           bg-[#130735] text-white">
+<section class="relative min-h-full overflow-visible
+           bg-[#130735] text-white ">
 
-    <!-- ==================================================
-         FONDO
-    =================================================== -->
+    <div class="pointer-events-none absolute inset-0 overflow-hidden">
 
-    <!-- Glow morado -->
-    <div class="pointer-events-none absolute
-               -left-40 top-1/3
-               h-[500px] w-[500px]
-               rounded-full
-               bg-[#6C5CE7]/20
-               blur-[140px]"></div>
+        <!-- GLows -->
 
-    <!-- Glow cyan -->
-    <div class="pointer-events-none absolute
-               -right-40 top-1/3
-               h-[500px] w-[500px]
-               rounded-full
-               bg-[#00F2FE]/10
-               blur-[140px]"></div>
+        <div class="absolute -left-40 top-1/3
+                   h-[500px] w-[500px]
+                   rounded-full
+                   bg-[#6C5CE7]/20
+                   blur-[140px]"></div>
+
+        <div class="absolute -right-40 top-1/3
+                   h-[500px] w-[500px]
+                   rounded-full
+                   bg-[#00F2FE]/10
+                   blur-[140px]"></div>
 
 
-    <!-- ==================================================
-         LÍNEAS DE FONDO
-    =================================================== -->
-
-    <svg class="pointer-events-none absolute inset-0
-               h-full w-full opacity-50" viewBox="0 0 1600 900" fill="none" xmlns="http://www.w3.org/2000/svg">
-
-        <path d="M-100 180
-               C200 20 420 40 650 200
-               C900 380 1180 300 1700 40" stroke="url(#gradient1)" stroke-width="1.5" />
-
-        <path d="M-100 380
-               C220 120 450 180 700 360
-               C980 560 1240 450 1700 160" stroke="url(#gradient2)" stroke-width="1.5" />
-
-        <path d="M-100 620
-               C220 340 470 390 760 560
-               C1060 740 1320 650 1700 400" stroke="url(#gradient1)" stroke-width="1.5" />
-
-        <path d="M0 820
-               C250 600 520 620 800 760
-               C1080 900 1400 760 1650 560" stroke="url(#gradient2)" stroke-width="1.2" />
-
-        <defs>
-
-            <linearGradient id="gradient1" x1="0" y1="0" x2="1" y2="1">
-                <stop offset="0%" stop-color="#6C5CE7" stop-opacity="0" />
-
-                <stop offset="50%" stop-color="#6C5CE7" />
-
-                <stop offset="100%" stop-color="#00F2FE" stop-opacity="0" />
-            </linearGradient>
 
 
-            <linearGradient id="gradient2" x1="0" y1="1" x2="1" y2="0">
-                <stop offset="0%" stop-color="#00F2FE" stop-opacity="0" />
-
-                <stop offset="50%" stop-color="#6C8CFF" />
-
-                <stop offset="100%" stop-color="#6C5CE7" stop-opacity="0" />
-            </linearGradient>
-
-        </defs>
-
-    </svg>
+    </div>
 
 
     <!-- ==================================================
@@ -76,7 +30,7 @@
     <div class="relative z-10 mx-auto
                flex w-full max-w-[80vw]
                flex-col items-center
-               px-6 pt-24
+               px-6 pt-40
                lg:px-10">
 
         <!-- TAG -->
@@ -247,7 +201,7 @@
                        overflow-hidden
                        rounded-2xl
                        bg-white
-                       shadow-[0_30px_100px_rgba(0,0,0,0.5)]">
+                       shadow-[0_30px_100px_rgba(0,0,0,0.1)]">
 
                 <!-- Barra superior -->
                 <div class="flex h-10
@@ -271,7 +225,7 @@
 
 
                 <!-- Dashboard -->
-                <img src="/banner/crm-dashboard.png" alt="Dashboard CRM y automatizaciones" class="block h-auto w-full
+                <img src="/banner/crm-dashboard.png" alt="Dashboard CRM y automatizaciones" class="block h-auto  w-full
                            object-contain" />
 
             </div>
@@ -604,31 +558,26 @@
 
 
 
-<section class="relative overflow-hidden bg-white py-12 ">
+<section class="relative overflow-hidden bg-white py-12 mx-auto">
 
     <!-- BACKGROUND -->
 
-    <div
-        class="absolute inset-0 -z-10 bg-gradient-to-b from-white via-[#F8F7FF] to-white">
+    <div class="absolute inset-0 -z-10 bg-gradient-to-b from-white via-[#F8F7FF] to-white">
     </div>
 
-    <div
-        class="absolute -left-40 top-1/3 h-[450px] w-[450px]
+    <div class="absolute -left-40 top-1/3 h-[450px] w-[450px]
                rounded-full bg-[#6C5CE7]/10 blur-[130px]">
     </div>
 
-    <div
-        class="absolute -right-40 bottom-0 h-[400px] w-[400px]
+    <div class="absolute -right-40 bottom-0 h-[400px] w-[400px]
                rounded-full bg-[#00F2FE]/8 blur-[130px]">
     </div>
 
 
     <div class="mx-auto max-w-[80vw] px-6 lg:px-8">
 
-        <div
-            class="grid items-center gap-16 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20 
-                   lg:items-center"
-        >
+        <div class="grid items-center gap-16 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20 
+                   lg:items-center">
 
             <!-- ================================= -->
             <!-- IMAGEN EQUIPO -->
@@ -636,139 +585,111 @@
 
             <div class="relative">
 
-    <!-- =========================
+                <!-- =========================
          GLOW
     ========================== -->
 
-    <div
-        class="absolute -inset-6 rounded-[40px]
+                <div class="absolute -inset-6 rounded-[40px]
                bg-gradient-to-br
                from-[#6C5CE7]/20
                via-transparent
                to-[#00F2FE]/10
                blur-2xl">
-    </div>
+                </div>
 
 
-    <!-- =========================
+                <!-- =========================
          ELEMENTOS FLOTANTES
     ========================== -->
 
-    <!-- Mensaje WhatsApp -->
-    <div
-        class="absolute left-0 top-[15%] z-20
+                <!-- Mensaje WhatsApp -->
+                <div class="absolute left-0 top-[15%] z-20
                hidden items-center gap-3
                rounded-2xl border border-white/20
                bg-white/90 px-4 py-3
                shadow-[0_15px_40px_rgba(8,9,17,0.15)]
                animate-float1
-               sm:flex"
-    >
+               sm:flex">
 
-        <div
-            class="flex h-9 w-9 items-center justify-center
-                   rounded-xl bg-[#25D366]/10"
-        >
-            <ng-icon
-                name="lucideMessageCircle"
-                size="18"
-                class="text-[#25D366]"
-            />
-        </div>
+                    <div class="flex h-9 w-9 items-center justify-center
+                   rounded-xl bg-[#25D366]/10">
+                        <ng-icon name="lucideMessageCircle" size="18" class="text-[#25D366]" />
+                    </div>
 
-        <div>
-            <p class="text-[10px] font-medium text-black/40">
-                WhatsApp
-            </p>
+                    <div>
+                        <p class="text-[10px] font-medium text-black/40">
+                            WhatsApp
+                        </p>
 
-            <p class="text-xs font-bold text-[#080911]">
-                Nuevo lead recibido
-            </p>
-        </div>
+                        <p class="text-xs font-bold text-[#080911]">
+                            Nuevo lead recibido
+                        </p>
+                    </div>
 
-    </div>
+                </div>
 
 
-    <!-- IA -->
-    <div
-        class="absolute right-0 top-[44%] z-20
+                <!-- IA -->
+                <div class="absolute right-0 top-[44%] z-20
                hidden items-center gap-3
                rounded-2xl border border-white/20
                bg-[#080911]/90 px-4 py-3
                shadow-[0_15px_40px_rgba(108,92,231,0.20)]
                backdrop-blur-xl
                animate-float2
-               sm:flex"
-    >
+               sm:flex">
 
-        <div
-            class="flex h-9 w-9 items-center justify-center
-                   rounded-xl bg-[#6C5CE7]/15"
-        >
-            <ng-icon
-                name="lucideSparkles"
-                size="18"
-                class="text-[#9d92ff]"
-            />
-        </div>
+                    <div class="flex h-9 w-9 items-center justify-center
+                   rounded-xl bg-[#6C5CE7]/15">
+                        <ng-icon name="lucideSparkles" size="18" class="text-[#9d92ff]" />
+                    </div>
 
-        <div>
-            <p class="text-[10px] font-medium text-white/40">
-                Inteligencia artificial
-            </p>
+                    <div>
+                        <p class="text-[10px] font-medium text-white/40">
+                            Inteligencia artificial
+                        </p>
 
-            <p class="text-xs font-semibold text-white">
-                Conversación atendida
-            </p>
-        </div>
+                        <p class="text-xs font-semibold text-white">
+                            Conversación atendida
+                        </p>
+                    </div>
 
-    </div>
+                </div>
 
 
-    <!-- Cita -->
-    <div
-        class="absolute bottom-[10%] left-0 z-20
+                <!-- Cita -->
+                <div class="absolute bottom-[10%] left-0 z-20
                hidden items-center gap-3
                rounded-2xl border border-[#00F2FE]/20
                bg-white/90 px-4 py-3
                shadow-[0_15px_40px_rgba(0,242,254,0.12)]
                backdrop-blur-xl
                animate-float4
-               sm:flex"
-    >
+               sm:flex">
 
-        <div
-            class="flex h-9 w-9 items-center justify-center
-                   rounded-xl bg-[#00F2FE]/10"
-        >
-            <ng-icon
-                name="lucideCalendarCheck"
-                size="18"
-                class="text-[#6C8CFF]"
-            />
-        </div>
+                    <div class="flex h-9 w-9 items-center justify-center
+                   rounded-xl bg-[#00F2FE]/10">
+                        <ng-icon name="lucideCalendarCheck" size="18" class="text-[#6C8CFF]" />
+                    </div>
 
-        <div>
-            <p class="text-[10px] font-medium text-black/40">
-                Automatización
-            </p>
+                    <div>
+                        <p class="text-[10px] font-medium text-black/40">
+                            Automatización
+                        </p>
 
-            <p class="text-xs font-bold text-[#080911]">
-                Cita agendada
-            </p>
-        </div>
+                        <p class="text-xs font-bold text-[#080911]">
+                            Cita agendada
+                        </p>
+                    </div>
 
-    </div>
+                </div>
 
 
-    <!-- =========================
+                <!-- =========================
          IMAGEN
     ========================== -->
 
-    <img
-        src="/nosotros/equipo.png"
-        alt="Equipo de Growth Partner"
-        class="relative z-10
+                <img src="/nosotros/equipo.png" alt="Equipo de Growth Partner" class="relative z-10
                h-[75vh]
                w-full
                rounded-2xl
@@ -776,10 +697,9 @@
                object-bottom
                drop-shadow-[0_30px_60px_rgba(108,92,231,0.18)]
                transition-transform duration-700
-               hover:scale-[1.02]"
-    />
+               hover:scale-[1.02]" />
 
-</div>
+            </div>
 
 
             <!-- ================================= -->
@@ -790,21 +710,17 @@
 
                 <!-- TAG -->
 
-                <span
-                    class="inline-flex items-center gap-2
+                <span class="inline-flex items-center gap-2
                            rounded-full
                            border border-[#6C5CE7]/20
                            bg-[#6C5CE7]/5
                            px-4 py-2
                            text-xs font-semibold
                            uppercase tracking-[0.2em]
-                           text-[#6C5CE7]"
-                >
+                           text-[#6C5CE7]">
 
-                    <span
-                        class="h-1.5 w-1.5 rounded-full
-                               bg-[#6C5CE7]"
-                    ></span>
+                    <span class="h-1.5 w-1.5 rounded-full
+                               bg-[#6C5CE7]"></span>
 
                     Nosotros
 
@@ -813,25 +729,21 @@
 
                 <!-- TITLE -->
 
-                <h2
-                    class="mt-6 text-4xl font-black
+                <h2 class="mt-6 text-4xl font-black
                            leading-[1.04] tracking-tight
                            text-[#080911]
-                           sm:text-5xl lg:text-6xl"
-                >
+                           sm:text-5xl lg:text-6xl">
 
                     SOMOS
                     <br />
 
                     GROWTH
-                    <span
-                        class="bg-gradient-to-r
+                    <span class="bg-gradient-to-r
                                from-[#6C5CE7]
                                via-[#6C8CFF]
                                to-[#00F2FE]
                                bg-clip-text
-                               text-transparent"
-                    >
+                               text-transparent">
                         PARTNER.
                     </span>
 
@@ -842,20 +754,16 @@
 
                 <div class="mt-7 space-y-5">
 
-                    <p
-                        class="text-lg font-medium
-                               leading-8 text-[#080911]"
-                    >
+                    <p class="text-lg font-medium
+                               leading-8 text-[#080911]">
                         Somos una empresa dedicada a la automatización
                         de procesos, inteligencia artificial, CRM e
                         integración de herramientas digitales.
                     </p>
 
 
-                    <p
-                        class="max-w-xl text-base
-                               leading-7 text-gray-500"
-                    >
+                    <p class="max-w-xl text-base
+                               leading-7 text-gray-500">
                         Ayudamos a las empresas a transformar tareas
                         repetitivas en procesos automáticos que conectan
                         sus canales, organizan la información y permiten
@@ -864,10 +772,8 @@
                     </p>
 
 
-                    <p
-                        class="max-w-xl text-base
-                               leading-7 text-gray-500"
-                    >
+                    <p class="max-w-xl text-base
+                               leading-7 text-gray-500">
                         No se trata simplemente de implementar una
                         herramienta. Diseñamos sistemas adaptados a la
                         forma en que funciona cada negocio.
@@ -887,31 +793,22 @@
 
                     <div class="flex items-start gap-3">
 
-                        <div
-                            class="flex h-10 w-10 shrink-0
+                        <div class="flex h-10 w-10 shrink-0
                                    items-center justify-center
                                    rounded-xl
                                    bg-[#6C5CE7]/10
-                                   text-[#6C5CE7]"
-                        >
-                            <ng-icon
-                                name="lucideWorkflow"
-                                size="19"
-                            />
+                                   text-[#6C5CE7]">
+                            <ng-icon name="lucideWorkflow" size="19" />
                         </div>
 
                         <div>
 
-                            <p
-                                class="font-semibold text-[#080911]"
-                            >
+                            <p class="font-semibold text-[#080911]">
                                 Automatización
                             </p>
 
-                            <p
-                                class="mt-1 text-xs leading-5
-                                       text-gray-500"
-                            >
+                            <p class="mt-1 text-xs leading-5
+                                       text-gray-500">
                                 Procesos que avanzan
                                 automáticamente.
                             </p>
@@ -923,31 +820,22 @@
 
                     <div class="flex items-start gap-3">
 
-                        <div
-                            class="flex h-10 w-10 shrink-0
+                        <div class="flex h-10 w-10 shrink-0
                                    items-center justify-center
                                    rounded-xl
                                    bg-[#6C8CFF]/10
-                                   text-[#6C8CFF]"
-                        >
-                            <ng-icon
-                                name="lucideSparkles"
-                                size="19"
-                            />
+                                   text-[#6C8CFF]">
+                            <ng-icon name="lucideSparkles" size="19" />
                         </div>
 
                         <div>
 
-                            <p
-                                class="font-semibold text-[#080911]"
-                            >
+                            <p class="font-semibold text-[#080911]">
                                 Inteligencia Artificial
                             </p>
 
-                            <p
-                                class="mt-1 text-xs leading-5
-                                       text-gray-500"
-                            >
+                            <p class="mt-1 text-xs leading-5
+                                       text-gray-500">
                                 Sistemas que entienden
                                 y responden.
                             </p>
@@ -959,31 +847,22 @@
 
                     <div class="flex items-start gap-3">
 
-                        <div
-                            class="flex h-10 w-10 shrink-0
+                        <div class="flex h-10 w-10 shrink-0
                                    items-center justify-center
                                    rounded-xl
                                    bg-[#00F2FE]/10
-                                   text-[#6C8CFF]"
-                        >
-                            <ng-icon
-                                name="lucideDatabase"
-                                size="19"
-                            />
+                                   text-[#6C8CFF]">
+                            <ng-icon name="lucideDatabase" size="19" />
                         </div>
 
                         <div>
 
-                            <p
-                                class="font-semibold text-[#080911]"
-                            >
+                            <p class="font-semibold text-[#080911]">
                                 CRM
                             </p>
 
-                            <p
-                                class="mt-1 text-xs leading-5
-                                       text-gray-500"
-                            >
+                            <p class="mt-1 text-xs leading-5
+                                       text-gray-500">
                                 Información centralizada
                                 y organizada.
                             </p>
@@ -995,31 +874,22 @@
 
                     <div class="flex items-start gap-3">
 
-                        <div
-                            class="flex h-10 w-10 shrink-0
+                        <div class="flex h-10 w-10 shrink-0
                                    items-center justify-center
                                    rounded-xl
                                    bg-[#6C5CE7]/10
-                                   text-[#6C5CE7]"
-                        >
-                            <ng-icon
-                                name="lucideLink"
-                                size="19"
-                            />
+                                   text-[#6C5CE7]">
+                            <ng-icon name="lucideLink" size="19" />
                         </div>
 
                         <div>
 
-                            <p
-                                class="font-semibold text-[#080911]"
-                            >
+                            <p class="font-semibold text-[#080911]">
                                 Integraciones
                             </p>
 
-                            <p
-                                class="mt-1 text-xs leading-5
-                                       text-gray-500"
-                            >
+                            <p class="mt-1 text-xs leading-5
+                                       text-gray-500">
                                 Todas tus herramientas
                                 trabajando juntas.
                             </p>
@@ -1035,27 +905,20 @@
 
                 <div class="mt-10">
 
-                    <a
-                        routerLink="/solicitar-reunion"
-                        class="group inline-flex items-center
+                    <a routerLink="/solicitar-reunion" class="group inline-flex items-center
                                gap-3 rounded-xl
                                bg-[#491eff]
                                px-7 py-3.5
                                font-bold text-white
                                shadow-[0_12px_35px_rgba(73,30,255,0.20)]
                                transition-all duration-300
-                               hover:-translate-y-1"
-                    >
+                               hover:-translate-y-1">
 
                         Conoce más sobre nosotros
 
-                        <ng-icon
-                            name="lucideArrowRight"
-                            size="18"
-                            class="transition-transform
+                        <ng-icon name="lucideArrowRight" size="18" class="transition-transform
                                    duration-300
-                                   group-hover:translate-x-1"
-                        />
+                                   group-hover:translate-x-1" />
 
                     </a>
 
@@ -1070,24 +933,18 @@
         <!-- BOTTOM PHRASE -->
         <!-- ================================= -->
 
-        <div
-            class="mt-20 border-t border-black/10 pt-10"
-        >
+        <div class="mt-20 border-t border-black/10 pt-10">
 
-            <div
-                class="flex flex-col gap-3
+            <div class="flex flex-col gap-3
                        md:flex-row md:items-center
-                       md:justify-between"
-            >
+                       md:justify-between">
 
                 <p class="text-sm text-black/35">
                     Tecnología + estrategia + automatización
                 </p>
 
-                <p
-                    class="text-base font-semibold
-                           text-[#080911]"
-                >
+                <p class="text-base font-semibold
+                           text-[#080911]">
                     Construimos sistemas que hacen crecer negocios.
                 </p>
 
@@ -1101,7 +958,7 @@
 
 
 
-<section class="relative overflow-hidden bg-[#080911] py-24 text-white">
+<section class="relative overflow-hidden bg-[#080911] py-24  text-white">
 
     <!-- ==================================================
          GLOWS DE FONDO
@@ -1250,7 +1107,7 @@
         <div class="relative mx-auto
                    mt-20
                    min-h-[650px]
-                   max-w-[1050px]">
+                   max-w-[80vw]">
 
 
             <!-- ==================================================
@@ -1263,33 +1120,33 @@
 
                 <!-- WhatsApp → CRM -->
 
-                <path d="M260 100
+                <path d="M80 70
                        C380 130 400 270 525 325" stroke="url(#lineGradient)" stroke-width="2" stroke-dasharray="6 7" />
 
                 <!-- Instagram → CRM -->
 
-                <path d="M810 100
+                <path d="M1000 70
                        C670 130 650 270 525 325" stroke="url(#lineGradient)" stroke-width="2" stroke-dasharray="6 7" />
 
                 <!-- Facebook → CRM -->
 
-                <path d="M165 325
+                <path d="M2 325
                     C250 425 330 325 430 325" stroke="url(#lineGradient)" stroke-width="3" stroke-linecap="round"
                     stroke-dasharray="7 8" opacity="0.9" />
 
                 <!-- Email → CRM -->
 
-                <path d="M885 320
+                <path d="M1020 320
                     C800 425 720 325 620 325" stroke="url(#lineGradient)" stroke-width="3" stroke-linecap="round"
                     stroke-dasharray="7 8" opacity="0.9" />
 
                 <!-- SMS → CRM (Abajo a la derecha) -->
-                <path d="M830 520
+                <path d="M1006 540
                        C670 520 650 390 525 325" stroke="url(#lineGradient)" stroke-width="2" stroke-dasharray="6 7" />
 
                 <!-- TikTok → CRM -->
 
-                <path d="M280 540
+                <path d="M100 580
                        C380 520 400 390 525 325" stroke="url(#lineGradient)" stroke-width="2" stroke-dasharray="6 7" />
 
                 <!-- CRM → automatización -->
@@ -1751,7 +1608,7 @@
     <div class="relative z-10
                mx-auto
                flex w-full
-               max-w-[1250px]
+               max-w-[80vw]
                flex-col
                gap-16
                px-6
@@ -2013,7 +1870,7 @@
             <div class="absolute
                        left-1/2
                        top-[80px]
-                       h-[390px]
+                       h-[490px]
                        w-px
                        -translate-x-1/2
                        bg-gradient-to-b
@@ -2027,20 +1884,20 @@
             ================================================== -->
 
             <div class="absolute
-                       left-1/2
-                       top-0
-                       z-20
-                       flex
-                       w-[310px]
-                       -translate-x-1/2
-                       items-center
-                       gap-4
-                       rounded-2xl
-                       border
-                       border-gray-200
-                       bg-white
-                       p-4
-                       shadow-[0_15px_50px_rgba(8,9,17,0.08)]">
+           left-[30%]
+           top-0
+           z-20
+           flex
+           w-[310px]
+           -translate-x-1/2
+           items-center
+           gap-4
+           rounded-2xl
+           border
+           border-gray-200
+           bg-white
+           p-4
+           shadow-[0_15px_50px_rgba(8,9,17,0.08)]">
 
                 <div class="flex h-12 w-12
                            shrink-0
@@ -2102,20 +1959,20 @@
             ================================================== -->
 
             <div class="absolute
-                       left-1/2
-                       top-[175px]
-                       z-20
-                       flex
-                       w-[310px]
-                       -translate-x-1/2
-                       items-center
-                       gap-4
-                       rounded-2xl
-                       border
-                       border-[#6C5CE7]/20
-                       bg-[#faf9ff]
-                       p-4
-                       shadow-[0_15px_50px_rgba(108,92,231,0.10)]">
+           left-[70%]
+           top-[175px]
+           z-20
+           flex
+           w-[310px]
+           -translate-x-1/2
+           items-center
+           gap-4
+           rounded-2xl
+           border
+           border-[#6C5CE7]/20
+           bg-[#faf9ff]
+           p-4
+           shadow-[0_15px_50px_rgba(108,92,231,0.10)]">
 
                 <div class="flex h-12 w-12
                            shrink-0
@@ -2179,20 +2036,20 @@
             ================================================== -->
 
             <div class="absolute
-                       left-1/2
-                       top-[350px]
-                       z-20
-                       flex
-                       w-[310px]
-                       -translate-x-1/2
-                       items-center
-                       gap-4
-                       rounded-2xl
-                       border
-                       border-gray-200
-                       bg-white
-                       p-4
-                       shadow-[0_15px_50px_rgba(8,9,17,0.08)]">
+           left-[30%]
+           top-[350px]
+           z-20
+           flex
+           w-[310px]
+           -translate-x-1/2
+           items-center
+           gap-4
+           rounded-2xl
+           border
+           border-gray-200
+           bg-white
+           p-4
+           shadow-[0_15px_50px_rgba(8,9,17,0.08)]">
 
                 <div class="flex h-12 w-12
                            shrink-0
@@ -2254,20 +2111,20 @@
             ================================================== -->
 
             <div class="absolute
-                       bottom-0
-                       left-1/2
-                       z-20
-                       flex
-                       w-[310px]
-                       -translate-x-1/2
-                       items-center
-                       gap-4
-                       rounded-2xl
-                       border
-                       border-[#00F2FE]/20
-                       bg-[#f8feff]
-                       p-4
-                       shadow-[0_15px_50px_rgba(0,242,254,0.10)]">
+           left-[70%]
+           top-130
+           z-20
+           flex
+           w-[310px]
+           -translate-x-1/2
+           items-center
+           gap-4
+           rounded-2xl
+           border
+           border-[#00F2FE]/20
+           bg-[#f8feff]
+           p-4
+           shadow-[0_15px_50px_rgba(0,242,254,0.10)]">
 
                 <div class="flex h-12 w-12
                            shrink-0
@@ -2316,7 +2173,7 @@
 
             <div class="absolute
                        -right-2
-                       top-[235px]
+                       top-20
                        hidden
                        items-center
                        gap-2
@@ -2348,7 +2205,7 @@
 
             <div class="absolute
                        -left-4
-                       bottom-[80px]
+                       bottom-10
                        hidden
                        items-center
                        gap-2
@@ -2472,7 +2329,7 @@
     <div class="relative z-10
                mx-auto
                w-full
-               max-w-[1200px]
+               max-w-[80vw]
                px-6
                lg:px-10">
 
@@ -2555,7 +2412,7 @@
         <div class="mx-auto
                    mt-16
                    grid
-                   max-w-[1050px]
+                   max-w-[80vw]
                    grid-cols-1
                    gap-4
                    sm:grid-cols-2
@@ -3332,50 +3189,40 @@
 
         <div class="mx-auto max-w-4xl text-center">
 
-            <span
-                class="inline-flex items-center gap-2
+            <span class="inline-flex items-center gap-2
                        text-xs font-semibold uppercase
-                       tracking-[0.2em] text-[#6C5CE7]"
-            >
-                <span
-                    class="h-1.5 w-1.5 rounded-full
-                           bg-[#6C5CE7]"
-                ></span>
+                       tracking-[0.2em] text-[#6C5CE7]">
+                <span class="h-1.5 w-1.5 rounded-full
+                           bg-[#6C5CE7]"></span>
 
                 Planes y precios
             </span>
 
 
-            <h2
-                class="mt-5 text-4xl font-bold
+            <h2 class="mt-5 text-4xl font-bold
                        leading-[1.05]
                        tracking-tight
                        text-[#080911]
                        md:text-5xl
-                       lg:text-6xl"
-            >
+                       lg:text-6xl">
                 AUTOMATIZA TU NEGOCIO.
                 <br />
 
-                <span
-                    class="bg-gradient-to-r
+                <span class="bg-gradient-to-r
                            from-[#6C5CE7]
                            via-[#6C8CFF]
                            to-[#00F2FE]
                            bg-clip-text
-                           text-transparent"
-                >
+                           text-transparent">
                     ELIGE TU PLAN.
                 </span>
             </h2>
 
 
-            <p
-                class="mx-auto mt-6 max-w-2xl
+            <p class="mx-auto mt-6 max-w-2xl
                        text-base leading-7
                        text-black/45
-                       md:text-lg"
-            >
+                       md:text-lg">
                 Elige el periodo que mejor se adapte a tu negocio
                 y empieza a construir un sistema de automatización
                 pensado para crecer contigo.
@@ -3392,75 +3239,61 @@
 
 
             <!-- DESKTOP -->
-            <div
-                class="hidden lg:grid
+            <div class="hidden lg:grid
                        lg:grid-cols-3
                        lg:items-center
-                       lg:gap-4"
-            >
+                       lg:gap-4">
 
 
                 <!-- ================================= -->
                 <!-- PLAN MENSUAL -->
                 <!-- ================================= -->
 
-                <div
-                    class="group relative z-10
+                <div class="group relative z-10
                            -rotate-[7deg]
                            transition-all duration-500
                            hover:z-50
                            hover:-translate-y-5
-                           hover:rotate-0"
-                >
+                           hover:rotate-0">
 
-                    <div
-                        class="relative flex min-h-[500px]
+                    <div class="relative flex min-h-[500px]
                                flex-col overflow-hidden
                                rounded-[28px]
                                border border-white/10
                                bg-[#080911]
                                p-7
-                               shadow-[0_25px_70px_rgba(8,9,17,0.18)]"
-                    >
+                               shadow-[0_25px_70px_rgba(8,9,17,0.18)]">
 
                         <!-- Glow -->
 
-                        <div
-                            class="absolute -right-20 -top-20
+                        <div class="absolute -right-20 -top-20
                                    h-48 w-48 rounded-full
                                    bg-[#6C5CE7]/30
-                                   blur-[70px]"
-                        ></div>
+                                   blur-[70px]"></div>
 
 
                         <div class="relative flex h-full flex-col">
 
                             <!-- TOP -->
 
-                            <div
-                                class="flex items-center
-                                       justify-between"
-                            >
+                            <div class="flex items-center
+                                       justify-between">
 
-                                <span
-                                    class="text-xs font-medium
+                                <span class="text-xs font-medium
                                            tracking-widest
-                                           text-white/30"
-                                >
+                                           text-white/30">
                                     01
                                 </span>
 
 
-                                <span
-                                    class="rounded-full
+                                <span class="rounded-full
                                            border border-white/10
                                            bg-white/5
                                            px-3 py-1
                                            text-[10px]
                                            uppercase
                                            tracking-wider
-                                           text-white/40"
-                                >
+                                           text-white/40">
                                     Flexible
                                 </span>
 
@@ -3469,12 +3302,10 @@
 
                             <!-- TITLE -->
 
-                            <h3
-                                class="mt-8 text-3xl
+                            <h3 class="mt-8 text-3xl
                                        font-black
                                        tracking-tight
-                                       text-white"
-                            >
+                                       text-white">
                                 Plan Mensual
                             </h3>
 
@@ -3483,85 +3314,65 @@
 
                             <div class="mt-7 flex items-end gap-2">
 
-                                <span
-                                    class="text-5xl
+                                <span class="text-5xl
                                            font-black
                                            tracking-tight
-                                           text-white"
-                                >
+                                           text-white">
                                     $297
                                 </span>
 
-                                <span
-                                    class="pb-2 text-sm
-                                           text-white/35"
-                                >
+                                <span class="pb-2 text-sm
+                                           text-white/35">
                                     por mes
                                 </span>
 
                             </div>
 
 
-                            <p
-                                class="mt-3 text-sm
-                                       text-white/40"
-                            >
+                            <p class="mt-3 text-sm
+                                       text-white/40">
                                 Sin compromiso de permanencia
                             </p>
 
 
                             <!-- DIVIDER -->
 
-                            <div
-                                class="my-8 h-px
-                                       bg-white/10"
-                            ></div>
+                            <div class="my-8 h-px
+                                       bg-white/10"></div>
 
 
                             <!-- FEATURES -->
 
                             <div class="space-y-4">
 
-                                <div
-                                    class="flex items-center
+                                <div class="flex items-center
                                            gap-3 text-sm
-                                           text-white/65"
-                                >
-                                    <span
-                                        class="h-1.5 w-1.5
+                                           text-white/65">
+                                    <span class="h-1.5 w-1.5
                                                rounded-full
-                                               bg-[#6C5CE7]"
-                                    ></span>
+                                               bg-[#6C5CE7]"></span>
 
                                     Automatización personalizada
                                 </div>
 
 
-                                <div
-                                    class="flex items-center
+                                <div class="flex items-center
                                            gap-3 text-sm
-                                           text-white/65"
-                                >
-                                    <span
-                                        class="h-1.5 w-1.5
+                                           text-white/65">
+                                    <span class="h-1.5 w-1.5
                                                rounded-full
-                                               bg-[#6C8CFF]"
-                                    ></span>
+                                               bg-[#6C8CFF]"></span>
 
                                     CRM + Workflows
                                 </div>
 
 
-                                <div
-                                    class="flex items-center
+                                <div class="flex items-center
                                            gap-3 text-sm
-                                           text-white/65"
-                                >
-                                    <span
-                                        class="h-1.5 w-1.5
+                                           text-white/65">
+                                    <span class="h-1.5 w-1.5
                                                rounded-full
-                                               bg-[#00F2FE]"
-                                    ></span>
+                                               bg-[#00F2FE]"></span>
 
                                     Integraciones
                                 </div>
@@ -3573,9 +3384,7 @@
 
                             <div class="mt-auto pt-10">
 
-                                <a
-                                    routerLink="/solicitar-reunion"
-                                    class="flex h-12 w-full
+                                <a routerLink="/solicitar-reunion" class="flex h-12 w-full
                                            items-center
                                            justify-center
                                            rounded-xl
@@ -3585,8 +3394,7 @@
                                            text-white
                                            transition
                                            hover:border-[#6C5CE7]/40
-                                           hover:bg-[#6C5CE7]/10"
-                                >
+                                           hover:bg-[#6C5CE7]/10">
                                     Elegir plan
                                 </a>
 
@@ -3603,42 +3411,35 @@
                 <!-- PLAN 6 MESES -->
                 <!-- ================================= -->
 
-                <div
-                    class="group relative z-30
+                <div class="group relative z-30
                            -translate-y-8
                            rotate-[4deg]
                            transition-all duration-500
                            hover:z-50
                            hover:-translate-y-14
-                           hover:rotate-0"
-                >
+                           hover:rotate-0">
 
-                    <div
-                        class="relative flex min-h-[540px]
+                    <div class="relative flex min-h-[540px]
                                flex-col overflow-hidden
                                rounded-[28px]
                                border border-[#6C5CE7]/40
                                bg-[#f4f4f7]
                                p-7
-                               shadow-[0_25px_70px_rgba(8,9,17,0.12)]"
-                    >
+                               shadow-[0_25px_70px_rgba(8,9,17,0.12)]">
 
                         <!-- Glow -->
 
-                        <div
-                            class="absolute -left-20 -top-20
+                        <div class="absolute -left-20 -top-20
                                    h-48 w-48 rounded-full
                                    bg-[#6C8CFF]/15
-                                   blur-[70px]"
-                        ></div>
+                                   blur-[70px]"></div>
 
 
                         <div class="relative flex h-full flex-col">
 
                             <!-- RECOMENDADO -->
 
-                            <div
-                                class="absolute right-0 top-0
+                            <div class="absolute right-0 top-0
                                        rounded-full
                                        bg-gradient-to-r
                                        from-[#6C5CE7]
@@ -3648,38 +3449,31 @@
                                        font-black
                                        uppercase
                                        tracking-wider
-                                       text-white"
-                            >
+                                       text-white">
                                 ★ Recomendado
                             </div>
 
 
                             <!-- TOP -->
 
-                            <div
-                                class="flex items-center
-                                       justify-between"
-                            >
+                            <div class="flex items-center
+                                       justify-between">
 
-                                <span
-                                    class="text-xs font-medium
+                                <span class="text-xs font-medium
                                            tracking-widest
-                                           text-black/25"
-                                >
+                                           text-black/25">
                                     02
                                 </span>
 
 
-                                <span
-                                    class="rounded-full
+                                <span class="rounded-full
                                            border border-black/10
                                            bg-black/[0.03]
                                            px-3 py-1
                                            text-[10px]
                                            uppercase
                                            tracking-wider
-                                           text-black/35"
-                                >
+                                           text-black/35">
                                     6 meses
                                 </span>
 
@@ -3688,12 +3482,10 @@
 
                             <!-- TITLE -->
 
-                            <h3
-                                class="mt-8 text-3xl
+                            <h3 class="mt-8 text-3xl
                                        font-black
                                        tracking-tight
-                                       text-[#080911]"
-                            >
+                                       text-[#080911]">
                                 Plan 6 Meses
                             </h3>
 
@@ -3702,123 +3494,89 @@
 
                             <div class="mt-7 flex items-end gap-2">
 
-                                <span
-                                    class="text-5xl
+                                <span class="text-5xl
                                            font-black
                                            tracking-tight
-                                           text-[#080911]"
-                                >
+                                           text-[#080911]">
                                     $227
                                 </span>
 
-                                <span
-                                    class="pb-2 text-sm
-                                           text-black/35"
-                                >
+                                <span class="pb-2 text-sm
+                                           text-black/35">
                                     por mes
                                 </span>
 
                             </div>
 
 
-                            <p
-                                class="mt-3 text-sm
-                                       text-black/45"
-                            >
+                            <p class="mt-3 text-sm
+                                       text-black/45">
                                 Total $1,362
                             </p>
 
 
                             <!-- SAVING -->
 
-                            <div
-                                class="mt-4 inline-flex
+                            <div class="mt-4 inline-flex
                                        w-fit items-center
                                        rounded-full
                                        bg-[#00F2FE]/10
                                        px-3 py-1.5
                                        text-xs font-bold
-                                       text-[#087f87]"
-                            >
+                                       text-[#087f87]">
                                 Ahorro de $420
                             </div>
 
 
                             <!-- DIVIDER -->
 
-                            <div
-                                class="my-8 h-px
-                                       bg-black/10"
-                            ></div>
+                            <div class="my-8 h-px
+                                       bg-black/10"></div>
 
 
                             <!-- FEATURES -->
 
                             <div class="space-y-4">
 
-                                <div
-                                    class="flex items-center
+                                <div class="flex items-center
                                            gap-3 text-sm
-                                           text-black/55"
-                                >
-                                    <span
-                                        class="flex h-5 w-5
+                                           text-black/55">
+                                    <span class="flex h-5 w-5
                                                items-center
                                                justify-center
                                                rounded-full
-                                               bg-[#6C5CE7]/10"
-                                    >
-                                        <ng-icon
-                                            name="lucideCheck"
-                                            size="12"
-                                            class="text-[#6C5CE7]"
-                                        />
+                                               bg-[#6C5CE7]/10">
+                                        <ng-icon name="lucideCheck" size="12" class="text-[#6C5CE7]" />
                                     </span>
 
                                     Automatización personalizada
                                 </div>
 
 
-                                <div
-                                    class="flex items-center
+                                <div class="flex items-center
                                            gap-3 text-sm
-                                           text-black/55"
-                                >
-                                    <span
-                                        class="flex h-5 w-5
+                                           text-black/55">
+                                    <span class="flex h-5 w-5
                                                items-center
                                                justify-center
                                                rounded-full
-                                               bg-[#6C8CFF]/10"
-                                    >
-                                        <ng-icon
-                                            name="lucideCheck"
-                                            size="12"
-                                            class="text-[#6C8CFF]"
-                                        />
+                                               bg-[#6C8CFF]/10">
+                                        <ng-icon name="lucideCheck" size="12" class="text-[#6C8CFF]" />
                                     </span>
 
                                     CRM + Workflows
                                 </div>
 
 
-                                <div
-                                    class="flex items-center
+                                <div class="flex items-center
                                            gap-3 text-sm
-                                           text-black/55"
-                                >
-                                    <span
-                                        class="flex h-5 w-5
+                                           text-black/55">
+                                    <span class="flex h-5 w-5
                                                items-center
                                                justify-center
                                                rounded-full
-                                               bg-[#00F2FE]/10"
-                                    >
-                                        <ng-icon
-                                            name="lucideCheck"
-                                            size="12"
-                                            class="text-[#6C8CFF]"
-                                        />
+                                               bg-[#00F2FE]/10">
+                                        <ng-icon name="lucideCheck" size="12" class="text-[#6C8CFF]" />
                                     </span>
 
                                     Integraciones
@@ -3831,9 +3589,7 @@
 
                             <div class="mt-auto pt-10">
 
-                                <a
-                                    routerLink="/solicitar-reunion"
-                                    class="group/btn flex h-12 w-full
+                                <a routerLink="/solicitar-reunion" class="group/btn flex h-12 w-full
                                            items-center
                                            justify-center gap-2
                                            rounded-xl
@@ -3843,17 +3599,12 @@
                                            shadow-[0_12px_35px_rgba(73,30,255,.20)]
                                            transition
                                            hover:-translate-y-0.5
-                                           hover:bg-[#5b32ff]"
-                                >
+                                           hover:bg-[#5b32ff]">
 
                                     Elegir este plan
 
-                                    <ng-icon
-                                        name="lucideArrowRight"
-                                        size="16"
-                                        class="transition-transform
-                                               group-hover/btn:translate-x-1"
-                                    />
+                                    <ng-icon name="lucideArrowRight" size="16" class="transition-transform
+                                               group-hover/btn:translate-x-1" />
 
                                 </a>
 
@@ -3870,64 +3621,52 @@
                 <!-- PLAN 12 MESES -->
                 <!-- ================================= -->
 
-                <div
-                    class="group relative z-10
+                <div class="group relative z-10
                            -translate-y-6
                            rotate-[-4deg]
                            transition-all duration-500
                            hover:z-50
                            hover:-translate-y-12
-                           hover:rotate-0"
-                >
+                           hover:rotate-0">
 
-                    <div
-                        class="relative flex min-h-[500px]
+                    <div class="relative flex min-h-[500px]
                                flex-col overflow-hidden
                                rounded-[28px]
                                bg-red-400
                   
                                p-7
-                               shadow-[0_25px_70px_rgba(8,9,17,0.18)]"
-                    >
+                               shadow-[0_25px_70px_rgba(8,9,17,0.18)]">
 
                         <!-- Glow -->
 
-                        <div
-                            class="absolute -right-20 -bottom-20
+                        <div class="absolute -right-20 -bottom-20
                                    h-48 w-48 rounded-full
                                    bg-[#00F2FE]/15
-                                   blur-[70px]"
-                        ></div>
+                                   blur-[70px]"></div>
 
 
                         <div class="relative flex h-full flex-col">
 
                             <!-- TOP -->
 
-                            <div
-                                class="flex items-center
-                                       justify-between"
-                            >
+                            <div class="flex items-center
+                                       justify-between">
 
-                                <span
-                                    class="text-xs font-medium
+                                <span class="text-xs font-medium
                                            tracking-widest
-                                           text-white/30"
-                                >
+                                           text-white/30">
                                     03
                                 </span>
 
 
-                                <span
-                                    class="rounded-full
+                                <span class="rounded-full
                                            border border-white/10
                                            bg-white/5
                                            px-3 py-1
                                            text-[10px]
                                            uppercase
                                            tracking-wider
-                                           text-white/40"
-                                >
+                                           text-white/40">
                                     12 meses
                                 </span>
 
@@ -3936,12 +3675,10 @@
 
                             <!-- TITLE -->
 
-                            <h3
-                                class="mt-8 text-3xl
+                            <h3 class="mt-8 text-3xl
                                        font-black
                                        tracking-tight
-                                       text-white"
-                            >
+                                       text-white">
                                 Plan 12 Meses
                             </h3>
 
@@ -3950,100 +3687,78 @@
 
                             <div class="mt-7 flex items-end gap-2">
 
-                                <span
-                                    class="text-5xl
+                                <span class="text-5xl
                                            font-black
                                            tracking-tight
-                                           text-white"
-                                >
+                                           text-white">
                                     $167
                                 </span>
 
-                                <span
-                                    class="pb-2 text-sm
-                                           text-white/35"
-                                >
+                                <span class="pb-2 text-sm
+                                           text-white/35">
                                     por mes
                                 </span>
 
                             </div>
 
 
-                            <p
-                                class="mt-3 text-sm
-                                       text-white/40"
-                            >
+                            <p class="mt-3 text-sm
+                                       text-white/40">
                                 Total $2,004
                             </p>
 
 
                             <!-- SAVING -->
 
-                            <div
-                                class="mt-4 inline-flex
+                            <div class="mt-4 inline-flex
                                        w-fit items-center
                                        rounded-full
                                        bg-[#00F2FE]/10
                                        px-3 py-1.5
                                        text-xs font-bold
-                                       text-[#7df7ff]"
-                            >
+                                       text-[#7df7ff]">
                                 Ahorro de $1,560
                             </div>
 
 
                             <!-- DIVIDER -->
 
-                            <div
-                                class="my-8 h-px
-                                       bg-white/10"
-                            ></div>
+                            <div class="my-8 h-px
+                                       bg-white/10"></div>
 
 
                             <!-- FEATURES -->
 
                             <div class="space-y-4">
 
-                                <div
-                                    class="flex items-center
+                                <div class="flex items-center
                                            gap-3 text-sm
-                                           text-white/65"
-                                >
-                                    <span
-                                        class="h-1.5 w-1.5
+                                           text-white/65">
+                                    <span class="h-1.5 w-1.5
                                                rounded-full
-                                               bg-[#6C5CE7]"
-                                    ></span>
+                                               bg-[#6C5CE7]"></span>
 
                                     Automatización personalizada
                                 </div>
 
 
-                                <div
-                                    class="flex items-center
+                                <div class="flex items-center
                                            gap-3 text-sm
-                                           text-white/65"
-                                >
-                                    <span
-                                        class="h-1.5 w-1.5
+                                           text-white/65">
+                                    <span class="h-1.5 w-1.5
                                                rounded-full
-                                               bg-[#6C8CFF]"
-                                    ></span>
+                                               bg-[#6C8CFF]"></span>
 
                                     CRM + Workflows
                                 </div>
 
 
-                                <div
-                                    class="flex items-center
+                                <div class="flex items-center
                                            gap-3 text-sm
-                                           text-white/65"
-                                >
-                                    <span
-                                        class="h-1.5 w-1.5
+                                           text-white/65">
+                                    <span class="h-1.5 w-1.5
                                                rounded-full
-                                               bg-[#00F2FE]"
-                                    ></span>
+                                               bg-[#00F2FE]"></span>
 
                                     Integraciones
                                 </div>
@@ -4055,9 +3770,7 @@
 
                             <div class="mt-auto pt-10">
 
-                                <a
-                                    routerLink="/solicitar-reunion"
-                                    class="flex h-12 w-full
+                                <a routerLink="/solicitar-reunion" class="flex h-12 w-full
                                            items-center
                                            justify-center
                                            rounded-xl
@@ -4067,8 +3780,7 @@
                                            text-white
                                            transition
                                            hover:border-[#00F2FE]/30
-                                           hover:bg-[#00F2FE]/5"
-                                >
+                                           hover:bg-[#00F2FE]/5">
                                     Elegir plan
                                 </a>
 
@@ -4092,39 +3804,31 @@
 
                 <!-- MENSUAL -->
 
-                <div
-                    class="rounded-[28px]
+                <div class="rounded-[28px]
                            border border-white/10
                            bg-[#080911]
                            p-7
-                           shadow-xl"
-                >
+                           shadow-xl">
 
                     <span class="text-xs text-white/30">
                         01
                     </span>
 
-                    <h3
-                        class="mt-5 text-3xl
-                               font-black text-white"
-                    >
+                    <h3 class="mt-5 text-3xl
+                               font-black text-white">
                         Plan Mensual
                     </h3>
 
 
                     <div class="mt-6 flex items-end gap-2">
 
-                        <span
-                            class="text-5xl font-black
-                                   text-white"
-                        >
+                        <span class="text-5xl font-black
+                                   text-white">
                             $297
                         </span>
 
-                        <span
-                            class="pb-2 text-sm
-                                   text-white/35"
-                        >
+                        <span class="pb-2 text-sm
+                                   text-white/35">
                             por mes
                         </span>
 
@@ -4136,10 +3840,8 @@
                     </p>
 
 
-                    <div
-                        class="my-7 h-px
-                               bg-white/10"
-                    ></div>
+                    <div class="my-7 h-px
+                               bg-white/10"></div>
 
 
                     <div class="space-y-3 text-sm text-white/60">
@@ -4151,15 +3853,12 @@
                     </div>
 
 
-                    <a
-                        routerLink="/solicitar-reunion"
-                        class="mt-8 flex h-12 w-full
+                    <a routerLink="/solicitar-reunion" class="mt-8 flex h-12 w-full
                                items-center justify-center
                                rounded-xl
                                border border-white/10
                                bg-white/[0.03]
-                               text-sm font-bold text-white"
-                    >
+                               text-sm font-bold text-white">
                         Elegir plan
                     </a>
 
@@ -4168,15 +3867,12 @@
 
                 <!-- 6 MESES -->
 
-                <div
-                    class="relative rounded-[28px]
+                <div class="relative rounded-[28px]
                            border border-[#6C5CE7]/40
                            bg-[#f4f4f7]
-                           p-7 shadow-xl"
-                >
+                           p-7 shadow-xl">
 
-                    <span
-                        class="absolute right-5 top-5
+                    <span class="absolute right-5 top-5
                                rounded-full
                                bg-[#6C5CE7]
                                px-3 py-1.5
@@ -4184,8 +3880,7 @@
                                font-black
                                uppercase
                                tracking-wider
-                               text-white"
-                    >
+                               text-white">
                         ★ Recomendado
                     </span>
 
@@ -4195,28 +3890,22 @@
                     </span>
 
 
-                    <h3
-                        class="mt-5 text-3xl
+                    <h3 class="mt-5 text-3xl
                                font-black
-                               text-[#080911]"
-                    >
+                               text-[#080911]">
                         Plan 6 Meses
                     </h3>
 
 
                     <div class="mt-6 flex items-end gap-2">
 
-                        <span
-                            class="text-5xl font-black
-                                   text-[#080911]"
-                        >
+                        <span class="text-5xl font-black
+                                   text-[#080911]">
                             $227
                         </span>
 
-                        <span
-                            class="pb-2 text-sm
-                                   text-black/35"
-                        >
+                        <span class="pb-2 text-sm
+                                   text-black/35">
                             por mes
                         </span>
 
@@ -4228,22 +3917,18 @@
                     </p>
 
 
-                    <span
-                        class="mt-4 inline-flex
+                    <span class="mt-4 inline-flex
                                rounded-full
                                bg-[#00F2FE]/10
                                px-3 py-1.5
                                text-xs font-bold
-                               text-[#087f87]"
-                    >
+                               text-[#087f87]">
                         Ahorro de $420
                     </span>
 
 
-                    <div
-                        class="my-7 h-px
-                               bg-black/10"
-                    ></div>
+                    <div class="my-7 h-px
+                               bg-black/10"></div>
 
 
                     <div class="space-y-3 text-sm text-black/55">
@@ -4255,15 +3940,12 @@
                     </div>
 
 
-                    <a
-                        routerLink="/solicitar-reunion"
-                        class="mt-8 flex h-12 w-full
+                    <a routerLink="/solicitar-reunion" class="mt-8 flex h-12 w-full
                                items-center justify-center
                                rounded-xl
                                bg-[#491eff]
                                text-sm font-bold
-                               text-white"
-                    >
+                               text-white">
                         Elegir este plan
                     </a>
 
@@ -4272,39 +3954,31 @@
 
                 <!-- 12 MESES -->
 
-                <div
-                    class="rounded-[28px]
+                <div class="rounded-[28px]
                            border border-white/10
                            bg-[#39ade3]
-                           p-7 shadow-xl"
-                >
+                           p-7 shadow-xl">
 
                     <span class="text-xs text-white/30">
                         03
                     </span>
 
 
-                    <h3
-                        class="mt-5 text-3xl
-                               font-black text-white"
-                    >
+                    <h3 class="mt-5 text-3xl
+                               font-black text-white">
                         Plan 12 Meses
                     </h3>
 
 
                     <div class="mt-6 flex items-end gap-2">
 
-                        <span
-                            class="text-5xl font-black
-                                   text-white"
-                        >
+                        <span class="text-5xl font-black
+                                   text-white">
                             $167
                         </span>
 
-                        <span
-                            class="pb-2 text-sm
-                                   text-white/35"
-                        >
+                        <span class="pb-2 text-sm
+                                   text-white/35">
                             por mes
                         </span>
 
@@ -4316,22 +3990,18 @@
                     </p>
 
 
-                    <span
-                        class="mt-4 inline-flex
+                    <span class="mt-4 inline-flex
                                rounded-full
                                bg-[#00F2FE]/10
                                px-3 py-1.5
                                text-xs font-bold
-                               text-[#7df7ff]"
-                    >
+                               text-[#7df7ff]">
                         Ahorro de $1,560
                     </span>
 
 
-                    <div
-                        class="my-7 h-px
-                               bg-white/10"
-                    ></div>
+                    <div class="my-7 h-px
+                               bg-white/10"></div>
 
 
                     <div class="space-y-3 text-sm text-white/60">
@@ -4343,16 +4013,13 @@
                     </div>
 
 
-                    <a
-                        routerLink="/solicitar-reunion"
-                        class="mt-8 flex h-12 w-full
+                    <a routerLink="/solicitar-reunion" class="mt-8 flex h-12 w-full
                                items-center justify-center
                                rounded-xl
                                border border-white/10
                                bg-white/[0.03]
                                text-sm font-bold
-                               text-white"
-                    >
+                               text-white">
                         Elegir plan
                     </a>
 
@@ -4363,10 +4030,8 @@
 
             <!-- NOTA -->
 
-            <p
-                class="mt-10 text-center
-                       text-xs text-black/30"
-            >
+            <p class="mt-10 text-center
+                       text-xs text-black/30">
                 Precios expresados en dólares estadounidenses.
             </p>
 
@@ -4376,83 +4041,1146 @@
 
 </section>
 
+<section class="relative overflow-hidden bg-[#080911] py-28 lg:py-36">
 
+    <!-- GLOWS -->
+
+    <div class="pointer-events-none absolute -left-40 top-20
+               h-[450px] w-[450px]
+               rounded-full bg-[#6C5CE7]/10 blur-[130px]"></div>
+
+    <div class="pointer-events-none absolute -right-40 bottom-40
+               h-[450px] w-[450px]
+               rounded-full bg-[#00F2FE]/5 blur-[130px]"></div>
+
+
+    <div class="relative mx-auto max-w-[80vw] px-6 lg:px-8">
+
+
+        <!-- ================================= -->
+        <!-- HEADER -->
+        <!-- ================================= -->
+
+        <div class="mx-auto max-w-4xl text-center">
+
+            <span class="inline-flex items-center gap-2
+                       text-xs font-semibold uppercase
+                       tracking-[0.2em] text-[#a69eff]">
+
+                <span class="h-1.5 w-1.5 rounded-full
+                           bg-[#00F2FE]
+                           shadow-[0_0_10px_#00F2FE]"></span>
+
+                Workflows reales
+
+            </span>
+
+
+            <h2 class="mt-6 text-4xl font-black
+                       leading-[1.02]
+                       tracking-tight text-white
+                       md:text-5xl lg:text-6xl">
+
+                ASÍ CONSTRUIMOS
+                <br />
+
+                <span class="bg-gradient-to-r
+                           from-[#6C5CE7]
+                           via-[#6C8CFF]
+                           to-[#00F2FE]
+                           bg-clip-text
+                           text-transparent">
+                    NUESTROS SISTEMAS.
+                </span>
+
+            </h2>
+
+
+            <p class="mx-auto mt-6 max-w-2xl
+                       text-base leading-7
+                       text-white/40 md:text-lg">
+                No mostramos conceptos. Mostramos workflows reales:
+                condiciones, ramas, automatizaciones e integraciones
+                construidas para nuestros clientes.
+            </p>
+
+        </div>
+
+
+        <!-- ================================= -->
+        <!-- WORKFLOW 01 - GRIN -->
+        <!-- ================================= -->
+
+        <div class="mt-24 grid items-center
+                   gap-12 lg:grid-cols-[1fr_1.5fr]">
+
+            <!-- INFO -->
+
+            <div>
+
+                <div class="flex items-center gap-3">
+
+                    <span class="text-xs font-medium
+                               text-white/20">
+                        01
+                    </span>
+
+                    <span class="h-px w-10 bg-white/10"></span>
+
+                    <span class="text-[10px]
+                               uppercase
+                               tracking-[0.2em]
+                               text-[#9d92ff]">
+                        Caso real
+                    </span>
+
+                </div>
+
+
+                <h3 class="mt-5 text-4xl
+                           font-black
+                           tracking-tight
+                           text-white">
+                    GRIN
+                </h3>
+
+
+                <p class="mt-4 text-sm
+                           leading-6
+                           text-white/40">
+                    Automatización del proceso de pedidos
+                    y seguimiento desde el primer contacto
+                    hasta las diferentes condiciones del proceso.
+                </p>
+
+
+                <!-- TAGS -->
+
+                <div class="mt-6 flex flex-wrap gap-2">
+
+                    <span class="rounded-full
+                               border border-white/10
+                               bg-white/[0.03]
+                               px-3 py-1.5
+                               text-[10px]
+                               text-white/45">
+                        WhatsApp
+                    </span>
+
+                    <span class="rounded-full
+                               border border-white/10
+                               bg-white/[0.03]
+                               px-3 py-1.5
+                               text-[10px]
+                               text-white/45">
+                        Condiciones
+                    </span>
+
+                    <span class="rounded-full
+                               border border-white/10
+                               bg-white/[0.03]
+                               px-3 py-1.5
+                               text-[10px]
+                               text-white/45">
+                        Seguimiento
+                    </span>
+
+                </div>
+
+
+                <div class="mt-8 flex items-center gap-3">
+
+                    <div class="flex h-9 w-9
+                               items-center
+                               justify-center
+                               rounded-xl
+                               bg-[#25D366]/10">
+
+                        <ng-icon name="lucideMessageCircle" size="17" class="text-[#25D366]" />
+
+                    </div>
+
+                    <div>
+
+                        <p class="text-xs
+                                   font-semibold
+                                   text-white">
+                            WhatsApp + Workflow
+                        </p>
+
+                        <p class="text-[10px]
+                                   text-white/30">
+                            Automatización comercial
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- IMAGE -->
+
+            <div class="group relative overflow-hidden
+                       rounded-[28px]
+                       border border-white/10
+                       bg-[#10111A]
+                       shadow-[0_30px_100px_rgba(0,0,0,.45)]">
+
+                <!-- glow -->
+
+                <div class="pointer-events-none
+                           absolute inset-0
+                           bg-gradient-to-br
+                           from-[#6C5CE7]/8
+                           via-transparent
+                           to-[#00F2FE]/5
+                           opacity-0
+                           transition duration-500
+                           group-hover:opacity-100"></div>
+
+
+                <!-- browser bar -->
+
+                <div class="relative z-10
+                           flex h-11 items-center
+                           gap-2 border-b
+                           border-white/10
+                           px-5">
+
+                    <span class="h-2 w-2 rounded-full
+                               bg-white/15"></span>
+
+                    <span class="h-2 w-2 rounded-full
+                               bg-white/15"></span>
+
+                    <span class="h-2 w-2 rounded-full
+                               bg-white/15"></span>
+
+
+                    <div class="ml-4 h-6 flex-1
+                               rounded-md
+                               bg-white/[0.03]"></div>
+
+                </div>
+
+
+                <!-- workflow -->
+
+                <div class="relative overflow-hidden
+                           bg-[#f7f9fc]">
+
+                    <img src="/flujos/grin.png" alt="Workflow de automatización GRIN" class="block w-full
+                               object-contain
+                               transition duration-700
+                               group-hover:scale-[1.015]" />
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- ================================= -->
+        <!-- WORKFLOW 02 - OPCIÓN -->
+        <!-- ================================= -->
+
+        <div class="mt-28 grid items-center
+                   gap-12
+                   lg:grid-cols-[1.5fr_1fr]">
+
+            <!-- IMAGE -->
+
+            <div class="group relative order-2
+                       overflow-hidden
+                       rounded-[28px]
+                       border border-white/10
+                       bg-[#10111A]
+                       shadow-[0_30px_100px_rgba(0,0,0,.45)]
+                       lg:order-1">
+
+                <div class="relative z-10
+                           flex h-11 items-center
+                           gap-2 border-b
+                           border-white/10
+                           px-5">
+
+                    <span class="h-2 w-2 rounded-full bg-white/15"></span>
+                    <span class="h-2 w-2 rounded-full bg-white/15"></span>
+                    <span class="h-2 w-2 rounded-full bg-white/15"></span>
+
+                    <div class="ml-4 h-6 flex-1
+                               rounded-md
+                               bg-white/[0.03]"></div>
+
+                </div>
+
+
+                <div class="overflow-hidden
+                           bg-[#f7f9fc]">
+
+                    <img src="/flujos/opcion.png" alt="Workflow de automatización OPCIÓN" class="block w-full
+                               object-contain
+                               transition duration-700
+                               group-hover:scale-[1.015]" />
+
+                </div>
+
+            </div>
+
+
+            <!-- INFO -->
+
+            <div class="relative z-10
+                       order-1
+                       lg:order-2">
+
+                <div class="flex items-center gap-3">
+
+                    <span class="text-xs font-medium
+                               text-white/20">
+                        02
+                    </span>
+
+                    <span class="h-px w-10 bg-white/10"></span>
+
+                    <span class="text-[10px]
+                               uppercase
+                               tracking-[0.2em]
+                               text-[#9d92ff]">
+                        Caso real
+                    </span>
+
+                </div>
+
+
+                <h3 class="mt-5 text-4xl
+                           font-black
+                           tracking-tight
+                           text-white">
+                    OPCIÓN
+                </h3>
+
+
+                <p class="mt-4 text-sm
+                           leading-6
+                           text-white/40">
+                    Un flujo conectado para manejar
+                    cotizaciones, cálculos y conversaciones
+                    de manera automática.
+                </p>
+
+
+                <div class="mt-6 flex flex-wrap gap-2">
+
+                    <span class="rounded-full
+                               border border-white/10
+                               bg-white/[0.03]
+                               px-3 py-1.5
+                               text-[10px]
+                               text-white/45">
+                        Cotización
+                    </span>
+
+                    <span class="rounded-full
+                               border border-white/10
+                               bg-white/[0.03]
+                               px-3 py-1.5
+                               text-[10px]
+                               text-white/45">
+                        Calculadora
+                    </span>
+
+                    <span class="rounded-full
+                               border border-white/10
+                               bg-white/[0.03]
+                               px-3 py-1.5
+                               text-[10px]
+                               text-white/45">
+                        Conversación
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- ================================= -->
+        <!-- WORKFLOW 03 - TIS -->
+        <!-- ================================= -->
+
+        <div class="mt-28 grid items-center
+                   gap-12
+                   lg:grid-cols-[1fr_1.5fr]">
+
+            <!-- INFO -->
+
+            <div>
+
+                <div class="flex items-center gap-3">
+
+                    <span class="text-xs font-medium
+                               text-white/20">
+                        03
+                    </span>
+
+                    <span class="h-px w-10 bg-white/10"></span>
+
+                    <span class="text-[10px]
+                               uppercase
+                               tracking-[0.2em]
+                               text-[#9d92ff]">
+                        Caso real
+                    </span>
+
+                </div>
+
+
+                <h3 class="mt-5 text-4xl
+                           font-black
+                           tracking-tight
+                           text-white">
+                    TIS
+                </h3>
+
+
+                <p class="mt-4 text-sm
+                           leading-6
+                           text-white/40">
+                    Sistema diseñado para calificar
+                    prospectos, gestionar citas y activar
+                    acciones de remarketing.
+                </p>
+
+
+                <div class="mt-6 flex flex-wrap gap-2">
+
+                    <span class="rounded-full
+                               border border-white/10
+                               bg-white/[0.03]
+                               px-3 py-1.5
+                               text-[10px]
+                               text-white/45">
+                        IA
+                    </span>
+
+                    <span class="rounded-full
+                               border border-white/10
+                               bg-white/[0.03]
+                               px-3 py-1.5
+                               text-[10px]
+                               text-white/45">
+                        Agendamiento
+                    </span>
+
+                    <span class="rounded-full
+                               border border-white/10
+                               bg-white/[0.03]
+                               px-3 py-1.5
+                               text-[10px]
+                               text-white/45">
+                        Remarketing
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- IMAGE -->
+
+            <div class="group relative overflow-hidden
+                       rounded-[28px]
+                       border border-white/10
+                       bg-[#10111A]
+                       shadow-[0_30px_100px_rgba(0,0,0,.45)]">
+
+                <div class="relative z-10
+                           flex h-11 items-center
+                           gap-2 border-b
+                           border-white/10
+                           px-5">
+
+                    <span class="h-2 w-2 rounded-full bg-white/15"></span>
+                    <span class="h-2 w-2 rounded-full bg-white/15"></span>
+                    <span class="h-2 w-2 rounded-full bg-white/15"></span>
+
+                    <div class="ml-4 h-6 flex-1
+                               rounded-md
+                               bg-white/[0.03]"></div>
+
+                </div>
+
+
+                <div class="overflow-hidden
+                           bg-[#f7f9fc]">
+
+                    <img src="/flujos/tis.png" alt="Workflow de automatización TIS" class="block w-full
+                               object-contain
+                               transition duration-700
+                               group-hover:scale-[1.015]" />
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- ================================= -->
+        <!-- WORKFLOW 04 - PERUVIANST -->
+        <!-- ================================= -->
+
+        <div class="mt-28 grid items-center
+                   gap-12
+                   lg:grid-cols-[1.5fr_1fr]">
+
+            <!-- IMAGE -->
+
+            <div class="group relative order-2
+                       overflow-hidden
+                       rounded-[28px]
+                       border border-white/10
+                       bg-[#10111A]
+                       shadow-[0_30px_100px_rgba(0,0,0,.45)]
+                       lg:order-1">
+
+                <div class="relative z-10
+                           flex h-11 items-center
+                           gap-2 border-b
+                           border-white/10
+                           px-5">
+
+                    <span class="h-2 w-2 rounded-full bg-white/15"></span>
+                    <span class="h-2 w-2 rounded-full bg-white/15"></span>
+                    <span class="h-2 w-2 rounded-full bg-white/15"></span>
+
+                    <div class="ml-4 h-6 flex-1
+                               rounded-md
+                               bg-white/[0.03]"></div>
+
+                </div>
+
+
+                <div class="overflow-hidden
+                           bg-[#f7f9fc]">
+
+                    <img src="/flujos/peruvians.png" alt="Workflow de automatización Peruvianst" class="block w-full
+                               object-contain
+                               transition duration-700
+                               group-hover:scale-[1.015]" />
+
+                </div>
+
+            </div>
+
+
+            <!-- INFO -->
+
+            <div class="relative z-10
+                       order-1
+                       lg:order-2">
+
+                <div class="flex items-center gap-3">
+
+                    <span class="text-xs font-medium
+                               text-white/20">
+                        04
+                    </span>
+
+                    <span class="h-px w-10 bg-white/10"></span>
+
+                    <span class="text-[10px]
+                               uppercase
+                               tracking-[0.2em]
+                               text-[#9d92ff]">
+                        Caso real
+                    </span>
+
+                </div>
+
+
+                <h3 class="mt-5 text-4xl
+                           font-black
+                           tracking-tight
+                           text-white">
+                    PeruviansEcom
+                </h3>
+
+
+                <p class="mt-4 text-sm
+                           leading-6
+                           text-white/40">
+                    Automatización del proceso de pedidos,
+                    comunicación y seguimiento de clientes
+                    desde WhatsApp.
+                </p>
+
+
+                <div class="mt-6 flex flex-wrap gap-2">
+
+                    <span class="rounded-full
+                               border border-white/10
+                               bg-white/[0.03]
+                               px-3 py-1.5
+                               text-[10px]
+                               text-white/45">
+                        WhatsApp
+                    </span>
+
+                    <span class="rounded-full
+                               border border-white/10
+                               bg-white/[0.03]
+                               px-3 py-1.5
+                               text-[10px]
+                               text-white/45">
+                        Pedidos
+                    </span>
+
+                    <span class="rounded-full
+                               border border-white/10
+                               bg-white/[0.03]
+                               px-3 py-1.5
+                               text-[10px]
+                               text-white/45">
+                        Seguimiento
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- ================================= -->
+        <!-- FINAL -->
+        <!-- ================================= -->
+
+        <div class="mt-24 border-t
+                   border-white/10
+                   pt-10">
+
+            <div class="flex flex-col gap-5
+                       md:flex-row
+                       md:items-center
+                       md:justify-between">
+
+                <div>
+
+                    <p class="text-xs
+                               uppercase
+                               tracking-[0.2em]
+                               text-white/25">
+                        Del proceso al sistema
+                    </p>
+
+                    <p class="mt-2 text-lg
+                               font-semibold
+                               text-white">
+                        Cada workflow se diseña alrededor
+                        de la operación de tu negocio.
+                    </p>
+
+                </div>
+
+
+                <a routerLink="/solicitar-reunion" class="group inline-flex
+                           items-center gap-3
+                           rounded-xl
+                           bg-[#491eff]
+                           px-6 py-3.5
+                           text-sm font-bold
+                           text-white
+                           shadow-[0_12px_35px_rgba(73,30,255,.20)]
+                           transition
+                           hover:-translate-y-1">
+
+                    Diseñar mi sistema
+
+                    <ng-icon name="lucideArrowRight" size="18" class="transition-transform
+                               duration-300
+                               group-hover:translate-x-1" />
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section class="relative overflow-hidden bg-[#f7f7fa] py-28 lg:py-36">
+
+    <!-- DECORACIÓN -->
+    <div class="pointer-events-none absolute -right-40 -top-40 h-[500px] w-[500px]
+           rounded-full bg-[#6C5CE7]/10 blur-[140px]"></div>
+
+    <div class="pointer-events-none absolute -left-40 bottom-0 h-[400px] w-[400px]
+           rounded-full bg-[#00F2FE]/5 blur-[130px]"></div>
+
+
+    <div class="relative mx-auto max-w-[80vw] px-6 lg:px-8">
+
+
+        <!-- HEADER -->
+        <div class="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-end">
+
+            <div>
+
+                <span class="inline-flex items-center gap-2 text-xs font-semibold
+                 uppercase tracking-[0.2em] text-[#6C5CE7]">
+                    <span class="h-1.5 w-1.5 rounded-full bg-[#6C5CE7]"></span>
+
+                    Preguntas frecuentes
+                </span>
+
+                <h2 class="mt-5 text-4xl font-bold leading-[1.05] tracking-tight
+                 text-[#080911] md:text-5xl">
+                    TODO LO QUE
+                    <br />
+
+                    <span class="bg-gradient-to-r from-[#6C5CE7] via-[#6C8CFF] to-[#00F2FE]
+                   bg-clip-text text-transparent">
+                        NECESITAS SABER.
+                    </span>
+                </h2>
+
+            </div>
+
+
+            <p class="max-w-xl text-base leading-7 text-black/50 lg:ml-auto lg:text-lg">
+                Antes de empezar, resolvemos algunas de las preguntas más comunes
+                sobre automatización, inteligencia artificial, CRM y nuestros procesos.
+            </p>
+
+        </div>
+
+
+        <!-- FAQ -->
+        <div class="mt-16 overflow-hidden border-y border-black/10">
+
+
+            <!-- FAQ 01 -->
+            <details class="group border-b border-black/10">
+
+                <summary class="flex cursor-pointer list-none items-center justify-between gap-6
+                 py-7 md:py-8">
+
+                    <div class="flex items-start gap-5">
+
+                        <span class="pt-1 text-xs font-medium text-black/20">
+                            01
+                        </span>
+
+                        <h3 class="text-base font-semibold text-[#080911] md:text-lg">
+                            ¿Qué tipo de procesos pueden automatizar?
+                        </h3>
+
+                    </div>
+
+                    <span class="flex h-10 w-10 shrink-0 items-center justify-center
+                   rounded-full border border-black/10 transition duration-300
+                   group-open:rotate-45 group-open:bg-[#6C5CE7]
+                   group-open:text-white">
+                        <ng-icon name="lucidePlus" class="text-lg" />
+                    </span>
+
+                </summary>
+
+                <div class="pb-7 pl-10 pr-14 md:pl-14">
+
+                    <p class="max-w-3xl text-sm leading-7 text-black/50">
+                        Podemos automatizar tareas repetitivas relacionadas con captación
+                        de leads, respuestas, seguimiento, calificación, actualización
+                        del CRM, agendamiento, recordatorios, reactivación y comunicación.
+                    </p>
+
+                </div>
+
+            </details>
+
+
+            <!-- FAQ 02 -->
+            <details class="group border-b border-black/10">
+
+                <summary class="flex cursor-pointer list-none items-center justify-between gap-6
+                 py-7 md:py-8">
+
+                    <div class="flex items-start gap-5">
+
+                        <span class="pt-1 text-xs font-medium text-black/20">
+                            02
+                        </span>
+
+                        <h3 class="text-base font-semibold text-[#080911] md:text-lg">
+                            ¿Trabajan con WhatsApp?
+                        </h3>
+
+                    </div>
+
+                    <span class="flex h-10 w-10 shrink-0 items-center justify-center
+                   rounded-full border border-black/10 transition duration-300
+                   group-open:rotate-45 group-open:bg-[#6C5CE7]
+                   group-open:text-white">
+                        <ng-icon name="lucidePlus" class="text-lg" />
+                    </span>
+
+                </summary>
+
+                <div class="pb-7 pl-10 pr-14 md:pl-14">
+                    <p class="max-w-3xl text-sm leading-7 text-black/50">
+                        Sí. Podemos trabajar flujos donde WhatsApp forme parte de la
+                        captación, atención, seguimiento, calificación y comunicación
+                        automática con tus prospectos o clientes.
+                    </p>
+                </div>
+
+            </details>
+
+
+            <!-- FAQ 03 -->
+            <details class="group border-b border-black/10">
+
+                <summary class="flex cursor-pointer list-none items-center justify-between gap-6
+                 py-7 md:py-8">
+
+                    <div class="flex items-start gap-5">
+
+                        <span class="pt-1 text-xs font-medium text-black/20">
+                            03
+                        </span>
+
+                        <h3 class="text-base font-semibold text-[#080911] md:text-lg">
+                            ¿También pueden automatizar Instagram, Facebook y TikTok?
+                        </h3>
+
+                    </div>
+
+                    <span class="flex h-10 w-10 shrink-0 items-center justify-center
+                   rounded-full border border-black/10 transition duration-300
+                   group-open:rotate-45 group-open:bg-[#6C5CE7]
+                   group-open:text-white">
+                        <ng-icon name="lucidePlus" class="text-lg" />
+                    </span>
+
+                </summary>
+
+                <div class="pb-7 pl-10 pr-14 md:pl-14">
+                    <p class="max-w-3xl text-sm leading-7 text-black/50">
+                        Sí. Dependiendo del objetivo y de las herramientas disponibles,
+                        podemos conectar diferentes canales y hacer que la información
+                        continúe automáticamente hacia el CRM y los siguientes pasos
+                        del proceso.
+                    </p>
+                </div>
+
+            </details>
+
+
+            <!-- FAQ 04 -->
+            <details class="group border-b border-black/10">
+
+                <summary class="flex cursor-pointer list-none items-center justify-between gap-6
+                 py-7 md:py-8">
+
+                    <div class="flex items-start gap-5">
+
+                        <span class="pt-1 text-xs font-medium text-black/20">
+                            04
+                        </span>
+
+                        <h3 class="text-base font-semibold text-[#080911] md:text-lg">
+                            ¿Necesito tener un CRM para trabajar con ustedes?
+                        </h3>
+
+                    </div>
+
+                    <span class="flex h-10 w-10 shrink-0 items-center justify-center
+                   rounded-full border border-black/10 transition duration-300
+                   group-open:rotate-45 group-open:bg-[#6C5CE7]
+                   group-open:text-white">
+                        <ng-icon name="lucidePlus" class="text-lg" />
+                    </span>
+
+                </summary>
+
+                <div class="pb-7 pl-10 pr-14 md:pl-14">
+                    <p class="max-w-3xl text-sm leading-7 text-black/50">
+                        No necesariamente. Podemos trabajar sobre herramientas que ya
+                        utilizas o ayudarte a estructurar un sistema centralizado para
+                        gestionar leads, conversaciones, oportunidades y seguimiento.
+                    </p>
+                </div>
+
+            </details>
+
+
+            <!-- FAQ 05 -->
+            <details class="group border-b border-black/10">
+
+                <summary class="flex cursor-pointer list-none items-center justify-between gap-6
+                 py-7 md:py-8">
+
+                    <div class="flex items-start gap-5">
+
+                        <span class="pt-1 text-xs font-medium text-black/20">
+                            05
+                        </span>
+
+                        <h3 class="text-base font-semibold text-[#080911] md:text-lg">
+                            ¿La inteligencia artificial reemplaza a mi equipo comercial?
+                        </h3>
+
+                    </div>
+
+                    <span class="flex h-10 w-10 shrink-0 items-center justify-center
+                   rounded-full border border-black/10 transition duration-300
+                   group-open:rotate-45 group-open:bg-[#6C5CE7]
+                   group-open:text-white">
+                        <ng-icon name="lucidePlus" class="text-lg" />
+                    </span>
+
+                </summary>
+
+                <div class="pb-7 pl-10 pr-14 md:pl-14">
+                    <p class="max-w-3xl text-sm leading-7 text-black/50">
+                        La IA puede encargarse de determinadas tareas repetitivas,
+                        responder conversaciones, recopilar información y ejecutar
+                        procesos definidos. El equipo puede intervenir cuando el proceso
+                        necesita atención humana o una decisión comercial.
+                    </p>
+                </div>
+
+            </details>
+
+
+            <!-- FAQ 06 -->
+            <details class="group border-b border-black/10">
+
+                <summary class="flex cursor-pointer list-none items-center justify-between gap-6
+                 py-7 md:py-8">
+
+                    <div class="flex items-start gap-5">
+
+                        <span class="pt-1 text-xs font-medium text-black/20">
+                            06
+                        </span>
+
+                        <h3 class="text-base font-semibold text-[#080911] md:text-lg">
+                            ¿Pueden conectar las herramientas que ya utiliza mi empresa?
+                        </h3>
+
+                    </div>
+
+                    <span class="flex h-10 w-10 shrink-0 items-center justify-center
+                   rounded-full border border-black/10 transition duration-300
+                   group-open:rotate-45 group-open:bg-[#6C5CE7]
+                   group-open:text-white">
+                        <ng-icon name="lucidePlus" class="text-lg" />
+                    </span>
+
+                </summary>
+
+                <div class="pb-7 pl-10 pr-14 md:pl-14">
+                    <p class="max-w-3xl text-sm leading-7 text-black/50">
+                        Sí. Evaluamos las herramientas que utilizas actualmente y,
+                        cuando existen las integraciones o conexiones necesarias,
+                        podemos incorporarlas dentro del flujo de automatización.
+                    </p>
+                </div>
+
+            </details>
+
+
+            <!-- FAQ 07 -->
+            <details class="group border-b border-black/10">
+
+                <summary class="flex cursor-pointer list-none items-center justify-between gap-6
+                 py-7 md:py-8">
+
+                    <div class="flex items-start gap-5">
+
+                        <span class="pt-1 text-xs font-medium text-black/20">
+                            07
+                        </span>
+
+                        <h3 class="text-base font-semibold text-[#080911] md:text-lg">
+                            ¿Trabajan con GoHighLevel?
+                        </h3>
+
+                    </div>
+
+                    <span class="flex h-10 w-10 shrink-0 items-center justify-center
+                   rounded-full border border-black/10 transition duration-300
+                   group-open:rotate-45 group-open:bg-[#6C5CE7]
+                   group-open:text-white">
+                        <ng-icon name="lucidePlus" class="text-lg" />
+                    </span>
+
+                </summary>
+
+                <div class="pb-7 pl-10 pr-14 md:pl-14">
+                    <p class="max-w-3xl text-sm leading-7 text-black/50">
+                        Sí. Podemos trabajar con GoHighLevel para estructurar CRM,
+                        workflows, automatizaciones, conversaciones, seguimiento,
+                        oportunidades y diferentes procesos comerciales.
+                    </p>
+                </div>
+
+            </details>
+
+
+            <!-- FAQ 08 -->
+            <details class="group">
+
+                <summary class="flex cursor-pointer list-none items-center justify-between gap-6
+                 py-7 md:py-8">
+
+                    <div class="flex items-start gap-5">
+
+                        <span class="pt-1 text-xs font-medium text-black/20">
+                            08
+                        </span>
+
+                        <h3 class="text-base font-semibold text-[#080911] md:text-lg">
+                            ¿Cómo empieza un proyecto de automatización?
+                        </h3>
+
+                    </div>
+
+                    <span class="flex h-10 w-10 shrink-0 items-center justify-center
+                   rounded-full border border-black/10 transition duration-300
+                   group-open:rotate-45 group-open:bg-[#6C5CE7]
+                   group-open:text-white">
+                        <ng-icon name="lucidePlus" class="text-lg" />
+                    </span>
+
+                </summary>
+
+                <div class="pb-7 pl-10 pr-14 md:pl-14">
+                    <p class="max-w-3xl text-sm leading-7 text-black/50">
+                        Primero analizamos cómo funciona actualmente tu proceso:
+                        captación, atención, seguimiento y herramientas. A partir de
+                        ahí identificamos qué tareas pueden automatizarse y diseñamos
+                        el sistema que mejor se adapte a tu operación.
+                    </p>
+                </div>
+
+            </details>
+
+        </div>
+
+
+        <!-- CTA FINAL PEQUEÑO -->
+
+        <div class="mt-20 rounded-[28px] border border-[#6C5CE7]/15
+             bg-gradient-to-r from-[#6C5CE7]/5 via-white to-[#00F2FE]/5
+             px-8 py-10 md:px-12">
+
+            <div class="flex flex-col items-center justify-between gap-6
+               text-center md:flex-row md:text-left">
+
+                <div>
+
+                    <p class="text-sm text-black/40">
+                        ¿Tienes otra pregunta?
+                    </p>
+
+                    <h3 class="mt-1 text-xl font-bold text-[#080911] md:text-2xl">
+                        Hablemos sobre tu proceso.
+                    </h3>
+
+                </div>
+
+
+                <button hlmBtn class="group h-12 rounded-full bg-[#491eff] px-7
+                 text-sm font-semibold text-white
+                 shadow-[0_10px_35px_rgba(73,30,255,.20)]
+                 transition hover:bg-[#5b32ff]">
+
+                    Hablar con Growth Partner
+
+                    <ng-icon name="lucideArrowRight" class="ml-2 transition-transform duration-300
+                   group-hover:translate-x-1" />
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
 
 <section class="relative overflow-hidden bg-[#080911] py-24 lg:py-32">
 
     <!-- GLOWS -->
 
-    <div
-        class="pointer-events-none absolute -left-40 top-20
+    <div class="pointer-events-none absolute -left-40 top-20
                h-[450px] w-[450px]
                rounded-full
                bg-[#6C5CE7]/10
-               blur-[130px]"
-    ></div>
+               blur-[130px]"></div>
 
-    <div
-        class="pointer-events-none absolute -right-40 bottom-0
+    <div class="pointer-events-none absolute -right-40 bottom-0
                h-[450px] w-[450px]
                rounded-full
                bg-[#00F2FE]/5
-               blur-[130px]"
-    ></div>
+               blur-[130px]"></div>
 
 
-    <div class="mx-auto max-w-7xl px-6 lg:px-8">
+    <div class="mx-auto max-w-[80vw] px-6 lg:px-8">
 
         <!-- ========================= -->
         <!-- HEADER -->
         <!-- ========================= -->
 
-        <div
-            class="mb-12 flex flex-col gap-6
+        <div class="mb-12 flex flex-col gap-6
                    md:flex-row md:items-end
-                   md:justify-between"
-        >
+                   md:justify-between">
 
             <div class="max-w-2xl">
 
-                <span
-                    class="inline-flex items-center gap-2
+                <span class="inline-flex items-center gap-2
                            rounded-full
                            border border-[#6C5CE7]/30
                            bg-[#6C5CE7]/10
                            px-4 py-2
                            text-xs font-semibold
                            uppercase tracking-[0.2em]
-                           text-[#a69eff]"
-                >
+                           text-[#a69eff]">
 
-                    <span
-                        class="h-1.5 w-1.5 rounded-full
+                    <span class="h-1.5 w-1.5 rounded-full
                                bg-[#00F2FE]
-                               shadow-[0_0_10px_#00F2FE]"
-                    ></span>
+                               shadow-[0_0_10px_#00F2FE]"></span>
 
                     Blog
 
                 </span>
 
 
-                <h2
-                    class="mt-5 text-4xl font-black
+                <h2 class="mt-5 text-4xl font-black
                            leading-[1.05]
                            tracking-tight
                            text-white
                            md:text-5xl
-                           lg:text-6xl"
-                >
+                           lg:text-6xl">
 
                     IDEAS PARA
-                    <span
-                        class="bg-gradient-to-r
+                    <span class="bg-gradient-to-r
                                from-[#6C5CE7]
                                via-[#6C8CFF]
                                to-[#00F2FE]
                                bg-clip-text
-                               text-transparent"
-                    >
+                               text-transparent">
                         HACER CRECER
                     </span>
 
@@ -4461,11 +5189,9 @@
                 </h2>
 
 
-                <p
-                    class="mt-5 max-w-xl
+                <p class="mt-5 max-w-xl
                            text-base leading-7
-                           text-white/45"
-                >
+                           text-white/45">
 
                     Automatización, inteligencia artificial,
                     CRM y estrategias para construir procesos
@@ -4478,25 +5204,18 @@
 
             <!-- CTA BLOG -->
 
-            <a
-                routerLink="/blog"
-                class="group inline-flex
+            <a routerLink="/blog" class="group inline-flex
                        items-center gap-2
                        text-sm font-semibold
                        text-white/70
                        transition
-                       hover:text-white"
-            >
+                       hover:text-white">
 
                 Ver todos los artículos
 
-                <ng-icon
-                    name="lucideArrowRight"
-                    size="17"
-                    class="transition-transform
+                <ng-icon name="lucideArrowRight" size="17" class="transition-transform
                            duration-300
-                           group-hover:translate-x-1"
-                />
+                           group-hover:translate-x-1" />
 
             </a>
 
@@ -4509,26 +5228,20 @@
 
         <div class="relative">
 
-            <hlm-carousel
-                class="w-full"
-                opts="{ align: 'start', loop: true }"
-            >
+            <hlm-carousel class="w-full" opts="{ align: 'start', loop: true }">
 
                 <hlm-carousel-content class="-ml-4">
 
                     @for (post of blogPosts; track post.id) {
 
-                        <hlm-carousel-item
-                            class="pl-4
+                    <hlm-carousel-item class="pl-4
                                    basis-full
                                    sm:basis-1/2
-                                   lg:basis-1/3"
-                        >
+                                   lg:basis-1/3">
 
-                            <!-- CARD -->
+                        <!-- CARD -->
 
-                            <article
-                                class="group h-full overflow-hidden
+                        <article class="group h-full overflow-hidden
                                        rounded-[28px]
                                        border border-white/10
                                        bg-[#10111A]
@@ -4536,48 +5249,36 @@
                                        transition-all duration-500
                                        hover:-translate-y-2
                                        hover:border-[#6C5CE7]/30
-                                       hover:shadow-[0_25px_80px_rgba(108,92,231,.12)]"
-                            >
+                                       hover:shadow-[0_25px_80px_rgba(108,92,231,.12)]">
 
-                                <!-- ================= -->
-                                <!-- IMAGE -->
-                                <!-- ================= -->
+                            <!-- ================= -->
+                            <!-- IMAGE -->
+                            <!-- ================= -->
 
-                                <div
-                                    class="relative aspect-[16/10]
+                            <div class="relative aspect-[16/10]
                                            overflow-hidden
-                                           bg-[#151621]"
-                                >
+                                           bg-[#151621]">
 
-                                    <img
-                                        [src]="post.image"
-                                        [alt]="post.title"
-                                        class="h-full w-full
+                                <img [src]="post.image" [alt]="post.title" class="h-full w-full
                                                object-cover
                                                transition duration-700
-                                               group-hover:scale-[1.05]"
-                                    />
+                                               group-hover:scale-[1.05]" />
 
 
-                                    <!-- IMAGE OVERLAY -->
+                                <!-- IMAGE OVERLAY -->
 
-                                    <div
-                                        class="absolute inset-0
+                                <div class="absolute inset-0
                                                bg-gradient-to-t
                                                from-[#080911]/70
                                                via-transparent
-                                               to-transparent"
-                                    ></div>
+                                               to-transparent"></div>
 
 
-                                    <!-- CATEGORY -->
+                                <!-- CATEGORY -->
 
-                                    <div
-                                        class="absolute left-5 top-5"
-                                    >
+                                <div class="absolute left-5 top-5">
 
-                                        <span
-                                            class="rounded-full
+                                    <span class="rounded-full
                                                    border border-white/15
                                                    bg-[#080911]/50
                                                    px-3 py-1.5
@@ -4586,93 +5287,80 @@
                                                    uppercase
                                                    tracking-[0.15em]
                                                    text-white/80
-                                                   backdrop-blur-md"
-                                        >
-                                            {{ post.category }}
-                                        </span>
+                                                   backdrop-blur-md">
+                                        {{ post.category }}
+                                    </span>
 
-                                    </div>
+                                </div>
+
+                            </div>
+
+
+                            <!-- ================= -->
+                            <!-- CONTENT -->
+                            <!-- ================= -->
+
+                            <div class="flex h-[290px]
+                                           flex-col p-6 md:p-7">
+
+                                <!-- META -->
+
+                                <div class="flex items-center
+                                               justify-between
+                                               text-[11px]
+                                               text-white/25">
+
+                                    <span>
+                                        {{ post.date }}
+                                    </span>
+
+                                    <span>
+                                        {{ post.readTime }}
+                                    </span>
 
                                 </div>
 
 
-                                <!-- ================= -->
-                                <!-- CONTENT -->
-                                <!-- ================= -->
+                                <!-- TITLE -->
 
-                                <div
-                                    class="flex h-[290px]
-                                           flex-col p-6 md:p-7"
-                                >
-
-                                    <!-- META -->
-
-                                    <div
-                                        class="flex items-center
-                                               justify-between
-                                               text-[11px]
-                                               text-white/25"
-                                    >
-
-                                        <span>
-                                            {{ post.date }}
-                                        </span>
-
-                                        <span>
-                                            {{ post.readTime }}
-                                        </span>
-
-                                    </div>
-
-
-                                    <!-- TITLE -->
-
-                                    <h3
-                                        class="mt-4 text-xl
+                                <h3 class="mt-4 text-xl
                                                font-bold
                                                leading-tight
                                                tracking-tight
                                                text-white
                                                transition-colors
                                                duration-300
-                                               group-hover:text-[#a69eff]"
-                                    >
+                                               group-hover:text-[#a69eff]">
 
-                                        {{ post.title }}
+                                    {{ post.title }}
 
-                                    </h3>
+                                </h3>
 
 
-                                    <!-- DESCRIPTION -->
+                                <!-- DESCRIPTION -->
 
-                                    <p
-                                        class="mt-4 line-clamp-3
+                                <p class="mt-4 line-clamp-3
                                                text-sm
                                                leading-6
-                                               text-white/40"
-                                    >
+                                               text-white/40">
 
-                                        {{ post.description }}
+                                    {{ post.description }}
 
-                                    </p>
+                                </p>
 
 
-                                    <!-- FOOTER -->
+                                <!-- FOOTER -->
 
-                                    <div class="mt-auto pt-6">
+                                <div class="mt-auto pt-6">
 
-                                        <a
-                                            [routerLink]="post.link"
-                                            class="group/link inline-flex
+                                    <a [routerLink]="post.link" class="group/link inline-flex
                                                    items-center gap-2
                                                    text-sm font-bold
-                                                   text-white"
-                                        >
+                                                   text-white">
 
-                                            Leer artículo
+                                        Leer artículo
 
-                                            <span
-                                                class="flex h-8 w-8
+                                        <span class="flex h-8 w-8
                                                        items-center
                                                        justify-center
                                                        rounded-full
@@ -4681,25 +5369,21 @@
                                                        transition-all
                                                        duration-300
                                                        group-hover/link:bg-[#6C5CE7]
-                                                       group-hover/link:text-white"
-                                            >
+                                                       group-hover/link:text-white">
 
-                                                <ng-icon
-                                                    name="lucideArrowUpRight"
-                                                    size="15"
-                                                />
+                                            <ng-icon name="lucideArrowUpRight" size="15" />
 
-                                            </span>
+                                        </span>
 
-                                        </a>
-
-                                    </div>
+                                    </a>
 
                                 </div>
 
-                            </article>
+                            </div>
 
-                        </hlm-carousel-item>
+                        </article>
+
+                    </hlm-carousel-item>
 
                     }
 
@@ -4710,31 +5394,23 @@
                 <!-- CONTROLS -->
                 <!-- ========================= -->
 
-                <div
-                    class="mt-8 flex items-center
-                           justify-between"
-                >
+                <div class="mt-8 flex items-center
+                           justify-between">
 
                     <!-- INDICATOR -->
 
                     <div class="flex items-center gap-2">
 
-                        <span
-                            class="h-1.5 w-10 rounded-full
+                        <span class="h-1.5 w-10 rounded-full
                                    bg-gradient-to-r
                                    from-[#6C5CE7]
-                                   to-[#00F2FE]"
-                        ></span>
+                                   to-[#00F2FE]"></span>
 
-                        <span
-                            class="h-1.5 w-5 rounded-full
-                                   bg-white/10"
-                        ></span>
+                        <span class="h-1.5 w-5 rounded-full
+                                   bg-white/10"></span>
 
-                        <span
-                            class="h-1.5 w-5 rounded-full
-                                   bg-white/10"
-                        ></span>
+                        <span class="h-1.5 w-5 rounded-full
+                                   bg-white/10"></span>
 
                     </div>
 
@@ -4743,9 +5419,7 @@
 
                     <div class="flex items-center gap-2">
 
-                        <button
-                            hlm-carousel-previous
-                            class="static
+                        <button hlm-carousel-previous class="static
                                    translate-y-0
                                    rounded-full
                                    border border-white/10
@@ -4755,13 +5429,10 @@
                                    transition
                                    hover:border-[#6C5CE7]/40
                                    hover:bg-[#6C5CE7]
-                                   hover:text-white"
-                        >
+                                   hover:text-white">
                         </button>
 
-                        <button
-                            hlm-carousel-next
-                            class="static
+                        <button hlm-carousel-next class="static
                                    translate-y-0
                                    rounded-full
                                    border border-white/10
@@ -4771,8 +5442,7 @@
                                    transition
                                    hover:border-[#6C5CE7]/40
                                    hover:bg-[#6C5CE7]
-                                   hover:text-white"
-                        >
+                                   hover:text-white">
                         </button>
 
                     </div>
@@ -4784,475 +5454,5 @@
         </div>
 
     </div>
-
-</section>
-
-
-<section class="relative overflow-hidden bg-[#f7f7fa] py-28 lg:py-36">
-
-  <!-- DECORACIÓN -->
-  <div
-    class="pointer-events-none absolute -right-40 -top-40 h-[500px] w-[500px]
-           rounded-full bg-[#6C5CE7]/10 blur-[140px]"
-  ></div>
-
-  <div
-    class="pointer-events-none absolute -left-40 bottom-0 h-[400px] w-[400px]
-           rounded-full bg-[#00F2FE]/5 blur-[130px]"
-  ></div>
-
-
-  <div class="relative mx-auto max-w-6xl px-6 lg:px-8">
-
-
-    <!-- HEADER -->
-    <div class="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-end">
-
-      <div>
-
-        <span
-          class="inline-flex items-center gap-2 text-xs font-semibold
-                 uppercase tracking-[0.2em] text-[#6C5CE7]"
-        >
-          <span
-            class="h-1.5 w-1.5 rounded-full bg-[#6C5CE7]"
-          ></span>
-
-          Preguntas frecuentes
-        </span>
-
-        <h2
-          class="mt-5 text-4xl font-bold leading-[1.05] tracking-tight
-                 text-[#080911] md:text-5xl"
-        >
-          TODO LO QUE
-          <br />
-
-          <span
-            class="bg-gradient-to-r from-[#6C5CE7] via-[#6C8CFF] to-[#00F2FE]
-                   bg-clip-text text-transparent"
-          >
-            NECESITAS SABER.
-          </span>
-        </h2>
-
-      </div>
-
-
-      <p
-        class="max-w-xl text-base leading-7 text-black/50 lg:ml-auto lg:text-lg"
-      >
-        Antes de empezar, resolvemos algunas de las preguntas más comunes
-        sobre automatización, inteligencia artificial, CRM y nuestros procesos.
-      </p>
-
-    </div>
-
-
-    <!-- FAQ -->
-    <div class="mt-16 overflow-hidden border-y border-black/10">
-
-
-      <!-- FAQ 01 -->
-      <details class="group border-b border-black/10">
-
-        <summary
-          class="flex cursor-pointer list-none items-center justify-between gap-6
-                 py-7 md:py-8"
-        >
-
-          <div class="flex items-start gap-5">
-
-            <span
-              class="pt-1 text-xs font-medium text-black/20"
-            >
-              01
-            </span>
-
-            <h3
-              class="text-base font-semibold text-[#080911] md:text-lg"
-            >
-              ¿Qué tipo de procesos pueden automatizar?
-            </h3>
-
-          </div>
-
-          <span
-            class="flex h-10 w-10 shrink-0 items-center justify-center
-                   rounded-full border border-black/10 transition duration-300
-                   group-open:rotate-45 group-open:bg-[#6C5CE7]
-                   group-open:text-white"
-          >
-            <ng-icon
-              name="lucidePlus"
-              class="text-lg"
-            />
-          </span>
-
-        </summary>
-
-        <div class="pb-7 pl-10 pr-14 md:pl-14">
-
-          <p class="max-w-3xl text-sm leading-7 text-black/50">
-            Podemos automatizar tareas repetitivas relacionadas con captación
-            de leads, respuestas, seguimiento, calificación, actualización
-            del CRM, agendamiento, recordatorios, reactivación y comunicación.
-          </p>
-
-        </div>
-
-      </details>
-
-
-      <!-- FAQ 02 -->
-      <details class="group border-b border-black/10">
-
-        <summary
-          class="flex cursor-pointer list-none items-center justify-between gap-6
-                 py-7 md:py-8"
-        >
-
-          <div class="flex items-start gap-5">
-
-            <span class="pt-1 text-xs font-medium text-black/20">
-              02
-            </span>
-
-            <h3 class="text-base font-semibold text-[#080911] md:text-lg">
-              ¿Trabajan con WhatsApp?
-            </h3>
-
-          </div>
-
-          <span
-            class="flex h-10 w-10 shrink-0 items-center justify-center
-                   rounded-full border border-black/10 transition duration-300
-                   group-open:rotate-45 group-open:bg-[#6C5CE7]
-                   group-open:text-white"
-          >
-            <ng-icon name="lucidePlus" class="text-lg" />
-          </span>
-
-        </summary>
-
-        <div class="pb-7 pl-10 pr-14 md:pl-14">
-          <p class="max-w-3xl text-sm leading-7 text-black/50">
-            Sí. Podemos trabajar flujos donde WhatsApp forme parte de la
-            captación, atención, seguimiento, calificación y comunicación
-            automática con tus prospectos o clientes.
-          </p>
-        </div>
-
-      </details>
-
-
-      <!-- FAQ 03 -->
-      <details class="group border-b border-black/10">
-
-        <summary
-          class="flex cursor-pointer list-none items-center justify-between gap-6
-                 py-7 md:py-8"
-        >
-
-          <div class="flex items-start gap-5">
-
-            <span class="pt-1 text-xs font-medium text-black/20">
-              03
-            </span>
-
-            <h3 class="text-base font-semibold text-[#080911] md:text-lg">
-              ¿También pueden automatizar Instagram, Facebook y TikTok?
-            </h3>
-
-          </div>
-
-          <span
-            class="flex h-10 w-10 shrink-0 items-center justify-center
-                   rounded-full border border-black/10 transition duration-300
-                   group-open:rotate-45 group-open:bg-[#6C5CE7]
-                   group-open:text-white"
-          >
-            <ng-icon name="lucidePlus" class="text-lg" />
-          </span>
-
-        </summary>
-
-        <div class="pb-7 pl-10 pr-14 md:pl-14">
-          <p class="max-w-3xl text-sm leading-7 text-black/50">
-            Sí. Dependiendo del objetivo y de las herramientas disponibles,
-            podemos conectar diferentes canales y hacer que la información
-            continúe automáticamente hacia el CRM y los siguientes pasos
-            del proceso.
-          </p>
-        </div>
-
-      </details>
-
-
-      <!-- FAQ 04 -->
-      <details class="group border-b border-black/10">
-
-        <summary
-          class="flex cursor-pointer list-none items-center justify-between gap-6
-                 py-7 md:py-8"
-        >
-
-          <div class="flex items-start gap-5">
-
-            <span class="pt-1 text-xs font-medium text-black/20">
-              04
-            </span>
-
-            <h3 class="text-base font-semibold text-[#080911] md:text-lg">
-              ¿Necesito tener un CRM para trabajar con ustedes?
-            </h3>
-
-          </div>
-
-          <span
-            class="flex h-10 w-10 shrink-0 items-center justify-center
-                   rounded-full border border-black/10 transition duration-300
-                   group-open:rotate-45 group-open:bg-[#6C5CE7]
-                   group-open:text-white"
-          >
-            <ng-icon name="lucidePlus" class="text-lg" />
-          </span>
-
-        </summary>
-
-        <div class="pb-7 pl-10 pr-14 md:pl-14">
-          <p class="max-w-3xl text-sm leading-7 text-black/50">
-            No necesariamente. Podemos trabajar sobre herramientas que ya
-            utilizas o ayudarte a estructurar un sistema centralizado para
-            gestionar leads, conversaciones, oportunidades y seguimiento.
-          </p>
-        </div>
-
-      </details>
-
-
-      <!-- FAQ 05 -->
-      <details class="group border-b border-black/10">
-
-        <summary
-          class="flex cursor-pointer list-none items-center justify-between gap-6
-                 py-7 md:py-8"
-        >
-
-          <div class="flex items-start gap-5">
-
-            <span class="pt-1 text-xs font-medium text-black/20">
-              05
-            </span>
-
-            <h3 class="text-base font-semibold text-[#080911] md:text-lg">
-              ¿La inteligencia artificial reemplaza a mi equipo comercial?
-            </h3>
-
-          </div>
-
-          <span
-            class="flex h-10 w-10 shrink-0 items-center justify-center
-                   rounded-full border border-black/10 transition duration-300
-                   group-open:rotate-45 group-open:bg-[#6C5CE7]
-                   group-open:text-white"
-          >
-            <ng-icon name="lucidePlus" class="text-lg" />
-          </span>
-
-        </summary>
-
-        <div class="pb-7 pl-10 pr-14 md:pl-14">
-          <p class="max-w-3xl text-sm leading-7 text-black/50">
-            La IA puede encargarse de determinadas tareas repetitivas,
-            responder conversaciones, recopilar información y ejecutar
-            procesos definidos. El equipo puede intervenir cuando el proceso
-            necesita atención humana o una decisión comercial.
-          </p>
-        </div>
-
-      </details>
-
-
-      <!-- FAQ 06 -->
-      <details class="group border-b border-black/10">
-
-        <summary
-          class="flex cursor-pointer list-none items-center justify-between gap-6
-                 py-7 md:py-8"
-        >
-
-          <div class="flex items-start gap-5">
-
-            <span class="pt-1 text-xs font-medium text-black/20">
-              06
-            </span>
-
-            <h3 class="text-base font-semibold text-[#080911] md:text-lg">
-              ¿Pueden conectar las herramientas que ya utiliza mi empresa?
-            </h3>
-
-          </div>
-
-          <span
-            class="flex h-10 w-10 shrink-0 items-center justify-center
-                   rounded-full border border-black/10 transition duration-300
-                   group-open:rotate-45 group-open:bg-[#6C5CE7]
-                   group-open:text-white"
-          >
-            <ng-icon name="lucidePlus" class="text-lg" />
-          </span>
-
-        </summary>
-
-        <div class="pb-7 pl-10 pr-14 md:pl-14">
-          <p class="max-w-3xl text-sm leading-7 text-black/50">
-            Sí. Evaluamos las herramientas que utilizas actualmente y,
-            cuando existen las integraciones o conexiones necesarias,
-            podemos incorporarlas dentro del flujo de automatización.
-          </p>
-        </div>
-
-      </details>
-
-
-      <!-- FAQ 07 -->
-      <details class="group border-b border-black/10">
-
-        <summary
-          class="flex cursor-pointer list-none items-center justify-between gap-6
-                 py-7 md:py-8"
-        >
-
-          <div class="flex items-start gap-5">
-
-            <span class="pt-1 text-xs font-medium text-black/20">
-              07
-            </span>
-
-            <h3 class="text-base font-semibold text-[#080911] md:text-lg">
-              ¿Trabajan con GoHighLevel?
-            </h3>
-
-          </div>
-
-          <span
-            class="flex h-10 w-10 shrink-0 items-center justify-center
-                   rounded-full border border-black/10 transition duration-300
-                   group-open:rotate-45 group-open:bg-[#6C5CE7]
-                   group-open:text-white"
-          >
-            <ng-icon name="lucidePlus" class="text-lg" />
-          </span>
-
-        </summary>
-
-        <div class="pb-7 pl-10 pr-14 md:pl-14">
-          <p class="max-w-3xl text-sm leading-7 text-black/50">
-            Sí. Podemos trabajar con GoHighLevel para estructurar CRM,
-            workflows, automatizaciones, conversaciones, seguimiento,
-            oportunidades y diferentes procesos comerciales.
-          </p>
-        </div>
-
-      </details>
-
-
-      <!-- FAQ 08 -->
-      <details class="group">
-
-        <summary
-          class="flex cursor-pointer list-none items-center justify-between gap-6
-                 py-7 md:py-8"
-        >
-
-          <div class="flex items-start gap-5">
-
-            <span class="pt-1 text-xs font-medium text-black/20">
-              08
-            </span>
-
-            <h3 class="text-base font-semibold text-[#080911] md:text-lg">
-              ¿Cómo empieza un proyecto de automatización?
-            </h3>
-
-          </div>
-
-          <span
-            class="flex h-10 w-10 shrink-0 items-center justify-center
-                   rounded-full border border-black/10 transition duration-300
-                   group-open:rotate-45 group-open:bg-[#6C5CE7]
-                   group-open:text-white"
-          >
-            <ng-icon name="lucidePlus" class="text-lg" />
-          </span>
-
-        </summary>
-
-        <div class="pb-7 pl-10 pr-14 md:pl-14">
-          <p class="max-w-3xl text-sm leading-7 text-black/50">
-            Primero analizamos cómo funciona actualmente tu proceso:
-            captación, atención, seguimiento y herramientas. A partir de
-            ahí identificamos qué tareas pueden automatizarse y diseñamos
-            el sistema que mejor se adapte a tu operación.
-          </p>
-        </div>
-
-      </details>
-
-    </div>
-
-
-    <!-- CTA FINAL PEQUEÑO -->
-
-    <div
-      class="mt-20 rounded-[28px] border border-[#6C5CE7]/15
-             bg-gradient-to-r from-[#6C5CE7]/5 via-white to-[#00F2FE]/5
-             px-8 py-10 md:px-12"
-    >
-
-      <div
-        class="flex flex-col items-center justify-between gap-6
-               text-center md:flex-row md:text-left"
-      >
-
-        <div>
-
-          <p class="text-sm text-black/40">
-            ¿Tienes otra pregunta?
-          </p>
-
-          <h3
-            class="mt-1 text-xl font-bold text-[#080911] md:text-2xl"
-          >
-            Hablemos sobre tu proceso.
-          </h3>
-
-        </div>
-
-
-        <button
-          hlmBtn
-          class="group h-12 rounded-full bg-[#491eff] px-7
-                 text-sm font-semibold text-white
-                 shadow-[0_10px_35px_rgba(73,30,255,.20)]
-                 transition hover:bg-[#5b32ff]"
-        >
-
-          Hablar con Growth Partner
-
-          <ng-icon
-            name="lucideArrowRight"
-            class="ml-2 transition-transform duration-300
-                   group-hover:translate-x-1"
-          />
-
-        </button>
-
-      </div>
-
-    </div>
-
-  </div>
 
 </section>
