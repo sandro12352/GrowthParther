@@ -1,59 +1,165 @@
-# AutomatizacionWeb
+# ShinkIA
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 22.1.7.
+Sitio web corporativo de **ShinkIA**, una empresa especializada en automatización de procesos, integración de herramientas digitales, inteligencia artificial y gestión de clientes.
 
-## Development server
+## Sobre la empresa
 
-To start a local development server, run:
+ShinkIA ayuda a empresas a dejar atrás las tareas repetitivas y desorganizadas mediante sistemas conectados que trabajan automáticamente.
 
-```bash
-ng serve
+La empresa diseña soluciones personalizadas para conectar canales de comunicación, redes sociales, CRM, formularios, calendarios, pagos y herramientas de inteligencia artificial dentro de un mismo ecosistema.
+
+## Problemas que resolvemos
+
+Muchas empresas pierden tiempo y oportunidades debido a:
+
+- Leads que no reciben seguimiento.
+- Mensajes sin responder en WhatsApp o redes sociales.
+- Información distribuida en varias herramientas.
+- Tareas manuales y repetitivas.
+- Procesos comerciales difíciles de medir.
+- Citas y seguimientos olvidados.
+- Herramientas que no se comunican entre sí.
+
+## Nuestras soluciones
+
+### Automatización de procesos
+
+Creamos workflows que ejecutan tareas, notificaciones, seguimientos y acciones comerciales de forma automática.
+
+### Redes sociales y mensajería
+
+Conectamos canales como:
+
+- WhatsApp.
+- Instagram.
+- Facebook Messenger.
+- TikTok.
+- Email.
+- SMS.
+
+Esto permite responder consultas, capturar leads y mantener conversaciones organizadas.
+
+### Inteligencia artificial
+
+Implementamos asistentes y agentes inteligentes para:
+
+- Responder preguntas frecuentes.
+- Atender conversaciones.
+- Calificar prospectos.
+- Derivar oportunidades al equipo correcto.
+- Automatizar tareas de atención y seguimiento.
+
+### CRM y gestión de leads
+
+Centralizamos la información de contactos, clientes y oportunidades para que cada lead tenga un siguiente paso claro.
+
+### Integraciones
+
+Conectamos herramientas como CRM, formularios, calendarios, plataformas de pago, n8n, GoHighLevel y otros servicios mediante APIs y webhooks.
+
+## Propuesta de valor
+
+ShinkIA no se limita a instalar una herramienta. Analiza la forma de trabajar de cada negocio y diseña un sistema adaptado a sus procesos.
+
+El objetivo es que la tecnología permita:
+
+- Ahorrar tiempo.
+- Reducir errores.
+- Mejorar la atención al cliente.
+- Aumentar la velocidad de respuesta.
+- Evitar la pérdida de oportunidades.
+- Obtener información centralizada.
+- Hacer crecer el negocio de manera ordenada.
+
+## Contenido de la página web
+
+La página principal presenta:
+
+1. **Hero principal**: propuesta de valor y llamadas a la acción.
+2. **Canales y herramientas conectadas**: WhatsApp, Instagram, CRM, IA, workflows, pagos y más.
+3. **Sección “Nosotros”**: presentación de ShinkIA y sus áreas de trabajo.
+4. **Mapa de integraciones**: representación visual de cómo se conectan los canales con el CRM y las automatizaciones.
+5. **Servicios de automatización**: ejemplos de procesos que pueden automatizarse.
+6. **Casos y flujos**: ejemplos visuales de workflows implementados.
+7. **Planes o soluciones**: alternativas para diferentes necesidades empresariales.
+8. **Blog**: contenido sobre automatización, IA, CRM, ventas e integraciones.
+9. **Llamadas a la acción**: solicitud de auditoría o reunión.
+
+## Tecnologías utilizadas
+
+- Angular 22.
+- TypeScript.
+- Angular SSR.
+- Tailwind CSS 4.
+- Spartan UI.
+- Lucide Icons.
+- Embla Carousel.
+- Vitest para pruebas.
+- WebP para optimización de imágenes.
+
+## Estructura principal
+
+```text
+src/
+├── app/
+│   ├── features/
+│   │   └── home/
+│   ├── layout/
+│   │   └── main-layout/
+│   └── shared/
+│       ├── header/
+│       └── footer/
+├── index.html
+├── main.ts
+├── main.server.ts
+└── styles.css
+
+public/
+├── banner/
+├── blog/
+├── flujos/
+└── nosotros/
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## Requisitos
 
-## Code scaffolding
+- Node.js.
+- npm.
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## Instalación
 
 ```bash
-ng generate --help
+npm install
 ```
 
-## Building
-
-To build the project run:
+## Servidor de desarrollo
 
 ```bash
-ng build
+npm start
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+La aplicación estará disponible en:
 
-## Running unit tests
+```text
+http://localhost:4200/
+```
 
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+## Compilación para producción
 
 ```bash
-ng test
+npm run build
 ```
 
-## Running end-to-end tests
+Los archivos generados se guardan en la carpeta `dist/`.
 
-For end-to-end (e2e) testing, run:
+## Pruebas
 
 ```bash
-ng e2e
+npm test
 ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+## Objetivo del proyecto
 
-## Additional Resources
+El sitio debe comunicar de forma clara que ShinkIA convierte procesos manuales y herramientas aisladas en sistemas conectados, automáticos y orientados al crecimiento.
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+La experiencia visual utiliza una estética tecnológica, moderna y profesional para transmitir innovación, eficiencia y confianza.

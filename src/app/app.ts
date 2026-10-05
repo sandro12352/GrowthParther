@@ -9,5 +9,5 @@ import { HeaderComponent } from './shared/header/header.component';
   templateUrl: './app.html',
 })
 export class App {
-  protected readonly title = signal('AutomatizacionWeb');
+  protected readonly title = signal('ShinkIA');
 }

@@ -1,3 +1,5 @@
+
+
 <section class="relative min-h-full overflow-visible
            bg-[#130735] text-white ">
 
@@ -39,7 +41,7 @@
                        uppercase
                        tracking-[0.3em]
                        text-[#A99CFF]">
-                Automatización inteligente
+                進化 · Automatización inteligente
             </span>
         </div>
 
@@ -66,7 +68,7 @@
            sm:mt-9 sm:w-auto sm:flex-row sm:items-center sm:gap-4">
 
             <!-- CTA PRINCIPAL -->
-            <a hlmBtn routerLink="/solicitar-reunion" class="inline-flex
+            <a (click)="openMeetingDialog()" class="inline-flex
                w-full
                items-center
                justify-center
@@ -80,6 +82,7 @@
                py-3.5
                text-center
                font-bold
+               hover:cursor-pointer
                text-[#080911]
                shadow-[0_10px_35px_rgba(108,92,231,0.35)]
                transition-all
@@ -185,7 +188,8 @@
 
 
                 <!-- Dashboard -->
-                <img src="/banner/crm-dashboard.png" alt="Dashboard CRM y automatizaciones" class="block h-auto  w-full
+                <img src="/banner/crm-dashboard.webp" alt="Dashboard CRM y automatizaciones" width="1911" height="941"
+                    fetchpriority="high" decoding="async" class="block h-auto  w-full
                            object-contain" />
 
             </div>
@@ -316,7 +320,8 @@
                  ROBOT
             =========================================== -->
 
-    <img src="/banner/banner1.png" alt="IA y automatización" class="pointer-events-none
+    <img src="/banner/banner1.webp" alt="IA y automatización" width="1315" height="1197" fetchpriority="high"
+        decoding="async" class="pointer-events-none
          absolute
          right-[8%]
          top-[40%]
@@ -800,7 +805,8 @@
                 <!-- IMAGEN -->
                 <!-- ================================= -->
 
-                <img src="/nosotros/equipo.png" alt="Equipo de Growth Partner" class="relative z-10
+                <img src="/nosotros/equipo.webp" alt="Equipo de ShinkIA" width="1024" height="1536" loading="lazy"
+                    decoding="async" class="relative z-10
                            h-[360px]
                            w-full
                            rounded-2xl
@@ -870,7 +876,7 @@
 
                     <br />
 
-                    GROWTH
+                    SHINKIA
 
                     <span class="bg-gradient-to-r
                                  from-[#6C5CE7]
@@ -1129,7 +1135,7 @@
                 <div class="mt-8
                             sm:mt-10">
 
-                    <a routerLink="/solicitar-reunion" class="group inline-flex
+                    <a (click)="openMeetingDialog()" class="group inline-flex
                                w-full
                                items-center
                                justify-center
@@ -1287,7 +1293,7 @@
     =================================================== -->
 
     <div class="relative z-10 mx-auto
-               w-full max-w-[80vw]
+               w-full lg:max-w-[80vw]
                px-6 lg:px-10">
 
 
@@ -1360,7 +1366,7 @@
              MAPA DE INTEGRACIONES
         =================================================== -->
 
-        <div class="relative mx-auto
+        <div class="relative mx-auto hidden lg:block
                    mt-20
                    min-h-[650px]
                    max-w-[80vw]">
@@ -1820,6 +1826,104 @@
 
         </div>
 
+        <!-- ==================================================
+             VISTA MÓVIL
+        =================================================== -->
+
+        <div class="mt-12 grid gap-3 sm:grid-cols-2 lg:hidden">
+
+            <div class="sm:col-span-2 flex flex-col items-center justify-center rounded-3xl border border-[#6C5CE7]/50
+                       bg-[#101321] px-6 py-8 text-center shadow-[0_0_50px_rgba(108,92,231,0.22)]">
+                <div class="mb-4 flex size-14 items-center justify-center rounded-2xl
+                           bg-gradient-to-br from-[#6C5CE7] via-[#6C8CFF] to-[#00F2FE]
+                           text-[#080911] shadow-[0_0_30px_rgba(108,92,231,0.4)]">
+                    <ng-icon name="lucideBot" size="29" />
+                </div>
+                <p class="text-xl font-black text-white">CRM + IA</p>
+                <p class="mt-1 text-sm text-white/50">Todo conectado</p>
+            </div>
+
+            <div class="flex min-w-0 items-center gap-3 rounded-2xl border border-white/10 bg-[#111525]/90 px-4 py-4
+                       shadow-[0_15px_40px_rgba(0,0,0,0.25)]">
+                <div
+                    class="flex size-11 shrink-0 items-center justify-center rounded-xl bg-[#25D366]/10 text-[#25D366]">
+                    <ng-icon name="lucideMessageCircle" size="23" />
+                </div>
+                <div class="min-w-0">
+                    <p class="truncate font-bold text-white">WhatsApp</p>
+                    <p class="text-xs text-white/45">Atención automática</p>
+                </div>
+            </div>
+
+            <div class="flex min-w-0 items-center gap-3 rounded-2xl border border-white/10 bg-[#111525]/90 px-4 py-4
+                       shadow-[0_15px_40px_rgba(0,0,0,0.25)]">
+                <div
+                    class="flex size-11 shrink-0 items-center justify-center rounded-xl bg-[#6C5CE7]/15 text-[#A99CFF]">
+                    <ng-icon name="lucideInstagram" size="23" />
+                </div>
+                <div class="min-w-0">
+                    <p class="truncate font-bold text-white">Instagram</p>
+                    <p class="text-xs text-white/45">Captura de leads</p>
+                </div>
+            </div>
+
+            <div class="flex min-w-0 items-center gap-3 rounded-2xl border border-white/10 bg-[#111525]/90 px-4 py-4
+                       shadow-[0_15px_40px_rgba(0,0,0,0.25)]">
+                <div
+                    class="flex size-11 shrink-0 items-center justify-center rounded-xl bg-[#1877F2]/10 text-[#6C8CFF]">
+                    <ng-icon name="lucideFacebook" size="23" />
+                </div>
+                <div class="min-w-0">
+                    <p class="truncate font-bold text-white">Facebook</p>
+                    <p class="text-xs text-white/45">Leads y campañas</p>
+                </div>
+            </div>
+
+            <div class="flex min-w-0 items-center gap-3 rounded-2xl border border-white/10 bg-[#111525]/90 px-4 py-4
+                       shadow-[0_15px_40px_rgba(0,0,0,0.25)]">
+                <div
+                    class="flex size-11 shrink-0 items-center justify-center rounded-xl bg-[#00F2FE]/10 text-[#00F2FE]">
+                    <ng-icon name="lucideMail" size="23" />
+                </div>
+                <div class="min-w-0">
+                    <p class="truncate font-bold text-white">Email</p>
+                    <p class="text-xs text-white/45">Secuencias automáticas</p>
+                </div>
+            </div>
+
+            <div class="flex min-w-0 items-center gap-3 rounded-2xl border border-white/10 bg-[#111525]/90 px-4 py-4
+                       shadow-[0_15px_40px_rgba(0,0,0,0.25)]">
+                <div
+                    class="flex size-11 shrink-0 items-center justify-center rounded-xl bg-[#FF9F43]/10 text-[#FF9F43]">
+                    <ng-icon name="lucideMessageSquare" size="23" />
+                </div>
+                <div class="min-w-0">
+                    <p class="truncate font-bold text-white">SMS</p>
+                    <p class="text-xs text-white/45">Seguimiento</p>
+                </div>
+            </div>
+
+            <div class="flex min-w-0 items-center gap-3 rounded-2xl border border-white/10 bg-[#111525]/90 px-4 py-4
+                       shadow-[0_15px_40px_rgba(0,0,0,0.25)]">
+                <div class="flex size-11 shrink-0 items-center justify-center rounded-xl bg-white/5 text-white">
+                    <ng-icon name="lucideMusic2" size="23" />
+                </div>
+                <div class="min-w-0">
+                    <p class="truncate font-bold text-white">TikTok</p>
+                    <p class="text-xs text-white/45">Captación de prospectos</p>
+                </div>
+            </div>
+
+            <div class="sm:col-span-2 mt-2 flex items-center justify-center gap-3 rounded-full border border-[#6C5CE7]/30
+                       bg-[#111525] px-5 py-3 shadow-[0_15px_50px_rgba(108,92,231,0.25)]">
+                <div class="flex size-9 items-center justify-center rounded-full bg-[#6C5CE7]/15 text-[#A99CFF]">
+                    <ng-icon name="lucideZap" size="18" />
+                </div>
+                <span class="text-sm font-bold text-white">Automatización 24/7</span>
+            </div>
+
+        </div>
+
 
 
 
@@ -1864,7 +1968,7 @@
     <div class="relative z-10
                mx-auto
                flex w-full
-               max-w-[80vw]
+               lg:max-w-[80vw]
                flex-col
                gap-16
                px-6
@@ -2064,7 +2168,7 @@
 
             <div class="mt-9">
 
-                <a routerLink="/solicitar-reunion" class="inline-flex
+                <a (click)="openMeetingDialog()" class="inline-flex
                            items-center
                            gap-3
                            rounded-xl
@@ -2097,7 +2201,7 @@
              COLUMNA DERECHA — WORKFLOW
         ================================================== -->
 
-        <div class="relative
+        <div class="relative hidden lg:flex
                    flex
                    min-h-[560px]
                    w-full
@@ -2484,6 +2588,61 @@
 
         </div>
 
+        <!-- VISTA MÓVIL DEL WORKFLOW -->
+        <div class="grid gap-3 lg:hidden">
+            <div class="flex items-center gap-4 rounded-2xl border border-[#6C5CE7]/20 bg-white p-4
+                       shadow-[0_15px_40px_rgba(8,9,17,0.08)]">
+                <div
+                    class="flex size-11 shrink-0 items-center justify-center rounded-xl bg-[#6C5CE7]/10 text-[#6C5CE7]">
+                    <ng-icon name="lucideUserPlus" size="22" />
+                </div>
+                <div class="min-w-0">
+                    <p class="text-xs font-semibold uppercase tracking-wider text-[#6C5CE7]">Paso 01</p>
+                    <p class="mt-1 font-bold text-[#080911]">Nuevo prospecto</p>
+                    <p class="mt-1 text-xs text-gray-500">WhatsApp · Instagram · Facebook</p>
+                </div>
+            </div>
+
+            <div class="flex items-center gap-4 rounded-2xl border border-[#6C5CE7]/20 bg-[#faf9ff] p-4
+                       shadow-[0_15px_40px_rgba(108,92,231,0.1)]">
+                <div
+                    class="flex size-11 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-[#6C5CE7] to-[#6C8CFF] text-white">
+                    <ng-icon name="lucideBot" size="22" />
+                </div>
+                <div class="min-w-0">
+                    <p class="text-xs font-semibold uppercase tracking-wider text-[#6C5CE7]">Paso 02</p>
+                    <p class="mt-1 font-bold text-[#080911]">IA responde</p>
+                    <p class="mt-1 text-xs text-gray-500">Atiende y entiende la conversación</p>
+                </div>
+            </div>
+
+            <div class="flex items-center gap-4 rounded-2xl border border-[#6C8CFF]/20 bg-white p-4
+                       shadow-[0_15px_40px_rgba(8,9,17,0.08)]">
+                <div
+                    class="flex size-11 shrink-0 items-center justify-center rounded-xl bg-[#6C8CFF]/10 text-[#6C8CFF]">
+                    <ng-icon name="lucideFilter" size="22" />
+                </div>
+                <div class="min-w-0">
+                    <p class="text-xs font-semibold uppercase tracking-wider text-[#6C8CFF]">Paso 03</p>
+                    <p class="mt-1 font-bold text-[#080911]">Calificación automática</p>
+                    <p class="mt-1 text-xs text-gray-500">Identifica oportunidades reales</p>
+                </div>
+            </div>
+
+            <div class="flex items-center gap-4 rounded-2xl border border-[#00F2FE]/20 bg-[#f8feff] p-4
+                       shadow-[0_15px_40px_rgba(0,242,254,0.1)]">
+                <div
+                    class="flex size-11 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-[#6C8CFF] to-[#00F2FE] text-[#080911]">
+                    <ng-icon name="lucideDatabase" size="22" />
+                </div>
+                <div class="min-w-0">
+                    <p class="text-xs font-semibold uppercase tracking-wider text-[#00AFC2]">Paso 04</p>
+                    <p class="mt-1 font-bold text-[#080911]">CRM + seguimiento</p>
+                    <p class="mt-1 text-xs text-gray-500">Todo queda registrado y continúa automáticamente</p>
+                </div>
+            </div>
+        </div>
+
     </div>
 
 
@@ -2585,7 +2744,7 @@
     <div class="relative z-10
                mx-auto
                w-full
-               max-w-[80vw]
+               lg:max-w-[80vw]
                px-6
                lg:px-10">
 
@@ -3401,7 +3560,7 @@
 
             <!-- CTA -->
 
-            <a routerLink="/solicitar-reunion" class="mt-7
+            <a (click)="openMeetingDialog()" class="mt-7
                        inline-flex
                        items-center
                        gap-3
@@ -3437,7 +3596,7 @@
 
 <section class="relative overflow-hidden bg-white py-28 lg:py-36">
 
-    <div class="mx-auto max-w-7xl px-6 lg:px-8">
+    <div class="mx-auto lg:max-w-[80vw] px-6 lg:px-8">
 
         <!-- ================================= -->
         <!-- HEADER -->
@@ -3640,7 +3799,7 @@
 
                             <div class="mt-auto pt-10">
 
-                                <a routerLink="/solicitar-reunion" class="flex h-12 w-full
+                                <a (click)="openMeetingDialog()" class="flex h-12 w-full
                                            items-center
                                            justify-center
                                            rounded-xl
@@ -3845,7 +4004,7 @@
 
                             <div class="mt-auto pt-10">
 
-                                <a routerLink="/solicitar-reunion" class="group/btn flex h-12 w-full
+                                <a (click)="openMeetingDialog()" class="group/btn flex h-12 w-full
                                            items-center
                                            justify-center gap-2
                                            rounded-xl
@@ -4026,7 +4185,7 @@
 
                             <div class="mt-auto pt-10">
 
-                                <a routerLink="/solicitar-reunion" class="flex h-12 w-full
+                                <a (click)="openMeetingDialog()" class="flex h-12 w-full
                                            items-center
                                            justify-center
                                            rounded-xl
@@ -4109,7 +4268,7 @@
                     </div>
 
 
-                    <a routerLink="/solicitar-reunion" class="mt-8 flex h-12 w-full
+                    <a (click)="openMeetingDialog()" class="mt-8 flex h-12 w-full
                                items-center justify-center
                                rounded-xl
                                border border-white/10
@@ -4196,7 +4355,7 @@
                     </div>
 
 
-                    <a routerLink="/solicitar-reunion" class="mt-8 flex h-12 w-full
+                    <a (click)="openMeetingDialog()" class="mt-8 flex h-12 w-full
                                items-center justify-center
                                rounded-xl
                                bg-[#491eff]
@@ -4269,7 +4428,7 @@
                     </div>
 
 
-                    <a routerLink="/solicitar-reunion" class="mt-8 flex h-12 w-full
+                    <a (click)="openMeetingDialog()" class="mt-8 flex h-12 w-full
                                items-center justify-center
                                rounded-xl
                                border border-white/10
@@ -4310,7 +4469,7 @@
                rounded-full bg-[#00F2FE]/5 blur-[130px]"></div>
 
 
-    <div class="relative mx-auto max-w-[80vw] px-6 lg:px-8">
+    <div class="relative mx-auto lg:max-w-[80vw] px-6 lg:px-8">
 
 
         <!-- ================================= -->
@@ -4527,7 +4686,8 @@
                 <div class="relative overflow-hidden
                            bg-[#f7f9fc]">
 
-                    <img src="/flujos/grin.png" alt="Workflow de automatización GRIN" class="block w-full
+                    <img src="/flujos/grin.webp" alt="Workflow de automatización GRIN" width="1919" height="941"
+                        loading="lazy" decoding="async" class="block w-full
                                object-contain
                                transition duration-700
                                group-hover:scale-[1.015]" />
@@ -4577,7 +4737,8 @@
                 <div class="overflow-hidden
                            bg-[#f7f9fc]">
 
-                    <img src="/flujos/opcion.png" alt="Workflow de automatización OPCIÓN" class="block w-full
+                    <img src="/flujos/opcion.webp" alt="Workflow de automatización OPCIÓN" width="1912" height="941"
+                        loading="lazy" decoding="async" class="block w-full
                                object-contain
                                transition duration-700
                                group-hover:scale-[1.015]" />
@@ -4775,7 +4936,8 @@
                 <div class="overflow-hidden
                            bg-[#f7f9fc]">
 
-                    <img src="/flujos/tis.png" alt="Workflow de automatización TIS" class="block w-full
+                    <img src="/flujos/tis.webp" alt="Workflow de automatización TIS" width="1919" height="941"
+                        loading="lazy" decoding="async" class="block w-full
                                object-contain
                                transition duration-700
                                group-hover:scale-[1.015]" />
@@ -4825,7 +4987,8 @@
                 <div class="overflow-hidden
                            bg-[#f7f9fc]">
 
-                    <img src="/flujos/peruvians.png" alt="Workflow de automatización Peruvianst" class="block w-full
+                    <img src="/flujos/peruvians.webp" alt="Workflow de automatización Peruvianst" width="1919"
+                        height="937" loading="lazy" decoding="async" class="block w-full
                                object-contain
                                transition duration-700
                                group-hover:scale-[1.015]" />
@@ -4945,7 +5108,7 @@
                 </div>
 
 
-                <a routerLink="/solicitar-reunion" class="group inline-flex
+                <a (click)="openMeetingDialog()" class="group inline-flex
                            items-center gap-3
                            rounded-xl
                            bg-[#491eff]
@@ -4982,7 +5145,7 @@
            rounded-full bg-[#00F2FE]/5 blur-[130px]"></div>
 
 
-    <div class="relative mx-auto max-w-[80vw] px-6 lg:px-8">
+    <div class="relative mx-auto lg:max-w-[80vw] px-6 lg:px-8">
 
 
         <!-- HEADER -->
@@ -5361,7 +5524,7 @@
                  shadow-[0_10px_35px_rgba(73,30,255,.20)]
                  transition hover:bg-[#5b32ff]">
 
-                    Hablar con Growth Partner
+                    Hablar con ShinkIA
 
                     <ng-icon name="lucideArrowRight" class="ml-2 transition-transform duration-300
                    group-hover:translate-x-1" />
@@ -5393,7 +5556,7 @@
                blur-[130px]"></div>
 
 
-    <div class="mx-auto max-w-[80vw] px-6 lg:px-8">
+    <div class="mx-auto lg:max-w-[80vw] px-6 lg:px-8">
 
         <!-- ========================= -->
         <!-- HEADER -->
@@ -5515,7 +5678,8 @@
                                            overflow-hidden
                                            bg-[#151621]">
 
-                                <img [src]="post.image" [alt]="post.title" class="h-full w-full
+                                <img [src]="post.image" [alt]="post.title" width="1672" height="941" loading="lazy"
+                                    decoding="async" class="h-full w-full
                                                object-cover
                                                transition duration-700
                                                group-hover:scale-[1.05]" />

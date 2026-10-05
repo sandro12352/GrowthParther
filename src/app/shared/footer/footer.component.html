@@ -43,8 +43,8 @@
                 >
 
                     <img
-                        src="./logo2.png"
-                        alt="Growth Partner"
+                        src="/branding/logo-shinkia.webp"
+                        alt="ShinkIA"
                         class="h-14 w-auto object-contain
                                brightness-0 invert
                                transition-transform duration-300
@@ -397,7 +397,7 @@
 
 
                     <a
-                        routerLink="/solicitar-reunion"
+                        (click)="openMeetingDialog()"
                         class="group flex items-center gap-2
                                text-sm text-white/55
                                transition hover:text-white"
@@ -509,7 +509,7 @@
 
                 <a
                     hlmBtn
-                    routerLink="/solicitar-reunion"
+                    (click)="openMeetingDialog()"
                     class="group inline-flex
                            h-12 shrink-0
                            items-center gap-2
@@ -558,7 +558,7 @@
         >
 
             <p class="text-xs text-white/25">
-                © 2026 Growth Partner. Todos los derechos reservados.
+                © 2026 ShinkIA. Todos los derechos reservados.
             </p>
 
 

@@ -1,8 +1,7 @@
 <header class="fixed left-0 top-0 z-50 w-full px-4 pt-8 lg:px-6">
-    <div class="mx-auto flex h-15 max-w-[80vw]
+    <div class="mx-auto flex h-15 lg:max-w-[80vw]
                items-center justify-between
               rounded-2xl
-               border border-black/[0.08]
                bg-white
                 px-4
                shadow-[0_10px_40px_rgba(8,9,17,0.08)]
@@ -17,7 +16,7 @@
 
             <a routerLink="/" class="group flex items-center">
 
-                <img src="./logo2.png" alt="Growth Partner" class="h-14 w-auto
+                <img src="/branding/logo-shinkia.webp" alt="ShinkIA" class="h-14 w-auto
                            object-contain
                            transition-transform duration-300
                            group-hover:scale-[1.02]" />
@@ -495,7 +494,7 @@
                             <p class="mt-1 text-xs
                                            leading-5
                                            text-black/40">
-                                Conoce Growth Partner.
+                                Conoce ShinkIA.
                             </p>
 
                         </a>
@@ -530,12 +529,119 @@
         </nav>
 
 
-        <button type="button" class="flex h-8 w-8 items-center justify-center rounded-lg
-           lg:hidden">
+        <hlm-sheet side="right" class="lg:hidden">
+            <button type="button" hlmSheetTrigger aria-label="Abrir menú de navegación"
+                class="flex h-10 w-10 items-center justify-center rounded-lg border border-black/10
+                       text-[#080911]/75 transition hover:bg-black/[0.035] lg:hidden">
+                <ng-icon name="lucideMenu" size="20" />
+            </button>
 
-            <ng-icon name="lucideMenu" size="20" />
+            <hlm-sheet-content *hlmSheetPortal class="w-[min(88vw,380px)] p-0">
+                <div hlmSheetHeader class="border-b border-border">
+                    <h2 hlmSheetTitle class="text-lg font-bold">Menú de navegación</h2>
+                    <p hlmSheetDescription>
+                        Explora nuestras soluciones de automatización y crecimiento.
+                    </p>
+                </div>
 
-        </button>
+                <nav aria-label="Navegación móvil" class="flex flex-col gap-5 overflow-y-auto px-4 py-5">
+                    <div class="flex flex-col gap-1">
+                        <p class="px-3 pb-2 text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+                            Soluciones
+                        </p>
+                        <button hlmSheetClose routerLink="/automatizacion" type="button"
+                            class="rounded-lg px-3 py-2.5 text-left text-sm font-medium transition hover:bg-accent">
+                            Automatización
+                        </button>
+                        <button hlmSheetClose routerLink="/inteligencia-artificial" type="button"
+                            class="rounded-lg px-3 py-2.5 text-left text-sm font-medium transition hover:bg-accent">
+                            Inteligencia Artificial
+                        </button>
+                        <button hlmSheetClose routerLink="/crm" type="button"
+                            class="rounded-lg px-3 py-2.5 text-left text-sm font-medium transition hover:bg-accent">
+                            CRM
+                        </button>
+                        <button hlmSheetClose routerLink="/integraciones" type="button"
+                            class="rounded-lg px-3 py-2.5 text-left text-sm font-medium transition hover:bg-accent">
+                            Integraciones
+                        </button>
+                    </div>
+
+                    <div class="flex flex-col gap-1">
+                        <p class="px-3 pb-2 text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+                            Automatización
+                        </p>
+                        <button hlmSheetClose routerLink="/automatizacion" type="button"
+                            class="rounded-lg px-3 py-2.5 text-left text-sm font-medium transition hover:bg-accent">
+                            Automatización de procesos
+                        </button>
+                        <button hlmSheetClose routerLink="/ia-para-empresas" type="button"
+                            class="rounded-lg px-3 py-2.5 text-left text-sm font-medium transition hover:bg-accent">
+                            IA para empresas
+                        </button>
+                    </div>
+
+                    <div class="flex flex-col gap-1">
+                        <p class="px-3 pb-2 text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+                            Integraciones
+                        </p>
+                        <button hlmSheetClose routerLink="/integraciones/whatsapp" type="button"
+                            class="rounded-lg px-3 py-2.5 text-left text-sm font-medium transition hover:bg-accent">
+                            WhatsApp
+                        </button>
+                        <button hlmSheetClose routerLink="/integraciones/meta" type="button"
+                            class="rounded-lg px-3 py-2.5 text-left text-sm font-medium transition hover:bg-accent">
+                            Meta: Facebook + Instagram
+                        </button>
+                        <button hlmSheetClose routerLink="/integraciones/n8n" type="button"
+                            class="rounded-lg px-3 py-2.5 text-left text-sm font-medium transition hover:bg-accent">
+                            n8n
+                        </button>
+                        <button hlmSheetClose routerLink="/integraciones/gohighlevel" type="button"
+                            class="rounded-lg px-3 py-2.5 text-left text-sm font-medium transition hover:bg-accent">
+                            GoHighLevel
+                        </button>
+                    </div>
+
+                    <div class="flex flex-col gap-1">
+                        <p class="px-3 pb-2 text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+                            Recursos y empresa
+                        </p>
+                        <button hlmSheetClose routerLink="/blog" type="button"
+                            class="rounded-lg px-3 py-2.5 text-left text-sm font-medium transition hover:bg-accent">
+                            Blog
+                        </button>
+                        <button hlmSheetClose routerLink="/casos-de-exito" type="button"
+                            class="rounded-lg px-3 py-2.5 text-left text-sm font-medium transition hover:bg-accent">
+                            Casos de éxito
+                        </button>
+                        <button hlmSheetClose routerLink="/flujos" type="button"
+                            class="rounded-lg px-3 py-2.5 text-left text-sm font-medium transition hover:bg-accent">
+                            Flujos automáticos
+                        </button>
+                        <button hlmSheetClose routerLink="/nosotros" type="button"
+                            class="rounded-lg px-3 py-2.5 text-left text-sm font-medium transition hover:bg-accent">
+                            Nosotros
+                        </button>
+                        <button hlmSheetClose routerLink="/contacto" type="button"
+                            class="rounded-lg px-3 py-2.5 text-left text-sm font-medium transition hover:bg-accent">
+                            Contacto
+                        </button>
+                    </div>
+                </nav>
+
+                <div class="mt-auto flex flex-col gap-2 border-t border-border p-4">
+                    <button hlmSheetClose routerLink="/login" type="button"
+                        class="rounded-lg border border-border px-4 py-2.5 text-sm font-semibold transition hover:bg-accent">
+                        Iniciar sesión
+                    </button>
+                    <button hlmSheetClose (click)="openMeetingDialog()" type="button"
+                        class="rounded-lg bg-primary px-4 py-2.5 text-sm font-semibold text-primary-foreground transition hover:opacity-90">
+                        Solicitar reunión
+                    </button>
+                </div>
+            </hlm-sheet-content>
+        </hlm-sheet>
 
 
         <!-- ================================= -->
@@ -547,7 +653,7 @@
 
             <!-- LOGIN -->
 
-            <a routerLink="/login" aria-label="Iniciar sesión" title="Iniciar sesión" class="group flex h-11 w-11
+            <!-- <a routerLink="/login" aria-label="Iniciar sesión" title="Iniciar sesión" class="group flex h-11 w-11
                        items-center justify-center
                        rounded-xl
                        border border-black/10
@@ -560,17 +666,18 @@
 
                 <ng-icon name="lucideUserRound" size="20" />
 
-            </a>
+            </a> -->
 
 
             <!-- CTA -->
 
-            <a hlmBtn routerLink="/solicitar-reunion" class="group relative
+            <a hlmBtn (click)="openMeetingDialog()" class="group relative
                        inline-flex
                        h-11
                        items-center
                        gap-2
                        overflow-hidden
+                       hover:cursor-pointer
                        rounded-xl
                        bg-[#491eff]
                        px-5
@@ -578,7 +685,7 @@
                        font-bold
                        text-white
                        shadow-[0_8px_25px_rgba(73,30,255,0.20)]
-                       transition-all duration-300
+                       transition-transform duration-300
                        hover:-translate-y-0.5
                        hover:bg-[#5b32ff]
                        hover:shadow-[0_10px_30px_rgba(73,30,255,0.30)]">

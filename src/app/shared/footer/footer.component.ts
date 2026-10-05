@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { NgIcon, provideIcons } from '@ng-icons/core';
 import { lucideArrowUpRight, lucideInstagram, lucideFacebook, lucideLinkedin, lucideMessageCircle } from '@ng-icons/lucide';
+import { MeetingDialogService } from '../components/services/meeting-dialog.service';
 
 @Component({
   imports: [NgIcon],
@@ -15,4 +16,10 @@ import { lucideArrowUpRight, lucideInstagram, lucideFacebook, lucideLinkedin, lu
   styleUrl: './footer.component.css',
   templateUrl: './footer.component.html',
 })
-export class FooterComponent {}
+export class FooterComponent {
+  private readonly meetingDialogService = inject(MeetingDialogService);
+
+  public openMeetingDialog(): void {
+    this.meetingDialogService.requestOpen();
+  }
+}

@@ -7,7 +7,7 @@
   },
   "newProjectRoot": "projects",
   "projects": {
-    "AutomatizacionWeb": {
+    "ShinkIA": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -74,10 +74,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "AutomatizacionWeb:build:production"
+                "buildTarget": "ShinkIA:build:production"
             },
             "development": {
-              "buildTarget": "AutomatizacionWeb:build:development"
+                "buildTarget": "ShinkIA:build:development"
             }
           },
           "defaultConfiguration": "development"
