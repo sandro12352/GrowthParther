@@ -1,0 +1,55 @@
+:host {
+  display: block;
+}
+
+/* Por defecto (móvil, tablet, reduced-motion, SSR): casos apilados y sin progreso. */
+.wf-progress {
+  display: none;
+}
+
+.wf-bar {
+  transform: scaleX(var(--p, 0));
+}
+
+/* Desktop con GSAP: la clase la añade el componente desde matchMedia. */
+.wf.is-pinned .wf-pin {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100vh;
+  margin-top: 0;
+  padding-top: 7rem;
+  padding-bottom: 2rem;
+}
+
+.wf.is-pinned .wf-progress {
+  display: flex;
+}
+
+.wf.is-pinned .wf-viewport {
+  overflow-x: clip;
+}
+
+.wf.is-pinned .wf-track {
+  display: flex;
+  gap: 0;
+  width: calc(100% * var(--n));
+}
+
+.wf.is-pinned .wf-panel {
+  flex: 0 0 calc(100% / var(--n));
+  padding-inline: 0.5rem;
+  opacity: 0.25;
+  transition: opacity 0.4s ease;
+}
+
+.wf.is-pinned .wf-panel.is-active {
+  opacity: 1;
+}
+
+/* Que la captura nunca supere la altura visible mientras está anclada. */
+.wf.is-pinned .wf-shot img {
+  width: auto;
+  max-height: 52vh;
+  margin-inline: auto;
+}

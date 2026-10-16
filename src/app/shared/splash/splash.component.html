@@ -1,0 +1,7 @@
+<div #overlay class="splash fixed inset-0 z-[100] flex items-center justify-center bg-white" aria-hidden="true">
+    <p #word class="flex items-center text-4xl font-extrabold tracking-tight sm:text-6xl">
+        @for (letter of letters; track $index) {
+        <span class="ch" [class]="$index >= 5 ? 'text-[#491eff]' : 'text-[#130735]'">{{ letter }}</span>
+        }
+    </p>
+</div>

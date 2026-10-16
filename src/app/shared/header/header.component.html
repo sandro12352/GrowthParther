@@ -1,4 +1,4 @@
-<header class="fixed left-0 top-0 z-50 w-full px-4 pt-8 lg:px-6">
+<header class="fixed left-0 top-0 z-50 w-full px-4 transition-[padding] duration-300 lg:px-6" [class]="scrolled() ? 'pt-3' : 'pt-8'">
     <div class="mx-auto flex h-15 lg:max-w-[80vw]
                items-center justify-between
               rounded-2xl
@@ -671,7 +671,7 @@
 
             <!-- CTA -->
 
-            <a hlmBtn (click)="openMeetingDialog()" class="group relative
+            <a hlmBtn (click)="openMeetingDialog()" class="btn-fx [--fx:#080911] group relative
                        inline-flex
                        h-11
                        items-center

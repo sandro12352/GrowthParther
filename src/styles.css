@@ -91,3 +91,80 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* Evita que la página siga desplazándose detrás de un <dialog> modal abierto. */
+html:has(dialog[open]) {
+  overflow: hidden;
+}
+
+/* ---------- Botones: relleno que sube al hacer hover + flecha que se "reemplaza" ----------
+   Uso: class="btn-fx [--fx:#080911]" (color del relleno) y class="btn-arrow" en el icono de la flecha.
+   Si el texto debe cambiar de color sobre el relleno, añadir `hover:text-white` (o similar). */
+.btn-fx {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.btn-fx::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: var(--fx, #080911);
+  border-radius: inherit;
+  transform: translateY(101%);
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.btn-fx:hover::before,
+.btn-fx:focus-visible::before {
+  transform: translateY(0);
+}
+
+.btn-fx:hover .btn-arrow,
+.btn-fx:focus-visible .btn-arrow {
+  animation: btn-arrow-swap 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@keyframes btn-arrow-swap {
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  45% {
+    transform: translateX(130%);
+    opacity: 0;
+  }
+  46% {
+    transform: translateX(-130%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn-fx::before {
+    transition: none;
+  }
+
+  .btn-fx:hover .btn-arrow,
+  .btn-fx:focus-visible .btn-arrow {
+    animation: none;
+  }
+}
+
+/* ---------- Pantalla de carga ---------- */
+/* Ya vista en esta sesión, o sin animaciones: no se muestra. */
+html.no-splash app-splash {
+  display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  app-splash {
+    display: none;
+  }
+}

@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, DestroyRef, afterNextRender, inject, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { NgIcon, provideIcons } from '@ng-icons/core';
 import { lucideCircle, lucideInfo,lucideCalendar,lucideUserRound, lucideArrowUpRight, lucideWorkflow, lucideSparkles, lucideDatabase, lucideLink, lucideBot, lucideMenu } from '@ng-icons/lucide';
@@ -27,6 +27,19 @@ import { MeetingDialogService } from '../components/services/meeting-dialog.serv
 })
 export class HeaderComponent {
   private readonly meetingDialogService = inject(MeetingDialogService);
+  private readonly destroyRef = inject(DestroyRef);
+
+  /** true cuando la página ya bajó: el header se acerca al borde superior. */
+  public readonly scrolled = signal(false);
+
+  constructor() {
+    afterNextRender(() => {
+      const update = () => this.scrolled.set(window.scrollY > 40);
+      update();
+      window.addEventListener('scroll', update, { passive: true });
+      this.destroyRef.onDestroy(() => window.removeEventListener('scroll', update));
+    });
+  }
 
   public openMeetingDialog(): void {
     this.meetingDialogService.requestOpen();

@@ -64,10 +64,20 @@
 
 
 .animate-float3{
-    animation: float1 5s ease-out infinite
+    animation: float3 5s ease-out infinite;
 }
 
 
 .animate-float4{
-    animation: float1 5s ease-out infinite
+    animation: float4 5s ease-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .animate-floating,
+    .animate-float1,
+    .animate-float2,
+    .animate-float3,
+    .animate-float4 {
+        animation: none;
+    }
 }

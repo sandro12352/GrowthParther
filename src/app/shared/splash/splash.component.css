@@ -1,0 +1,17 @@
+/* Cada letra empieza invisible (así no hay parpadeo antes de que arranque la animación). */
+.ch {
+  display: inline-block;
+  opacity: 0;
+}
+
+/* Red de seguridad: si el JS nunca llega a ejecutarse, la cortina se retira sola a los 5 s. */
+.splash {
+  animation: splash-failsafe 0s linear 5s forwards;
+}
+
+@keyframes splash-failsafe {
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}

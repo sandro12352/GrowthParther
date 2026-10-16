@@ -8,11 +8,11 @@
         <!-- GLows -->
 
         <div
-            class="absolute -left-32 top-1/3 h-[280px] w-[280px] rounded-full bg-[#6C5CE7]/20 blur-[100px] sm:-left-40 sm:h-[400px] sm:w-[400px] lg:h-[500px] lg:w-[500px]">
+            class="absolute -left-32 top-1/3 h-[280px] w-[280px] rounded-full bg-[#6C5CE7]/15 blur-[100px] sm:-left-40 sm:h-[400px] sm:w-[400px] lg:h-[500px] lg:w-[500px]">
         </div>
 
         <div
-            class="absolute -right-32 top-1/3 h-[280px] w-[280px] rounded-full bg-[#00F2FE]/10 blur-[100px] sm:-right-40 sm:h-[400px] sm:w-[400px] lg:h-[500px] lg:w-[500px]">
+            class="absolute -right-32 top-1/3 h-[280px] w-[280px] rounded-full bg-[#00F2FE]/[0.06] blur-[100px] sm:-right-40 sm:h-[400px] sm:w-[400px] lg:h-[500px] lg:w-[500px]">
         </div>
 
 
@@ -39,23 +39,24 @@
                    px-4 py-2">
             <span class="text-xs font-semibold
                        uppercase
-                       tracking-[0.3em]
-                       text-[#A99CFF]">
+                       tracking-[0.2em]
+                       text-[#B9AFFF]">
                 進化 · Automatización inteligente
             </span>
         </div>
 
         <!-- ================================================== TÍTULO =================================================== -->
-        <h2
-            class="text-center text-[2.2rem] font-black leading-[1.05] tracking-tight sm:text-5xl md:text-6xl lg:text-7xl">
-            CONECTAMOS TU NEGOCIO. <br /> <span
-                class="bg-gradient-to-r from-[#6C5CE7] via-[#6C8CFF] to-[#00F2FE] bg-clip-text text-transparent">
+        <h1
+            class="max-w-5xl text-balance text-center text-[2.2rem] font-extrabold leading-[1.05] tracking-tight sm:text-5xl md:text-6xl lg:text-[4rem]">
+            <span class="block">CONECTAMOS TU NEGOCIO.</span>
+            <span
+                class="block bg-gradient-to-r from-[#8f82ff] via-[#6C8CFF] to-[#00F2FE] bg-clip-text text-transparent">
                 AUTOMATIZAMOS EL RESTO. </span>
 
-        </h2>
+        </h1>
         <!-- ================================================== SUBTÍTULO =================================================== -->
         <p
-            class="mt-5 w-full max-w-2xl text-center text-sm leading-6 text-white/60 sm:mt-7 sm:text-base sm:leading-7 md:text-lg">
+            class="mt-5 w-full max-w-2xl text-center text-sm leading-6 text-white/75 sm:mt-7 sm:text-base sm:leading-7 md:text-lg">
             Diseñamos flujos personalizados que conectan tus canales, CRM, inteligencia artificial y procesos para que
             tu equipo deje de hacer tareas repetitivas. </p>
 
@@ -68,7 +69,7 @@
            sm:mt-9 sm:w-auto sm:flex-row sm:items-center sm:gap-4">
 
             <!-- CTA PRINCIPAL -->
-            <a (click)="openMeetingDialog()" class="inline-flex
+            <button type="button" (click)="openMeetingDialog()" class="btn-fx [--fx:#080911] hover:text-white inline-flex
                w-full
                items-center
                justify-center
@@ -97,13 +98,13 @@
                     Solicitar Auditoría
                 </span>
 
-                <ng-icon name="lucideArrowRight" size="19" />
+                <ng-icon class="btn-arrow" name="lucideArrowRight" size="19" />
 
-            </a>
+            </button>
 
 
             <!-- CTA SECUNDARIO -->
-            <a routerLink="/soluciones" class="inline-flex
+            <a routerLink="/soluciones" class="btn-fx [--fx:#6C5CE7] inline-flex
                w-full
                items-center
                justify-center
@@ -143,7 +144,7 @@
 
             <!-- Glow central -->
             <div
-                class="absolute bottom-0 left-1/2 h-[180px] w-[90%] -translate-x-1/2 rounded-full bg-[#6C5CE7]/20 blur-[80px] sm:h-[250px] sm:w-[600px] lg:h-[300px] lg:w-[700px] lg:blur-[100px]">
+                class="absolute bottom-0 left-1/2 h-[180px] w-[90%] -translate-x-1/2 rounded-full bg-[#6C5CE7]/15 blur-[80px] sm:h-[250px] sm:w-[600px] lg:h-[300px] lg:w-[700px] lg:blur-[100px]">
             </div>
 
 
@@ -229,8 +230,8 @@
                         IA responde
                     </p>
 
-                    <p class="text-[11px]
-                               text-white/50">
+                    <p class="text-xs
+                               text-white/70">
                         Flujo automático
                     </p>
                 </div>
@@ -270,8 +271,8 @@
                         Workflow activo
                     </p>
 
-                    <p class="text-[11px]
-                               text-white/50">
+                    <p class="text-xs
+                               text-white/70">
                         Ejecutando acciones
                     </p>
                 </div>
@@ -297,22 +298,6 @@
 
         </div>
 
-
-        <!-- ==================================================
-             TEXTO INFERIOR
-        =================================================== -->
-
-        <div class="mt-2
-                   flex flex-wrap
-                   items-center
-                   justify-center
-                   gap-x-5 gap-y-2
-                   text-xs
-                   uppercase
-                   tracking-[0.25em]
-                   text-white/35">
-        </div>
-
     </div>
 
 
@@ -320,7 +305,7 @@
                  ROBOT
             =========================================== -->
 
-    <img src="/banner/banner1.webp" alt="IA y automatización" width="1315" height="1197" fetchpriority="high"
+    <img src="/banner/banner1.webp" alt="" aria-hidden="true" width="1315" height="1197" fetchpriority="high"
         decoding="async" class="pointer-events-none
          absolute
          right-[8%]
@@ -343,7 +328,7 @@
     <!-- =========================
          HEADER
     ========================== -->
-    <div class="mx-auto mb-14 px-6 text-center">
+    <div appReveal revealStagger class="mx-auto mb-14 px-6 text-center">
 
         <span class="mb-4 inline-block text-xs
                    font-semibold uppercase
@@ -381,7 +366,7 @@
     <!-- =========================
          CARRUSEL
     ========================== -->
-    <div class="relative">
+    <div appReveal="fade" class="relative">
 
         <!-- Glow lateral -->
         <div class="pointer-events-none absolute
@@ -471,7 +456,7 @@
     <!-- =========================
          CENTRO / MENSAJE
     ========================== -->
-    <div class="mx-auto mt-14 flex
+    <div appReveal revealStagger class="mx-auto mt-14 flex
                flex-wrap items-center
                justify-center gap-x-6
                gap-y-3 px-6">
@@ -590,7 +575,7 @@
             <!-- IMAGEN EQUIPO -->
             <!-- ================================= -->
 
-            <div class="relative w-full">
+            <div appReveal="scale" class="relative w-full">
 
 
                 <!-- GLOW -->
@@ -827,7 +812,7 @@
             <!-- CONTENIDO -->
             <!-- ================================= -->
 
-            <div class="w-full">
+            <div appReveal revealStagger class="w-full">
 
 
                 <!-- TAG -->
@@ -958,7 +943,7 @@
                 <!-- AREAS -->
                 <!-- ================================= -->
 
-                <div class="grid
+                <div appReveal revealStagger class="grid
                             gap-5
                             sm:grid-cols-2">
 
@@ -1135,7 +1120,7 @@
                 <div class="mt-8
                             sm:mt-10">
 
-                    <a (click)="openMeetingDialog()" class="group inline-flex
+                    <a (click)="openMeetingDialog()" class="btn-fx [--fx:#080911] group inline-flex
                                w-full
                                items-center
                                justify-center
@@ -1158,7 +1143,7 @@
                             Conoce más sobre nosotros
                         </span>
 
-                        <ng-icon name="lucideArrowRight" size="18" class="transition-transform
+                        <ng-icon name="lucideArrowRight" size="18" class="btn-arrow transition-transform
                                    duration-300
                                    group-hover:translate-x-1">
                         </ng-icon>
@@ -1176,7 +1161,7 @@
         <!-- BOTTOM PHRASE -->
         <!-- ================================= -->
 
-        <div class="mt-14
+        <div appReveal class="mt-14
                     border-t
                     border-black/10
                     pt-8
@@ -1254,7 +1239,7 @@
          LÍNEAS DECORATIVAS
     =================================================== -->
 
-    <svg class="pointer-events-none absolute inset-0
+    <svg appDrawPaths class="pointer-events-none absolute inset-0
                h-full w-full opacity-30" viewBox="0 0 1600 1000" fill="none" xmlns="http://www.w3.org/2000/svg">
 
         <path d="M-100 300
@@ -1301,7 +1286,7 @@
              ENCABEZADO
         =================================================== -->
 
-        <div class="mx-auto  text-center">
+        <div appReveal revealStagger class="mx-auto  text-center">
 
             <!-- TAG -->
 
@@ -1366,7 +1351,7 @@
              MAPA DE INTEGRACIONES
         =================================================== -->
 
-        <div class="relative mx-auto hidden lg:block
+        <div appReveal="scale" class="relative mx-auto hidden lg:block
                    mt-20
                    min-h-[650px]
                    max-w-[80vw]">
@@ -1376,45 +1361,45 @@
                  LÍNEAS DE CONEXIÓN
             =================================================== -->
 
-            <svg class="pointer-events-none absolute
+            <svg appDrawPaths="fade" class="pointer-events-none absolute
                        inset-0 z-5
                        h-full w-full" viewBox="0 0 1050 650" fill="none" xmlns="http://www.w3.org/2000/svg">
 
                 <!-- WhatsApp → CRM -->
 
                 <path d="M80 70
-                       C380 130 400 270 525 325" stroke="url(#lineGradient)" stroke-width="2" stroke-dasharray="6 7" />
+                       C380 130 400 270 525 325" stroke="url(#lineGradient)" stroke-width="2" />
 
                 <!-- Instagram → CRM -->
 
                 <path d="M1000 70
-                       C670 130 650 270 525 325" stroke="url(#lineGradient)" stroke-width="2" stroke-dasharray="6 7" />
+                       C670 130 650 270 525 325" stroke="url(#lineGradient)" stroke-width="2" />
 
                 <!-- Facebook → CRM -->
 
                 <path d="M2 325
                     C250 425 330 325 430 325" stroke="url(#lineGradient)" stroke-width="3" stroke-linecap="round"
-                    stroke-dasharray="7 8" opacity="0.9" />
+                    opacity="0.9" />
 
                 <!-- Email → CRM -->
 
                 <path d="M1020 320
                     C800 425 720 325 620 325" stroke="url(#lineGradient)" stroke-width="3" stroke-linecap="round"
-                    stroke-dasharray="7 8" opacity="0.9" />
+                    opacity="0.9" />
 
                 <!-- SMS → CRM (Abajo a la derecha) -->
                 <path d="M1006 540
-                       C670 520 650 390 525 325" stroke="url(#lineGradient)" stroke-width="2" stroke-dasharray="6 7" />
+                       C670 520 650 390 525 325" stroke="url(#lineGradient)" stroke-width="2" />
 
                 <!-- TikTok → CRM -->
 
                 <path d="M100 580
-                       C380 520 400 390 525 325" stroke="url(#lineGradient)" stroke-width="2" stroke-dasharray="6 7" />
+                       C380 520 400 390 525 325" stroke="url(#lineGradient)" stroke-width="2" />
 
                 <!-- CRM → automatización -->
 
                 <path d="M522 430
-                       L525 580" stroke="url(#lineGradient)" stroke-width="2" stroke-dasharray="6 7" />
+                       L525 580" stroke="url(#lineGradient)" stroke-width="2" />
 
                 <defs>
 
@@ -1981,7 +1966,7 @@
              COLUMNA IZQUIERDA
         ================================================== -->
 
-        <div class="w-full lg:w-[43%]">
+        <div appReveal="left" revealStagger class="w-full lg:w-[43%]">
 
             <!-- TAG -->
 
@@ -2168,7 +2153,7 @@
 
             <div class="mt-9">
 
-                <a (click)="openMeetingDialog()" class="inline-flex
+                <a (click)="openMeetingDialog()" class="btn-fx [--fx:#080911] inline-flex
                            items-center
                            gap-3
                            rounded-xl
@@ -2188,7 +2173,7 @@
                         Diseñar mi sistema
                     </span>
 
-                    <ng-icon name="lucideArrowRight" size="19" />
+                    <ng-icon class="btn-arrow" name="lucideArrowRight" size="19" />
 
                 </a>
 
@@ -2201,7 +2186,7 @@
              COLUMNA DERECHA — WORKFLOW
         ================================================== -->
 
-        <div class="relative hidden lg:flex
+        <div appReveal="scale" class="relative hidden lg:flex
                    flex
                    min-h-[560px]
                    w-full
@@ -2691,7 +2676,7 @@
          LÍNEAS DECORATIVAS
     ====================================================== -->
 
-    <svg class="pointer-events-none absolute
+    <svg appDrawPaths class="pointer-events-none absolute
                inset-0
                h-full
                w-full
@@ -2752,7 +2737,7 @@
              HEADER
         ================================================== -->
 
-        <div class="mx-auto
+        <div appReveal revealStagger class="mx-auto
                    max-w-3xl
                    text-center">
 
@@ -2824,7 +2809,7 @@
              TAREAS
         ================================================== -->
 
-        <div class="mx-auto
+        <div appReveal revealStagger class="mx-auto
                    mt-16
                    grid
                    max-w-[80vw]
@@ -3560,7 +3545,7 @@
 
             <!-- CTA -->
 
-            <a (click)="openMeetingDialog()" class="mt-7
+            <a (click)="openMeetingDialog()" class="btn-fx [--fx:#080911] hover:text-white mt-7
                        inline-flex
                        items-center
                        gap-3
@@ -3584,7 +3569,7 @@
                     Quiero automatizar esto
                 </span>
 
-                <ng-icon name="lucideArrowRight" size="19" />
+                <ng-icon class="btn-arrow" name="lucideArrowRight" size="19" />
 
             </a>
 
@@ -3596,1544 +3581,138 @@
 
 <section class="relative overflow-hidden bg-white py-28 lg:py-36">
 
-    <div class="mx-auto lg:max-w-[80vw] px-6 lg:px-8">
+    <div class="mx-auto px-6 lg:max-w-[80vw] lg:px-8">
 
-        <!-- ================================= -->
         <!-- HEADER -->
-        <!-- ================================= -->
+        <div appReveal revealStagger class="mx-auto max-w-4xl text-center">
 
-        <div class="mx-auto max-w-4xl text-center">
-
-            <span class="inline-flex items-center gap-2
-                       text-xs font-semibold uppercase
-                       tracking-[0.2em] text-[#6C5CE7]">
-                <span class="h-1.5 w-1.5 rounded-full
-                           bg-[#6C5CE7]"></span>
-
+            <span class="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-[#6C5CE7]">
+                <span class="h-1.5 w-1.5 rounded-full bg-[#6C5CE7]"></span>
                 Planes y precios
             </span>
 
-
-            <h2 class="mt-5 text-4xl font-bold
-                       leading-[1.05]
-                       tracking-tight
-                       text-[#080911]
-                       md:text-5xl
-                       lg:text-6xl">
+            <h2 class="mt-5 text-4xl font-bold leading-[1.05] tracking-tight text-[#080911] md:text-5xl lg:text-6xl">
                 AUTOMATIZA TU NEGOCIO.
                 <br />
-
-                <span class="bg-gradient-to-r
-                           from-[#6C5CE7]
-                           via-[#6C8CFF]
-                           to-[#00F2FE]
-                           bg-clip-text
-                           text-transparent">
+                <span class="bg-gradient-to-r from-[#6C5CE7] via-[#6C8CFF] to-[#00F2FE] bg-clip-text text-transparent">
                     ELIGE TU PLAN.
                 </span>
             </h2>
 
-
-            <p class="mx-auto mt-6 max-w-2xl
-                       text-base leading-7
-                       text-black/45
-                       md:text-lg">
-                Elige el periodo que mejor se adapte a tu negocio
-                y empieza a construir un sistema de automatización
-                pensado para crecer contigo.
+            <p class="mx-auto mt-6 max-w-2xl text-base leading-7 text-black/65 md:text-lg">
+                Una implementación única y una mensualidad según el volumen de conversaciones de tu negocio.
             </p>
 
         </div>
 
+        <!-- PLANES -->
+        <div appReveal="fan" revealStagger class="mt-20 grid items-stretch gap-8 lg:mt-24 lg:grid-cols-3 lg:gap-6">
 
-        <!-- ================================= -->
-        <!-- PRICING -->
-        <!-- ================================= -->
+            @for (plan of plans; track plan.id) {
 
-        <div class="relative mt-24">
+            <article class="group relative flex transition-all duration-500 lg:hover:z-20 lg:hover:-translate-y-3 lg:hover:rotate-0"
+                [class]="plan.tilt">
 
+                <!-- Marco (borde / gradiente) -->
+                <div class="flex w-full rounded-[28px] p-px" [class]="plan.theme.frame">
 
-            <!-- DESKTOP -->
-            <div class="hidden lg:grid
-                       lg:grid-cols-3
-                       lg:items-center
-                       lg:gap-4">
+                    <div class="relative flex w-full flex-col overflow-hidden rounded-[27px] p-7" [class]="plan.theme.card">
 
-
-                <!-- ================================= -->
-                <!-- PLAN MENSUAL -->
-                <!-- ================================= -->
-
-                <div class="group relative z-10
-                           -rotate-[7deg]
-                           transition-all duration-500
-                           hover:z-50
-                           hover:-translate-y-5
-                           hover:rotate-0">
-
-                    <div class="relative flex min-h-[500px]
-                               flex-col overflow-hidden
-                               rounded-[28px]
-                               border border-white/10
-                               bg-[#080911]
-                               p-7
-                               shadow-[0_25px_70px_rgba(8,9,17,0.18)]">
-
-                        <!-- Glow -->
-
-                        <div class="absolute -right-20 -top-20
-                                   h-48 w-48 rounded-full
-                                   bg-[#6C5CE7]/30
-                                   blur-[70px]"></div>
-
+                        <div class="pointer-events-none absolute -right-20 -top-20 h-52 w-52 rounded-full blur-[70px]"
+                            [class]="plan.theme.glow"></div>
 
                         <div class="relative flex h-full flex-col">
 
                             <!-- TOP -->
-
-                            <div class="flex items-center
-                                       justify-between">
-
-                                <span class="text-xs font-medium
-                                           tracking-widest
-                                           text-white/30">
-                                    01
+                            <div class="flex items-center justify-between">
+                                <span class="text-xs font-semibold uppercase tracking-[0.2em]" [class]="plan.theme.eyebrow">
+                                    Plan {{ plan.number }}
                                 </span>
-
-
-                                <span class="rounded-full
-                                           border border-white/10
-                                           bg-white/5
-                                           px-3 py-1
-                                           text-[10px]
-                                           uppercase
-                                           tracking-wider
-                                           text-white/40">
-                                    Flexible
+                                <span class="rounded-full px-3 py-1 text-xs font-bold" [class]="plan.theme.badge">
+                                    {{ plan.badge }}
                                 </span>
-
                             </div>
 
-
-                            <!-- TITLE -->
-
-                            <h3 class="mt-8 text-3xl
-                                       font-black
-                                       tracking-tight
-                                       text-white">
-                                Plan Mensual
+                            <!-- TITULO -->
+                            <h3 class="mt-6 text-3xl font-black tracking-tight" [class]="plan.theme.title">
+                                {{ plan.name }}
                             </h3>
 
-
-                            <!-- PRICE -->
-
-                            <div class="mt-7 flex items-end gap-2">
-
-                                <span class="text-5xl
-                                           font-black
-                                           tracking-tight
-                                           text-white">
-                                    $297
-                                </span>
-
-                                <span class="pb-2 text-sm
-                                           text-white/35">
-                                    por mes
-                                </span>
-
-                            </div>
-
-
-                            <p class="mt-3 text-sm
-                                       text-white/40">
-                                Sin compromiso de permanencia
+                            <p class="mt-2 text-sm" [class]="plan.theme.text">
+                                {{ plan.tagline }}
                             </p>
 
+                            <!-- PRECIOS -->
+                            <div class="mt-7 rounded-2xl border p-5" [class]="plan.theme.priceBox">
 
-                            <!-- DIVIDER -->
+                                <span class="block text-4xl font-black tracking-tight" [class]="plan.theme.setup">
+                                    US$ {{ plan.setup }}
+                                </span>
+                                <p class="mt-1 text-sm" [class]="plan.theme.text">Implementación única</p>
 
-                            <div class="my-8 h-px
-                                       bg-white/10"></div>
+                                <div class="my-4 h-px" [class]="plan.theme.divider"></div>
 
-
-                            <!-- FEATURES -->
-
-                            <div class="space-y-4">
-
-                                <div class="flex items-center
-                                           gap-3 text-sm
-                                           text-white/65">
-                                    <span class="h-1.5 w-1.5
-                                               rounded-full
-                                               bg-[#6C5CE7]"></span>
-
-                                    Automatización personalizada
+                                <div class="flex items-baseline gap-2">
+                                    <span class="text-4xl font-black tracking-tight" [class]="plan.theme.monthly">
+                                        US$ {{ plan.monthly }}
+                                    </span>
+                                    <span class="text-sm" [class]="plan.theme.text">/ mes</span>
                                 </div>
-
-
-                                <div class="flex items-center
-                                           gap-3 text-sm
-                                           text-white/65">
-                                    <span class="h-1.5 w-1.5
-                                               rounded-full
-                                               bg-[#6C8CFF]"></span>
-
-                                    CRM + Workflows
-                                </div>
-
-
-                                <div class="flex items-center
-                                           gap-3 text-sm
-                                           text-white/65">
-                                    <span class="h-1.5 w-1.5
-                                               rounded-full
-                                               bg-[#00F2FE]"></span>
-
-                                    Integraciones
-                                </div>
+                                <p class="mt-1 text-sm" [class]="plan.theme.text">Mensualidad · {{ plan.conversations }}</p>
 
                             </div>
 
+                            <!-- INCLUYE -->
+                            <h4 class="mt-8 text-sm font-bold" [class]="plan.theme.title">{{ plan.includesTitle }}</h4>
+
+                            <ul class="mt-4 space-y-3">
+                                @for (feature of plan.features; track feature.title) {
+                                <li class="flex items-start gap-3 text-sm" [class]="plan.theme.text">
+                                    <ng-icon name="lucideCheck" size="16" class="mt-0.5 shrink-0" [class]="plan.theme.check" />
+                                    <span>
+                                        <span class="font-semibold" [class]="plan.theme.title">{{ feature.title }}</span>
+                                        @if (feature.detail) {
+                                        <span class="opacity-80"> · {{ feature.detail }}</span>
+                                        }
+                                    </span>
+                                </li>
+                                }
+                            </ul>
+
+                            <!-- IDEAL PARA -->
+                            <div class="mt-8 rounded-xl border-l-4 px-4 py-3 text-sm" [class]="plan.theme.ideal">
+                                <span class="font-bold">Ideal para</span> {{ plan.idealFor }}
+                            </div>
 
                             <!-- CTA -->
-
-                            <div class="mt-auto pt-10">
-
-                                <a (click)="openMeetingDialog()" class="flex h-12 w-full
-                                           items-center
-                                           justify-center
-                                           rounded-xl
-                                           border border-white/10
-                                           bg-white/[0.03]
-                                           text-sm font-bold
-                                           text-white
-                                           transition
-                                           hover:border-[#6C5CE7]/40
-                                           hover:bg-[#6C5CE7]/10">
+                            <div class="mt-auto pt-8">
+                                <button type="button" (click)="openMeetingDialog()"
+                                    class="flex h-12 w-full items-center justify-center gap-2 rounded-xl text-sm font-bold transition hover:cursor-pointer"
+                                    [class]="plan.theme.button">
                                     Elegir plan
-                                </a>
-
+                                    <ng-icon class="btn-arrow" name="lucideArrowRight" size="16" />
+                                </button>
                             </div>
 
                         </div>
-
                     </div>
-
                 </div>
+            </article>
 
-
-                <!-- ================================= -->
-                <!-- PLAN 6 MESES -->
-                <!-- ================================= -->
-
-                <div class="group relative z-30
-                           -translate-y-8
-                           rotate-[4deg]
-                           transition-all duration-500
-                           hover:z-50
-                           hover:-translate-y-14
-                           hover:rotate-0">
-
-                    <div class="relative flex min-h-[540px]
-                               flex-col overflow-hidden
-                               rounded-[28px]
-                               border border-[#6C5CE7]/40
-                               bg-[#f4f4f7]
-                               p-7
-                               shadow-[0_25px_70px_rgba(8,9,17,0.12)]">
-
-                        <!-- Glow -->
-
-                        <div class="absolute -left-20 -top-20
-                                   h-48 w-48 rounded-full
-                                   bg-[#6C8CFF]/15
-                                   blur-[70px]"></div>
-
-
-                        <div class="relative flex h-full flex-col">
-
-                            <!-- RECOMENDADO -->
-
-                            <div class="absolute right-0 top-0
-                                       rounded-full
-                                       bg-gradient-to-r
-                                       from-[#6C5CE7]
-                                       to-[#6C8CFF]
-                                       px-3 py-1.5
-                                       text-[10px]
-                                       font-black
-                                       uppercase
-                                       tracking-wider
-                                       text-white">
-                                ★ Recomendado
-                            </div>
-
-
-                            <!-- TOP -->
-
-                            <div class="flex items-center
-                                       justify-between">
-
-                                <span class="text-xs font-medium
-                                           tracking-widest
-                                           text-black/25">
-                                    02
-                                </span>
-
-
-                                <span class="rounded-full
-                                           border border-black/10
-                                           bg-black/[0.03]
-                                           px-3 py-1
-                                           text-[10px]
-                                           uppercase
-                                           tracking-wider
-                                           text-black/35">
-                                    6 meses
-                                </span>
-
-                            </div>
-
-
-                            <!-- TITLE -->
-
-                            <h3 class="mt-8 text-3xl
-                                       font-black
-                                       tracking-tight
-                                       text-[#080911]">
-                                Plan 6 Meses
-                            </h3>
-
-
-                            <!-- PRICE -->
-
-                            <div class="mt-7 flex items-end gap-2">
-
-                                <span class="text-5xl
-                                           font-black
-                                           tracking-tight
-                                           text-[#080911]">
-                                    $227
-                                </span>
-
-                                <span class="pb-2 text-sm
-                                           text-black/35">
-                                    por mes
-                                </span>
-
-                            </div>
-
-
-                            <p class="mt-3 text-sm
-                                       text-black/45">
-                                Total $1,362
-                            </p>
-
-
-                            <!-- SAVING -->
-
-                            <div class="mt-4 inline-flex
-                                       w-fit items-center
-                                       rounded-full
-                                       bg-[#00F2FE]/10
-                                       px-3 py-1.5
-                                       text-xs font-bold
-                                       text-[#087f87]">
-                                Ahorro de $420
-                            </div>
-
-
-                            <!-- DIVIDER -->
-
-                            <div class="my-8 h-px
-                                       bg-black/10"></div>
-
-
-                            <!-- FEATURES -->
-
-                            <div class="space-y-4">
-
-                                <div class="flex items-center
-                                           gap-3 text-sm
-                                           text-black/55">
-                                    <span class="flex h-5 w-5
-                                               items-center
-                                               justify-center
-                                               rounded-full
-                                               bg-[#6C5CE7]/10">
-                                        <ng-icon name="lucideCheck" size="12" class="text-[#6C5CE7]" />
-                                    </span>
-
-                                    Automatización personalizada
-                                </div>
-
-
-                                <div class="flex items-center
-                                           gap-3 text-sm
-                                           text-black/55">
-                                    <span class="flex h-5 w-5
-                                               items-center
-                                               justify-center
-                                               rounded-full
-                                               bg-[#6C8CFF]/10">
-                                        <ng-icon name="lucideCheck" size="12" class="text-[#6C8CFF]" />
-                                    </span>
-
-                                    CRM + Workflows
-                                </div>
-
-
-                                <div class="flex items-center
-                                           gap-3 text-sm
-                                           text-black/55">
-                                    <span class="flex h-5 w-5
-                                               items-center
-                                               justify-center
-                                               rounded-full
-                                               bg-[#00F2FE]/10">
-                                        <ng-icon name="lucideCheck" size="12" class="text-[#6C8CFF]" />
-                                    </span>
-
-                                    Integraciones
-                                </div>
-
-                            </div>
-
-
-                            <!-- CTA -->
-
-                            <div class="mt-auto pt-10">
-
-                                <a (click)="openMeetingDialog()" class="group/btn flex h-12 w-full
-                                           items-center
-                                           justify-center gap-2
-                                           rounded-xl
-                                           bg-[#491eff]
-                                           text-sm font-black
-                                           text-white
-                                           shadow-[0_12px_35px_rgba(73,30,255,.20)]
-                                           transition
-                                           hover:-translate-y-0.5
-                                           hover:bg-[#5b32ff]">
-
-                                    Elegir este plan
-
-                                    <ng-icon name="lucideArrowRight" size="16" class="transition-transform
-                                               group-hover/btn:translate-x-1" />
-
-                                </a>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-                <!-- ================================= -->
-                <!-- PLAN 12 MESES -->
-                <!-- ================================= -->
-
-                <div class="group relative z-10
-                           -translate-y-6
-                           rotate-[-4deg]
-                           transition-all duration-500
-                           hover:z-50
-                           hover:-translate-y-12
-                           hover:rotate-0">
-
-                    <div class="relative flex min-h-[500px]
-                               flex-col overflow-hidden
-                               rounded-[28px]
-                               bg-red-400
-                  
-                               p-7
-                               shadow-[0_25px_70px_rgba(8,9,17,0.18)]">
-
-                        <!-- Glow -->
-
-                        <div class="absolute -right-20 -bottom-20
-                                   h-48 w-48 rounded-full
-                                   bg-[#00F2FE]/15
-                                   blur-[70px]"></div>
-
-
-                        <div class="relative flex h-full flex-col">
-
-                            <!-- TOP -->
-
-                            <div class="flex items-center
-                                       justify-between">
-
-                                <span class="text-xs font-medium
-                                           tracking-widest
-                                           text-white/30">
-                                    03
-                                </span>
-
-
-                                <span class="rounded-full
-                                           border border-white/10
-                                           bg-white/5
-                                           px-3 py-1
-                                           text-[10px]
-                                           uppercase
-                                           tracking-wider
-                                           text-white/40">
-                                    12 meses
-                                </span>
-
-                            </div>
-
-
-                            <!-- TITLE -->
-
-                            <h3 class="mt-8 text-3xl
-                                       font-black
-                                       tracking-tight
-                                       text-white">
-                                Plan 12 Meses
-                            </h3>
-
-
-                            <!-- PRICE -->
-
-                            <div class="mt-7 flex items-end gap-2">
-
-                                <span class="text-5xl
-                                           font-black
-                                           tracking-tight
-                                           text-white">
-                                    $167
-                                </span>
-
-                                <span class="pb-2 text-sm
-                                           text-white/35">
-                                    por mes
-                                </span>
-
-                            </div>
-
-
-                            <p class="mt-3 text-sm
-                                       text-white/40">
-                                Total $2,004
-                            </p>
-
-
-                            <!-- SAVING -->
-
-                            <div class="mt-4 inline-flex
-                                       w-fit items-center
-                                       rounded-full
-                                       bg-[#00F2FE]/10
-                                       px-3 py-1.5
-                                       text-xs font-bold
-                                       text-[#7df7ff]">
-                                Ahorro de $1,560
-                            </div>
-
-
-                            <!-- DIVIDER -->
-
-                            <div class="my-8 h-px
-                                       bg-white/10"></div>
-
-
-                            <!-- FEATURES -->
-
-                            <div class="space-y-4">
-
-                                <div class="flex items-center
-                                           gap-3 text-sm
-                                           text-white/65">
-                                    <span class="h-1.5 w-1.5
-                                               rounded-full
-                                               bg-[#6C5CE7]"></span>
-
-                                    Automatización personalizada
-                                </div>
-
-
-                                <div class="flex items-center
-                                           gap-3 text-sm
-                                           text-white/65">
-                                    <span class="h-1.5 w-1.5
-                                               rounded-full
-                                               bg-[#6C8CFF]"></span>
-
-                                    CRM + Workflows
-                                </div>
-
-
-                                <div class="flex items-center
-                                           gap-3 text-sm
-                                           text-white/65">
-                                    <span class="h-1.5 w-1.5
-                                               rounded-full
-                                               bg-[#00F2FE]"></span>
-
-                                    Integraciones
-                                </div>
-
-                            </div>
-
-
-                            <!-- CTA -->
-
-                            <div class="mt-auto pt-10">
-
-                                <a (click)="openMeetingDialog()" class="flex h-12 w-full
-                                           items-center
-                                           justify-center
-                                           rounded-xl
-                                           border border-white/10
-                                           bg-white/[0.03]
-                                           text-sm font-bold
-                                           text-white
-                                           transition
-                                           hover:border-[#00F2FE]/30
-                                           hover:bg-[#00F2FE]/5">
-                                    Elegir plan
-                                </a>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <!-- ================================= -->
-            <!-- MOBILE -->
-            <!-- ================================= -->
-
-            <div class="grid gap-8 lg:hidden">
-
-
-                <!-- MENSUAL -->
-
-                <div class="rounded-[28px]
-                           border border-white/10
-                           bg-[#080911]
-                           p-7
-                           shadow-xl">
-
-                    <span class="text-xs text-white/30">
-                        01
-                    </span>
-
-                    <h3 class="mt-5 text-3xl
-                               font-black text-white">
-                        Plan Mensual
-                    </h3>
-
-
-                    <div class="mt-6 flex items-end gap-2">
-
-                        <span class="text-5xl font-black
-                                   text-white">
-                            $297
-                        </span>
-
-                        <span class="pb-2 text-sm
-                                   text-white/35">
-                            por mes
-                        </span>
-
-                    </div>
-
-
-                    <p class="mt-3 text-sm text-white/40">
-                        Sin compromiso de permanencia
-                    </p>
-
-
-                    <div class="my-7 h-px
-                               bg-white/10"></div>
-
-
-                    <div class="space-y-3 text-sm text-white/60">
-
-                        <p>✓ Automatización personalizada</p>
-                        <p>✓ CRM + Workflows</p>
-                        <p>✓ Integraciones</p>
-
-                    </div>
-
-
-                    <a (click)="openMeetingDialog()" class="mt-8 flex h-12 w-full
-                               items-center justify-center
-                               rounded-xl
-                               border border-white/10
-                               bg-white/[0.03]
-                               text-sm font-bold text-white">
-                        Elegir plan
-                    </a>
-
-                </div>
-
-
-                <!-- 6 MESES -->
-
-                <div class="relative rounded-[28px]
-                           border border-[#6C5CE7]/40
-                           bg-[#f4f4f7]
-                           p-7 shadow-xl">
-
-                    <span class="absolute right-5 top-5
-                               rounded-full
-                               bg-[#6C5CE7]
-                               px-3 py-1.5
-                               text-[10px]
-                               font-black
-                               uppercase
-                               tracking-wider
-                               text-white">
-                        ★ Recomendado
-                    </span>
-
-
-                    <span class="text-xs text-black/25">
-                        02
-                    </span>
-
-
-                    <h3 class="mt-5 text-3xl
-                               font-black
-                               text-[#080911]">
-                        Plan 6 Meses
-                    </h3>
-
-
-                    <div class="mt-6 flex items-end gap-2">
-
-                        <span class="text-5xl font-black
-                                   text-[#080911]">
-                            $227
-                        </span>
-
-                        <span class="pb-2 text-sm
-                                   text-black/35">
-                            por mes
-                        </span>
-
-                    </div>
-
-
-                    <p class="mt-3 text-sm text-black/45">
-                        Total $1,362
-                    </p>
-
-
-                    <span class="mt-4 inline-flex
-                               rounded-full
-                               bg-[#00F2FE]/10
-                               px-3 py-1.5
-                               text-xs font-bold
-                               text-[#087f87]">
-                        Ahorro de $420
-                    </span>
-
-
-                    <div class="my-7 h-px
-                               bg-black/10"></div>
-
-
-                    <div class="space-y-3 text-sm text-black/55">
-
-                        <p>✓ Automatización personalizada</p>
-                        <p>✓ CRM + Workflows</p>
-                        <p>✓ Integraciones</p>
-
-                    </div>
-
-
-                    <a (click)="openMeetingDialog()" class="mt-8 flex h-12 w-full
-                               items-center justify-center
-                               rounded-xl
-                               bg-[#491eff]
-                               text-sm font-bold
-                               text-white">
-                        Elegir este plan
-                    </a>
-
-                </div>
-
-
-                <!-- 12 MESES -->
-
-                <div class="rounded-[28px]
-                           border border-white/10
-                           bg-[#39ade3]
-                           p-7 shadow-xl">
-
-                    <span class="text-xs text-white/30">
-                        03
-                    </span>
-
-
-                    <h3 class="mt-5 text-3xl
-                               font-black text-white">
-                        Plan 12 Meses
-                    </h3>
-
-
-                    <div class="mt-6 flex items-end gap-2">
-
-                        <span class="text-5xl font-black
-                                   text-white">
-                            $167
-                        </span>
-
-                        <span class="pb-2 text-sm
-                                   text-white/35">
-                            por mes
-                        </span>
-
-                    </div>
-
-
-                    <p class="mt-3 text-sm text-white/40">
-                        Total $2,004
-                    </p>
-
-
-                    <span class="mt-4 inline-flex
-                               rounded-full
-                               bg-[#00F2FE]/10
-                               px-3 py-1.5
-                               text-xs font-bold
-                               text-[#7df7ff]">
-                        Ahorro de $1,560
-                    </span>
-
-
-                    <div class="my-7 h-px
-                               bg-white/10"></div>
-
-
-                    <div class="space-y-3 text-sm text-white/60">
-
-                        <p>✓ Automatización personalizada</p>
-                        <p>✓ CRM + Workflows</p>
-                        <p>✓ Integraciones</p>
-
-                    </div>
-
-
-                    <a (click)="openMeetingDialog()" class="mt-8 flex h-12 w-full
-                               items-center justify-center
-                               rounded-xl
-                               border border-white/10
-                               bg-white/[0.03]
-                               text-sm font-bold
-                               text-white">
-                        Elegir plan
-                    </a>
-
-                </div>
-
-            </div>
-
-
-            <!-- NOTA -->
-
-            <p class="mt-10 text-center
-                       text-xs text-black/30">
-                Precios expresados en dólares estadounidenses.
-            </p>
+            }
 
         </div>
+
+        <!-- NOTA -->
+        <p appReveal="fade" class="mt-12 text-center text-xs text-black/60">
+            Precios expresados en dólares estadounidenses.
+        </p>
 
     </div>
 
 </section>
 
-<section class="relative overflow-hidden bg-[#080911] py-28 lg:py-36">
-
-    <!-- GLOWS -->
-
-    <div class="pointer-events-none absolute -left-40 top-20
-               h-[450px] w-[450px]
-               rounded-full bg-[#6C5CE7]/10 blur-[130px]"></div>
-
-    <div class="pointer-events-none absolute -right-40 bottom-40
-               h-[450px] w-[450px]
-               rounded-full bg-[#00F2FE]/5 blur-[130px]"></div>
-
-
-    <div class="relative mx-auto lg:max-w-[80vw] px-6 lg:px-8">
-
-
-        <!-- ================================= -->
-        <!-- HEADER -->
-        <!-- ================================= -->
-
-        <div class="mx-auto max-w-4xl text-center">
-
-            <span class="inline-flex items-center gap-2
-                       text-xs font-semibold uppercase
-                       tracking-[0.2em] text-[#a69eff]">
-
-                <span class="h-1.5 w-1.5 rounded-full
-                           bg-[#00F2FE]
-                           shadow-[0_0_10px_#00F2FE]"></span>
-
-                Workflows reales
-
-            </span>
-
-
-            <h2 class="mt-6 text-4xl font-black
-                       leading-[1.02]
-                       tracking-tight text-white
-                       md:text-5xl lg:text-6xl">
-
-                ASÍ CONSTRUIMOS
-                <br />
-
-                <span class="bg-gradient-to-r
-                           from-[#6C5CE7]
-                           via-[#6C8CFF]
-                           to-[#00F2FE]
-                           bg-clip-text
-                           text-transparent">
-                    NUESTROS SISTEMAS.
-                </span>
-
-            </h2>
-
-
-            <p class="mx-auto mt-6 max-w-2xl
-                       text-base leading-7
-                       text-white/40 md:text-lg">
-                No mostramos conceptos. Mostramos workflows reales:
-                condiciones, ramas, automatizaciones e integraciones
-                construidas para nuestros clientes.
-            </p>
-
-        </div>
-
-
-        <!-- ================================= -->
-        <!-- WORKFLOW 01 - GRIN -->
-        <!-- ================================= -->
-
-        <div class="mt-24 grid items-center
-                   gap-12 lg:grid-cols-[1fr_1.5fr]">
-
-            <!-- INFO -->
-
-            <div>
-
-                <div class="flex items-center gap-3">
-
-                    <span class="text-xs font-medium
-                               text-white/20">
-                        01
-                    </span>
-
-                    <span class="h-px w-10 bg-white/10"></span>
-
-                    <span class="text-[10px]
-                               uppercase
-                               tracking-[0.2em]
-                               text-[#9d92ff]">
-                        Caso real
-                    </span>
-
-                </div>
-
-
-                <h3 class="mt-5 text-4xl
-                           font-black
-                           tracking-tight
-                           text-white">
-                    GRIN
-                </h3>
-
-
-                <p class="mt-4 text-sm
-                           leading-6
-                           text-white/40">
-                    Automatización del proceso de pedidos
-                    y seguimiento desde el primer contacto
-                    hasta las diferentes condiciones del proceso.
-                </p>
-
-
-                <!-- TAGS -->
-
-                <div class="mt-6 flex flex-wrap gap-2">
-
-                    <span class="rounded-full
-                               border border-white/10
-                               bg-white/[0.03]
-                               px-3 py-1.5
-                               text-[10px]
-                               text-white/45">
-                        WhatsApp
-                    </span>
-
-                    <span class="rounded-full
-                               border border-white/10
-                               bg-white/[0.03]
-                               px-3 py-1.5
-                               text-[10px]
-                               text-white/45">
-                        Condiciones
-                    </span>
-
-                    <span class="rounded-full
-                               border border-white/10
-                               bg-white/[0.03]
-                               px-3 py-1.5
-                               text-[10px]
-                               text-white/45">
-                        Seguimiento
-                    </span>
-
-                </div>
-
-
-                <div class="mt-8 flex items-center gap-3">
-
-                    <div class="flex h-9 w-9
-                               items-center
-                               justify-center
-                               rounded-xl
-                               bg-[#25D366]/10">
-
-                        <ng-icon name="lucideMessageCircle" size="17" class="text-[#25D366]" />
-
-                    </div>
-
-                    <div>
-
-                        <p class="text-xs
-                                   font-semibold
-                                   text-white">
-                            WhatsApp + Workflow
-                        </p>
-
-                        <p class="text-[10px]
-                                   text-white/30">
-                            Automatización comercial
-                        </p>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <!-- IMAGE -->
-
-            <div class="group relative overflow-hidden
-                       rounded-[28px]
-                       border border-white/10
-                       bg-[#10111A]
-                       shadow-[0_30px_100px_rgba(0,0,0,.45)]">
-
-                <!-- glow -->
-
-                <div class="pointer-events-none
-                           absolute inset-0
-                           bg-gradient-to-br
-                           from-[#6C5CE7]/8
-                           via-transparent
-                           to-[#00F2FE]/5
-                           opacity-0
-                           transition duration-500
-                           group-hover:opacity-100"></div>
-
-
-                <!-- browser bar -->
-
-                <div class="relative z-10
-                           flex h-11 items-center
-                           gap-2 border-b
-                           border-white/10
-                           px-5">
-
-                    <span class="h-2 w-2 rounded-full
-                               bg-white/15"></span>
-
-                    <span class="h-2 w-2 rounded-full
-                               bg-white/15"></span>
-
-                    <span class="h-2 w-2 rounded-full
-                               bg-white/15"></span>
-
-
-                    <div class="ml-4 h-6 flex-1
-                               rounded-md
-                               bg-white/[0.03]"></div>
-
-                </div>
-
-
-                <!-- workflow -->
-
-                <div class="relative overflow-hidden
-                           bg-[#f7f9fc]">
-
-                    <img src="/flujos/grin.webp" alt="Workflow de automatización GRIN" width="1919" height="941"
-                        loading="lazy" decoding="async" class="block w-full
-                               object-contain
-                               transition duration-700
-                               group-hover:scale-[1.015]" />
-
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <!-- ================================= -->
-        <!-- WORKFLOW 02 - OPCIÓN -->
-        <!-- ================================= -->
-
-        <div class="mt-28 grid items-center
-                   gap-12
-                   lg:grid-cols-[1.5fr_1fr]">
-
-            <!-- IMAGE -->
-
-            <div class="group relative order-2
-                       overflow-hidden
-                       rounded-[28px]
-                       border border-white/10
-                       bg-[#10111A]
-                       shadow-[0_30px_100px_rgba(0,0,0,.45)]
-                       lg:order-1">
-
-                <div class="relative z-10
-                           flex h-11 items-center
-                           gap-2 border-b
-                           border-white/10
-                           px-5">
-
-                    <span class="h-2 w-2 rounded-full bg-white/15"></span>
-                    <span class="h-2 w-2 rounded-full bg-white/15"></span>
-                    <span class="h-2 w-2 rounded-full bg-white/15"></span>
-
-                    <div class="ml-4 h-6 flex-1
-                               rounded-md
-                               bg-white/[0.03]"></div>
-
-                </div>
-
-
-                <div class="overflow-hidden
-                           bg-[#f7f9fc]">
-
-                    <img src="/flujos/opcion.webp" alt="Workflow de automatización OPCIÓN" width="1912" height="941"
-                        loading="lazy" decoding="async" class="block w-full
-                               object-contain
-                               transition duration-700
-                               group-hover:scale-[1.015]" />
-
-                </div>
-
-            </div>
-
-
-            <!-- INFO -->
-
-            <div class="relative z-10
-                       order-1
-                       lg:order-2">
-
-                <div class="flex items-center gap-3">
-
-                    <span class="text-xs font-medium
-                               text-white/20">
-                        02
-                    </span>
-
-                    <span class="h-px w-10 bg-white/10"></span>
-
-                    <span class="text-[10px]
-                               uppercase
-                               tracking-[0.2em]
-                               text-[#9d92ff]">
-                        Caso real
-                    </span>
-
-                </div>
-
-
-                <h3 class="mt-5 text-4xl
-                           font-black
-                           tracking-tight
-                           text-white">
-                    OPCIÓN
-                </h3>
-
-
-                <p class="mt-4 text-sm
-                           leading-6
-                           text-white/40">
-                    Un flujo conectado para manejar
-                    cotizaciones, cálculos y conversaciones
-                    de manera automática.
-                </p>
-
-
-                <div class="mt-6 flex flex-wrap gap-2">
-
-                    <span class="rounded-full
-                               border border-white/10
-                               bg-white/[0.03]
-                               px-3 py-1.5
-                               text-[10px]
-                               text-white/45">
-                        Cotización
-                    </span>
-
-                    <span class="rounded-full
-                               border border-white/10
-                               bg-white/[0.03]
-                               px-3 py-1.5
-                               text-[10px]
-                               text-white/45">
-                        Calculadora
-                    </span>
-
-                    <span class="rounded-full
-                               border border-white/10
-                               bg-white/[0.03]
-                               px-3 py-1.5
-                               text-[10px]
-                               text-white/45">
-                        Conversación
-                    </span>
-
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <!-- ================================= -->
-        <!-- WORKFLOW 03 - TIS -->
-        <!-- ================================= -->
-
-        <div class="mt-28 grid items-center
-                   gap-12
-                   lg:grid-cols-[1fr_1.5fr]">
-
-            <!-- INFO -->
-
-            <div>
-
-                <div class="flex items-center gap-3">
-
-                    <span class="text-xs font-medium
-                               text-white/20">
-                        03
-                    </span>
-
-                    <span class="h-px w-10 bg-white/10"></span>
-
-                    <span class="text-[10px]
-                               uppercase
-                               tracking-[0.2em]
-                               text-[#9d92ff]">
-                        Caso real
-                    </span>
-
-                </div>
-
-
-                <h3 class="mt-5 text-4xl
-                           font-black
-                           tracking-tight
-                           text-white">
-                    TIS
-                </h3>
-
-
-                <p class="mt-4 text-sm
-                           leading-6
-                           text-white/40">
-                    Sistema diseñado para calificar
-                    prospectos, gestionar citas y activar
-                    acciones de remarketing.
-                </p>
-
-
-                <div class="mt-6 flex flex-wrap gap-2">
-
-                    <span class="rounded-full
-                               border border-white/10
-                               bg-white/[0.03]
-                               px-3 py-1.5
-                               text-[10px]
-                               text-white/45">
-                        IA
-                    </span>
-
-                    <span class="rounded-full
-                               border border-white/10
-                               bg-white/[0.03]
-                               px-3 py-1.5
-                               text-[10px]
-                               text-white/45">
-                        Agendamiento
-                    </span>
-
-                    <span class="rounded-full
-                               border border-white/10
-                               bg-white/[0.03]
-                               px-3 py-1.5
-                               text-[10px]
-                               text-white/45">
-                        Remarketing
-                    </span>
-
-                </div>
-
-            </div>
-
-
-            <!-- IMAGE -->
-
-            <div class="group relative overflow-hidden
-                       rounded-[28px]
-                       border border-white/10
-                       bg-[#10111A]
-                       shadow-[0_30px_100px_rgba(0,0,0,.45)]">
-
-                <div class="relative z-10
-                           flex h-11 items-center
-                           gap-2 border-b
-                           border-white/10
-                           px-5">
-
-                    <span class="h-2 w-2 rounded-full bg-white/15"></span>
-                    <span class="h-2 w-2 rounded-full bg-white/15"></span>
-                    <span class="h-2 w-2 rounded-full bg-white/15"></span>
-
-                    <div class="ml-4 h-6 flex-1
-                               rounded-md
-                               bg-white/[0.03]"></div>
-
-                </div>
-
-
-                <div class="overflow-hidden
-                           bg-[#f7f9fc]">
-
-                    <img src="/flujos/tis.webp" alt="Workflow de automatización TIS" width="1919" height="941"
-                        loading="lazy" decoding="async" class="block w-full
-                               object-contain
-                               transition duration-700
-                               group-hover:scale-[1.015]" />
-
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <!-- ================================= -->
-        <!-- WORKFLOW 04 - PERUVIANST -->
-        <!-- ================================= -->
-
-        <div class="mt-28 grid items-center
-                   gap-12
-                   lg:grid-cols-[1.5fr_1fr]">
-
-            <!-- IMAGE -->
-
-            <div class="group relative order-2
-                       overflow-hidden
-                       rounded-[28px]
-                       border border-white/10
-                       bg-[#10111A]
-                       shadow-[0_30px_100px_rgba(0,0,0,.45)]
-                       lg:order-1">
-
-                <div class="relative z-10
-                           flex h-11 items-center
-                           gap-2 border-b
-                           border-white/10
-                           px-5">
-
-                    <span class="h-2 w-2 rounded-full bg-white/15"></span>
-                    <span class="h-2 w-2 rounded-full bg-white/15"></span>
-                    <span class="h-2 w-2 rounded-full bg-white/15"></span>
-
-                    <div class="ml-4 h-6 flex-1
-                               rounded-md
-                               bg-white/[0.03]"></div>
-
-                </div>
-
-
-                <div class="overflow-hidden
-                           bg-[#f7f9fc]">
-
-                    <img src="/flujos/peruvians.webp" alt="Workflow de automatización Peruvianst" width="1919"
-                        height="937" loading="lazy" decoding="async" class="block w-full
-                               object-contain
-                               transition duration-700
-                               group-hover:scale-[1.015]" />
-
-                </div>
-
-            </div>
-
-
-            <!-- INFO -->
-
-            <div class="relative z-10
-                       order-1
-                       lg:order-2">
-
-                <div class="flex items-center gap-3">
-
-                    <span class="text-xs font-medium
-                               text-white/20">
-                        04
-                    </span>
-
-                    <span class="h-px w-10 bg-white/10"></span>
-
-                    <span class="text-[10px]
-                               uppercase
-                               tracking-[0.2em]
-                               text-[#9d92ff]">
-                        Caso real
-                    </span>
-
-                </div>
-
-
-                <h3 class="mt-5 text-4xl
-                           font-black
-                           tracking-tight
-                           text-white">
-                    PeruviansEcom
-                </h3>
-
-
-                <p class="mt-4 text-sm
-                           leading-6
-                           text-white/40">
-                    Automatización del proceso de pedidos,
-                    comunicación y seguimiento de clientes
-                    desde WhatsApp.
-                </p>
-
-
-                <div class="mt-6 flex flex-wrap gap-2">
-
-                    <span class="rounded-full
-                               border border-white/10
-                               bg-white/[0.03]
-                               px-3 py-1.5
-                               text-[10px]
-                               text-white/45">
-                        WhatsApp
-                    </span>
-
-                    <span class="rounded-full
-                               border border-white/10
-                               bg-white/[0.03]
-                               px-3 py-1.5
-                               text-[10px]
-                               text-white/45">
-                        Pedidos
-                    </span>
-
-                    <span class="rounded-full
-                               border border-white/10
-                               bg-white/[0.03]
-                               px-3 py-1.5
-                               text-[10px]
-                               text-white/45">
-                        Seguimiento
-                    </span>
-
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <!-- ================================= -->
-        <!-- FINAL -->
-        <!-- ================================= -->
-
-        <div class="mt-24 border-t
-                   border-white/10
-                   pt-10">
-
-            <div class="flex flex-col gap-5
-                       md:flex-row
-                       md:items-center
-                       md:justify-between">
-
-                <div>
-
-                    <p class="text-xs
-                               uppercase
-                               tracking-[0.2em]
-                               text-white/25">
-                        Del proceso al sistema
-                    </p>
-
-                    <p class="mt-2 text-lg
-                               font-semibold
-                               text-white">
-                        Cada workflow se diseña alrededor
-                        de la operación de tu negocio.
-                    </p>
-
-                </div>
-
-
-                <a (click)="openMeetingDialog()" class="group inline-flex
-                           items-center gap-3
-                           rounded-xl
-                           bg-[#491eff]
-                           px-6 py-3.5
-                           text-sm font-bold
-                           text-white
-                           shadow-[0_12px_35px_rgba(73,30,255,.20)]
-                           transition
-                           hover:-translate-y-1">
-
-                    Diseñar mi sistema
-
-                    <ng-icon name="lucideArrowRight" size="18" class="transition-transform
-                               duration-300
-                               group-hover:translate-x-1" />
-
-                </a>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
+<app-workflows />
 
 <section class="relative overflow-hidden bg-[#f7f7fa] py-28 lg:py-36">
 
@@ -5144,391 +3723,82 @@
     <div class="pointer-events-none absolute -left-40 bottom-0 h-[400px] w-[400px]
            rounded-full bg-[#00F2FE]/5 blur-[130px]"></div>
 
-
-    <div class="relative mx-auto lg:max-w-[80vw] px-6 lg:px-8">
-
+    <div class="relative mx-auto px-6 lg:max-w-[80vw] lg:px-8">
 
         <!-- HEADER -->
-        <div class="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-end">
+        <div appReveal revealStagger class="mx-auto max-w-4xl text-center">
 
-            <div>
+            <span class="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-[#5b49d6]">
+                <span class="h-1.5 w-1.5 rounded-full bg-[#6C5CE7]"></span>
+                Preguntas frecuentes
+            </span>
 
-                <span class="inline-flex items-center gap-2 text-xs font-semibold
-                 uppercase tracking-[0.2em] text-[#6C5CE7]">
-                    <span class="h-1.5 w-1.5 rounded-full bg-[#6C5CE7]"></span>
-
-                    Preguntas frecuentes
+            <h2 class="mt-5 text-4xl font-bold leading-[1.05] tracking-tight text-[#080911] md:text-5xl lg:text-6xl">
+                TODO LO QUE
+                <br />
+                <span class="bg-gradient-to-r from-[#6C5CE7] via-[#6C8CFF] to-[#00F2FE] bg-clip-text text-transparent">
+                    NECESITAS SABER.
                 </span>
+            </h2>
 
-                <h2 class="mt-5 text-4xl font-bold leading-[1.05] tracking-tight
-                 text-[#080911] md:text-5xl">
-                    TODO LO QUE
-                    <br />
-
-                    <span class="bg-gradient-to-r from-[#6C5CE7] via-[#6C8CFF] to-[#00F2FE]
-                   bg-clip-text text-transparent">
-                        NECESITAS SABER.
-                    </span>
-                </h2>
-
-            </div>
-
-
-            <p class="max-w-xl text-base leading-7 text-black/50 lg:ml-auto lg:text-lg">
+            <p class="mx-auto mt-6 max-w-2xl text-base leading-7 text-black/70 lg:text-lg">
                 Antes de empezar, resolvemos algunas de las preguntas más comunes
                 sobre automatización, inteligencia artificial, CRM y nuestros procesos.
             </p>
 
         </div>
 
+        <!-- PREGUNTAS -->
+        <div appReveal revealStagger class="mx-auto mt-16 max-w-4xl space-y-3">
 
-        <!-- FAQ -->
-        <div class="mt-16 overflow-hidden border-y border-black/10">
+            @for (faq of faqs; track faq.question; let i = $index) {
 
+            <details class="group rounded-2xl border border-black/10 bg-white transition duration-300 open:border-[#6C5CE7]/40 open:shadow-[0_15px_40px_rgba(108,92,231,0.12)]"
+                [open]="i === 0">
 
-            <!-- FAQ 01 -->
-            <details class="group border-b border-black/10">
-
-                <summary class="flex cursor-pointer list-none items-center justify-between gap-6
-                 py-7 md:py-8">
-
-                    <div class="flex items-start gap-5">
-
-                        <span class="pt-1 text-xs font-medium text-black/20">
-                            01
+                <summary class="flex cursor-pointer list-none items-center justify-between gap-5 rounded-2xl px-5 py-5 md:px-7 md:py-6 [&::-webkit-details-marker]:hidden">
+                    <div class="flex items-start gap-4 md:gap-5">
+                        <span class="pt-1 text-xs font-semibold tabular-nums text-[#5b49d6]">
+                            {{ i + 1 < 10 ? '0' + (i + 1) : i + 1 }}
                         </span>
-
                         <h3 class="text-base font-semibold text-[#080911] md:text-lg">
-                            ¿Qué tipo de procesos pueden automatizar?
+                            {{ faq.question }}
                         </h3>
-
                     </div>
 
-                    <span class="flex h-10 w-10 shrink-0 items-center justify-center
-                   rounded-full border border-black/10 transition duration-300
-                   group-open:rotate-45 group-open:bg-[#6C5CE7]
-                   group-open:text-white">
+                    <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-black/10 text-[#080911] transition duration-300 group-open:rotate-45 group-open:border-transparent group-open:bg-[#6C5CE7] group-open:text-white">
                         <ng-icon name="lucidePlus" class="text-lg" />
                     </span>
-
                 </summary>
 
-                <div class="pb-7 pl-10 pr-14 md:pl-14">
-
-                    <p class="max-w-3xl text-sm leading-7 text-black/50">
-                        Podemos automatizar tareas repetitivas relacionadas con captación
-                        de leads, respuestas, seguimiento, calificación, actualización
-                        del CRM, agendamiento, recordatorios, reactivación y comunicación.
-                    </p>
-
-                </div>
-
-            </details>
-
-
-            <!-- FAQ 02 -->
-            <details class="group border-b border-black/10">
-
-                <summary class="flex cursor-pointer list-none items-center justify-between gap-6
-                 py-7 md:py-8">
-
-                    <div class="flex items-start gap-5">
-
-                        <span class="pt-1 text-xs font-medium text-black/20">
-                            02
-                        </span>
-
-                        <h3 class="text-base font-semibold text-[#080911] md:text-lg">
-                            ¿Trabajan con WhatsApp?
-                        </h3>
-
-                    </div>
-
-                    <span class="flex h-10 w-10 shrink-0 items-center justify-center
-                   rounded-full border border-black/10 transition duration-300
-                   group-open:rotate-45 group-open:bg-[#6C5CE7]
-                   group-open:text-white">
-                        <ng-icon name="lucidePlus" class="text-lg" />
-                    </span>
-
-                </summary>
-
-                <div class="pb-7 pl-10 pr-14 md:pl-14">
-                    <p class="max-w-3xl text-sm leading-7 text-black/50">
-                        Sí. Podemos trabajar flujos donde WhatsApp forme parte de la
-                        captación, atención, seguimiento, calificación y comunicación
-                        automática con tus prospectos o clientes.
+                <div class="px-5 pb-6 pl-[3.25rem] pr-14 md:px-7 md:pb-7 md:pl-[4.25rem]">
+                    <p class="max-w-3xl text-sm leading-7 text-black/70 md:text-[15px]">
+                        {{ faq.answer }}
                     </p>
                 </div>
 
             </details>
 
-
-            <!-- FAQ 03 -->
-            <details class="group border-b border-black/10">
-
-                <summary class="flex cursor-pointer list-none items-center justify-between gap-6
-                 py-7 md:py-8">
-
-                    <div class="flex items-start gap-5">
-
-                        <span class="pt-1 text-xs font-medium text-black/20">
-                            03
-                        </span>
-
-                        <h3 class="text-base font-semibold text-[#080911] md:text-lg">
-                            ¿También pueden automatizar Instagram, Facebook y TikTok?
-                        </h3>
-
-                    </div>
-
-                    <span class="flex h-10 w-10 shrink-0 items-center justify-center
-                   rounded-full border border-black/10 transition duration-300
-                   group-open:rotate-45 group-open:bg-[#6C5CE7]
-                   group-open:text-white">
-                        <ng-icon name="lucidePlus" class="text-lg" />
-                    </span>
-
-                </summary>
-
-                <div class="pb-7 pl-10 pr-14 md:pl-14">
-                    <p class="max-w-3xl text-sm leading-7 text-black/50">
-                        Sí. Dependiendo del objetivo y de las herramientas disponibles,
-                        podemos conectar diferentes canales y hacer que la información
-                        continúe automáticamente hacia el CRM y los siguientes pasos
-                        del proceso.
-                    </p>
-                </div>
-
-            </details>
-
-
-            <!-- FAQ 04 -->
-            <details class="group border-b border-black/10">
-
-                <summary class="flex cursor-pointer list-none items-center justify-between gap-6
-                 py-7 md:py-8">
-
-                    <div class="flex items-start gap-5">
-
-                        <span class="pt-1 text-xs font-medium text-black/20">
-                            04
-                        </span>
-
-                        <h3 class="text-base font-semibold text-[#080911] md:text-lg">
-                            ¿Necesito tener un CRM para trabajar con ustedes?
-                        </h3>
-
-                    </div>
-
-                    <span class="flex h-10 w-10 shrink-0 items-center justify-center
-                   rounded-full border border-black/10 transition duration-300
-                   group-open:rotate-45 group-open:bg-[#6C5CE7]
-                   group-open:text-white">
-                        <ng-icon name="lucidePlus" class="text-lg" />
-                    </span>
-
-                </summary>
-
-                <div class="pb-7 pl-10 pr-14 md:pl-14">
-                    <p class="max-w-3xl text-sm leading-7 text-black/50">
-                        No necesariamente. Podemos trabajar sobre herramientas que ya
-                        utilizas o ayudarte a estructurar un sistema centralizado para
-                        gestionar leads, conversaciones, oportunidades y seguimiento.
-                    </p>
-                </div>
-
-            </details>
-
-
-            <!-- FAQ 05 -->
-            <details class="group border-b border-black/10">
-
-                <summary class="flex cursor-pointer list-none items-center justify-between gap-6
-                 py-7 md:py-8">
-
-                    <div class="flex items-start gap-5">
-
-                        <span class="pt-1 text-xs font-medium text-black/20">
-                            05
-                        </span>
-
-                        <h3 class="text-base font-semibold text-[#080911] md:text-lg">
-                            ¿La inteligencia artificial reemplaza a mi equipo comercial?
-                        </h3>
-
-                    </div>
-
-                    <span class="flex h-10 w-10 shrink-0 items-center justify-center
-                   rounded-full border border-black/10 transition duration-300
-                   group-open:rotate-45 group-open:bg-[#6C5CE7]
-                   group-open:text-white">
-                        <ng-icon name="lucidePlus" class="text-lg" />
-                    </span>
-
-                </summary>
-
-                <div class="pb-7 pl-10 pr-14 md:pl-14">
-                    <p class="max-w-3xl text-sm leading-7 text-black/50">
-                        La IA puede encargarse de determinadas tareas repetitivas,
-                        responder conversaciones, recopilar información y ejecutar
-                        procesos definidos. El equipo puede intervenir cuando el proceso
-                        necesita atención humana o una decisión comercial.
-                    </p>
-                </div>
-
-            </details>
-
-
-            <!-- FAQ 06 -->
-            <details class="group border-b border-black/10">
-
-                <summary class="flex cursor-pointer list-none items-center justify-between gap-6
-                 py-7 md:py-8">
-
-                    <div class="flex items-start gap-5">
-
-                        <span class="pt-1 text-xs font-medium text-black/20">
-                            06
-                        </span>
-
-                        <h3 class="text-base font-semibold text-[#080911] md:text-lg">
-                            ¿Pueden conectar las herramientas que ya utiliza mi empresa?
-                        </h3>
-
-                    </div>
-
-                    <span class="flex h-10 w-10 shrink-0 items-center justify-center
-                   rounded-full border border-black/10 transition duration-300
-                   group-open:rotate-45 group-open:bg-[#6C5CE7]
-                   group-open:text-white">
-                        <ng-icon name="lucidePlus" class="text-lg" />
-                    </span>
-
-                </summary>
-
-                <div class="pb-7 pl-10 pr-14 md:pl-14">
-                    <p class="max-w-3xl text-sm leading-7 text-black/50">
-                        Sí. Evaluamos las herramientas que utilizas actualmente y,
-                        cuando existen las integraciones o conexiones necesarias,
-                        podemos incorporarlas dentro del flujo de automatización.
-                    </p>
-                </div>
-
-            </details>
-
-
-            <!-- FAQ 07 -->
-            <details class="group border-b border-black/10">
-
-                <summary class="flex cursor-pointer list-none items-center justify-between gap-6
-                 py-7 md:py-8">
-
-                    <div class="flex items-start gap-5">
-
-                        <span class="pt-1 text-xs font-medium text-black/20">
-                            07
-                        </span>
-
-                        <h3 class="text-base font-semibold text-[#080911] md:text-lg">
-                            ¿Trabajan con GoHighLevel?
-                        </h3>
-
-                    </div>
-
-                    <span class="flex h-10 w-10 shrink-0 items-center justify-center
-                   rounded-full border border-black/10 transition duration-300
-                   group-open:rotate-45 group-open:bg-[#6C5CE7]
-                   group-open:text-white">
-                        <ng-icon name="lucidePlus" class="text-lg" />
-                    </span>
-
-                </summary>
-
-                <div class="pb-7 pl-10 pr-14 md:pl-14">
-                    <p class="max-w-3xl text-sm leading-7 text-black/50">
-                        Sí. Podemos trabajar con GoHighLevel para estructurar CRM,
-                        workflows, automatizaciones, conversaciones, seguimiento,
-                        oportunidades y diferentes procesos comerciales.
-                    </p>
-                </div>
-
-            </details>
-
-
-            <!-- FAQ 08 -->
-            <details class="group">
-
-                <summary class="flex cursor-pointer list-none items-center justify-between gap-6
-                 py-7 md:py-8">
-
-                    <div class="flex items-start gap-5">
-
-                        <span class="pt-1 text-xs font-medium text-black/20">
-                            08
-                        </span>
-
-                        <h3 class="text-base font-semibold text-[#080911] md:text-lg">
-                            ¿Cómo empieza un proyecto de automatización?
-                        </h3>
-
-                    </div>
-
-                    <span class="flex h-10 w-10 shrink-0 items-center justify-center
-                   rounded-full border border-black/10 transition duration-300
-                   group-open:rotate-45 group-open:bg-[#6C5CE7]
-                   group-open:text-white">
-                        <ng-icon name="lucidePlus" class="text-lg" />
-                    </span>
-
-                </summary>
-
-                <div class="pb-7 pl-10 pr-14 md:pl-14">
-                    <p class="max-w-3xl text-sm leading-7 text-black/50">
-                        Primero analizamos cómo funciona actualmente tu proceso:
-                        captación, atención, seguimiento y herramientas. A partir de
-                        ahí identificamos qué tareas pueden automatizarse y diseñamos
-                        el sistema que mejor se adapte a tu operación.
-                    </p>
-                </div>
-
-            </details>
+            }
 
         </div>
 
+        <!-- CTA -->
+        <div appReveal class="relative mx-auto mt-10 max-w-4xl overflow-hidden rounded-3xl bg-[#080911] p-7 md:p-9">
 
-        <!-- CTA FINAL PEQUEÑO -->
+            <div class="pointer-events-none absolute -right-16 -top-16 h-48 w-48 rounded-full bg-[#6C5CE7]/40 blur-[70px]"></div>
 
-        <div class="mt-20 rounded-[28px] border border-[#6C5CE7]/15
-             bg-gradient-to-r from-[#6C5CE7]/5 via-white to-[#00F2FE]/5
-             px-8 py-10 md:px-12">
-
-            <div class="flex flex-col items-center justify-between gap-6
-               text-center md:flex-row md:text-left">
+            <div class="relative flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
 
                 <div>
-
-                    <p class="text-sm text-black/40">
-                        ¿Tienes otra pregunta?
-                    </p>
-
-                    <h3 class="mt-1 text-xl font-bold text-[#080911] md:text-2xl">
-                        Hablemos sobre tu proceso.
-                    </h3>
-
+                    <p class="text-sm text-white/70">¿Tienes otra pregunta?</p>
+                    <h3 class="mt-1 text-xl font-bold text-white md:text-2xl">Hablemos sobre tu proceso.</h3>
                 </div>
 
-
-                <button hlmBtn class="group h-12 rounded-full bg-[#491eff] px-7
-                 text-sm font-semibold text-white
-                 shadow-[0_10px_35px_rgba(73,30,255,.20)]
-                 transition hover:bg-[#5b32ff]">
-
+                <button type="button" (click)="openMeetingDialog()"
+                    class="btn-fx [--fx:#ffffff] group inline-flex h-12 w-full shrink-0 items-center justify-center rounded-xl bg-gradient-to-r from-[#6C5CE7] via-[#6C8CFF] to-[#00F2FE] px-7 text-sm font-bold text-[#080911] transition hover:cursor-pointer hover:shadow-[0_10px_30px_rgba(108,92,231,0.45)] md:w-auto">
                     Hablar con ShinkIA
-
-                    <ng-icon name="lucideArrowRight" class="ml-2 transition-transform duration-300
-                   group-hover:translate-x-1" />
-
+                    <ng-icon name="lucideArrowRight" class="btn-arrow ml-2 transition-transform duration-300 group-hover:translate-x-1" />
                 </button>
 
             </div>
@@ -5536,7 +3806,6 @@
         </div>
 
     </div>
-
 </section>
 
 <section class="relative overflow-hidden bg-[#080911] py-24 lg:py-32">
