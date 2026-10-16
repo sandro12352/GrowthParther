@@ -140,7 +140,7 @@
                                 max-w-[560px]
                                 text-sm
                                 leading-6
-                                text-white/55
+                                text-white/70
                             "
                         >
                             Cuéntanos sobre tu empresa y descubre cómo podemos
@@ -186,7 +186,7 @@
 
                     <div class="mx-3 h-px w-10 bg-white/10"></div>
 
-                    <div class="flex items-center gap-2 text-white/30">
+                    <div class="flex items-center gap-2 text-white/55">
 
                         <span
                             class="
@@ -270,7 +270,7 @@
                             max-w-md
                             text-sm
                             leading-6
-                            text-white/55
+                            text-white/70
                         "
                     >
                         Gracias por compartir tus datos. Nuestro equipo se
@@ -289,7 +289,7 @@
                             px-5
                             py-4
                             text-sm
-                            text-white/65
+                            text-white/75
                         "
                     >
                         <span class="font-semibold text-violet-300">
@@ -358,7 +358,7 @@
                                     class="
                                         mt-1
                                         text-xs
-                                        text-white/40
+                                        text-white/60
                                     "
                                 >
                                     Utilizaremos estos datos únicamente para
@@ -381,9 +381,9 @@
                                         for="meeting-name"
                                         class="
                                             mb-2
-                                            text-xs
+                                            text-sm
                                             font-medium
-                                            text-white/80
+                                            text-white/90
                                         "
                                     >
                                         Nombre completo
@@ -402,11 +402,12 @@
                                             rounded-xl
                                             border-white/10
                                             bg-white/[0.04]
+                                            px-4
                                             text-sm
                                             text-white
-                                            placeholder:text-white/25
+                                            placeholder:text-white/45
                                             focus:border-violet-500/50
-                                            focus:ring-violet-500/20
+                                            focus:ring-violet-500/20 focus-visible:border-violet-500/70 focus-visible:ring-4 focus-visible:ring-violet-500/25
                                         "
                                     />
 
@@ -435,9 +436,9 @@
                                         for="meeting-email"
                                         class="
                                             mb-2
-                                            text-xs
+                                            text-sm
                                             font-medium
-                                            text-white/80
+                                            text-white/90
                                         "
                                     >
                                         Correo electrónico
@@ -457,11 +458,12 @@
                                             rounded-xl
                                             border-white/10
                                             bg-white/[0.04]
+                                            px-4
                                             text-sm
                                             text-white
-                                            placeholder:text-white/25
+                                            placeholder:text-white/45
                                             focus:border-violet-500/50
-                                            focus:ring-violet-500/20
+                                            focus:ring-violet-500/20 focus-visible:border-violet-500/70 focus-visible:ring-4 focus-visible:ring-violet-500/25
                                         "
                                     />
 
@@ -505,7 +507,7 @@
                                     class="
                                         mt-1
                                         text-xs
-                                        text-white/40
+                                        text-white/60
                                     "
                                 >
                                     Esto nos ayudará a entender mejor tu
@@ -528,9 +530,9 @@
                                         for="meeting-company"
                                         class="
                                             mb-2
-                                            text-xs
+                                            text-sm
                                             font-medium
-                                            text-white/80
+                                            text-white/90
                                         "
                                     >
                                         Empresa
@@ -549,11 +551,12 @@
                                             rounded-xl
                                             border-white/10
                                             bg-white/[0.04]
+                                            px-4
                                             text-sm
                                             text-white
-                                            placeholder:text-white/25
+                                            placeholder:text-white/45
                                             focus:border-violet-500/50
-                                            focus:ring-violet-500/20
+                                            focus:ring-violet-500/20 focus-visible:border-violet-500/70 focus-visible:ring-4 focus-visible:ring-violet-500/25
                                         "
                                     />
 
@@ -571,9 +574,9 @@
                                         for="meeting-phone"
                                         class="
                                             mb-2
-                                            text-xs
+                                            text-sm
                                             font-medium
-                                            text-white/80
+                                            text-white/90
                                         "
                                     >
                                         WhatsApp o teléfono
@@ -593,11 +596,12 @@
                                             rounded-xl
                                             border-white/10
                                             bg-white/[0.04]
+                                            px-4
                                             text-sm
                                             text-white
-                                            placeholder:text-white/25
+                                            placeholder:text-white/45
                                             focus:border-violet-500/50
-                                            focus:ring-violet-500/20
+                                            focus:ring-violet-500/20 focus-visible:border-violet-500/70 focus-visible:ring-4 focus-visible:ring-violet-500/25
                                         "
                                     />
 
@@ -642,7 +646,7 @@
                                     class="
                                         mt-1
                                         text-xs
-                                        text-white/40
+                                        text-white/60
                                     "
                                 >
                                     Selecciona el área donde buscas mejorar
@@ -665,57 +669,59 @@
                                         border
                                         border-white/10
                                         bg-white/[0.04]
-                                        px-3
+                                        px-4
                                         pr-10
                                         text-sm
                                         text-white
+                                        [color-scheme:dark]
+                                        has-[option[value='']:checked]:text-white/45
                                         outline-none
                                         transition
                                         focus:border-violet-500/50
                                         focus:ring-2
-                                        focus:ring-violet-500/20
+                                        focus:ring-violet-500/20 focus-visible:border-violet-500/70 focus-visible:ring-4 focus-visible:ring-violet-500/25
                                     "
                                 >
 
                                     <option
                                         value=""
                                         disabled
-                                        class="bg-[#0b0b12]"
+                                        class="bg-[#0b0b12] text-white/50"
                                     >
                                         Selecciona una opción
                                     </option>
 
                                     <option
                                         value="social-media"
-                                        class="bg-[#0b0b12]"
+                                        class="bg-[#0b0b12] text-white"
                                     >
                                         Redes sociales y WhatsApp
                                     </option>
 
                                     <option
                                         value="crm"
-                                        class="bg-[#0b0b12]"
+                                        class="bg-[#0b0b12] text-white"
                                     >
                                         CRM y seguimiento de leads
                                     </option>
 
                                     <option
                                         value="ai"
-                                        class="bg-[#0b0b12]"
+                                        class="bg-[#0b0b12] text-white"
                                     >
                                         Atención con inteligencia artificial
                                     </option>
 
                                     <option
                                         value="integrations"
-                                        class="bg-[#0b0b12]"
+                                        class="bg-[#0b0b12] text-white"
                                     >
                                         Integración de herramientas
                                     </option>
 
                                     <option
                                         value="other"
-                                        class="bg-[#0b0b12]"
+                                        class="bg-[#0b0b12] text-white"
                                     >
                                         Otro proceso
                                     </option>
@@ -731,7 +737,7 @@
                                         right-3
                                         top-1/2
                                         -translate-y-1/2
-                                        text-white/40
+                                        text-white/60
                                     "
                                 >
 
@@ -829,13 +835,13 @@
                                     class="
                                         text-[11px]
                                         leading-5
-                                        text-white/40
+                                        text-white/60
                                     "
                                 >
                                     Tus datos serán utilizados únicamente
                                     para contactarte y coordinar tu reunión
                                     con
-                                    <span class="font-medium text-white/60">
+                                    <span class="font-medium text-white/70">
                                         ShinkIA
                                     </span>.
                                 </p>
@@ -888,7 +894,7 @@
                                 border-white/10
                                 bg-transparent
                                 px-5
-                                text-white/60
+                                text-white/70
                                 hover:bg-white/5
                                 hover:text-white
                             "
