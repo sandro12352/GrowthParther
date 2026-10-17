@@ -12,7 +12,7 @@
 
 // ---- Reglas del formulario (mantener sincronizadas con form-meeting.component.ts) ----
 const OBJECTIVES = ['social-media', 'crm', 'ai', 'integrations', 'other'];
-const MEDIUMS = ['video', 'phone', 'whatsapp'];
+const MEDIUMS = ['video', 'phone'];
 const SLOT_MINUTES = 30;
 const MAX_DAYS_AHEAD = 60;
 const PHONE_PATTERN = /^\+?(?:[\s().-]*\d){7,15}[\s().-]*$/;

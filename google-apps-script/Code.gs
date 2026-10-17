@@ -49,9 +49,8 @@ var OBJECTIVE_LABELS = {
 };
 
 var MEDIUM_LABELS = {
-  'video': 'Videollamada',
-  'phone': 'Llamada',
-  'whatsapp': 'WhatsApp',
+  'video': 'Google Meet',
+  'phone': 'Llamada telefónica',
 };
 
 /** Recibe las solicitudes de la web (función de Vercel). */

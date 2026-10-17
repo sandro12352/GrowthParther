@@ -4,7 +4,6 @@ import { NgIcon, provideIcons } from '@ng-icons/core';
 import {
   lucideChevronLeft,
   lucideChevronRight,
-  lucideMessageCircle,
   lucidePhone,
   lucideVideo,
 } from '@ng-icons/lucide';
@@ -82,7 +81,7 @@ const CALENDAR_ES: Partial<BrnCalendarI18n> = {
 @Component({
   imports: [NgIcon, HlmDialogImports, HlmFieldImports, HlmSelectImports, HlmCalendarImports, ReactiveFormsModule],
   providers: [
-    provideIcons({ lucideVideo, lucidePhone, lucideMessageCircle, lucideChevronLeft, lucideChevronRight }),
+    provideIcons({ lucideVideo, lucidePhone, lucideChevronLeft, lucideChevronRight }),
     provideBrnCalendarI18n(CALENDAR_ES),
   ],
   selector: 'app-form-meeting',
@@ -120,9 +119,8 @@ export class FormMeetingComponent {
   });
 
   public readonly mediums = [
-    { value: 'video', label: 'Videollamada', icon: 'lucideVideo' },
-    { value: 'phone', label: 'Llamada', icon: 'lucidePhone' },
-    { value: 'whatsapp', label: 'WhatsApp', icon: 'lucideMessageCircle' },
+    { value: 'video', label: 'Google Meet', icon: 'lucideVideo' },
+    { value: 'phone', label: 'Llamada telefónica', icon: 'lucidePhone' },
   ];
 
   /** Áreas que el visitante puede elegir en "¿Qué te gustaría automatizar?". */
