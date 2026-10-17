@@ -11,6 +11,7 @@ import { HlmButtonImports } from '@spartan-ng/helm/button';
 import AutoScroll from 'embla-carousel-auto-scroll'
 import { RevealDirective } from '../../core/reveal.directive';
 import { DrawPathsDirective } from '../../core/draw-paths.directive';
+import { HeroIntroDirective } from '../../core/hero-intro.directive';
 import { WorkflowsComponent } from './workflows/workflows.component';
 import { MeetingDialogService } from '../../shared/components/services/meeting-dialog.service';
 
@@ -26,6 +27,7 @@ import { MeetingDialogService } from '../../shared/components/services/meeting-d
     WorkflowsComponent,
     RevealDirective,
     DrawPathsDirective,
+    HeroIntroDirective,
   ],
   providers: [provideIcons({
     lucideUsers,
@@ -359,16 +361,20 @@ export class HomeComponent{
       monthly: '350',
       conversations: 'Conversaciones ilimitadas',
       includesTitle: 'Todo el Plan Comercial, más:',
+      // Las 5 características clave: así los tres planes muestran el mismo número y mantienen la misma altura.
       features: [
         { title: 'Agendamiento', detail: 'con Google Calendar' },
-        { title: 'Inventario en vivo', detail: 'stock, precios, horarios' },
-        { title: 'Cotizaciones', detail: 'creadas en el chat' },
         { title: 'CRM y APIs', detail: 'hasta 2 integraciones' },
-        { title: 'Landing page', detail: 'formulario directo al CRM' },
         { title: 'Pipelines de venta', detail: 'etapas y seguimiento' },
         { title: 'Agentes de IA', detail: 'modelos OpenAI avanzados' },
-        { title: 'Imagen, video y audio', detail: 'reconocimiento con IA' },
         { title: 'Pasarelas de pago', detail: 'Stripe, Mercado Pago y más' },
+      ],
+      // Resto de lo que incluye este plan: no se muestra en las tarjetas (por ahora).
+      extraFeatures: [
+        { title: 'Inventario en vivo', detail: 'stock, precios, horarios' },
+        { title: 'Cotizaciones', detail: 'creadas en el chat' },
+        { title: 'Landing page', detail: 'formulario directo al CRM' },
+        { title: 'Imagen, video y audio', detail: 'reconocimiento con IA' },
         { title: 'Flujos a medida', detail: 'condiciones y acciones' },
       ],
       idealFor: 'inmobiliarias, concesionarios y empresas con procesos de venta complejos.',

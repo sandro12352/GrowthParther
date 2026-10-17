@@ -157,55 +157,29 @@
                         mt-6
                         flex
                         items-center
+                        justify-center
                         text-xs
                     "
                 >
 
-                    <div class="flex items-center gap-2 text-white/80">
-
+                    <div class="flex items-center gap-2" [class]="step() === 1 && !meetingSubmitted() ? 'text-white' : 'text-white/80'">
                         <span
-                            class="
-                                flex
-                                h-6
-                                w-6
-                                items-center
-                                justify-center
-                                rounded-full
-                                bg-violet-600
-                                text-[10px]
-                                font-bold
-                                text-white
-                            "
+                            class="flex h-6 w-6 items-center justify-center rounded-full text-[10px] font-bold transition-colors"
+                            [class]="step() === 1 && !meetingSubmitted() ? 'bg-violet-600 text-white' : 'border border-violet-500/50 bg-violet-600/20 text-violet-300'"
                         >
-                            1
+                            @if (step() === 1 && !meetingSubmitted()) { 1 } @else { <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5" /></svg> }
                         </span>
-
                         <span>Información</span>
-
                     </div>
-
-                    <div class="mx-3 h-px w-10 bg-white/10"></div>
-
-                    <div class="flex items-center gap-2 text-white/55">
-
+                    <div class="mx-3 h-px w-10 transition-colors" [class]="step() === 2 || meetingSubmitted() ? 'bg-violet-500/60' : 'bg-white/10'"></div>
+                    <div class="flex items-center gap-2" [class]="step() === 2 && !meetingSubmitted() ? 'text-white' : meetingSubmitted() ? 'text-white/80' : 'text-white/55'">
                         <span
-                            class="
-                                flex
-                                h-6
-                                w-6
-                                items-center
-                                justify-center
-                                rounded-full
-                                border
-                                border-white/10
-                                text-[10px]
-                            "
+                            class="flex h-6 w-6 items-center justify-center rounded-full text-[10px] font-bold transition-colors"
+                            [class]="meetingSubmitted() ? 'border border-violet-500/50 bg-violet-600/20 text-violet-300' : step() === 2 ? 'bg-violet-600 text-white' : 'border border-white/10'"
                         >
-                            2
+                            @if (meetingSubmitted()) { <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5" /></svg> } @else { 2 }
                         </span>
-
                         <span>Reunión</span>
-
                     </div>
 
                 </div>
@@ -293,7 +267,7 @@
                         "
                     >
                         <span class="font-semibold text-violet-300">
-                            ShinkIA
+                            GrowthProject AI
                         </span>
 
                         transforma procesos en sistemas inteligentes.
@@ -320,6 +294,14 @@
                     overflow-hidden
                 "
             >
+                <!-- Campo trampa anti-spam: invisible y fuera del orden de tabulación. -->
+                <div aria-hidden="true" class="absolute -left-[9999px] top-0 h-px w-px overflow-hidden">
+                    <label>
+                        No rellenar este campo
+                        <input type="text" tabindex="-1" autocomplete="off" formControlName="website" />
+                    </label>
+                </div>
+
 
                 <!-- CONTENIDO SCROLLEABLE -->
                 <div
@@ -334,6 +316,7 @@
                 >
 
                     <div class="space-y-7">
+                    @if (step() === 1) {
 
 
                         <!-- ================================================= -->
@@ -416,7 +399,7 @@
                                         meetingForm.controls.name.touched
                                     ) {
 
-                                        <hlm-field-error class="mt-1 text-xs">
+                                        <hlm-field-error forceShow class="mt-1.5 text-xs text-red-400">
                                             Indica tu nombre completo.
                                         </hlm-field-error>
 
@@ -472,7 +455,7 @@
                                         meetingForm.controls.email.touched
                                     ) {
 
-                                        <hlm-field-error class="mt-1 text-xs">
+                                        <hlm-field-error forceShow class="mt-1.5 text-xs text-red-400">
                                             Introduce un correo válido.
                                         </hlm-field-error>
 
@@ -500,7 +483,7 @@
                                         text-white
                                     "
                                 >
-                                    Sobre tu empresa
+                                    Contacto y empresa
                                 </h3>
 
                                 <p
@@ -510,8 +493,8 @@
                                         text-white/60
                                     "
                                 >
-                                    Esto nos ayudará a entender mejor tu
-                                    operación.
+                                    Te escribiremos solo para coordinar
+                                    la reunión.
                                 </p>
 
                             </div>
@@ -536,7 +519,7 @@
                                         "
                                     >
                                         Empresa
-                                        <span class="text-violet-400">*</span>
+                                        <span class="font-normal text-white/60">(opcional)</span>
                                     </label>
 
                                     <input
@@ -589,7 +572,7 @@
                                         type="tel"
                                         formControlName="phone"
                                         autocomplete="tel"
-                                        placeholder="+51 999 999 999"
+                                        placeholder="Incluye el código de país" inputmode="tel"
                                         class="
                                             h-11
                                             w-full
@@ -610,8 +593,8 @@
                                         meetingForm.controls.phone.touched
                                     ) {
 
-                                        <hlm-field-error class="mt-1 text-xs">
-                                            Indica un número de contacto.
+                                        <hlm-field-error forceShow class="mt-1.5 text-xs text-red-400">
+                                            Ingresa un número válido, con el código de país (por ejemplo +34 600 000 000).
                                         </hlm-field-error>
 
                                     }
@@ -619,157 +602,6 @@
                                 </div>
 
                             </div>
-
-                        </section>
-
-
-                        <!-- ================================================= -->
-                        <!-- OBJETIVO -->
-                        <!-- ================================================= -->
-
-                        <section hlmField>
-
-                            <div class="mb-4">
-
-                                <h3
-                                    class="
-                                        text-sm
-                                        font-semibold
-                                        text-white
-                                    "
-                                >
-                                    ¿Qué te gustaría automatizar?
-                                    <span class="text-violet-400">*</span>
-                                </h3>
-
-                                <p
-                                    class="
-                                        mt-1
-                                        text-xs
-                                        text-white/60
-                                    "
-                                >
-                                    Selecciona el área donde buscas mejorar
-                                    tus procesos.
-                                </p>
-
-                            </div>
-
-
-                            <div class="relative">
-
-                                <select
-                                    id="meeting-objective"
-                                    formControlName="objective"
-                                    class="
-                                        h-11
-                                        w-full
-                                        appearance-none
-                                        rounded-xl
-                                        border
-                                        border-white/10
-                                        bg-white/[0.04]
-                                        px-4
-                                        pr-10
-                                        text-sm
-                                        text-white
-                                        [color-scheme:dark]
-                                        has-[option[value='']:checked]:text-white/45
-                                        outline-none
-                                        transition
-                                        focus:border-violet-500/50
-                                        focus:ring-2
-                                        focus:ring-violet-500/20 focus-visible:border-violet-500/70 focus-visible:ring-4 focus-visible:ring-violet-500/25
-                                    "
-                                >
-
-                                    <option
-                                        value=""
-                                        disabled
-                                        class="bg-[#0b0b12] text-white/50"
-                                    >
-                                        Selecciona una opción
-                                    </option>
-
-                                    <option
-                                        value="social-media"
-                                        class="bg-[#0b0b12] text-white"
-                                    >
-                                        Redes sociales y WhatsApp
-                                    </option>
-
-                                    <option
-                                        value="crm"
-                                        class="bg-[#0b0b12] text-white"
-                                    >
-                                        CRM y seguimiento de leads
-                                    </option>
-
-                                    <option
-                                        value="ai"
-                                        class="bg-[#0b0b12] text-white"
-                                    >
-                                        Atención con inteligencia artificial
-                                    </option>
-
-                                    <option
-                                        value="integrations"
-                                        class="bg-[#0b0b12] text-white"
-                                    >
-                                        Integración de herramientas
-                                    </option>
-
-                                    <option
-                                        value="other"
-                                        class="bg-[#0b0b12] text-white"
-                                    >
-                                        Otro proceso
-                                    </option>
-
-                                </select>
-
-
-                                <!-- Flecha -->
-                                <div
-                                    class="
-                                        pointer-events-none
-                                        absolute
-                                        right-3
-                                        top-1/2
-                                        -translate-y-1/2
-                                        text-white/60
-                                    "
-                                >
-
-                                    <svg
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        width="16"
-                                        height="16"
-                                        viewBox="0 0 24 24"
-                                        fill="none"
-                                        stroke="currentColor"
-                                        stroke-width="2"
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                    >
-                                        <path d="m6 9 6 6 6-6" />
-                                    </svg>
-
-                                </div>
-
-                            </div>
-
-
-                            @if (
-                                meetingForm.controls.objective.invalid &&
-                                meetingForm.controls.objective.touched
-                            ) {
-
-                                <hlm-field-error class="mt-1 text-xs">
-                                    Selecciona el área que quieres mejorar.
-                                </hlm-field-error>
-
-                            }
 
                         </section>
 
@@ -842,7 +674,7 @@
                                     para contactarte y coordinar tu reunión
                                     con
                                     <span class="font-medium text-white/70">
-                                        ShinkIA
+                                        GrowthProject AI
                                     </span>.
                                 </p>
 
@@ -850,12 +682,211 @@
 
                         </div>
 
+                    } @else {
+                        <!-- ================================================= -->
+                        <!-- PASO 2: REUNIÓN -->
+                        <!-- ================================================= -->
+                        <!-- ================================================= -->
+                        <!-- ¿QUÉ TRATAR? -->
+                        <!-- ================================================= -->
+
+                        <section hlmField>
+
+                            <div class="mb-4">
+
+                                <h3
+                                    class="
+                                        text-sm
+                                        font-semibold
+                                        text-white
+                                    "
+                                >
+                                    ¿Qué te gustaría automatizar?
+                                    <span class="text-violet-400">*</span>
+                                </h3>
+
+                                <p
+                                    class="
+                                        mt-1
+                                        text-xs
+                                        text-white/60
+                                    "
+                                >
+                                    Selecciona el área donde buscas mejorar
+                                    tus procesos.
+                                </p>
+
+                            </div>
+
+
+                            <hlm-select formControlName="objective" [itemToString]="objectiveLabel">
+                                <hlm-select-trigger
+                                    buttonId="meeting-objective"
+                                    class="w-full rounded-xl border-white/10 bg-white/[0.04] ps-4 pe-3 text-sm text-white hover:bg-white/[0.06] data-placeholder:text-white/45 data-[size=default]:h-11 focus-visible:border-violet-500/70 focus-visible:ring-4 focus-visible:ring-violet-500/25 [&_ng-icon]:text-white/60"
+                                >
+                                    <hlm-select-value placeholder="Selecciona una opción" />
+                                </hlm-select-trigger>
+                                <hlm-select-content
+                                    *hlmSelectPortal
+                                    class="mt-1 rounded-xl border border-white/10 bg-[#12121c] p-1.5 text-white shadow-2xl shadow-black/50 ring-0"
+                                >
+                                    @for (option of objectiveOptions; track option.value) {
+                                        <hlm-select-item [value]="option.value" class="text-white/90 data-highlighted:bg-violet-500/20 data-highlighted:text-white rounded-lg py-2.5 ps-3 pe-9 [&_ng-icon]:text-violet-300">{{ option.label }}</hlm-select-item>
+                                    }
+                                </hlm-select-content>
+                            </hlm-select>
+                            @if (
+                                meetingForm.controls.objective.invalid &&
+                                meetingForm.controls.objective.touched
+                            ) {
+
+                                <hlm-field-error forceShow class="mt-1.5 text-xs text-red-400">
+                                    Selecciona el área que quieres mejorar.
+                                </hlm-field-error>
+
+                            }
+
+                        </section>
+
+                        @if (isOther()) {
+                        <section>
+                            <label hlmFieldLabel for="meeting-other" class="mb-2 text-sm font-medium text-white/90">
+                                Cuéntanos qué proceso quieres automatizar <span class="text-violet-400">*</span>
+                            </label>
+                            <textarea
+                                hlmInput
+                                id="meeting-other"
+                                formControlName="otherDetail"
+                                rows="3"
+                                maxlength="500"
+                                placeholder="Describe brevemente el proceso o el problema que quieres resolver"
+                                class="w-full resize-none rounded-xl border-white/10 bg-white/[0.04] px-4 py-3 text-sm text-white placeholder:text-white/45 focus-visible:border-violet-500/70 focus-visible:ring-4 focus-visible:ring-violet-500/25"
+                            ></textarea>
+                            @if (isInvalid('otherDetail')) {
+                            <hlm-field-error class="mt-2 text-xs text-red-400">Cuéntanos brevemente qué proceso quieres automatizar.</hlm-field-error>
+                            }
+                        </section>
+                        }
+
+
+                        <section>
+                            <h3 class="text-sm font-semibold text-white">¿Cómo prefieres que te contactemos?</h3>
+                            <p class="mt-1 text-xs text-white/60">Elige el medio para la reunión.</p>
+                            <div class="mt-4 grid grid-cols-3 gap-3" role="radiogroup" aria-label="Medio de la reunión">
+                                @for (option of mediums; track option.value) {
+                                <button
+                                    type="button"
+                                    role="radio"
+                                    [attr.aria-checked]="meetingForm.controls.medium.value === option.value"
+                                    (click)="choose('medium', option.value)"
+                                    class="flex h-20 flex-col items-center justify-center gap-2 rounded-xl border text-sm font-medium transition hover:cursor-pointer focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-violet-500/25"
+                                    [class]="meetingForm.controls.medium.value === option.value ? 'border-violet-500/70 bg-violet-500/20 text-white' : 'border-white/10 bg-white/[0.04] text-white/70 hover:border-white/25 hover:bg-white/[0.07] hover:text-white'"
+                                >
+                                    <ng-icon [name]="option.icon" size="20" />
+                                    {{ option.label }}
+                                </button>
+                                }
+                            </div>
+                            @if (isInvalid('medium')) {
+                            <hlm-field-error class="mt-2 text-xs text-red-400">Elige cómo prefieres que te contactemos.</hlm-field-error>
+                            }
+                        </section>
+
+                        <section>
+                            <h3 class="text-sm font-semibold text-white">Fecha y hora</h3>
+                            <p class="mt-1 text-xs text-white/60">Elige un día disponible y después la hora ({{ timezone() }}).</p>
+
+                            <div class="mt-4 grid gap-4 sm:grid-cols-[auto_1fr]">
+                                <div class="meeting-calendar mx-auto self-start rounded-2xl border border-white/10 bg-white/[0.03] p-2 sm:mx-0 sm:p-3">
+                                    <div class="mb-1 flex items-center justify-between px-1">
+                                        <button
+                                            type="button"
+                                            (click)="shiftMonth(-1)"
+                                            [disabled]="!canGoToMonth(-1)"
+                                            aria-label="Mes anterior"
+                                            class="flex h-9 w-9 items-center justify-center rounded-lg text-white/80 transition hover:cursor-pointer hover:bg-white/10 disabled:cursor-not-allowed disabled:opacity-30 disabled:hover:bg-transparent"
+                                        >
+                                            <ng-icon name="lucideChevronLeft" size="18" />
+                                        </button>
+                                        <span class="text-sm font-medium text-white first-letter:uppercase">{{ calendarMonthLabel() }}</span>
+                                        <button
+                                            type="button"
+                                            (click)="shiftMonth(1)"
+                                            [disabled]="!canGoToMonth(1)"
+                                            aria-label="Mes siguiente"
+                                            class="flex h-9 w-9 items-center justify-center rounded-lg text-white/80 transition hover:cursor-pointer hover:bg-white/10 disabled:cursor-not-allowed disabled:opacity-30 disabled:hover:bg-transparent"
+                                        >
+                                            <ng-icon name="lucideChevronRight" size="18" />
+                                        </button>
+                                    </div>
+                                    <hlm-calendar
+                                        #calendar
+                                        [date]="calendarDate()"
+                                        (dateChange)="onDateChange($event)"
+                                        [min]="minDate()"
+                                        [max]="maxDate()"
+                                        [dateDisabled]="isDateDisabled"
+                                        [weekStartsOn]="1"
+                                    />
+                                </div>
+
+                                <div class="min-w-0">
+                                    @if (!calendarDate()) {
+                                    <div class="flex h-full min-h-32 items-center justify-center rounded-2xl border border-dashed border-white/10 p-4 text-center text-sm text-white/60">
+                                        Elige una fecha para ver los horarios disponibles.
+                                    </div>
+                                    } @else {
+                                    <p class="mb-3 text-sm font-medium text-white first-letter:uppercase">{{ selectedDayLabel() }}</p>
+                                    <div class="space-y-4" role="radiogroup" aria-label="Hora de la reunión">
+                                        @for (group of availableGroups(); track group.label) {
+                                        <div>
+                                            <p class="mb-2 text-xs font-medium uppercase tracking-wide text-white/60">{{ group.label }}</p>
+                                            <div class="grid grid-cols-3 gap-2">
+                                                @for (slot of group.slots; track slot) {
+                                                <button
+                                                    type="button"
+                                                    role="radio"
+                                                    [attr.aria-checked]="meetingForm.controls.time.value === slot"
+                                                    (click)="choose('time', slot)"
+                                                    class="h-10 rounded-lg border text-sm font-medium tabular-nums transition hover:cursor-pointer focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-violet-500/25"
+                                                    [class]="meetingForm.controls.time.value === slot ? 'border-violet-500/70 bg-violet-500/20 text-white' : 'border-white/10 bg-white/[0.04] text-white/70 hover:border-white/25 hover:bg-white/[0.07] hover:text-white'"
+                                                >
+                                                    {{ slot }}
+                                                </button>
+                                                }
+                                            </div>
+                                        </div>
+                                        }
+                                    </div>
+                                    }
+                                </div>
+                            </div>
+
+                            @if (isInvalid('date')) {
+                            <hlm-field-error class="mt-2 text-xs text-red-400">Elige una fecha.</hlm-field-error>
+                            } @else if (isInvalid('time')) {
+                            <hlm-field-error class="mt-2 text-xs text-red-400">Elige una hora.</hlm-field-error>
+                            }
+                        </section>
+
+                        @if (summary()) {
+                        <div class="rounded-xl border border-violet-500/30 bg-violet-500/10 px-4 py-3 text-sm text-white/90">
+                            <span class="font-semibold text-white">Tu reunión:</span> {{ summary() }}
+                        </div>
+                        }
+                    }
                     </div>
 
                 </div>
 
 
                 <!-- ===================================================== -->
+                @if (submitError()) {
+                <div role="alert" class="mx-6 mb-3 shrink-0 rounded-xl border border-red-500/30 bg-red-500/10 px-4 py-3 text-sm text-red-300 sm:mx-8">
+                    {{ submitError() }}
+                </div>
+                }
+
                 <!-- FOOTER -->
                 <!-- ===================================================== -->
 
@@ -883,7 +914,12 @@
                         "
                     >
 
-                        <button
+                        @if (step() === 2) {
+                            <button type="button" hlmBtn variant="outline" (click)="previousStep()" [disabled]="sending()" class="h-11 rounded-xl border-white/10 bg-transparent px-5 text-white/70 hover:bg-white/5 hover:text-white">
+                                Atrás
+                            </button>
+                        } @else {
+                            <button
                             type="button"
                             hlmDialogClose
                             hlmBtn
@@ -901,11 +937,13 @@
                         >
                             Ahora no
                         </button>
+                        }
 
 
                         <button
                             type="submit"
                             hlmBtn
+                            [disabled]="sending()"
                             class="
                                 h-11
                                 rounded-xl
@@ -929,7 +967,7 @@
 
                             <span class="flex items-center gap-2">
 
-                                Solicitar reunión
+                                {{ sending() ? 'Enviando…' : step() === 1 ? 'Continuar' : 'Solicitar reunión' }}
 
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"

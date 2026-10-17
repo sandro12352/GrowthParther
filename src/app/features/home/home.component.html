@@ -1,6 +1,6 @@
 
 
-<section class="relative min-h-full overflow-visible
+<section appHeroIntro class="relative min-h-full overflow-x-clip overflow-y-visible
            bg-[#130735] text-white ">
 
     <div class="pointer-events-none absolute inset-0 overflow-hidden">
@@ -32,7 +32,7 @@
                lg:px-10">
 
         <!-- TAG -->
-        <div class="mb-6 inline-flex
+        <div data-hero="fade" class="mb-6 inline-flex
                    rounded-full
                    border border-[#6C5CE7]/30
                    bg-[#6C5CE7]/10
@@ -48,14 +48,18 @@
         <!-- ================================================== TÍTULO =================================================== -->
         <h1
             class="max-w-5xl text-balance text-center text-[2.2rem] font-extrabold leading-[1.05] tracking-tight sm:text-5xl md:text-6xl lg:text-[4rem]">
-            <span class="block">CONECTAMOS TU NEGOCIO.</span>
-            <span
-                class="block bg-gradient-to-r from-[#8f82ff] via-[#6C8CFF] to-[#00F2FE] bg-clip-text text-transparent">
-                AUTOMATIZAMOS EL RESTO. </span>
+            <span class="block overflow-hidden pb-[0.14em] -mb-[0.14em]">
+                <span data-hero="line" class="block">CONECTAMOS TU NEGOCIO.</span>
+            </span>
+            <span class="block overflow-hidden pb-[0.14em] -mb-[0.14em]">
+                <span data-hero="line"
+                    class="block bg-gradient-to-r from-[#8f82ff] via-[#6C8CFF] to-[#00F2FE] bg-clip-text text-transparent">
+                    AUTOMATIZAMOS EL RESTO. </span>
+            </span>
 
         </h1>
         <!-- ================================================== SUBTÍTULO =================================================== -->
-        <p
+        <p data-hero="fade"
             class="mt-5 w-full max-w-2xl text-center text-sm leading-6 text-white/75 sm:mt-7 sm:text-base sm:leading-7 md:text-lg">
             Diseñamos flujos personalizados que conectan tus canales, CRM, inteligencia artificial y procesos para que
             tu equipo deje de hacer tareas repetitivas. </p>
@@ -65,7 +69,7 @@
              BOTONES
         =================================================== -->
 
-        <div class="mt-7 flex w-full flex-col items-stretch justify-center gap-3
+        <div data-hero="fade" class="mt-7 flex w-full flex-col items-stretch justify-center gap-3
            sm:mt-9 sm:w-auto sm:flex-row sm:items-center sm:gap-4">
 
             <!-- CTA PRINCIPAL -->
@@ -155,13 +159,13 @@
                  DASHBOARD
             =========================================== -->
 
-            <div class="absolute hidden lg:block
+            <div data-hero="dash" class="absolute hidden lg:block
                        bottom-[-30px]
-                       left-1/2
+                       inset-x-0 mx-auto
                        z-30
                        w-full
                        lg:w-[68%]
-                       -translate-x-1/2
+                       
                        overflow-hidden
                        rounded-2xl
                        bg-white
@@ -200,7 +204,7 @@
                  FLOATING FLOW
             =========================================== -->
 
-            <div class="absolute
+            <div data-hero="chip" class="absolute
                        left-[7%]
                        top-[30%]
                        z-40
@@ -240,7 +244,7 @@
 
 
             <!-- Segundo elemento -->
-            <div class="absolute
+            <div data-hero="chip" class="absolute
                        left-[18%]
                        top-[15%]
                        z-40
@@ -284,7 +288,7 @@
                  CONECTORES
             =========================================== -->
 
-            <div class="absolute
+            <div data-hero="connector" class="absolute
                        bottom-[55%]
                        left-[24%]
                        z-10
@@ -305,20 +309,12 @@
                  ROBOT
             =========================================== -->
 
-    <img src="/banner/banner1.webp" alt="" aria-hidden="true" width="1315" height="1197" fetchpriority="high"
-        decoding="async" class="pointer-events-none
-         absolute
-         right-[8%]
-         top-[40%]
-         z-20
-         hidden
-         w-[20vw]
-         max-w-[42vw]
-         object-contain
-         opacity-90
-         animate-floating
-         drop-shadow-[0_20px_50px_rgba(108,92,231,0.35)]
-         lg:block" />
+    <!-- El contenedor es el que entra desde la derecha (GSAP); la imagen conserva su flotación (CSS). -->
+    <div data-hero="robot" class="pointer-events-none absolute right-[8%] top-[40%] z-20 hidden w-[20vw] max-w-[42vw] lg:block">
+        <img src="/banner/banner1.webp" alt="" aria-hidden="true" width="1315" height="1197" fetchpriority="high"
+            decoding="async" class="block w-full object-contain opacity-90 animate-floating
+             drop-shadow-[0_20px_50px_rgba(108,92,231,0.35)]" />
+    </div>
 
 </section>
 
@@ -790,7 +786,7 @@
                 <!-- IMAGEN -->
                 <!-- ================================= -->
 
-                <img src="/nosotros/equipo.webp" alt="Equipo de ShinkIA" width="1024" height="1536" loading="lazy"
+                <img src="/nosotros/equipo.webp" alt="Equipo de GrowthProject AI" width="1024" height="1536" loading="lazy"
                     decoding="async" class="relative z-10
                            h-[360px]
                            w-full
@@ -861,7 +857,7 @@
 
                     <br />
 
-                    SHINKIA
+                    GROWTHPROJECT AI
 
                     <span class="bg-gradient-to-r
                                  from-[#6C5CE7]
@@ -3797,7 +3793,7 @@
 
                 <button type="button" (click)="openMeetingDialog()"
                     class="btn-fx [--fx:#ffffff] group inline-flex h-12 w-full shrink-0 items-center justify-center rounded-xl bg-gradient-to-r from-[#6C5CE7] via-[#6C8CFF] to-[#00F2FE] px-7 text-sm font-bold text-[#080911] transition hover:cursor-pointer hover:shadow-[0_10px_30px_rgba(108,92,231,0.45)] md:w-auto">
-                    Hablar con ShinkIA
+                    Hablar con GrowthProject AI
                     <ng-icon name="lucideArrowRight" class="btn-arrow ml-2 transition-transform duration-300 group-hover:translate-x-1" />
                 </button>
 

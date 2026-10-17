@@ -1,7 +1,17 @@
 <div #overlay class="splash fixed inset-0 z-[100] flex items-center justify-center bg-white" aria-hidden="true">
-    <p #word class="flex items-center text-4xl font-extrabold tracking-tight sm:text-6xl">
-        @for (letter of letters; track $index) {
-        <span class="ch" [class]="$index >= 5 ? 'text-[#491eff]' : 'text-[#130735]'">{{ letter }}</span>
-        }
-    </p>
+    <div #logo class="flex flex-col items-center">
+
+        <!-- La "G", grande -->
+        <img class="splash-icon w-32 sm:w-44" src="/branding/icono.webp" alt="" width="950" height="902" fetchpriority="high" />
+
+        <!-- El nombre, debajo: cada letra es una imagen aparte, apiladas en su posición exacta -->
+        <div class="relative mt-6 w-60 sm:w-80" [style.aspect-ratio]="nameAspect">
+            @for (letter of letters; track letter.file) {
+            <img class="splash-letter absolute" [src]="'/branding/splash/' + letter.file" alt=""
+                [style.left.%]="letter.left" [style.top.%]="letter.top" [style.width.%]="letter.width"
+                [style.height.%]="letter.height" />
+            }
+        </div>
+
+    </div>
 </div>

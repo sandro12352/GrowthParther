@@ -1,7 +1,11 @@
-/* Cada letra empieza invisible (así no hay parpadeo antes de que arranque la animación). */
-.ch {
-  display: inline-block;
+/* El icono y las letras empiezan invisibles (así no hay parpadeo antes de que arranque la animación). */
+.splash-icon,
+.splash-letter {
   opacity: 0;
+}
+
+.splash-icon {
+  height: auto;
 }
 
 /* Red de seguridad: si el JS nunca llega a ejecutarse, la cortina se retira sola a los 5 s. */

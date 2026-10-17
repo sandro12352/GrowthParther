@@ -1,0 +1,35 @@
+
+/* El <hlm-select-trigger> recibe las mismas clases que su botón interno; sin esto, su propio
+   fondo y bordes redondeados asoman detrás del botón. `contents` deja solo el botón visible. */
+hlm-select-trigger {
+  display: contents;
+}
+
+/* Calendario de Spartan sobre el modal oscuro: sus colores salen de los tokens del tema
+   (claro por defecto), así que se redefinen solo dentro de este contenedor. */
+.meeting-calendar {
+  --background: transparent;
+  --foreground: #ffffff;
+  --primary: #6c5ce7;
+  --primary-foreground: #ffffff;
+  --muted: rgb(255 255 255 / 0.1);
+  --muted-foreground: rgb(255 255 255 / 0.6);
+  --accent: rgb(255 255 255 / 0.1);
+  --accent-foreground: #ffffff;
+  --ring: #8f82ff;
+  color: #ffffff;
+}
+
+.meeting-calendar ::ng-deep hlm-calendar {
+  --cell-size: 2.5rem;
+}
+
+.meeting-calendar ::ng-deep button[disabled],
+.meeting-calendar ::ng-deep button[aria-disabled='true'] {
+  opacity: 0.3;
+}
+
+/* Se oculta la cabecera propia de hlm-calendar (mes + flechas): la sustituye la del formulario. */
+.meeting-calendar ::ng-deep hlm-calendar > div > div:first-child {
+  display: none;
+}

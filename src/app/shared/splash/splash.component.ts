@@ -1,11 +1,14 @@
 import { Component, ElementRef, afterNextRender, inject, viewChild } from '@angular/core';
 import { GsapService } from '../../core/gsap.service';
+import { SplashService } from '../../core/splash.service';
+import { SPLASH_LETTERS, SPLASH_NAME_ASPECT } from './splash-letters';
 
 const SESSION_KEY = 'shinkia-splash';
 const LOCKED_KEYS = new Set([' ', 'PageUp', 'PageDown', 'Home', 'End', 'ArrowUp', 'ArrowDown']);
 
 /**
- * Pantalla de carga: el nombre aparece letra a letra (fade + subida con retraso escalonado) mientras hace zoom out, y una cortina sube para descubrir el hero.
+ * Pantalla de carga: la "G" aparece grande y, debajo, el nombre se escribe letra a letra de izquierda a derecha;
+ * después sube una cortina que descubre el hero.
  * Se renderiza en el HTML del servidor (cubre el hero desde el primer pintado) y,
  * una vez vista en la sesión, no se vuelve a mostrar (la oculta un script en index.html).
  *
@@ -20,12 +23,13 @@ const LOCKED_KEYS = new Set([' ', 'PageUp', 'PageDown', 'Home', 'End', 'ArrowUp'
 })
 export class SplashComponent {
   private readonly gsapService = inject(GsapService);
+  private readonly splash = inject(SplashService);
 
   private readonly overlay = viewChild.required<ElementRef<HTMLElement>>('overlay');
-  private readonly word = viewChild.required<ElementRef<HTMLElement>>('word');
+  private readonly logo = viewChild.required<ElementRef<HTMLElement>>('logo');
 
-  /** "Shink" va en oscuro y "IA" en violeta (índices 5 y 6). */
-  public readonly letters = 'ShinkIA'.split('');
+  public readonly letters = SPLASH_LETTERS;
+  public readonly nameAspect = SPLASH_NAME_ASPECT;
 
   private unlockScroll?: () => void;
   private finished = false;
@@ -52,28 +56,37 @@ export class SplashComponent {
 
     const { gsap } = kit;
     const overlay = this.overlay().nativeElement;
-    const word = this.word().nativeElement;
-    const letters = overlay.querySelectorAll('.ch');
+    const logo = this.logo().nativeElement;
+    const icon = logo.querySelector('.splash-icon');
+    const letters = logo.querySelectorAll('.splash-letter');
 
     this.unlockScroll = this.lockScroll();
     // Si la animación llegara a atascarse, el scroll nunca debe quedar bloqueado.
     window.setTimeout(() => this.finish(), 6000);
 
-    // Zoom out inicial: grande al principio, sin pasarse del ancho de la pantalla.
-    const startScale = Math.min(3.2, (window.innerWidth * 0.85) / word.offsetWidth);
+    // Las letras son imágenes sueltas: se espera a que estén listas para que no "salten" al aparecer.
+    const images = Array.from(logo.querySelectorAll('img'));
+    await Promise.race([
+      Promise.all(images.map((image) => image.decode().catch(() => undefined))),
+      new Promise((resolve) => window.setTimeout(resolve, 1500)),
+    ]);
 
     gsap
       .timeline({ onComplete: () => this.finish() })
-      .fromTo(word, { scale: startScale }, { scale: 1, duration: 1.3, ease: 'power3.out' }, 0)
-      // Cada letra sube y se desvanece hacia dentro, una tras otra, de izquierda a derecha.
+      // 1) La "G" entra grande y se asienta.
+      .fromTo(icon, { opacity: 0, scale: 1.4 }, { opacity: 1, scale: 1, duration: 0.9, ease: 'power3.out' }, 0)
+      // 2) El nombre se escribe letra a letra, de izquierda a derecha.
       .fromTo(
         letters,
         { opacity: 0, y: 14 },
-        { opacity: 1, y: 0, duration: 0.5, ease: 'power2.out', stagger: 0.07 },
-        0.15,
+        { opacity: 1, y: 0, duration: 0.45, ease: 'power2.out', stagger: 0.05 },
+        0.55,
       )
-      .to(word, { opacity: 0, y: -12, duration: 0.25, ease: 'power2.in' }, 1.5)
-      .to(overlay, { yPercent: -100, duration: 0.75, ease: 'power4.inOut' }, '<0.05');
+      // 3) Pausa breve y sale todo; la cortina sube.
+      .to(logo, { opacity: 0, y: -12, duration: 0.25, ease: 'power2.in' }, 2.0)
+      .to(overlay, { yPercent: -100, duration: 0.75, ease: 'power4.inOut' }, '<0.05')
+      // El hero empieza a entrar cuando la cortina ya va a mitad de camino.
+      .add(() => this.splash.done.set(true), '-=0.4');
   }
 
   /** Bloquea el scroll sin tocar la barra (rueda, táctil y teclado). */
@@ -99,6 +112,7 @@ export class SplashComponent {
     this.finished = true;
 
     this.unlockScroll?.();
+    this.splash.done.set(true);
     this.overlay().nativeElement.style.display = 'none';
 
     try {

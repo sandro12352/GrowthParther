@@ -10,5 +10,5 @@ import { SplashComponent } from './shared/splash/splash.component';
   templateUrl: './app.html',
 })
 export class App {
-  protected readonly title = signal('ShinkIA');
+  protected readonly title = signal('GrowthProject AI');
 }
