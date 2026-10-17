@@ -6,31 +6,9 @@
  *   APPS_SCRIPT_URL     URL de la aplicación web de Google Apps Script (termina en /exec).
  *   APPS_SCRIPT_SECRET  Clave compartida con el script; debe coincidir con la propiedad SECRET del script.
  *
- * Solo usa sintaxis de TypeScript "borrable" (sin enums ni decoradores) y no importa nada de Angular.
+ * Está escrito en JavaScript con CommonJS a propósito: Vercel lo ejecuta tal cual, sin compilarlo con el
+ * tsconfig de Angular (que usa "module": "preserve" y rompe los archivos .ts de esta carpeta).
  */
-
-interface VercelRequest {
-  method?: string;
-  body?: unknown;
-}
-
-interface VercelResponse {
-  status(code: number): VercelResponse;
-  setHeader(name: string, value: string): VercelResponse;
-  json(body: unknown): void;
-}
-
-interface LeadPayload {
-  name: string;
-  email: string;
-  company: string;
-  phone: string;
-  objective: string;
-  otherDetail: string;
-  medium: string;
-  date: string;
-  time: string;
-}
 
 // ---- Reglas del formulario (mantener sincronizadas con form-meeting.component.ts) ----
 const OBJECTIVES = ['social-media', 'crm', 'ai', 'integrations', 'other'];
@@ -49,17 +27,18 @@ const SATURDAY_SHIFTS = [['09:00', '12:30']];
 
 /** Un formulario rellenado en menos de este tiempo (ms) casi seguro lo envió un robot. */
 const MIN_FILL_TIME_MS = 3000;
-const FORWARD_TIMEOUT_MS = 15000;
+/** El plan gratuito de Vercel corta las funciones a los 10 s: se espera menos para poder responder con un error limpio. */
+const FORWARD_TIMEOUT_MS = 8000;
 
-const toMinutes = (time: string): number => {
+const toMinutes = (time) => {
   const [hours, minutes] = time.split(':').map(Number);
   return hours * 60 + minutes;
 };
 
-const slotsFor = (dayOfWeek: number): string[] => {
+const slotsFor = (dayOfWeek) => {
   if (dayOfWeek === 0) return [];
 
-  const slots: string[] = [];
+  const slots = [];
   for (const [start, end] of dayOfWeek === 6 ? SATURDAY_SHIFTS : WEEKDAY_SHIFTS) {
     for (let minute = toMinutes(start); minute <= toMinutes(end); minute += SLOT_MINUTES) {
       slots.push(`${String(Math.floor(minute / 60)).padStart(2, '0')}:${String(minute % 60).padStart(2, '0')}`);
@@ -68,11 +47,11 @@ const slotsFor = (dayOfWeek: number): string[] => {
   return slots;
 };
 
-const text = (value: unknown, maxLength: number): string =>
+const text = (value, maxLength) =>
   typeof value === 'string' ? value.replace(/\s+/g, ' ').trim().slice(0, maxLength) : '';
 
 /** Devuelve el mensaje de error o `null` si los datos son válidos. */
-function validate(lead: LeadPayload): string | null {
+function validate(lead) {
   if (lead.name.length < 2) return 'Nombre no válido.';
   if (!EMAIL_PATTERN.test(lead.email)) return 'Correo no válido.';
   if (!PHONE_PATTERN.test(lead.phone)) return 'Teléfono no válido.';
@@ -102,7 +81,21 @@ function validate(lead: LeadPayload): string | null {
   return null;
 }
 
-export default async function handler(request: VercelRequest, response: VercelResponse): Promise<void> {
+/** Vercel entrega el cuerpo ya interpretado, pero se acepta también un texto JSON por si acaso. */
+function readBody(request) {
+  const body = request.body;
+  if (body && typeof body === 'object') return body;
+  if (typeof body === 'string') {
+    try {
+      return JSON.parse(body);
+    } catch {
+      return {};
+    }
+  }
+  return {};
+}
+
+module.exports = async function handler(request, response) {
   response.setHeader('Cache-Control', 'no-store');
 
   if (request.method !== 'POST') {
@@ -111,30 +104,27 @@ export default async function handler(request: VercelRequest, response: VercelRe
     return;
   }
 
-  const body = (typeof request.body === 'object' && request.body !== null ? request.body : {}) as Record<
-    string,
-    unknown
-  >;
+  const body = readBody(request);
 
   // ---- Anti-spam: campo trampa oculto y tiempo mínimo de relleno. Se responde "ok" sin reenviar nada. ----
-  const honeypot = text(body['website'], 200);
-  const startedAt = Number(body['startedAt']);
+  const honeypot = text(body.website, 200);
+  const startedAt = Number(body.startedAt);
   const tooFast = Number.isFinite(startedAt) && Date.now() - startedAt < MIN_FILL_TIME_MS;
   if (honeypot || tooFast) {
     response.status(200).json({ ok: true });
     return;
   }
 
-  const lead: LeadPayload = {
-    name: text(body['name'], 100),
-    email: text(body['email'], 254).toLowerCase(),
-    company: text(body['company'], 120),
-    phone: text(body['phone'], 30),
-    objective: text(body['objective'], 30),
-    otherDetail: text(body['otherDetail'], 500),
-    medium: text(body['medium'], 20),
-    date: text(body['date'], 10),
-    time: text(body['time'], 5),
+  const lead = {
+    name: text(body.name, 100),
+    email: text(body.email, 254).toLowerCase(),
+    company: text(body.company, 120),
+    phone: text(body.phone, 30),
+    objective: text(body.objective, 30),
+    otherDetail: text(body.otherDetail, 500),
+    medium: text(body.medium, 20),
+    date: text(body.date, 10),
+    time: text(body.time, 5),
   };
 
   const error = validate(lead);
@@ -143,8 +133,8 @@ export default async function handler(request: VercelRequest, response: VercelRe
     return;
   }
 
-  const scriptUrl = process.env['APPS_SCRIPT_URL'];
-  const secret = process.env['APPS_SCRIPT_SECRET'];
+  const scriptUrl = process.env.APPS_SCRIPT_URL;
+  const secret = process.env.APPS_SCRIPT_SECRET;
   if (!scriptUrl || !secret) {
     console.error('Faltan APPS_SCRIPT_URL o APPS_SCRIPT_SECRET en las variables de entorno.');
     response.status(500).json({ ok: false, error: 'Servicio no configurado.' });
@@ -164,9 +154,9 @@ export default async function handler(request: VercelRequest, response: VercelRe
       signal: controller.signal,
     });
 
-    const result = (await forwarded.json().catch(() => null)) as { ok?: boolean } | null;
+    const result = await forwarded.json().catch(() => null);
 
-    if (!forwarded.ok || !result?.ok) {
+    if (!forwarded.ok || !result || !result.ok) {
       console.error('El script de Google no aceptó la solicitud:', forwarded.status, result);
       response.status(502).json({ ok: false, error: 'No pudimos registrar la solicitud.' });
       return;
@@ -179,4 +169,4 @@ export default async function handler(request: VercelRequest, response: VercelRe
   } finally {
     clearTimeout(timer);
   }
-}
+};
