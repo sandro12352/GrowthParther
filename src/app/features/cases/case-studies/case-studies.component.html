@@ -1,0 +1,109 @@
+<!-- ===================================================== -->
+<!-- PORTADA -->
+<!-- ===================================================== -->
+<section class="relative overflow-hidden bg-[#130735] pb-16 pt-40 text-white lg:pb-20 lg:pt-48">
+
+    <div class="pointer-events-none absolute inset-0 overflow-hidden">
+        <div class="absolute left-1/2 top-1/4 h-[420px] w-[620px] -translate-x-1/2 rounded-full bg-[#6C5CE7]/20 blur-[120px]"></div>
+    </div>
+
+    <div appReveal revealStagger class="relative mx-auto flex max-w-4xl flex-col items-center px-6 text-center">
+        <div class="mb-6 inline-flex rounded-full border border-[#6C5CE7]/30 bg-[#6C5CE7]/10 px-4 py-2">
+            <span class="text-xs font-semibold uppercase tracking-[0.2em] text-[#B9AFFF]">Casos de éxito</span>
+        </div>
+
+        <h1 class="text-balance text-4xl font-extrabold leading-[1.05] tracking-tight sm:text-5xl lg:text-6xl">
+            Así se ven los procesos
+            <span class="block bg-gradient-to-r from-[#8f82ff] via-[#6C8CFF] to-[#00F2FE] bg-clip-text text-transparent">que automatizamos.</span>
+        </h1>
+
+        <p class="mx-auto mt-6 max-w-2xl text-base leading-7 text-white/75 md:text-lg">
+            Estos son algunos de los workflows que hemos construido para conectar canales, ordenar la información y automatizar tareas.
+        </p>
+    </div>
+</section>
+
+
+<!-- ===================================================== -->
+<!-- CASOS: filtro por etiqueta y filas alternadas -->
+<!-- ===================================================== -->
+<section class="bg-white py-16 lg:py-24">
+    <div class="mx-auto px-6 lg:max-w-[80vw] lg:px-8">
+
+        <div class="flex flex-wrap items-center justify-center gap-2.5" role="group" aria-label="Filtrar por etiqueta">
+            <button type="button" (click)="filter.set(null)" [attr.aria-pressed]="filter() === null"
+                class="rounded-full border px-4 py-2 text-sm font-medium transition hover:cursor-pointer"
+                [class]="filter() === null ? 'border-[#6C5CE7] bg-[#6C5CE7] text-white' : 'border-black/10 text-[#080911] hover:border-[#6C5CE7] hover:text-[#5b49d6]'">
+                Todos
+            </button>
+            @for (tag of tags; track tag) {
+            <button type="button" (click)="filter.set(tag)" [attr.aria-pressed]="filter() === tag"
+                class="rounded-full border px-4 py-2 text-sm font-medium transition hover:cursor-pointer"
+                [class]="filter() === tag ? 'border-[#6C5CE7] bg-[#6C5CE7] text-white' : 'border-black/10 text-[#080911] hover:border-[#6C5CE7] hover:text-[#5b49d6]'">
+                {{ tag }}
+            </button>
+            }
+        </div>
+
+        <div class="mt-14 space-y-20 lg:space-y-28">
+            @for (item of visible(); track item.name; let i = $index) {
+            <article class="grid items-center gap-8 lg:gap-14" [class]="i % 2 === 1 ? 'lg:grid-cols-[0.8fr_1.4fr]' : 'lg:grid-cols-[1.4fr_0.8fr]'">
+
+                <div class="overflow-hidden rounded-[24px] border border-black/10 bg-[#10111A] shadow-[0_30px_80px_rgba(8,9,17,0.18)]"
+                    [class.lg:order-2]="i % 2 === 1">
+                    <div class="flex h-11 items-center gap-2 border-b border-white/10 px-5">
+                        <span class="h-2 w-2 rounded-full bg-white/20"></span>
+                        <span class="h-2 w-2 rounded-full bg-white/20"></span>
+                        <span class="h-2 w-2 rounded-full bg-white/20"></span>
+                        <span class="ml-4 text-xs text-white/60">{{ item.name }}</span>
+                    </div>
+                    <div class="relative bg-[#f7f9fc]">
+                        <img [src]="item.image" [alt]="item.alt" [attr.width]="item.width" [attr.height]="item.height"
+                            loading="lazy" decoding="async" class="block h-auto w-full object-contain" />
+                        <button type="button" (click)="open(item)" [attr.aria-label]="'Ampliar workflow ' + item.name"
+                            class="absolute bottom-4 right-4 inline-flex h-10 items-center gap-2 rounded-full bg-[#080911]/90 px-4 text-xs font-semibold text-white shadow-lg backdrop-blur transition hover:cursor-pointer hover:bg-[#6C5CE7]">
+                            <ng-icon name="lucideMaximize2" size="14" />
+                            Ampliar
+                        </button>
+                    </div>
+                </div>
+
+                <div [class.lg:order-1]="i % 2 === 1">
+                    <span class="bg-gradient-to-r from-[#6C5CE7] to-[#00b8c4] bg-clip-text text-5xl font-extrabold text-transparent">0{{ cases.indexOf(item) + 1 }}</span>
+                    <h2 class="mt-4 text-3xl font-extrabold tracking-tight text-[#080911] md:text-4xl">{{ item.name }}</h2>
+                    <p class="mt-4 text-base leading-7 text-black/70">{{ item.description }}</p>
+                    <ul class="mt-6 flex flex-wrap gap-2">
+                        @for (tag of item.tags; track tag) {
+                        <li class="rounded-full border border-black/10 bg-[#f7f7fa] px-3 py-1.5 text-xs font-medium text-black/75">{{ tag }}</li>
+                        }
+                    </ul>
+                </div>
+
+            </article>
+            }
+        </div>
+
+    </div>
+
+    <!-- Visor: la captura a pantalla completa -->
+    <dialog #viewer (click)="onBackdropClick($event)" (close)="onClosed()"
+        class="m-auto max-h-[92vh] w-[min(94vw,1280px)] overflow-auto rounded-3xl border border-white/10 bg-[#10111A] p-0 text-white backdrop:bg-black/85">
+        @if (viewing(); as item) {
+        <div>
+            <div class="flex items-center justify-between gap-4 border-b border-white/10 px-6 py-4">
+                <h3 class="text-lg font-bold">{{ item.name }}</h3>
+                <button type="button" (click)="close()" aria-label="Cerrar"
+                    class="flex h-10 w-10 items-center justify-center rounded-full border border-white/15 transition hover:cursor-pointer hover:bg-white/10">
+                    <ng-icon name="lucideX" size="18" />
+                </button>
+            </div>
+            <div class="bg-[#f7f9fc]">
+                <img [src]="item.image" [alt]="item.alt" [attr.width]="item.width" [attr.height]="item.height" class="block h-auto w-full" />
+            </div>
+            <p class="px-6 py-5 text-sm leading-6 text-white/70">{{ item.description }}</p>
+        </div>
+        }
+    </dialog>
+</section>
+
+<app-page-closing [page]="closing" />

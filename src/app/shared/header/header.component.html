@@ -30,7 +30,7 @@
         <!-- NAVIGATION -->
         <!-- ================================= -->
 
-        <nav hlmNavigationMenu class="hidden lg:block">
+        <nav hlmNavigationMenu class="hidden xl:block">
 
             <ul hlmNavigationMenuList class="flex items-center gap-1">
 
@@ -75,14 +75,14 @@
 
                                     <p class="text-sm font-semibold
                                                    text-[#080911]">
-                                        Automatización
+                                        Automatización de procesos
                                     </p>
 
                                     <p class="mt-1 text-xs
                                                    leading-5
                                                    text-black/40">
-                                        Automatiza tareas y procesos
-                                        repetitivos.
+                                        Workflows que ejecutan tareas,
+                                        seguimientos y acciones automáticamente.
                                     </p>
 
                                 </div>
@@ -90,7 +90,7 @@
                             </a>
 
 
-                            <a hlmNavigationMenuLink routerLink="/inteligencia-artificial" class="group rounded-xl p-3
+                            <a hlmNavigationMenuLink routerLink="/ia-para-empresas" class="group rounded-xl p-3
                                            transition
                                            hover:bg-[#6C8CFF]/5">
 
@@ -106,14 +106,14 @@
 
                                     <p class="text-sm font-semibold
                                                    text-[#080911]">
-                                        Inteligencia Artificial
+                                        IA para empresas
                                     </p>
 
                                     <p class="mt-1 text-xs
                                                    leading-5
                                                    text-black/40">
-                                        IA aplicada a procesos
-                                        y atención.
+                                        Asistentes inteligentes para
+                                        atención, calificación y seguimiento.
                                     </p>
 
                                 </div>
@@ -151,141 +151,7 @@
 
                             </a>
 
-
-                            <a hlmNavigationMenuLink routerLink="/integraciones" class="group rounded-xl p-3
-                                           transition
-                                           hover:bg-black/[0.03]">
-
-                                <div class="flex h-9 w-9
-                                               items-center justify-center
-                                               rounded-lg
-                                               bg-black/5
-                                               text-black/60">
-                                    <ng-icon name="lucideLink" size="18" />
-                                </div>
-
-                                <div class="mt-3">
-
-                                    <p class="text-sm font-semibold
-                                                   text-[#080911]">
-                                        Integraciones
-                                    </p>
-
-                                    <p class="mt-1 text-xs
-                                                   leading-5
-                                                   text-black/40">
-                                        Conecta todas tus
-                                        herramientas.
-                                    </p>
-
-                                </div>
-
-                            </a>
-
                         </div>
-
-
-                    </hlm-navigation-menu-content>
-
-                </li>
-
-
-                <!-- ============================= -->
-                <!-- AUTOMATIZACIÓN -->
-                <!-- ============================= -->
-
-                <li hlmNavigationMenuItem>
-
-                    <button hlmNavigationMenuTrigger class="rounded-lg
-                               px-4 py-2
-                               text-[15px]
-                               font-semibold
-                               text-[#080911]/75
-                               transition-all
-                               hover:bg-black/[0.035]
-                               hover:text-[#080911]">
-                        Automatización
-                    </button>
-
-
-                    <hlm-navigation-menu-content *hlmNavigationMenuPortal>
-
-                        <a hlmNavigationMenuLink routerLink="/automatizacion" class="group block rounded-xl p-4
-                                       transition
-                                       hover:bg-[#6C5CE7]/5">
-
-                            <div class="flex items-start gap-3">
-
-                                <div class="flex h-10 w-10
-                                               shrink-0
-                                               items-center
-                                               justify-center
-                                               rounded-xl
-                                               bg-[#6C5CE7]/10
-                                               text-[#6C5CE7]">
-
-                                    <ng-icon name="lucideWorkflow" size="19" />
-
-                                </div>
-
-                                <div>
-
-                                    <p class="font-semibold
-                                                   text-[#080911]">
-                                        Automatización de procesos
-                                    </p>
-
-                                    <p class="mt-1 text-xs
-                                                   leading-5
-                                                   text-black/40">
-                                        Workflows que ejecutan tareas,
-                                        seguimientos y acciones automáticamente.
-                                    </p>
-
-                                </div>
-
-                            </div>
-
-                        </a>
-
-
-                        <a hlmNavigationMenuLink routerLink="/ia-para-empresas" class="group block rounded-xl p-4
-                                       transition
-                                       hover:bg-[#6C8CFF]/5">
-
-                            <div class="flex items-start gap-3">
-
-                                <div class="flex h-10 w-10
-                                               shrink-0
-                                               items-center
-                                               justify-center
-                                               rounded-xl
-                                               bg-[#6C8CFF]/10
-                                               text-[#6C8CFF]">
-
-                                    <ng-icon name="lucideBot" size="19" />
-
-                                </div>
-
-                                <div>
-
-                                    <p class="font-semibold
-                                                   text-[#080911]">
-                                        IA para empresas
-                                    </p>
-
-                                    <p class="mt-1 text-xs
-                                                   leading-5
-                                                   text-black/40">
-                                        Asistentes inteligentes para
-                                        atención, calificación y seguimiento.
-                                    </p>
-
-                                </div>
-
-                            </div>
-
-                        </a>
 
 
                     </hlm-navigation-menu-content>
@@ -314,6 +180,30 @@
                     <hlm-navigation-menu-content *hlmNavigationMenuPortal>
 
                         <div class="grid grid-cols-2 gap-2">
+
+                            <!-- TODAS LAS INTEGRACIONES -->
+                            <a hlmNavigationMenuLink routerLink="/integraciones"
+                                class="group col-span-2 rounded-xl p-4 transition hover:bg-black/[0.03]">
+                                <div class="flex items-start gap-3">
+
+                                    <div
+                                        class="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-black/5 text-black/60">
+                                        <ng-icon name="lucideLink" size="18" />
+                                    </div>
+
+                                    <div>
+                                        <p class="text-sm font-semibold text-[#080911]">
+                                            Todas las integraciones
+                                        </p>
+
+                                        <p class="mt-1 text-xs text-black/40">
+                                            Conecta todas tus herramientas.
+                                        </p>
+                                    </div>
+
+                                </div>
+                            </a>
+
 
                             <!-- WHATSAPP -->
                             <a hlmNavigationMenuLink routerLink="/integraciones/whatsapp"
@@ -442,70 +332,6 @@
 
 
                 <!-- ============================= -->
-                <!-- RECURSOS -->
-                <!-- ============================= -->
-
-                <li hlmNavigationMenuItem>
-
-                    <button hlmNavigationMenuTrigger class="rounded-lg
-                               px-4 py-2
-                               text-[15px]
-                               font-semibold
-                               text-[#080911]/75
-                               transition-all
-                               hover:bg-black/[0.035]
-                               hover:text-[#080911]">
-                        Recursos
-                    </button>
-
-
-                    <hlm-navigation-menu-content *hlmNavigationMenuPortal>
-
-
-
-                        <a hlmNavigationMenuLink routerLink="/blog" class="group block rounded-xl p-4
-                                       transition
-                                       hover:bg-[#6C5CE7]/5">
-
-                            <p class="text-sm font-semibold
-                                           text-[#080911]">
-                                Blog
-                            </p>
-
-                            <p class="mt-1 text-xs
-                                           leading-5
-                                           text-black/40">
-                                Automatización, IA, CRM y
-                                estrategias de crecimiento.
-                            </p>
-
-                        </a>
-
-
-                        <a hlmNavigationMenuLink routerLink="/nosotros" class="group block rounded-xl p-4
-                                       transition
-                                       hover:bg-[#6C8CFF]/5">
-
-                            <p class="text-sm font-semibold
-                                           text-[#080911]">
-                                Nosotros
-                            </p>
-
-                            <p class="mt-1 text-xs
-                                           leading-5
-                                           text-black/40">
-                                Conoce GrowthProject AI.
-                            </p>
-
-                        </a>
-
-
-                    </hlm-navigation-menu-content>
-
-                </li>
-
-
-                <!-- ============================= -->
                 <!-- CASOS -->
                 <!-- ============================= -->
 
@@ -524,15 +350,56 @@
 
                 </li>
 
+
+
+                <!-- ============================= -->
+                <!-- BLOG -->
+                <!-- ============================= -->
+
+                <li hlmNavigationMenuItem class="hidden xl:flex">
+
+                    <a hlmNavigationMenuLink routerLink="/blog" class="rounded-lg
+                               px-4 py-2
+                               text-[15px]
+                               font-semibold
+                               text-[#080911]/75
+                               transition-all
+                               hover:bg-black/[0.035]
+                               hover:text-[#080911]">
+                        Blog
+                    </a>
+
+                </li>
+
+
+                <!-- ============================= -->
+                <!-- NOSOTROS -->
+                <!-- ============================= -->
+
+                <li hlmNavigationMenuItem class="hidden xl:flex">
+
+                    <a hlmNavigationMenuLink routerLink="/nosotros" class="rounded-lg
+                               px-4 py-2
+                               text-[15px]
+                               font-semibold
+                               text-[#080911]/75
+                               transition-all
+                               hover:bg-black/[0.035]
+                               hover:text-[#080911]">
+                        Nosotros
+                    </a>
+
+                </li>
+
             </ul>
 
         </nav>
 
 
-        <hlm-sheet side="right" class="lg:hidden">
+        <hlm-sheet side="right" class="ml-auto mr-2 flex xl:hidden">
             <button type="button" hlmSheetTrigger aria-label="Abrir menú de navegación"
                 class="flex h-10 w-10 items-center justify-center rounded-lg border border-black/10
-                       text-[#080911]/75 transition hover:bg-black/[0.035] lg:hidden">
+                       text-[#080911]/75 transition hover:bg-black/[0.035] xl:hidden">
                 <ng-icon name="lucideMenu" size="20" />
             </button>
 
@@ -551,40 +418,26 @@
                         </p>
                         <button hlmSheetClose routerLink="/automatizacion" type="button"
                             class="rounded-lg px-3 py-2.5 text-left text-sm font-medium transition hover:bg-accent">
-                            Automatización
-                        </button>
-                        <button hlmSheetClose routerLink="/inteligencia-artificial" type="button"
-                            class="rounded-lg px-3 py-2.5 text-left text-sm font-medium transition hover:bg-accent">
-                            Inteligencia Artificial
-                        </button>
-                        <button hlmSheetClose routerLink="/crm" type="button"
-                            class="rounded-lg px-3 py-2.5 text-left text-sm font-medium transition hover:bg-accent">
-                            CRM
-                        </button>
-                        <button hlmSheetClose routerLink="/integraciones" type="button"
-                            class="rounded-lg px-3 py-2.5 text-left text-sm font-medium transition hover:bg-accent">
-                            Integraciones
-                        </button>
-                    </div>
-
-                    <div class="flex flex-col gap-1">
-                        <p class="px-3 pb-2 text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">
-                            Automatización
-                        </p>
-                        <button hlmSheetClose routerLink="/automatizacion" type="button"
-                            class="rounded-lg px-3 py-2.5 text-left text-sm font-medium transition hover:bg-accent">
                             Automatización de procesos
                         </button>
                         <button hlmSheetClose routerLink="/ia-para-empresas" type="button"
                             class="rounded-lg px-3 py-2.5 text-left text-sm font-medium transition hover:bg-accent">
                             IA para empresas
                         </button>
+                        <button hlmSheetClose routerLink="/crm" type="button"
+                            class="rounded-lg px-3 py-2.5 text-left text-sm font-medium transition hover:bg-accent">
+                            CRM
+                        </button>
                     </div>
 
                     <div class="flex flex-col gap-1">
                         <p class="px-3 pb-2 text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">
                             Integraciones
                         </p>
+                        <button hlmSheetClose routerLink="/integraciones" type="button"
+                            class="rounded-lg px-3 py-2.5 text-left text-sm font-medium transition hover:bg-accent">
+                            Todas las integraciones
+                        </button>
                         <button hlmSheetClose routerLink="/integraciones/whatsapp" type="button"
                             class="rounded-lg px-3 py-2.5 text-left text-sm font-medium transition hover:bg-accent">
                             WhatsApp
@@ -605,36 +458,24 @@
 
                     <div class="flex flex-col gap-1">
                         <p class="px-3 pb-2 text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">
-                            Recursos y empresa
+                            Empresa
                         </p>
-                        <button hlmSheetClose routerLink="/blog" type="button"
-                            class="rounded-lg px-3 py-2.5 text-left text-sm font-medium transition hover:bg-accent">
-                            Blog
-                        </button>
                         <button hlmSheetClose routerLink="/casos-de-exito" type="button"
                             class="rounded-lg px-3 py-2.5 text-left text-sm font-medium transition hover:bg-accent">
                             Casos de éxito
                         </button>
-                        <button hlmSheetClose routerLink="/flujos" type="button"
+                        <button hlmSheetClose routerLink="/blog" type="button"
                             class="rounded-lg px-3 py-2.5 text-left text-sm font-medium transition hover:bg-accent">
-                            Flujos automáticos
+                            Blog
                         </button>
                         <button hlmSheetClose routerLink="/nosotros" type="button"
                             class="rounded-lg px-3 py-2.5 text-left text-sm font-medium transition hover:bg-accent">
                             Nosotros
                         </button>
-                        <button hlmSheetClose routerLink="/contacto" type="button"
-                            class="rounded-lg px-3 py-2.5 text-left text-sm font-medium transition hover:bg-accent">
-                            Contacto
-                        </button>
                     </div>
                 </nav>
 
                 <div class="mt-auto flex flex-col gap-2 border-t border-border p-4">
-                    <button hlmSheetClose routerLink="/login" type="button"
-                        class="rounded-lg border border-border px-4 py-2.5 text-sm font-semibold transition hover:bg-accent">
-                        Iniciar sesión
-                    </button>
                     <button hlmSheetClose (click)="openMeetingDialog()" type="button"
                         class="rounded-lg bg-primary px-4 py-2.5 text-sm font-semibold text-primary-foreground transition hover:opacity-90">
                         Solicitar reunión

@@ -1,0 +1,359 @@
+<!-- ===================================================== -->
+<!-- PORTADA: texto centrado y conversación debajo -->
+<!-- ===================================================== -->
+<section class="relative overflow-hidden bg-[#130735] pb-20 pt-40 text-white lg:pb-28 lg:pt-48">
+
+    <div class="pointer-events-none absolute inset-0 overflow-hidden">
+        <div class="absolute left-1/2 top-1/4 h-[420px] w-[620px] -translate-x-1/2 rounded-full bg-[#6C5CE7]/20 blur-[120px]"></div>
+        <div class="absolute -right-40 bottom-0 h-[380px] w-[380px] rounded-full bg-[#00F2FE]/[0.07] blur-[100px]"></div>
+    </div>
+
+    <div class="relative mx-auto max-w-4xl px-6 text-center">
+
+        <div appReveal revealStagger class="flex flex-col items-center">
+            <div class="mb-6 inline-flex rounded-full border border-[#6C5CE7]/30 bg-[#6C5CE7]/10 px-4 py-2">
+                <span class="text-xs font-semibold uppercase tracking-[0.2em] text-[#B9AFFF]">{{ page.hero.eyebrow }}</span>
+            </div>
+
+            <h1 class="text-balance text-4xl font-extrabold leading-[1.05] tracking-tight sm:text-5xl lg:text-6xl">
+                {{ page.hero.title }}
+                <span class="block bg-gradient-to-r from-[#8f82ff] via-[#6C8CFF] to-[#00F2FE] bg-clip-text text-transparent">{{ page.hero.accent }}</span>
+            </h1>
+
+            <p class="mx-auto mt-6 max-w-2xl text-base leading-7 text-white/75 md:text-lg">{{ page.hero.subtitle }}</p>
+
+            <button type="button" (click)="openMeetingDialog()"
+                class="btn-fx [--fx:#080911] mt-9 inline-flex items-center justify-center gap-3 rounded-xl bg-gradient-to-r from-[#6C5CE7] via-[#6C8CFF] to-[#00F2FE] px-7 py-3.5 font-bold text-[#080911] shadow-[0_10px_35px_rgba(108,92,231,0.35)] transition-all duration-300 hover:-translate-y-1 hover:text-white hover:cursor-pointer">
+                <ng-icon name="lucideSparkles" size="19" />
+                <span>{{ page.hero.cta }}</span>
+                <ng-icon class="btn-arrow" name="lucideArrowRight" size="19" />
+            </button>
+        </div>
+
+        <!-- Conversación de ejemplo: los mensajes aparecen uno tras otro -->
+        @if (page.chat; as chat) {
+        <div class="mx-auto mt-16 max-w-2xl rounded-[28px] border border-white/10 bg-[#0d0a24]/70 p-5 text-left shadow-[0_30px_80px_rgba(0,0,0,0.35)] backdrop-blur-sm sm:p-6">
+            <div class="mb-5 flex items-center gap-3 border-b border-white/10 pb-4">
+                <span class="flex h-9 w-9 items-center justify-center rounded-full bg-gradient-to-br from-[#6C5CE7] to-[#6C8CFF]">
+                    <ng-icon name="lucideBot" size="18" />
+                </span>
+                <div>
+                    <p class="text-sm font-bold">Asistente IA</p>
+                    <p class="text-xs text-white/60">Conversación de ejemplo</p>
+                </div>
+            </div>
+
+            <div appSequence class="space-y-3">
+                @for (message of chat; track $index) {
+                <div data-seq="item" class="flex" [class.justify-end]="message.from === 'client'">
+                    <p class="max-w-[82%] rounded-2xl px-4 py-3 text-sm leading-6"
+                        [class]="message.from === 'ai'
+                            ? 'rounded-bl-md border border-white/10 bg-[#161a2e] text-white/90'
+                            : 'rounded-br-md bg-gradient-to-r from-[#6C5CE7] to-[#6C8CFF] text-white'">{{ message.text }}</p>
+                </div>
+                }
+            </div>
+        </div>
+        }
+
+    </div>
+</section>
+
+
+<!-- ===================================================== -->
+<!-- PROBLEMA: tres columnas separadas por líneas, sin tarjetas -->
+<!-- ===================================================== -->
+@if (page.problem; as problem) {
+<section class="bg-white py-24 lg:py-32">
+    <div class="mx-auto px-6 lg:max-w-[80vw] lg:px-8">
+
+        <div appReveal revealStagger class="max-w-3xl">
+            <span class="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-[#5b49d6]">
+                <span class="h-1.5 w-1.5 rounded-full bg-[#6C5CE7]"></span>
+                {{ problem.eyebrow }}
+            </span>
+            <h2 class="mt-5 text-3xl font-bold leading-[1.1] tracking-tight text-[#080911] md:text-5xl">{{ problem.title }}</h2>
+            <p class="mt-5 max-w-2xl text-base leading-7 text-black/70 md:text-lg">{{ problem.intro }}</p>
+        </div>
+
+        <div appReveal revealStagger class="mt-14 grid gap-10 md:grid-cols-3 md:gap-0 md:divide-x md:divide-black/10">
+            @for (item of problem.items; track item.title; let i = $index) {
+            <div class="md:px-8 md:first:pl-0 md:last:pr-0">
+                <ng-icon [name]="problemIcons[i]" size="28" class="text-[#6C5CE7]" />
+                <h3 class="mt-5 text-xl font-bold text-[#080911]">{{ item.title }}</h3>
+                <p class="mt-3 text-sm leading-6 text-black/70">{{ item.text }}</p>
+            </div>
+            }
+        </div>
+
+    </div>
+</section>
+}
+
+
+<!-- ===================================================== -->
+<!-- QUÉ PUEDE HACER LA IA: lista de pestañas + panel -->
+<!-- ===================================================== -->
+<section class="relative overflow-hidden bg-[#080911] py-24 text-white lg:py-32">
+    <div class="pointer-events-none absolute -left-40 top-1/3 h-[420px] w-[420px] rounded-full bg-[#6C5CE7]/10 blur-[110px]"></div>
+
+    <div class="relative mx-auto px-6 lg:max-w-[80vw] lg:px-8">
+
+        <div appReveal revealStagger class="max-w-3xl">
+            <span class="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-[#A99CFF]">
+                <span class="h-1.5 w-1.5 rounded-full bg-[#00F2FE]"></span>
+                {{ page.scope.eyebrow }}
+            </span>
+            <h2 class="mt-5 text-3xl font-bold leading-[1.1] tracking-tight md:text-5xl">
+                {{ page.scope.title }}
+                <span class="bg-gradient-to-r from-[#8f82ff] via-[#6C8CFF] to-[#00F2FE] bg-clip-text text-transparent">{{ page.scope.accent }}</span>
+            </h2>
+            <p class="mt-5 max-w-2xl text-base leading-7 text-white/70 md:text-lg">{{ page.scope.intro }}</p>
+        </div>
+
+        <div appReveal class="mt-14 grid gap-4 lg:grid-cols-[0.8fr_1.2fr] lg:gap-6">
+
+            <div role="tablist" aria-label="Qué puede hacer la IA" class="flex flex-col gap-2">
+                @for (item of page.scope.items; track item.title; let i = $index) {
+                <button type="button" role="tab" [id]="'ia-tab-' + i" [attr.aria-selected]="active() === i" aria-controls="ia-panel" (click)="active.set(i)"
+                    class="flex items-center gap-4 rounded-2xl border px-5 py-4 text-left transition duration-300 hover:cursor-pointer"
+                    [class]="active() === i
+                        ? 'border-[#6C5CE7]/60 bg-[#6C5CE7]/15 text-white'
+                        : 'border-white/10 bg-white/[0.03] text-white/70 hover:border-white/25 hover:text-white'">
+                    <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl"
+                        [class]="active() === i ? 'bg-gradient-to-br from-[#6C5CE7] to-[#6C8CFF] text-white' : 'bg-white/5 text-[#B9AFFF]'">
+                        <ng-icon [name]="item.icon" size="20" />
+                    </span>
+                    <span class="text-sm font-semibold md:text-base">{{ item.title }}</span>
+                </button>
+                }
+            </div>
+
+            <div id="ia-panel" role="tabpanel" [attr.aria-labelledby]="'ia-tab-' + active()"
+                class="relative flex min-h-[420px] flex-col overflow-hidden rounded-[28px] border border-white/10 bg-gradient-to-br from-[#161235] to-[#0d0a24] p-7 md:p-10">
+                <div class="pointer-events-none absolute -right-20 -top-20 h-64 w-64 rounded-full bg-[#6C5CE7]/30 blur-[80px]"></div>
+
+                @for (item of page.scope.items; track item.title; let i = $index) {
+                @if (active() === i) {
+                <div class="relative flex flex-1 flex-col">
+
+                    <div class="flex items-start gap-4">
+                        <span class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-[#6C5CE7] to-[#00F2FE] text-white">
+                            <ng-icon [name]="item.icon" size="24" />
+                        </span>
+                        <div>
+                            <h3 class="text-2xl font-bold md:text-3xl">{{ item.title }}</h3>
+                            <p class="mt-2 max-w-lg text-sm leading-6 text-white/75 md:text-base">{{ item.text }}</p>
+                        </div>
+                    </div>
+
+                    <!-- Maqueta ilustrativa de la capacidad -->
+                    <div class="mt-8 flex flex-1 items-center">
+                        <div class="w-full rounded-2xl border border-white/10 bg-[#0b0d1c]/80 p-5">
+
+                            @switch (i) {
+
+                            @case (0) {
+                            <div class="space-y-3">
+                                <div class="flex justify-end"><p class="max-w-[80%] rounded-2xl rounded-br-md bg-gradient-to-r from-[#6C5CE7] to-[#6C8CFF] px-4 py-2.5 text-sm">Hola, ¿pueden ayudarme?</p></div>
+                                <div class="flex"><p class="max-w-[80%] rounded-2xl rounded-bl-md border border-white/10 bg-[#161a2e] px-4 py-2.5 text-sm text-white/90">Claro, cuéntame qué necesitas.</p></div>
+                                <div class="flex items-center gap-1.5 pl-2 text-white/50">
+                                    <span class="h-1.5 w-1.5 animate-pulse rounded-full bg-current"></span>
+                                    <span class="h-1.5 w-1.5 animate-pulse rounded-full bg-current [animation-delay:150ms]"></span>
+                                    <span class="h-1.5 w-1.5 animate-pulse rounded-full bg-current [animation-delay:300ms]"></span>
+                                </div>
+                            </div>
+                            }
+
+                            @case (1) {
+                            <ul class="space-y-3">
+                                @for (channel of ['WhatsApp', 'Instagram', 'Facebook']; track channel) {
+                                <li class="flex items-center justify-between gap-3 rounded-xl border border-white/10 bg-white/[0.03] px-4 py-3">
+                                    <span class="flex items-center gap-3 text-sm font-medium">
+                                        <ng-icon name="lucideMessageCircle" size="18" class="text-[#B9AFFF]" />{{ channel }}
+                                    </span>
+                                    <span class="flex items-center gap-1.5 text-xs font-semibold text-[#00F2FE]">
+                                        <ng-icon name="lucideCheck" size="14" />Respondido
+                                    </span>
+                                </li>
+                                }
+                            </ul>
+                            }
+
+                            @case (2) {
+                            <ul class="space-y-3">
+                                @for (field of ['Nombre', 'Interés', 'Contacto']; track field; let k = $index) {
+                                <li class="flex items-center gap-3 rounded-xl border border-white/10 bg-white/[0.03] px-4 py-3">
+                                    <span class="w-20 text-xs font-semibold uppercase tracking-wider text-white/60">{{ field }}</span>
+                                    <span class="h-2 rounded-full bg-gradient-to-r from-[#6C5CE7]/70 to-[#6C8CFF]/40" [style.width.%]="[62, 78, 50][k]"></span>
+                                    <ng-icon name="lucideCheck" size="16" class="ml-auto shrink-0 text-[#00F2FE]" />
+                                </li>
+                                }
+                            </ul>
+                            }
+
+                            @case (3) {
+                            <ul class="space-y-3">
+                                @for (lead of ['Alto potencial', 'Potencial medio', 'Por seguir']; track lead; let k = $index) {
+                                <li class="flex items-center gap-3 rounded-xl border border-white/10 bg-white/[0.03] px-4 py-3">
+                                    <span class="h-8 w-8 shrink-0 rounded-full bg-white/10"></span>
+                                    <span class="h-2 w-24 rounded-full bg-white/15"></span>
+                                    <span class="ml-auto rounded-full px-3 py-1 text-xs font-semibold"
+                                        [class]="k === 0 ? 'bg-[#00F2FE]/15 text-[#00F2FE]' : k === 1 ? 'bg-[#6C5CE7]/25 text-[#B9AFFF]' : 'bg-white/10 text-white/60'">{{ lead }}</span>
+                                </li>
+                                }
+                            </ul>
+                            }
+
+                            @case (4) {
+                            <div class="flex flex-col items-stretch gap-3 sm:flex-row sm:items-center">
+                                @for (node of ['Se activa', 'Se ejecuta', 'Se registra']; track node; let k = $index) {
+                                <div class="flex flex-1 items-center gap-3 rounded-xl border border-white/10 bg-white/[0.03] px-4 py-3">
+                                    <span class="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-[#6C5CE7] to-[#6C8CFF] text-xs font-bold">{{ k + 1 }}</span>
+                                    <span class="text-sm font-medium">{{ node }}</span>
+                                </div>
+                                @if (k < 2) {
+                                <ng-icon name="lucideArrowRight" size="18" class="hidden shrink-0 text-white/40 sm:block" />
+                                }
+                                }
+                            </div>
+                            }
+
+                            @case (5) {
+                            <div class="space-y-3">
+                                <div class="flex"><p class="max-w-[85%] rounded-2xl rounded-bl-md border border-white/10 bg-[#161a2e] px-4 py-2.5 text-sm text-white/90">Te conecto con una persona del equipo.</p></div>
+                                <div class="flex items-center gap-3 rounded-xl border border-[#00F2FE]/30 bg-[#00F2FE]/10 px-4 py-3 text-sm font-semibold text-[#00F2FE]">
+                                    <ng-icon name="lucideHandshake" size="19" />Derivado al equipo
+                                </div>
+                            </div>
+                            }
+
+                            }
+
+                            <p class="mt-4 text-center text-[11px] uppercase tracking-[0.2em] text-white/40">Ejemplo ilustrativo</p>
+                        </div>
+                    </div>
+
+                </div>
+                }
+                }
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- ===================================================== -->
+<!-- IA Y TU EQUIPO: reparto de tareas -->
+<!-- ===================================================== -->
+@if (page.handoff; as handoff) {
+<section class="bg-[#f7f7fa] py-24 lg:py-32">
+    <div class="mx-auto px-6 lg:max-w-[80vw] lg:px-8">
+
+        <div appReveal revealStagger class="mx-auto max-w-3xl text-center">
+            <span class="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-[#5b49d6]">
+                <span class="h-1.5 w-1.5 rounded-full bg-[#6C5CE7]"></span>
+                IA y tu equipo
+            </span>
+            <h2 class="mt-5 text-3xl font-bold leading-[1.1] tracking-tight text-[#080911] md:text-5xl">Cada uno, en lo que mejor hace</h2>
+        </div>
+
+        <div appReveal class="mx-auto mt-14 grid max-w-6xl items-stretch gap-6 md:grid-cols-[1fr_auto_1fr] md:gap-0">
+
+            <!-- IA -->
+            <div class="group relative overflow-hidden rounded-[28px] bg-gradient-to-br from-[#2b1d77] via-[#1c1252] to-[#130735] p-8 text-white shadow-[0_30px_70px_rgba(43,29,119,0.35)] transition duration-300 hover:-translate-y-1 md:p-10">
+                <div class="pointer-events-none absolute -left-16 -top-16 h-56 w-56 rounded-full bg-[#6C5CE7]/40 blur-[70px]"></div>
+                <div class="pointer-events-none absolute -bottom-20 -right-10 h-48 w-48 rounded-full bg-[#00F2FE]/15 blur-[70px]"></div>
+                <div class="relative">
+                    <span class="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-[#00F2FE]">
+                        <ng-icon name="lucideBot" size="14" />Automático
+                    </span>
+                    <h3 class="mt-5 text-2xl font-bold">{{ handoff.ai.title }}</h3>
+                    <ul class="mt-6 space-y-3">
+                        @for (item of handoff.ai.items; track item; let k = $index) {
+                        <li class="flex items-center gap-4 rounded-2xl border border-white/10 bg-white/[0.06] px-4 py-3 text-sm text-white/90">
+                            <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-white/10 text-[#00F2FE]">
+                                <ng-icon [name]="aiIcons[k]" size="18" />
+                            </span>
+                            {{ item }}
+                        </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Traspaso: línea con el punto de unión -->
+            <div class="flex items-center justify-center md:w-24" aria-hidden="true">
+                <div class="flex items-center md:w-full">
+                    <span class="hidden h-px flex-1 bg-gradient-to-r from-[#6C5CE7]/10 to-[#6C5CE7] md:block"></span>
+                    <span class="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-[#6C5CE7] to-[#00F2FE] text-white shadow-[0_10px_30px_rgba(108,92,231,0.45)] ring-8 ring-[#f7f7fa]">
+                        <ng-icon name="lucideHandshake" size="22" />
+                    </span>
+                    <span class="hidden h-px flex-1 bg-gradient-to-r from-[#00F2FE] to-[#00F2FE]/10 md:block"></span>
+                </div>
+            </div>
+
+            <!-- Equipo -->
+            <div class="group relative flex flex-col overflow-hidden rounded-[28px] border border-black/10 bg-white p-8 shadow-[0_25px_60px_rgba(108,92,231,0.12)] transition duration-300 hover:-translate-y-1 md:p-10">
+                <div class="pointer-events-none absolute -right-16 -top-16 h-52 w-52 rounded-full bg-[#6C5CE7]/10 blur-[70px]"></div>
+                <div class="relative flex flex-1 flex-col">
+                    <span class="inline-flex w-fit items-center gap-2 rounded-full border border-[#6C5CE7]/20 bg-[#6C5CE7]/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-[#5b49d6]">
+                        <ng-icon name="lucideUserRoundCheck" size="14" />Persona
+                    </span>
+                    <h3 class="mt-5 text-2xl font-bold text-[#080911]">{{ handoff.team.title }}</h3>
+                    <ul class="mt-6 space-y-3">
+                        @for (item of handoff.team.items; track item; let k = $index) {
+                        <li class="flex items-center gap-4 rounded-2xl border border-black/10 bg-[#f7f7fa] px-4 py-3 text-sm text-black/80">
+                            <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[#6C5CE7]/10 text-[#5b49d6]">
+                                <ng-icon [name]="teamIcons[k]" size="18" />
+                            </span>
+                            {{ item }}
+                        </li>
+                        }
+                    </ul>
+                    <p class="mt-8 rounded-2xl bg-[#6C5CE7]/[0.07] p-4 text-sm leading-6 text-[#3b2f8f] md:mt-auto">
+                        Cuando el proceso necesita atención humana o una decisión comercial, la conversación pasa a tu equipo.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+}
+
+
+<!-- ===================================================== -->
+<!-- CÓMO TRABAJAMOS: título fijo a la izquierda, pasos en vertical -->
+<!-- ===================================================== -->
+<section class="bg-[#130735] py-24 text-white lg:py-32">
+    <div class="mx-auto grid px-6 lg:max-w-[80vw] lg:grid-cols-[0.8fr_1.2fr] lg:gap-16 lg:px-8">
+
+        <div appReveal revealStagger class="lg:sticky lg:top-32 lg:self-start">
+            <span class="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-[#A99CFF]">
+                <span class="h-1.5 w-1.5 rounded-full bg-[#00F2FE]"></span>
+                {{ page.steps.eyebrow }}
+            </span>
+            <h2 class="mt-5 text-3xl font-bold leading-[1.1] tracking-tight md:text-5xl">{{ page.steps.title }}</h2>
+            <p class="mt-5 max-w-md text-base leading-7 text-white/70 md:text-lg">{{ page.steps.intro }}</p>
+        </div>
+
+        <ol appSequence class="relative mt-14 space-y-8 lg:mt-0">
+            <div data-seq="line-y" data-long aria-hidden="true" class="pointer-events-none absolute bottom-4 left-[21px] top-4 w-px bg-gradient-to-b from-[#6C5CE7] to-[#00F2FE]"></div>
+
+            @for (item of page.steps.items; track item.title; let i = $index) {
+            <li data-seq="item" class="relative pl-16">
+                <span class="absolute left-0 top-0 flex h-11 w-11 items-center justify-center rounded-full bg-gradient-to-br from-[#6C5CE7] to-[#6C8CFF] text-sm font-bold text-white ring-4 ring-[#130735]">{{ i + 1 }}</span>
+                <h3 class="pt-2 text-xl font-bold">{{ item.title }}</h3>
+                <p class="mt-2 max-w-xl text-sm leading-6 text-white/70 md:text-base">{{ item.text }}</p>
+            </li>
+            }
+        </ol>
+
+    </div>
+</section>
+
+<app-page-closing [page]="page" [related]="related" />

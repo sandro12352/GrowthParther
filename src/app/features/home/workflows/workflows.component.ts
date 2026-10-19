@@ -13,17 +13,7 @@ import type { ScrollTrigger as ScrollTriggerType } from 'gsap/ScrollTrigger';
 import { GsapService } from '../../../core/gsap.service';
 import { RevealDirective } from '../../../core/reveal.directive';
 import { MeetingDialogService } from '../../../shared/components/services/meeting-dialog.service';
-
-export interface WorkflowCase {
-  name: string;
-  description: string;
-  tags: string[];
-  image: string;
-  alt: string;
-  width: number;
-  height: number;
-  highlight?: { title: string; caption: string };
-}
+import { CASES, WorkflowCase } from '../../cases/case-studies/cases.data';
 
 @Component({
   selector: 'app-workflows',
@@ -50,49 +40,7 @@ export class WorkflowsComponent {
   public readonly active = signal(0);
   public readonly viewing = signal<WorkflowCase | null>(null);
 
-  public readonly cases: WorkflowCase[] = [
-    {
-      name: 'GRIN',
-      description:
-        'Automatización del proceso de pedidos y seguimiento desde el primer contacto hasta las diferentes condiciones del proceso.',
-      tags: ['WhatsApp', 'Condiciones', 'Seguimiento'],
-      image: '/flujos/grin.webp',
-      alt: 'Workflow de automatización GRIN',
-      width: 1919,
-      height: 941,
-      highlight: { title: 'WhatsApp + Workflow', caption: 'Automatización comercial' },
-    },
-    {
-      name: 'OPCIÓN',
-      description:
-        'Un flujo conectado para manejar cotizaciones, cálculos y conversaciones de manera automática.',
-      tags: ['Cotización', 'Calculadora', 'Conversación'],
-      image: '/flujos/opcion.webp',
-      alt: 'Workflow de automatización OPCIÓN',
-      width: 1912,
-      height: 941,
-    },
-    {
-      name: 'TIS',
-      description:
-        'Sistema diseñado para calificar prospectos, gestionar citas y activar acciones de remarketing.',
-      tags: ['IA', 'Agendamiento', 'Remarketing'],
-      image: '/flujos/tis.webp',
-      alt: 'Workflow de automatización TIS',
-      width: 1919,
-      height: 941,
-    },
-    {
-      name: 'PeruviansEcom',
-      description:
-        'Automatización del proceso de pedidos, comunicación y seguimiento de clientes desde WhatsApp.',
-      tags: ['WhatsApp', 'Pedidos', 'Seguimiento'],
-      image: '/flujos/peruvians.webp',
-      alt: 'Workflow de automatización PeruviansEcom',
-      width: 1919,
-      height: 937,
-    },
-  ];
+  public readonly cases: WorkflowCase[] = CASES;
 
   constructor() {
     afterNextRender(() => void this.initScroll());

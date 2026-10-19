@@ -210,3 +210,41 @@ html.no-splash app-splash {
     animation: none;
   }
 }
+
+/* ---------- Secuencias de diagramas y líneas de tiempo (ver core/sequence.directive.ts) ---------- */
+[data-seq] {
+  animation: seq-failsafe 0s linear 5s forwards;
+}
+
+[data-seq='item'] {
+  opacity: 0;
+}
+
+[data-seq='line-x'] {
+  transform: scaleX(0);
+  transform-origin: left center;
+}
+
+[data-seq='line-y'] {
+  transform: scaleY(0);
+  transform-origin: center top;
+}
+
+[data-seq-js] [data-seq] {
+  animation: none;
+}
+
+@keyframes seq-failsafe {
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-seq] {
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
+}
