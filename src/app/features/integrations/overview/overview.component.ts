@@ -20,7 +20,10 @@ export class IntegrationsOverviewComponent implements OnDestroy {
   private readonly meetingDialogService = inject(MeetingDialogService);
 
   /** Herramientas del índice: una tarjeta por cada una (la ruta es la de su página). */
-  public readonly tools = [
+  public readonly brandNote =
+    'Las marcas mencionadas pertenecen a sus respectivos dueños. GrowthProject AI no está afiliado a ellas.';
+
+  public readonly tools: { path: string; name: string; summary: string; icon: string }[] = [
     { path: 'integraciones/whatsapp', name: 'WhatsApp', summary: 'Atención y seguimiento', icon: 'lucideMessageCircle' },
     { path: 'integraciones/meta', name: 'Meta', summary: 'Facebook + Instagram', icon: 'lucideSend' },
     { path: 'integraciones/n8n', name: 'n8n', summary: 'Automatizaciones avanzadas', icon: 'lucideWorkflow' },

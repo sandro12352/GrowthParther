@@ -1,0 +1,81 @@
+<!-- ===================================================== -->
+<!-- PORTADA -->
+<!-- ===================================================== -->
+<section class="relative overflow-hidden bg-[#130735] pb-16 pt-40 text-white lg:pb-20 lg:pt-48">
+
+    <div class="pointer-events-none absolute inset-0 overflow-hidden">
+        <div class="absolute left-1/2 top-1/4 h-[420px] w-[620px] -translate-x-1/2 rounded-full bg-[#6C5CE7]/20 blur-[120px]"></div>
+    </div>
+
+    <div appReveal revealStagger class="relative mx-auto flex max-w-4xl flex-col items-center px-6 text-center">
+        <div class="mb-6 inline-flex rounded-full border border-[#6C5CE7]/30 bg-[#6C5CE7]/10 px-4 py-2">
+            <span class="text-xs font-semibold uppercase tracking-[0.2em] text-[#B9AFFF]">Blog</span>
+        </div>
+
+        <h1 class="text-balance text-4xl font-extrabold leading-[1.05] tracking-tight sm:text-5xl lg:text-6xl">
+            Ideas para
+            <span class="bg-gradient-to-r from-[#8f82ff] via-[#6C8CFF] to-[#00F2FE] bg-clip-text text-transparent">hacer crecer tu negocio.</span>
+        </h1>
+
+        <p class="mx-auto mt-6 max-w-2xl text-base leading-7 text-white/75 md:text-lg">
+            Guías prácticas sobre automatización, inteligencia artificial, CRM, WhatsApp e integraciones.
+        </p>
+    </div>
+</section>
+
+
+<!-- ===================================================== -->
+<!-- ARTÍCULOS -->
+<!-- ===================================================== -->
+<section class="bg-white py-16 lg:py-24">
+    <div class="mx-auto px-6 lg:max-w-[80vw] lg:px-8">
+
+        <!-- Filtro por categoría -->
+        <div class="flex flex-wrap items-center justify-center gap-2.5" role="group" aria-label="Filtrar por categoría">
+            <button type="button" (click)="filter.set(null)" [attr.aria-pressed]="filter() === null"
+                class="rounded-full border px-4 py-2 text-sm font-medium transition hover:cursor-pointer"
+                [class]="filter() === null ? 'border-[#6C5CE7] bg-[#6C5CE7] text-white' : 'border-black/10 text-[#080911] hover:border-[#6C5CE7] hover:text-[#5b49d6]'">
+                Todos
+            </button>
+            @for (category of categories; track category) {
+            <button type="button" (click)="filter.set(category)" [attr.aria-pressed]="filter() === category"
+                class="rounded-full border px-4 py-2 text-sm font-medium transition hover:cursor-pointer"
+                [class]="filter() === category ? 'border-[#6C5CE7] bg-[#6C5CE7] text-white' : 'border-black/10 text-[#080911] hover:border-[#6C5CE7] hover:text-[#5b49d6]'">
+                {{ category }}
+            </button>
+            }
+        </div>
+
+        <!-- Artículo destacado -->
+        @if (featured(); as post) {
+        <a [routerLink]="['/blog', post.slug]" class="group mt-14 grid items-center gap-8 lg:grid-cols-[1.2fr_1fr] lg:gap-14">
+            <div class="overflow-hidden rounded-[28px] border border-black/10 bg-[#10111A] shadow-[0_30px_80px_rgba(8,9,17,0.15)]">
+                <img [src]="post.image" [alt]="post.imageAlt" width="1672" height="941" fetchpriority="high" decoding="async"
+                    class="aspect-video w-full object-cover transition duration-500 group-hover:scale-[1.03]" />
+            </div>
+            <div>
+                <div class="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs">
+                    <span class="rounded-full bg-[#6C5CE7]/10 px-3 py-1 font-semibold text-[#5b49d6]">{{ post.category }}</span>
+                    <span class="text-black/55">{{ date(post.date) }} · {{ post.readTime }}</span>
+                </div>
+                <h2 class="mt-4 text-3xl font-extrabold leading-[1.1] tracking-tight text-[#080911] transition group-hover:text-[#5b49d6] md:text-4xl">{{ post.title }}</h2>
+                <p class="mt-4 text-base leading-7 text-black/65">{{ post.description }}</p>
+                <span class="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-[#5b49d6]">
+                    Leer artículo
+                    <ng-icon name="lucideArrowRight" size="16" class="transition group-hover:translate-x-1" />
+                </span>
+            </div>
+        </a>
+        }
+
+        <!-- Resto de artículos -->
+        <div class="mt-16 grid gap-x-8 gap-y-14 sm:grid-cols-2 lg:grid-cols-3">
+            @for (post of rest(); track post.slug) {
+            <app-blog-card [post]="post" />
+            }
+        </div>
+
+    </div>
+</section>
+
+<app-page-closing [page]="closing" />

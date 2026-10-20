@@ -47,36 +47,56 @@
 
         <div class="mt-14 space-y-20 lg:space-y-28">
             @for (item of visible(); track item.name; let i = $index) {
-            <article class="grid items-center gap-8 lg:gap-14" [class]="i % 2 === 1 ? 'lg:grid-cols-[0.8fr_1.4fr]' : 'lg:grid-cols-[1.4fr_0.8fr]'">
+            <article class="grid items-center gap-8 lg:gap-14" [class]="i % 2 === 1 ? 'lg:grid-cols-[1fr_1.25fr]' : 'lg:grid-cols-[1.25fr_1fr]'">
 
-                <div class="overflow-hidden rounded-[24px] border border-black/10 bg-[#10111A] shadow-[0_30px_80px_rgba(8,9,17,0.18)]"
-                    [class.lg:order-2]="i % 2 === 1">
-                    <div class="flex h-11 items-center gap-2 border-b border-white/10 px-5">
-                        <span class="h-2 w-2 rounded-full bg-white/20"></span>
-                        <span class="h-2 w-2 rounded-full bg-white/20"></span>
-                        <span class="h-2 w-2 rounded-full bg-white/20"></span>
-                        <span class="ml-4 text-xs text-white/60">{{ item.name }}</span>
-                    </div>
-                    <div class="relative bg-[#f7f9fc]">
-                        <img [src]="item.image" [alt]="item.alt" [attr.width]="item.width" [attr.height]="item.height"
-                            loading="lazy" decoding="async" class="block h-auto w-full object-contain" />
-                        <button type="button" (click)="open(item)" [attr.aria-label]="'Ampliar workflow ' + item.name"
-                            class="absolute bottom-4 right-4 inline-flex h-10 items-center gap-2 rounded-full bg-[#080911]/90 px-4 text-xs font-semibold text-white shadow-lg backdrop-blur transition hover:cursor-pointer hover:bg-[#6C5CE7]">
-                            <ng-icon name="lucideMaximize2" size="14" />
-                            Ampliar
-                        </button>
-                    </div>
+                @if (item.cutout; as cutout) {
+                <div [class.lg:order-2]="i % 2 === 1">
+                    <app-case-scene [scene]="cutout" />
                 </div>
+                } @else {
+                    <div class="overflow-hidden rounded-[24px] border border-black/10 bg-[#10111A] shadow-[0_30px_80px_rgba(8,9,17,0.18)]"
+                        [class.lg:order-2]="i % 2 === 1">
+                        @if (item.result; as result) {
+                        <div class="relative">
+                            <img [src]="result" [alt]="item.resultAlt ?? ''" width="1342" height="940" loading="lazy" decoding="async" class="block aspect-[10/7] h-full w-full object-cover" />
+                        </div>
+                        } @else {
+                            <div class="flex h-11 items-center gap-2 border-b border-white/10 px-5">
+                                <span class="h-2 w-2 rounded-full bg-white/20"></span>
+                                <span class="h-2 w-2 rounded-full bg-white/20"></span>
+                                <span class="h-2 w-2 rounded-full bg-white/20"></span>
+                                <span class="ml-4 text-xs text-white/60">{{ item.name }}</span>
+                            </div>
+                            <div class="relative bg-[#f7f9fc]">
+                                <img [src]="item.image" [alt]="item.alt" [attr.width]="item.width" [attr.height]="item.height"
+                                    loading="lazy" decoding="async" class="block h-auto w-full object-contain" />
+                                <button type="button" (click)="open(item)" [attr.aria-label]="'Ampliar workflow ' + item.name"
+                                    class="absolute bottom-4 right-4 inline-flex h-10 items-center gap-2 rounded-full bg-[#080911]/90 px-4 text-xs font-semibold text-white shadow-lg backdrop-blur transition hover:cursor-pointer hover:bg-[#6C5CE7]">
+                                    <ng-icon name="lucideMaximize2" size="14" />
+                                    Ampliar
+                                </button>
+                            </div>
+                        }
+                    </div>
+                }
 
-                <div [class.lg:order-1]="i % 2 === 1">
-                    <span class="bg-gradient-to-r from-[#6C5CE7] to-[#00b8c4] bg-clip-text text-5xl font-extrabold text-transparent">0{{ cases.indexOf(item) + 1 }}</span>
-                    <h2 class="mt-4 text-3xl font-extrabold tracking-tight text-[#080911] md:text-4xl">{{ item.name }}</h2>
-                    <p class="mt-4 text-base leading-7 text-black/70">{{ item.description }}</p>
-                    <ul class="mt-6 flex flex-wrap gap-2">
+                <div class="min-w-0" [class.lg:order-1]="i % 2 === 1">
+
+                    <!-- Cabecera: el logo directamente sobre el fondo, sin tarjeta; el nombre queda oculto para lectores de pantalla y buscadores -->
+                    <h2 class="sr-only">{{ item.name }}</h2>
+                    <img [src]="item.logo" [alt]="'Logo de ' + item.name" width="480" height="240" loading="lazy" decoding="async" class="h-24 w-48 object-contain object-left sm:h-28 sm:w-56" />
+                    <p class="mt-1 max-w-xs text-sm leading-5 text-black/55">{{ item.about }}</p>
+
+                    <ul class="mt-5 flex flex-wrap gap-2">
                         @for (tag of item.tags; track tag) {
-                        <li class="rounded-full border border-black/10 bg-[#f7f7fa] px-3 py-1.5 text-xs font-medium text-black/75">{{ tag }}</li>
+                        <li class="rounded-full bg-[#6C5CE7]/10 px-3 py-1.5 text-xs font-semibold text-[#5b49d6]">{{ tag }}</li>
                         }
                     </ul>
+
+                    <div class="my-6 h-px bg-black/10"></div>
+
+                    <p class="text-base leading-7 text-black/70">{{ item.description }}</p>
+
                 </div>
 
             </article>

@@ -3,6 +3,7 @@ import { NgIcon, provideIcons } from '@ng-icons/core';
 import { lucideMaximize2, lucideX } from '@ng-icons/lucide';
 import { RevealDirective } from '../../../core/reveal.directive';
 import { SeoService } from '../../../core/seo.service';
+import { CaseSceneComponent } from './case-scene/case-scene.component';
 import { PageClosingComponent } from '../../../shared/page-closing/page-closing.component';
 import { CASES, WorkflowCase } from './cases.data';
 import { PageContent } from '../../../shared/models/page-content.model';
@@ -10,7 +11,7 @@ import { PageContent } from '../../../shared/models/page-content.model';
 /** Página «Casos de éxito»: los workflows reales de `cases.data.ts`, con filtro por etiqueta y visor ampliado. */
 @Component({
   selector: 'app-case-studies',
-  imports: [NgIcon, RevealDirective, PageClosingComponent],
+  imports: [NgIcon, RevealDirective, PageClosingComponent, CaseSceneComponent],
   providers: [provideIcons({ lucideMaximize2, lucideX })],
   templateUrl: './case-studies.component.html',
 })

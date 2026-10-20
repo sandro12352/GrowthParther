@@ -196,6 +196,16 @@ export class AiForBusinessComponent implements OnDestroy {
   public readonly aiIcons = ['lucideRepeat', 'lucideMessageCircle', 'lucideClipboardList', 'lucideWorkflow'];
   public readonly teamIcons = ['lucideUserRoundCheck', 'lucideHandshake'];
 
+  /** Imagen de cada capacidad (mismo orden que scope.items), dibujadas con texto real en public/ia/. */
+  public readonly sceneImages = [
+    { src: '/ia/atender.webp', width: 1500, height: 1060, alt: 'Chat en el que la IA atiende a un cliente y le reserva una cita para el sábado' },
+    { src: '/ia/responder.webp', width: 1500, height: 1060, alt: 'Bandeja de entrada con tres conversaciones de distintos canales respondidas automáticamente por la IA' },
+    { src: '/ia/recopilar.webp', width: 1500, height: 1060, alt: 'Conversación con la IA y la ficha del contacto con sus datos ya recopilados' },
+    { src: '/ia/calificar.webp', width: 1500, height: 1060, alt: 'Lista de prospectos calificados como alto, medio y bajo potencial, con el motivo de cada uno' },
+    { src: '/ia/procesos.webp', width: 1500, height: 1060, alt: 'Flujo automático que atiende un mensaje, decide si agenda una reunión o envía información, y lo registra en el CRM' },
+    { src: '/ia/persona.webp', width: 1500, height: 1060, alt: 'La IA deriva la conversación a un asesor, que recibe una notificación con el resumen' },
+  ];
+
   /** Capacidad seleccionada en las pestañas. */
   public readonly active = signal(0);
 

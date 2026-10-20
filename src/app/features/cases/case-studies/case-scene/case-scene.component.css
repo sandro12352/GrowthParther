@@ -1,0 +1,118 @@
+:host {
+  display: block;
+}
+
+/* Todas las medidas se expresan en cqw (1cqw = 1 % del ancho de la escena) para que escale con el contenedor. */
+.scene {
+  position: relative;
+  width: 100%;
+  container-type: inline-size;
+}
+
+.phone {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.lines {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.lines path {
+  fill: none;
+  stroke-width: 3.6;
+  stroke-linecap: round;
+}
+
+.dot {
+  fill: #22d3ee;
+  stroke: #fff;
+  stroke-width: 2;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.card {
+  position: absolute;
+  color: #fff;
+  font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+  border-radius: 1.85cqw;
+  border: 0.18cqw solid transparent;
+  background:
+    linear-gradient(145deg, #111a3b, #0a1030) padding-box,
+    linear-gradient(135deg, #a78bfa, #38bdf8 55%, #22d3ee) border-box;
+  box-shadow: 0 1.15cqw 2.6cqw rgba(8, 9, 17, 0.32);
+}
+
+.ic {
+  position: absolute;
+  left: 1.85cqw;
+  top: 1.6cqw;
+  font-size: 3.3cqw;
+  color: #fff;
+  --ng-icon__stroke-width: 1.7;
+}
+
+.ok {
+  position: absolute;
+  right: 1.7cqw;
+  top: 1.5cqw;
+  width: 2.86cqw;
+  height: 2.86cqw;
+  border-radius: 50%;
+  background: #19e3a1;
+  color: #06231a;
+  font-size: 1.65cqw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  --ng-icon__stroke-width: 3.2;
+}
+
+.lb {
+  position: absolute;
+  left: 1.85cqw;
+  bottom: 1.4cqw;
+  font-size: 1.93cqw;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+}
+
+/* ---------- Estado inicial de la animación (ver case-scene.component.ts) ---------- */
+/* Todo parte oculto desde el primer pintado; si el JS no llegara a ejecutarse, a los 5 s se muestra igual. */
+.scene [data-s] {
+  opacity: 0;
+  animation: scene-failsafe 0s linear 5s forwards;
+}
+
+.scene[data-scene-js] [data-s] {
+  animation: none;
+}
+
+/* Solo mientras dura la animación: se avisa al navegador de qué elementos se mueven */
+.scene[data-scene-js] .phone,
+.scene[data-scene-js] .card {
+  will-change: transform, opacity;
+}
+
+@keyframes scene-failsafe {
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scene [data-s] {
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
+}

@@ -53,3 +53,10 @@
   max-height: 52vh;
   margin-inline: auto;
 }
+
+/* Con una imagen de resultado (16:9) el marco se ajusta a la imagen y queda centrado, sin franjas a los lados. */
+.wf.is-pinned .wf-shot.has-result {
+  width: fit-content;
+  max-width: 100%;
+  justify-self: center;
+}

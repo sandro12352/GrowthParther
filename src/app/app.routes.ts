@@ -57,6 +57,16 @@ export const routes: Routes = [
                 loadComponent: () => import('./features/about/about-us/about-us.component').then(m => m.AboutUsComponent),
             },
 
+            // Blog: listado y artículos (los artículos están en features/blog/blog.data.ts)
+            {
+                path: 'blog',
+                loadComponent: () => import('./features/blog/blog-list/blog-list.component').then(m => m.BlogListComponent),
+            },
+            {
+                path: 'blog/:slug',
+                loadComponent: () => import('./features/blog/blog-post/blog-post.component').then(m => m.BlogPostComponent),
+            },
+
             // Direcciones que aún no existen (otras opciones del menú): llevan al inicio en lugar de fallar.
             { path: '**', redirectTo: '' },
         ]

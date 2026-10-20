@@ -17,6 +17,8 @@ export class PageClosingComponent {
   private readonly meetingDialogService = inject(MeetingDialogService);
 
   public readonly page = input.required<Pick<PageContent, 'faqs' | 'cta'>>();
+  /** Nota pequeña al pie (por ejemplo, aviso de marcas de terceros). */
+  public readonly note = input<string>('');
   public readonly related = input<{ label: string; path: string }[]>([]);
 
   public openMeetingDialog(): void {

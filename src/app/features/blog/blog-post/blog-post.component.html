@@ -1,0 +1,85 @@
+@if (post; as p) {
+
+<!-- ===================================================== -->
+<!-- CABECERA DEL ARTÍCULO -->
+<!-- ===================================================== -->
+<section class="relative overflow-hidden bg-[#130735] pb-24 pt-36 text-white lg:pb-32 lg:pt-44">
+
+    <div class="pointer-events-none absolute inset-0 overflow-hidden">
+        <div class="absolute left-1/2 top-1/4 h-[420px] w-[620px] -translate-x-1/2 rounded-full bg-[#6C5CE7]/20 blur-[120px]"></div>
+    </div>
+
+    <div appReveal revealStagger class="relative mx-auto max-w-4xl px-6">
+        <a routerLink="/blog" class="inline-flex items-center gap-2 text-sm font-medium text-white/70 transition hover:text-white">
+            <ng-icon name="lucideArrowLeft" size="16" />
+            Volver al blog
+        </a>
+
+        <div class="mt-8 flex flex-wrap items-center gap-x-3 gap-y-1 text-xs">
+            <span class="rounded-full border border-[#6C5CE7]/40 bg-[#6C5CE7]/15 px-3 py-1 font-semibold text-[#B9AFFF]">{{ p.category }}</span>
+            <span class="text-white/65">{{ date(p.date) }} · {{ p.readTime }}</span>
+        </div>
+
+        <h1 class="mt-5 text-balance text-3xl font-extrabold leading-[1.1] tracking-tight sm:text-4xl lg:text-5xl">{{ p.title }}</h1>
+        <p class="mt-5 max-w-3xl text-base leading-7 text-white/75 md:text-lg">{{ p.description }}</p>
+    </div>
+</section>
+
+
+<!-- ===================================================== -->
+<!-- ARTÍCULO: portada que sube sobre la cabecera y cuerpo en una sola columna -->
+<!-- ===================================================== -->
+<article class="bg-white pb-20 lg:pb-28">
+
+    <div class="relative mx-auto -mt-14 max-w-5xl px-6 lg:-mt-20">
+        <img [src]="p.image" [alt]="p.imageAlt" width="1672" height="941" fetchpriority="high" decoding="async"
+            class="aspect-video w-full rounded-[28px] border border-black/10 object-cover shadow-[0_30px_80px_rgba(8,9,17,0.25)]" />
+    </div>
+
+    <div class="mx-auto mt-14 max-w-3xl px-6">
+        @for (block of p.body; track $index) {
+        @switch (block.type) {
+        @case ('h2') {
+        <h2 class="mb-4 mt-12 text-2xl font-bold leading-tight tracking-tight text-[#080911] md:text-3xl">{{ block.text }}</h2>
+        }
+        @case ('p') {
+        <p class="my-5 text-base leading-8 text-black/75 md:text-lg md:leading-8">{{ block.text }}</p>
+        }
+        @case ('ul') {
+        <ul class="my-5 space-y-3">
+            @for (item of block.items; track $index) {
+            <li class="flex gap-3 text-base leading-7 text-black/75 md:text-lg md:leading-8">
+                <span class="mt-3 h-1.5 w-1.5 shrink-0 rounded-full bg-gradient-to-br from-[#6C5CE7] to-[#00b8c4]" aria-hidden="true"></span>
+                <span>{{ item }}</span>
+            </li>
+            }
+        </ul>
+        }
+        @case ('callout') {
+        <aside class="my-8 rounded-2xl border-l-4 border-[#6C5CE7] bg-[#6C5CE7]/[0.06] px-6 py-5">
+            <p class="text-lg font-semibold leading-snug text-[#080911]">{{ block.text }}</p>
+        </aside>
+        }
+        }
+        }
+    </div>
+</article>
+
+
+<!-- ===================================================== -->
+<!-- SIGUE LEYENDO -->
+<!-- ===================================================== -->
+<section class="bg-[#f7f7fa] py-20 lg:py-28">
+    <div class="mx-auto px-6 lg:max-w-[80vw] lg:px-8">
+        <h2 class="text-3xl font-bold tracking-tight text-[#080911] md:text-4xl">Sigue leyendo</h2>
+        <div class="mt-10 grid gap-x-8 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
+            @for (item of related(); track item.slug) {
+            <app-blog-card [post]="item" />
+            }
+        </div>
+    </div>
+</section>
+
+<app-page-closing [page]="closing" />
+
+}

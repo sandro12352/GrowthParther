@@ -1,16 +1,12 @@
 import { Component, inject } from '@angular/core';
 import { NgIcon, provideIcons } from '@ng-icons/core';
-import { lucideArrowUpRight, lucideInstagram, lucideFacebook, lucideLinkedin, lucideMessageCircle } from '@ng-icons/lucide';
+import { lucideArrowUpRight } from '@ng-icons/lucide';
 import { MeetingDialogService } from '../components/services/meeting-dialog.service';
 
 @Component({
   imports: [NgIcon],
   providers:[provideIcons({
     lucideArrowUpRight,
-    lucideInstagram,
-    lucideFacebook,
-    lucideLinkedin,
-    lucideMessageCircle,
   })],
   selector: 'app-footer',
   styleUrl: './footer.component.css',

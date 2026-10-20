@@ -3,7 +3,7 @@ import { isPlatformBrowser } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { NgIcon, provideIcons } from '@ng-icons/core';
-import { lucideArrowRight, lucideArrowUpRight, lucideBellRing, lucideBot, lucideBrainCircuit, lucideCalendar, lucideCalendarCheck, lucideCalendarDays, lucideChartNoAxesCombined, lucideCheck, lucideClipboardList, lucideClock3, lucideCreditCard, lucideDatabase, lucideFacebook, lucideFilter, lucideInstagram, lucideLink, lucideMail, lucideMessageCircle, lucideMessageSquare, lucideMusic2, lucidePlay, lucidePlus, lucideRefreshCw, lucideRotateCcw, lucideSettings2, lucideShare2, lucideSmartphone, lucideSparkles, lucideStar, lucideUserPlus, lucideUserRoundCheck, lucideUsers, lucideUsersRound, lucideWebhook, lucideWorkflow, lucideZap } from '@ng-icons/lucide';
+import { lucideArrowRight, lucideArrowUpRight, lucideBellRing, lucideBot, lucideBrainCircuit, lucideCalendar, lucideCalendarCheck, lucideCalendarDays, lucideChartNoAxesCombined, lucideCheck, lucideClipboardList, lucideClock3, lucideCreditCard, lucideDatabase, lucideFilter, lucideMessagesSquare, lucideSend, lucideLink, lucideMail, lucideMessageCircle, lucideMessageSquare, lucideMusic2, lucidePlay, lucidePlus, lucideRefreshCw, lucideRotateCcw, lucideSettings2, lucideShare2, lucideSmartphone, lucideSparkles, lucideStar, lucideUserPlus, lucideUserRoundCheck, lucideUsers, lucideUsersRound, lucideWebhook, lucideWorkflow, lucideZap } from '@ng-icons/lucide';
 import { HlmCardImports } from '@spartan-ng/helm/card';
 import { HlmCarouselImports } from '@spartan-ng/helm/carousel';
 import { HlmInputImports } from '@spartan-ng/helm/input';
@@ -13,6 +13,8 @@ import { RevealDirective } from '../../core/reveal.directive';
 import { DrawPathsDirective } from '../../core/draw-paths.directive';
 import { HeroIntroDirective } from '../../core/hero-intro.directive';
 import { WorkflowsComponent } from './workflows/workflows.component';
+import { NetworkBgComponent } from '../../shared/network-bg/network-bg.component';
+import { POSTS, formatPostDate } from '../blog/blog.data';
 import { MeetingDialogService } from '../../shared/components/services/meeting-dialog.service';
 
 @Component({
@@ -25,6 +27,7 @@ import { MeetingDialogService } from '../../shared/components/services/meeting-d
     HlmCardImports,
     HlmInputImports,
     WorkflowsComponent,
+    NetworkBgComponent,
     RevealDirective,
     DrawPathsDirective,
     HeroIntroDirective,
@@ -36,8 +39,8 @@ import { MeetingDialogService } from '../../shared/components/services/meeting-d
     lucideSettings2,
     lucideArrowRight,
     lucideMessageCircle,
-    lucideInstagram,
-    lucideFacebook,
+    lucideSend,
+    lucideMessagesSquare,
     lucidePlay,
     lucideMail,
     lucideSmartphone,
@@ -92,13 +95,13 @@ export class HomeComponent{
     {
       title: 'Instagram',
       subtitle: 'Mensajes y leads',
-      icon: 'lucideInstagram'
+      icon: 'lucideSend'
     },
 
     {
       title: 'Facebook',
       subtitle: 'Messenger',
-      icon: 'lucideFacebook'
+      icon: 'lucideMessagesSquare'
     },
 
     {
@@ -181,74 +184,19 @@ export class HomeComponent{
 
   ];
 
-  public blogPosts = [
-  {
-    id: 1,
-    category: 'Automatización',
-    date: '24 Sep 2026',
-    readTime: '5 min lectura',
-    title: '¿Qué procesos de tu empresa deberías automatizar primero?',
-    description:
-      'Una guía práctica para identificar tareas repetitivas y convertirlas en procesos automáticos que ahorren tiempo a tu equipo.',
-    image: '/blog/automatizacion.webp',
-    link: '/blog/procesos-automatizar'
-  },
-  {
-    id: 2,
-    category: 'Inteligencia Artificial',
-    date: '18 Sep 2026',
-    readTime: '6 min lectura',
-    title: 'Cómo utilizar IA para automatizar la atención de tus clientes',
-    description:
-      'Descubre cómo integrar inteligencia artificial en tus conversaciones, seguimiento y procesos comerciales.',
-    image: '/blog/inteligencia-artificial.webp',
-    link: '/blog/ia-atencion-clientes'
-  },
-  {
-    id: 3,
-    category: 'CRM',
-    date: '12 Sep 2026',
-    readTime: '4 min lectura',
-    title: 'Por qué tus leads se pierden aunque tengas un CRM',
-    description:
-      'Tener un CRM no garantiza un buen seguimiento. Conoce los procesos que necesitas automatizar alrededor de tu equipo comercial.',
-    image: '/blog/crm-leads.webp',
-    link: '/blog/crm-seguimiento'
-  },
-  {
-    id: 4,
-    category: 'WhatsApp',
-    date: '05 Sep 2026',
-    readTime: '5 min lectura',
-    title: 'Cómo automatizar WhatsApp sin perder el toque humano',
-    description:
-      'La automatización puede responder, calificar y hacer seguimiento sin convertir tus conversaciones en mensajes genéricos.',
-    image: '/blog/whatsapp.webp',
-    link: '/blog/whatsapp-automatizado'
-  },
-  {
-    id: 5,
-    category: 'Ventas',
-    date: '28 Ago 2026',
-    readTime: '7 min lectura',
-    title: 'De lead a cliente: cómo construir un sistema de seguimiento',
-    description:
-      'Un proceso comercial bien diseñado puede hacer que cada oportunidad tenga un siguiente paso claro y medible.',
-    image: '/blog/seguimiento.webp',
-    link: '/blog/sistema-seguimiento'
-  },
-  {
-    id: 6,
-    category: 'Integraciones',
-    date: '20 Ago 2026',
-    readTime: '5 min lectura',
-    title: 'Cómo conectar tus herramientas para que trabajen juntas',
-    description:
-      'CRM, WhatsApp, formularios, IA y otras herramientas pueden formar parte de un mismo sistema.',
-    image: '/blog/integraciones.webp',
-    link: '/blog/integraciones'
-  }
-];
+  /** Los artículos salen de features/blog/blog.data.ts, así el inicio y el blog no se desincronizan. */
+  public blogPosts = [...POSTS]
+    .sort((a, b) => b.date.localeCompare(a.date))
+    .map((post, index) => ({
+      id: index + 1,
+      category: post.category,
+      date: formatPostDate(post.date),
+      readTime: post.readTime,
+      title: post.title,
+      description: post.description,
+      image: post.image,
+      link: '/blog/' + post.slug,
+    }));
 
 
   // Escalera de valor: del plan más simple (claro, neutro) al más completo (oscuro, gradiente).

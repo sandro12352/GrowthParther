@@ -59,6 +59,10 @@ export class IntegrationLayoutComponent implements OnInit, OnDestroy {
   private readonly seo = inject(SeoService);
   private readonly meetingDialogService = inject(MeetingDialogService);
 
+  /** Aviso de marcas de terceros (los logos y nombres pertenecen a sus dueños). */
+  public readonly brandNote =
+    'Las marcas mencionadas pertenecen a sus respectivos dueños. GrowthProject AI no está afiliado a ellas.';
+
   /** Contenido de la herramienta: lo entrega cada página (whatsapp, meta, n8n, gohighlevel). */
   public readonly page = input.required<PageContent>();
 

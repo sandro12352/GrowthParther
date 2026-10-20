@@ -1,0 +1,33 @@
+@let s = scene();
+<div class="scene" role="img" [attr.aria-label]="s.alt" [style.aspect-ratio]="s.width + ' / ' + s.height">
+
+    <img data-s="phone" class="phone" [src]="s.phone" [attr.width]="s.width" [attr.height]="s.height" alt="" loading="lazy" decoding="async" />
+
+    <svg class="lines" [attr.viewBox]="'0 0 ' + s.width + ' ' + s.height" aria-hidden="true">
+        @for (line of s.lines; track $index; let i = $index) {
+        <defs>
+            <linearGradient [id]="'scene-' + uid + '-' + i" gradientUnits="userSpaceOnUse"
+                [attr.x1]="line.to[0]" [attr.y1]="line.to[1]" [attr.x2]="line.from[0]" [attr.y2]="line.from[1]">
+                <stop offset="0" stop-color="#8b5cf6" />
+                <stop offset="1" stop-color="#22d3ee" />
+            </linearGradient>
+        </defs>
+        <!-- La línea nace en el teléfono y termina en la tarjeta (el punto) -->
+        <path data-s="path" pathLength="1"
+            [attr.d]="'M' + line.to[0] + ',' + line.to[1] + ' C' + line.c2[0] + ',' + line.c2[1] + ' ' + line.c1[0] + ',' + line.c1[1] + ' ' + line.from[0] + ',' + line.from[1]"
+            [attr.stroke]="'url(#scene-' + uid + '-' + i + ')'" />
+        <circle data-s="dot" class="dot" [attr.cx]="line.from[0]" [attr.cy]="line.from[1]" r="6.5" />
+        }
+    </svg>
+
+    @for (card of s.cards; track card.label) {
+    <div data-s="card" class="card" [attr.data-side]="side(card.x, card.w)"
+        [style.left.%]="card.x / s.width * 100" [style.top.%]="card.y / s.height * 100"
+        [style.width.%]="card.w / s.width * 100" [style.height.%]="card.h / s.height * 100">
+        <ng-icon class="ic" [name]="card.icon" size="1em" />
+        <span data-s="ok" class="ok"><ng-icon name="lucideCheck" size="1em" /></span>
+        <span class="lb">{{ card.label }}</span>
+    </div>
+    }
+
+</div>

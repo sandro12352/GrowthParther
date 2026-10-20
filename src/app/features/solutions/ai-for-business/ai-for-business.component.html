@@ -111,12 +111,12 @@
             <p class="mt-5 max-w-2xl text-base leading-7 text-white/70 md:text-lg">{{ page.scope.intro }}</p>
         </div>
 
-        <div appReveal class="mt-14 grid gap-4 lg:grid-cols-[0.8fr_1.2fr] lg:gap-6">
+        <div appReveal class="mt-14 grid gap-4 lg:grid-cols-[0.6fr_1.4fr] lg:gap-6">
 
-            <div role="tablist" aria-label="Qué puede hacer la IA" class="flex flex-col gap-2">
+            <div role="tablist" aria-label="Qué puede hacer la IA" class="flex flex-col gap-2 lg:h-full">
                 @for (item of page.scope.items; track item.title; let i = $index) {
                 <button type="button" role="tab" [id]="'ia-tab-' + i" [attr.aria-selected]="active() === i" aria-controls="ia-panel" (click)="active.set(i)"
-                    class="flex items-center gap-4 rounded-2xl border px-5 py-4 text-left transition duration-300 hover:cursor-pointer"
+                    class="flex items-center gap-4 rounded-2xl border px-5 py-4 text-left transition duration-300 hover:cursor-pointer lg:flex-1"
                     [class]="active() === i
                         ? 'border-[#6C5CE7]/60 bg-[#6C5CE7]/15 text-white'
                         : 'border-white/10 bg-white/[0.03] text-white/70 hover:border-white/25 hover:text-white'">
@@ -124,114 +124,28 @@
                         [class]="active() === i ? 'bg-gradient-to-br from-[#6C5CE7] to-[#6C8CFF] text-white' : 'bg-white/5 text-[#B9AFFF]'">
                         <ng-icon [name]="item.icon" size="20" />
                     </span>
-                    <span class="text-sm font-semibold md:text-base">{{ item.title }}</span>
+                    <span class="min-w-0">
+                        <span class="block text-sm font-semibold md:text-base">{{ item.title }}</span>
+                        <span class="mt-0.5 hidden text-xs leading-5 text-white/60 lg:block">{{ item.text }}</span>
+                    </span>
                 </button>
                 }
             </div>
 
             <div id="ia-panel" role="tabpanel" [attr.aria-labelledby]="'ia-tab-' + active()"
-                class="relative flex min-h-[420px] flex-col overflow-hidden rounded-[28px] border border-white/10 bg-gradient-to-br from-[#161235] to-[#0d0a24] p-7 md:p-10">
+                class="relative flex flex-col justify-center overflow-hidden rounded-[28px] border border-white/10 bg-gradient-to-br from-[#161235] to-[#0d0a24] p-7 md:p-10">
                 <div class="pointer-events-none absolute -right-20 -top-20 h-64 w-64 rounded-full bg-[#6C5CE7]/30 blur-[80px]"></div>
 
                 @for (item of page.scope.items; track item.title; let i = $index) {
                 @if (active() === i) {
                 <div class="relative flex flex-1 flex-col">
 
-                    <div class="flex items-start gap-4">
-                        <span class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-[#6C5CE7] to-[#00F2FE] text-white">
-                            <ng-icon [name]="item.icon" size="24" />
-                        </span>
-                        <div>
-                            <h3 class="text-2xl font-bold md:text-3xl">{{ item.title }}</h3>
-                            <p class="mt-2 max-w-lg text-sm leading-6 text-white/75 md:text-base">{{ item.text }}</p>
-                        </div>
-                    </div>
-
-                    <!-- Maqueta ilustrativa de la capacidad -->
-                    <div class="mt-8 flex flex-1 items-center">
-                        <div class="w-full rounded-2xl border border-white/10 bg-[#0b0d1c]/80 p-5">
-
-                            @switch (i) {
-
-                            @case (0) {
-                            <div class="space-y-3">
-                                <div class="flex justify-end"><p class="max-w-[80%] rounded-2xl rounded-br-md bg-gradient-to-r from-[#6C5CE7] to-[#6C8CFF] px-4 py-2.5 text-sm">Hola, ¿pueden ayudarme?</p></div>
-                                <div class="flex"><p class="max-w-[80%] rounded-2xl rounded-bl-md border border-white/10 bg-[#161a2e] px-4 py-2.5 text-sm text-white/90">Claro, cuéntame qué necesitas.</p></div>
-                                <div class="flex items-center gap-1.5 pl-2 text-white/50">
-                                    <span class="h-1.5 w-1.5 animate-pulse rounded-full bg-current"></span>
-                                    <span class="h-1.5 w-1.5 animate-pulse rounded-full bg-current [animation-delay:150ms]"></span>
-                                    <span class="h-1.5 w-1.5 animate-pulse rounded-full bg-current [animation-delay:300ms]"></span>
-                                </div>
-                            </div>
-                            }
-
-                            @case (1) {
-                            <ul class="space-y-3">
-                                @for (channel of ['WhatsApp', 'Instagram', 'Facebook']; track channel) {
-                                <li class="flex items-center justify-between gap-3 rounded-xl border border-white/10 bg-white/[0.03] px-4 py-3">
-                                    <span class="flex items-center gap-3 text-sm font-medium">
-                                        <ng-icon name="lucideMessageCircle" size="18" class="text-[#B9AFFF]" />{{ channel }}
-                                    </span>
-                                    <span class="flex items-center gap-1.5 text-xs font-semibold text-[#00F2FE]">
-                                        <ng-icon name="lucideCheck" size="14" />Respondido
-                                    </span>
-                                </li>
-                                }
-                            </ul>
-                            }
-
-                            @case (2) {
-                            <ul class="space-y-3">
-                                @for (field of ['Nombre', 'Interés', 'Contacto']; track field; let k = $index) {
-                                <li class="flex items-center gap-3 rounded-xl border border-white/10 bg-white/[0.03] px-4 py-3">
-                                    <span class="w-20 text-xs font-semibold uppercase tracking-wider text-white/60">{{ field }}</span>
-                                    <span class="h-2 rounded-full bg-gradient-to-r from-[#6C5CE7]/70 to-[#6C8CFF]/40" [style.width.%]="[62, 78, 50][k]"></span>
-                                    <ng-icon name="lucideCheck" size="16" class="ml-auto shrink-0 text-[#00F2FE]" />
-                                </li>
-                                }
-                            </ul>
-                            }
-
-                            @case (3) {
-                            <ul class="space-y-3">
-                                @for (lead of ['Alto potencial', 'Potencial medio', 'Por seguir']; track lead; let k = $index) {
-                                <li class="flex items-center gap-3 rounded-xl border border-white/10 bg-white/[0.03] px-4 py-3">
-                                    <span class="h-8 w-8 shrink-0 rounded-full bg-white/10"></span>
-                                    <span class="h-2 w-24 rounded-full bg-white/15"></span>
-                                    <span class="ml-auto rounded-full px-3 py-1 text-xs font-semibold"
-                                        [class]="k === 0 ? 'bg-[#00F2FE]/15 text-[#00F2FE]' : k === 1 ? 'bg-[#6C5CE7]/25 text-[#B9AFFF]' : 'bg-white/10 text-white/60'">{{ lead }}</span>
-                                </li>
-                                }
-                            </ul>
-                            }
-
-                            @case (4) {
-                            <div class="flex flex-col items-stretch gap-3 sm:flex-row sm:items-center">
-                                @for (node of ['Se activa', 'Se ejecuta', 'Se registra']; track node; let k = $index) {
-                                <div class="flex flex-1 items-center gap-3 rounded-xl border border-white/10 bg-white/[0.03] px-4 py-3">
-                                    <span class="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-[#6C5CE7] to-[#6C8CFF] text-xs font-bold">{{ k + 1 }}</span>
-                                    <span class="text-sm font-medium">{{ node }}</span>
-                                </div>
-                                @if (k < 2) {
-                                <ng-icon name="lucideArrowRight" size="18" class="hidden shrink-0 text-white/40 sm:block" />
-                                }
-                                }
-                            </div>
-                            }
-
-                            @case (5) {
-                            <div class="space-y-3">
-                                <div class="flex"><p class="max-w-[85%] rounded-2xl rounded-bl-md border border-white/10 bg-[#161a2e] px-4 py-2.5 text-sm text-white/90">Te conecto con una persona del equipo.</p></div>
-                                <div class="flex items-center gap-3 rounded-xl border border-[#00F2FE]/30 bg-[#00F2FE]/10 px-4 py-3 text-sm font-semibold text-[#00F2FE]">
-                                    <ng-icon name="lucideHandshake" size="19" />Derivado al equipo
-                                </div>
-                            </div>
-                            }
-
-                            }
-
-                            <p class="mt-4 text-center text-[11px] uppercase tracking-[0.2em] text-white/40">Ejemplo ilustrativo</p>
-                        </div>
+                    <!-- Imagen ilustrativa de la capacidad (public/ia/) -->
+                    <div class="flex flex-1 items-center justify-center">
+                        <figure class="w-full">
+                            <img [src]="sceneImages[i].src" [alt]="sceneImages[i].alt" [attr.width]="sceneImages[i].width" [attr.height]="sceneImages[i].height" loading="lazy" decoding="async" class="mx-auto block h-auto w-full" />
+                            <figcaption class="mt-2 text-center text-[11px] uppercase tracking-[0.2em] text-white/40">Ejemplo ilustrativo</figcaption>
+                        </figure>
                     </div>
 
                 </div>
