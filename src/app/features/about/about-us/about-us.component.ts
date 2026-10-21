@@ -19,9 +19,7 @@ import { CASES } from '../../cases/case-studies/cases.data';
 /**
  * Página «Nosotros».
  *
- * REAL (viene de la web actual): la frase de la portada, «qué hacemos», las cuatro áreas, la filosofía, el método (primeros tres pasos del FAQ) y los clientes (los casos de «Casos de éxito»).
- *
- * DE EJEMPLO (rellenar con datos del equipo): `story`. Está marcado con «EJEMPLO» más abajo.
+ * Contenido: la frase de la portada, «qué hacemos», las cuatro áreas, la filosofía, la historia, el método (primeros tres pasos del FAQ) y los clientes (los casos de «Casos de éxito»).
  */
 @Component({
   selector: 'app-about-us',
@@ -41,8 +39,7 @@ export class AboutUsComponent implements OnDestroy {
     { icon: 'lucideLink', title: 'Integraciones', text: 'Todas tus herramientas trabajando juntas.' },
   ];
 
-  // EJEMPLO: historia redactada a partir de lo que ya dice la web (sin fechas, nombres ni cifras).
-  // El equipo debe revisarla y sustituirla por la historia real antes de publicar.
+  // Historia: coincide con cómo empezó el negocio (sin fechas, nombres ni cifras).
   public readonly story = {
     eyebrow: 'Nuestra historia',
     title: 'Por qué existe GrowthProject AI',
@@ -77,11 +74,10 @@ export class AboutUsComponent implements OnDestroy {
 
   constructor() {
     this.seo.apply({
-      title: 'Nosotros | GrowthProject AI',
+      title: 'Nosotros: automatización e IA | GrowthProject AI',
       description:
         'Somos una empresa dedicada a la automatización de procesos, inteligencia artificial, CRM e integración de herramientas digitales.',
       path: '/nosotros',
-      noindex: true,
     });
   }
 

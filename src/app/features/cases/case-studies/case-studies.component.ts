@@ -45,11 +45,10 @@ export class CaseStudiesComponent implements OnDestroy {
 
   constructor() {
     this.seo.apply({
-      title: 'Casos de éxito | GrowthProject AI',
+      title: 'Casos de éxito de automatización | GrowthProject AI',
       description:
         'Workflows reales que hemos construido: pedidos, cotizaciones, calificación de prospectos, agendamiento y seguimiento automático.',
       path: '/casos-de-exito',
-      noindex: true,
     });
   }
 

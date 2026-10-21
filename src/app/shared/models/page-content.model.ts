@@ -10,6 +10,8 @@ export interface PageContent {
   visual?: 'whatsapp' | 'meta' | 'n8n' | 'ghl';
   /** Solo layout 'integration': cómo se conecta (tres pasos con icono). */
   connection?: { eyebrow: string; title: string; intro: string; nodes: { icon: string; label: string; note: string }[] };
+  /** Solo layout 'integration': para quién es la herramienta. */
+  audience?: { eyebrow: string; title: string; intro: string; items: string[] };
   /** true mientras el texto sea provisional (aviso visible + noindex). */
   draft: boolean;
   seo: { title: string; description: string };
@@ -51,6 +53,8 @@ export interface PageContent {
   channels?: string[];
   faqs: { question: string; answer: string }[];
   cta: { title: string; text: string; button: string };
+  /** Slugs de artículos del blog para el bloque «Artículos relacionados» (opcional). */
+  relatedPosts?: string[];
   /** Enlaces a otras páginas; solo se muestran los que ya existan. */
   related: { label: string; path: string }[];
 }

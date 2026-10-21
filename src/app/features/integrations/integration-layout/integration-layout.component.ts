@@ -25,12 +25,13 @@ import { SeoService } from '../../../core/seo.service';
 import { SequenceDirective } from '../../../core/sequence.directive';
 import { MeetingDialogService } from '../../../shared/components/services/meeting-dialog.service';
 import { PageClosingComponent } from '../../../shared/page-closing/page-closing.component';
+import { RelatedPostsComponent } from '../../../shared/related-posts/related-posts.component';
 import { PageContent } from '../../../shared/models/page-content.model';
 
 /** Plantilla común de las páginas de herramientas (WhatsApp, Meta, n8n, GoHighLevel): cada una la usa con su propio contenido. */
 @Component({
   selector: 'app-integration-layout',
-  imports: [NgIcon, RevealDirective, SequenceDirective, PageClosingComponent],
+  imports: [NgIcon, RevealDirective, SequenceDirective, PageClosingComponent, RelatedPostsComponent],
   providers: [
     provideIcons({
       lucideArrowDown,

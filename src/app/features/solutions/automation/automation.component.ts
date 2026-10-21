@@ -33,16 +33,17 @@ import { SeoService } from '../../../core/seo.service';
 import { SequenceDirective } from '../../../core/sequence.directive';
 import { MeetingDialogService } from '../../../shared/components/services/meeting-dialog.service';
 import { PageClosingComponent } from '../../../shared/page-closing/page-closing.component';
+import { RelatedPostsComponent } from '../../../shared/related-posts/related-posts.component';
 import { PageContent } from '../../../shared/models/page-content.model';
 
 const CONTENT: PageContent = {
   path: 'automatizacion',
-  draft: true,
+  draft: false,
 
   seo: {
-    title: 'Automatización de procesos | GrowthProject AI',
+    title: 'Automatización de procesos para empresas | GrowthProject AI',
     description:
-      'Diseñamos flujos personalizados que conectan tus canales, CRM, inteligencia artificial y procesos para que tu equipo deje de hacer tareas repetitivas.',
+      'Automatizamos respuestas, seguimiento, agendamiento y actualización del CRM con flujos a medida. Implementación estimada de 5 a 7 días y soporte 24/7.',
   },
 
   hero: {
@@ -122,7 +123,7 @@ const CONTENT: PageContent = {
       },
       {
         title: 'Probamos y acompañamos',
-        text: 'PROVISIONAL · Por definir con el equipo: pruebas, puesta en marcha y soporte posterior.',
+        text: 'Probamos el flujo antes de activarlo. El tiempo estimado es de 5 a 7 días y después cuentas con soporte 24/7.',
       },
     ],
   },
@@ -158,6 +159,15 @@ const CONTENT: PageContent = {
       answer:
         'Primero analizamos cómo funciona actualmente tu proceso: captación, atención, seguimiento y herramientas. A partir de ahí identificamos qué tareas pueden automatizarse y diseñamos el sistema que mejor se adapte a tu operación.',
     },
+    {
+      question: '¿Cuánto tarda la implementación?',
+      answer:
+        'El tiempo estimado es de 5 a 7 días. Si necesitas algo más personalizado, el plazo se define contigo.',
+    },
+    {
+      question: '¿Tienen soporte después de la puesta en marcha?',
+      answer: 'Sí. Contamos con soporte 24/7 para que tu automatización siga funcionando con normalidad.',
+    },
   ],
 
   cta: {
@@ -166,6 +176,7 @@ const CONTENT: PageContent = {
     button: 'Solicitar reunión',
   },
 
+  relatedPosts: ['procesos-automatizar', 'integraciones', 'sistema-seguimiento'],
   related: [
     { label: 'IA para empresas', path: '/ia-para-empresas' },
     { label: 'CRM', path: '/crm' },
@@ -179,7 +190,7 @@ const CONTENT: PageContent = {
  */
 @Component({
   selector: 'app-automation',
-  imports: [NgIcon, RouterLink, RevealDirective, SequenceDirective, PageClosingComponent],
+  imports: [NgIcon, RouterLink, RevealDirective, SequenceDirective, PageClosingComponent, RelatedPostsComponent],
   providers: [
     provideIcons({
       lucideArrowRight,

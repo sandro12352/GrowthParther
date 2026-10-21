@@ -2,11 +2,11 @@
  * Artículos del blog. Cada artículo es un objeto de `POSTS`: para publicar uno nuevo basta con añadirlo aquí
  * (aparece solo en el listado, en la home y en las rutas prerenderizadas) y poner su portada en public/blog/.
  *
- * TEXTO DE EJEMPLO: los seis artículos actuales son borradores redactados a partir de lo que ya dice la web
- * (sin cifras ni casos inventados). El equipo debe revisarlos o sustituirlos antes de publicar.
- * Mientras `BLOG_DRAFT` sea `true`, las páginas del blog llevan `noindex` para que Google no las indexe.
+ * Los seis artículos actuales son guías generales basadas en lo que ya dice la web (sin cifras ni casos inventados).
+ * `BLOG_DRAFT` en `true` pone `noindex` en las páginas del blog para que Google no las indexe (ahora está en `false`: se indexan).
+ * Al añadir un artículo, súmalo también a public/sitemap.xml.
  */
-export const BLOG_DRAFT = true;
+export const BLOG_DRAFT = false;
 
 /** Bloques con los que se escribe el cuerpo de un artículo. */
 export type PostBlock =
@@ -42,7 +42,7 @@ export const POSTS: BlogPost[] = [
   {
     slug: 'procesos-automatizar',
     category: 'Automatización',
-    date: '2026-09-24',
+    date: '2026-10-15',
     readTime: '5 min lectura',
     title: '¿Qué procesos de tu empresa deberías automatizar primero?',
     description:
@@ -83,7 +83,7 @@ export const POSTS: BlogPost[] = [
   {
     slug: 'ia-atencion-clientes',
     category: 'Inteligencia Artificial',
-    date: '2026-09-18',
+    date: '2026-10-08',
     readTime: '6 min lectura',
     title: 'Cómo utilizar IA para automatizar la atención de tus clientes',
     description:
@@ -121,7 +121,7 @@ export const POSTS: BlogPost[] = [
   {
     slug: 'crm-seguimiento',
     category: 'CRM',
-    date: '2026-09-12',
+    date: '2026-10-01',
     readTime: '4 min lectura',
     title: 'Por qué tus leads se pierden aunque tengas un CRM',
     description:
@@ -153,7 +153,7 @@ export const POSTS: BlogPost[] = [
   {
     slug: 'whatsapp-automatizado',
     category: 'WhatsApp',
-    date: '2026-09-05',
+    date: '2026-09-24',
     readTime: '5 min lectura',
     title: 'Cómo automatizar WhatsApp sin perder el toque humano',
     description:
@@ -189,7 +189,7 @@ export const POSTS: BlogPost[] = [
   {
     slug: 'sistema-seguimiento',
     category: 'Ventas',
-    date: '2026-08-28',
+    date: '2026-09-17',
     readTime: '7 min lectura',
     title: 'De lead a cliente: cómo construir un sistema de seguimiento',
     description:
@@ -217,7 +217,7 @@ export const POSTS: BlogPost[] = [
   {
     slug: 'integraciones',
     category: 'Integraciones',
-    date: '2026-08-20',
+    date: '2026-09-10',
     readTime: '5 min lectura',
     title: 'Cómo conectar tus herramientas para que trabajen juntas',
     description:

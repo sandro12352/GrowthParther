@@ -53,11 +53,10 @@ export class IntegrationsOverviewComponent implements OnDestroy {
 
   constructor() {
     this.seo.apply({
-      title: 'Integraciones | GrowthProject AI',
+      title: 'Integraciones de WhatsApp, Meta y n8n | GrowthProject AI',
       description:
         'Conectamos WhatsApp, Meta, n8n, GoHighLevel y las herramientas que ya utiliza tu empresa dentro de un mismo flujo de automatización.',
       path: '/integraciones',
-      noindex: true,
     });
   }
 

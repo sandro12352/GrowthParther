@@ -2,14 +2,13 @@ import { Component } from '@angular/core';
 import { PageContent } from '../../../shared/models/page-content.model';
 import { IntegrationLayoutComponent } from '../integration-layout/integration-layout.component';
 
-// Meta: la respuesta del FAQ es real; los textos de las tarjetas y el paso 4 son PROVISIONALES.
 const CONTENT: PageContent = {
   path: 'integraciones/meta',
   visual: 'meta',
-  draft: true,
+  draft: false,
   seo: {
     title: 'Automatización de Instagram y Facebook | GrowthProject AI',
-    description: 'Conectamos tus canales de Meta y hacemos que la información continúe automáticamente hacia el CRM y los siguientes pasos del proceso.',
+    description: 'Conectamos los mensajes de Instagram y Facebook a tu CRM y a tus automatizaciones para atender y dar seguimiento a cada prospecto.',
   },
   hero: {
     eyebrow: 'Integraciones · Meta',
@@ -54,6 +53,16 @@ const CONTENT: PageContent = {
       { icon: 'lucideDatabase', label: 'CRM', note: 'Seguimiento centralizado' },
     ],
   },
+  audience: {
+    eyebrow: 'Para quién es',
+    title: 'Para negocios que reciben mensajes en redes',
+    intro: 'Si tus prospectos llegan por Instagram o Facebook, conectamos esos canales a tu proceso para que ningún mensaje se quede sin atender.',
+    items: [
+      'Negocios que reciben mensajes y consultas por Instagram o Facebook.',
+      'Equipos que quieren centralizar en un solo lugar lo que llega de cada red.',
+      'Empresas que necesitan que cada contacto pase al CRM y tenga seguimiento.',
+    ],
+  },
   steps: {
     eyebrow: 'Cómo trabajamos',
     title: 'De tu proceso actual al sistema conectado',
@@ -70,7 +79,7 @@ const CONTENT: PageContent = {
       },
       {
         title: 'Probamos y acompañamos',
-        text: 'PROVISIONAL · Por definir con el equipo: pruebas, puesta en marcha y soporte posterior.',
+        text: 'Probamos el flujo antes de activarlo. El tiempo estimado es de 5 a 7 días y después cuentas con soporte 24/7.',
       },
     ],
   },
@@ -87,12 +96,21 @@ const CONTENT: PageContent = {
       question: '¿Cómo empieza un proyecto de automatización?',
       answer: 'Primero analizamos cómo funciona actualmente tu proceso: captación, atención, seguimiento y herramientas. A partir de ahí identificamos qué tareas pueden automatizarse y diseñamos el sistema que mejor se adapte a tu operación.',
     },
+    {
+      question: '¿Cuánto tarda la implementación?',
+      answer: 'El tiempo estimado es de 5 a 7 días. Si necesitas algo más personalizado, el plazo se define contigo.',
+    },
+    {
+      question: '¿Tienen soporte?',
+      answer: 'Sí. Contamos con soporte 24/7.',
+    },
   ],
   cta: {
     title: '¿Qué canales quieres conectar?',
     text: 'Cuéntanos por dónde te escriben tus clientes y vemos cómo integrarlos.',
     button: 'Solicitar reunión',
   },
+  relatedPosts: ['whatsapp-automatizado', 'integraciones', 'crm-seguimiento'],
   related: [
     { label: 'WhatsApp', path: '/integraciones/whatsapp' },
     { label: 'n8n', path: '/integraciones/n8n' },

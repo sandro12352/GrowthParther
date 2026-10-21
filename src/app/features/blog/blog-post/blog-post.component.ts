@@ -33,6 +33,19 @@ export class BlogPostComponent implements OnDestroy {
     return [...same, ...rest].slice(0, 3);
   });
 
+  /** Página de servicio relacionada con la categoría del artículo (enlace interno). */
+  public readonly service = (() => {
+    const links: Record<string, { label: string; path: string }> = {
+      'Automatización': { label: 'Automatización de procesos', path: '/automatizacion' },
+      'Inteligencia Artificial': { label: 'IA para empresas', path: '/ia-para-empresas' },
+      CRM: { label: 'CRM y automatización de leads', path: '/crm' },
+      Ventas: { label: 'CRM y automatización de leads', path: '/crm' },
+      WhatsApp: { label: 'Automatización de WhatsApp con IA', path: '/integraciones/whatsapp' },
+      Integraciones: { label: 'Integraciones', path: '/integraciones' },
+    };
+    return this.post ? links[this.post.category] : undefined;
+  })();
+
   public readonly closing: Pick<PageContent, 'faqs' | 'cta'> = {
     faqs: [],
     cta: {
@@ -49,7 +62,7 @@ export class BlogPostComponent implements OnDestroy {
       return;
     }
     this.seo.apply({
-      title: `${this.post.title} | GrowthProject AI`,
+      title: `${this.post.title} | GrowthProject AI`.length <= 65 ? `${this.post.title} | GrowthProject AI` : this.post.title,
       description: this.post.description,
       path: `/blog/${this.post.slug}`,
       noindex: BLOG_DRAFT,

@@ -16,6 +16,7 @@ import { WorkflowsComponent } from './workflows/workflows.component';
 import { NetworkBgComponent } from '../../shared/network-bg/network-bg.component';
 import { POSTS, formatPostDate } from '../blog/blog.data';
 import { MeetingDialogService } from '../../shared/components/services/meeting-dialog.service';
+import { SeoService } from '../../core/seo.service';
 
 @Component({
   imports: [
@@ -77,7 +78,23 @@ import { MeetingDialogService } from '../../shared/components/services/meeting-d
   styleUrl: './home.component.css',
   templateUrl: './home.component.html',
 })
-export class HomeComponent{
+export class HomeComponent implements OnDestroy {
+  private readonly seo = inject(SeoService);
+
+  constructor() {
+    // Mismo título y descripción que index.html; aquí se añaden el canonical y las etiquetas para redes.
+    this.seo.apply({
+      title: 'Automatización de procesos con IA y CRM | GrowthProject AI',
+      description:
+        'Automatizamos la atención por WhatsApp, el seguimiento de leads y tu CRM con inteligencia artificial. Implementación estimada de 5 a 7 días y soporte 24/7.',
+      path: '/',
+    });
+  }
+
+  public ngOnDestroy(): void {
+    this.seo.restore();
+  }
+
   private readonly meetingDialogService = inject(MeetingDialogService);
 
   public openMeetingDialog(): void {

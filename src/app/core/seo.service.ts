@@ -3,10 +3,9 @@ import { Injectable, inject } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 
 /**
- * URL oficial del sitio, SIN barra final (por ejemplo 'https://growthproject.ai').
- * Mientras esté vacía no se emiten `canonical` ni `og:url`, porque se necesita el dominio definitivo.
+ * URL oficial del sitio, SIN barra final. Con ella se emiten `canonical` y `og:url` de cada página.
  */
-export const SITE_URL = '';
+export const SITE_URL = 'https://www.growthprojectai.com';
 
 const SITE_NAME = 'GrowthProject AI';
 
@@ -55,6 +54,30 @@ export class SeoService {
     }
   }
 
+  /** Datos estructurados de preguntas frecuentes (FAQPage) de la página actual; sin preguntas, no añade nada. */
+  public setFaqSchema(faqs: { question: string; answer: string }[]): void {
+    this.removeFaqSchema();
+    if (!faqs.length) return;
+
+    const script = this.document.createElement('script');
+    script.type = 'application/ld+json';
+    script.id = 'ld-faq';
+    script.text = JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: faqs.map((faq) => ({
+        '@type': 'Question',
+        name: faq.question,
+        acceptedAnswer: { '@type': 'Answer', text: faq.answer },
+      })),
+    });
+    this.document.head.appendChild(script);
+  }
+
+  private removeFaqSchema(): void {
+    this.document.getElementById('ld-faq')?.remove();
+  }
+
   /** Vuelve a los valores de la página de inicio al salir de una página de servicio. */
   public restore(): void {
     if (this.defaults) {
@@ -62,6 +85,7 @@ export class SeoService {
       this.meta.updateTag({ name: 'description', content: this.defaults.description });
     }
 
+    this.removeFaqSchema();
     this.meta.removeTag('name="robots"');
     ['og:site_name', 'og:type', 'og:title', 'og:description', 'og:url'].forEach((property) =>
       this.meta.removeTag(`property="${property}"`),

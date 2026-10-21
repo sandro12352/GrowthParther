@@ -2,14 +2,13 @@ import { Component } from '@angular/core';
 import { PageContent } from '../../../shared/models/page-content.model';
 import { IntegrationLayoutComponent } from '../integration-layout/integration-layout.component';
 
-// WhatsApp: tareas y respuesta del FAQ reales; la descripción de «Captación» y el paso 4 son PROVISIONALES.
 const CONTENT: PageContent = {
   path: 'integraciones/whatsapp',
   visual: 'whatsapp',
-  draft: true,
+  draft: false,
   seo: {
-    title: 'Automatización de WhatsApp | GrowthProject AI',
-    description: 'Flujos donde WhatsApp forma parte de la captación, atención, seguimiento, calificación y comunicación automática con tus prospectos o clientes.',
+    title: 'Automatización de WhatsApp con IA | GrowthProject AI',
+    description: 'Atiende, califica y da seguimiento a tus prospectos por WhatsApp con automatización e IA, y envía cada conversación a tu CRM.',
   },
   hero: {
     eyebrow: 'Integraciones · WhatsApp',
@@ -54,6 +53,16 @@ const CONTENT: PageContent = {
       { icon: 'lucideDatabase', label: 'CRM', note: 'Queda todo centralizado' },
     ],
   },
+  audience: {
+    eyebrow: 'Para quién es',
+    title: 'Para negocios que atienden por WhatsApp',
+    intro: 'Si tus clientes te escriben por WhatsApp, este flujo ayuda a responder rápido y a no perder el seguimiento.',
+    items: [
+      'Negocios que reciben consultas de prospectos o clientes por WhatsApp todos los días.',
+      'Equipos que quieren responder al instante y calificar contactos sin hacerlo todo a mano.',
+      'Empresas que necesitan que cada conversación quede registrada en su CRM.',
+    ],
+  },
   steps: {
     eyebrow: 'Cómo trabajamos',
     title: 'De tu proceso actual al sistema conectado',
@@ -70,7 +79,7 @@ const CONTENT: PageContent = {
       },
       {
         title: 'Probamos y acompañamos',
-        text: 'PROVISIONAL · Por definir con el equipo: pruebas, puesta en marcha y soporte posterior.',
+        text: 'Probamos el flujo antes de activarlo. El tiempo estimado es de 5 a 7 días y después cuentas con soporte 24/7.',
       },
     ],
   },
@@ -87,12 +96,21 @@ const CONTENT: PageContent = {
       question: '¿Cómo empieza un proyecto de automatización?',
       answer: 'Primero analizamos cómo funciona actualmente tu proceso: captación, atención, seguimiento y herramientas. A partir de ahí identificamos qué tareas pueden automatizarse y diseñamos el sistema que mejor se adapte a tu operación.',
     },
+    {
+      question: '¿Cuánto tarda la implementación?',
+      answer: 'El tiempo estimado es de 5 a 7 días. Si necesitas algo más personalizado, el plazo se define contigo.',
+    },
+    {
+      question: '¿Tienen soporte?',
+      answer: 'Sí. Contamos con soporte 24/7.',
+    },
   ],
   cta: {
     title: '¿Qué quieres automatizar en WhatsApp?',
     text: 'Cuéntanos cómo atiendes hoy a tus clientes y lo vemos juntos.',
     button: 'Solicitar reunión',
   },
+  relatedPosts: ['whatsapp-automatizado', 'ia-atencion-clientes', 'sistema-seguimiento'],
   related: [
     { label: 'Meta', path: '/integraciones/meta' },
     { label: 'n8n', path: '/integraciones/n8n' },

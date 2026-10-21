@@ -14,19 +14,50 @@
   pointer-events: auto;
 }
 
+/* Tamaño del botón; el robot se mide en múltiplos de él. */
+.fab-button {
+  --d: 4rem;
+  width: var(--d);
+  height: var(--d);
+  transition: transform 0.3s ease;
+}
+
+.fab-button:hover {
+  transform: scale(1.05);
+}
+
+@media (min-width: 640px) {
+  .fab-button {
+    --d: 4.5rem;
+  }
+}
+
 /* Etiqueta: oculta salvo con el mouse encima o con el foco del teclado en el botón. */
 .fab-label {
   opacity: 0;
-  transform: translate(8px, -50%);
+  transform: translateY(6px);
   transition:
     opacity 0.25s ease,
     transform 0.25s ease;
 }
 
 .fab:hover .fab-label,
-.fab:focus-within .fab-label {
+.fab:focus-within .fab-label,
+.fab.hint-open .fab-label {
   opacity: 1;
-  transform: translate(0, -50%);
+  transform: none;
+}
+
+@media (min-width: 640px) {
+  .fab-label {
+    transform: translate(8px, -50%);
+  }
+
+  .fab:hover .fab-label,
+  .fab:focus-within .fab-label,
+  .fab.hint-open .fab-label {
+    transform: translate(0, -50%);
+  }
 }
 
 .fab-button:focus-visible {
@@ -40,9 +71,25 @@
   animation: fab-ring 3.4s ease-out infinite;
 }
 
-/* El robot flota apenas, como el del inicio. */
+/* El robot (cuerpo completo) se coloca con la cabeza en el centro del círculo; la mano queda a la izquierda, fuera. */
 .fab-robot {
+  width: calc(var(--d) * 1.4);
+  left: calc(var(--d) * -0.357 - 3px);
+  top: calc(var(--d) * -0.32 - 3px);
   animation: fab-float 3.6s ease-in-out infinite;
+}
+
+/* Segunda copia, del mismo tamaño y posición, sin recorte del círculo: la parte de arriba del robot (cabeza, antena y mano) queda por encima del aro y sobresale de la burbuja. */
+.fab-pop {
+  clip-path: polygon(-60% -60%, 160% -60%, 160% 70%, -60% 70%);
+}
+
+.fab-robot-pop {
+  left: calc(var(--d) * -0.357);
+  top: calc(var(--d) * -0.32);
+  /* El brazo se desvanece al volver hacia la burbuja, para que no quede un corte recto. */
+  -webkit-mask-image: linear-gradient(to bottom, #000 66%, transparent 78%);
+  mask-image: linear-gradient(to bottom, #000 66%, transparent 78%);
 }
 
 @keyframes fab-ring {

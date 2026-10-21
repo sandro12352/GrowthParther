@@ -2,14 +2,13 @@ import { Component } from '@angular/core';
 import { PageContent } from '../../../shared/models/page-content.model';
 import { IntegrationLayoutComponent } from '../integration-layout/integration-layout.component';
 
-// n8n: casi todo PROVISIONAL (solo «Automatizaciones avanzadas» y las ideas de conectar herramientas salen del menú y del FAQ).
 const CONTENT: PageContent = {
   path: 'integraciones/n8n',
   visual: 'n8n',
-  draft: true,
+  draft: false,
   seo: {
-    title: 'Automatizaciones con n8n | GrowthProject AI',
-    description: 'Construimos automatizaciones avanzadas con n8n que conectan tus herramientas y ejecutan tus procesos de forma automática.',
+    title: 'Automatizaciones con n8n a medida | GrowthProject AI',
+    description: 'Construimos flujos con n8n que conectan tus herramientas, ejecutan tareas y usan inteligencia artificial cuando el proceso lo requiere.',
   },
   hero: {
     eyebrow: 'Integraciones · n8n',
@@ -50,6 +49,16 @@ const CONTENT: PageContent = {
       { icon: 'lucideSend', label: 'Se ejecuta', note: 'Cada herramienta hace su parte' },
     ],
   },
+  audience: {
+    eyebrow: 'Para quién es',
+    title: 'Para procesos que necesitan algo a la medida',
+    intro: 'Cuando un proceso no cabe en una configuración estándar, construimos el flujo según cómo trabaja tu negocio.',
+    items: [
+      'Empresas que usan varias herramientas y quieren que se hablen entre sí.',
+      'Procesos con condiciones o pasos propios que requieren un flujo personalizado.',
+      'Equipos que quieren dejar de mover información a mano de una herramienta a otra.',
+    ],
+  },
   steps: {
     eyebrow: 'Cómo trabajamos',
     title: 'De tu proceso actual al sistema conectado',
@@ -63,7 +72,7 @@ const CONTENT: PageContent = {
       },
       {
         title: 'Probamos y acompañamos',
-        text: 'PROVISIONAL · Por definir con el equipo: pruebas, puesta en marcha y soporte posterior.',
+        text: 'Probamos el flujo antes de activarlo. El tiempo estimado es de 5 a 7 días y después cuentas con soporte 24/7.',
       },
     ],
   },
@@ -80,12 +89,21 @@ const CONTENT: PageContent = {
       question: '¿Cómo empieza un proyecto de automatización?',
       answer: 'Primero analizamos cómo funciona actualmente tu proceso: captación, atención, seguimiento y herramientas. A partir de ahí identificamos qué tareas pueden automatizarse y diseñamos el sistema que mejor se adapte a tu operación.',
     },
+    {
+      question: '¿Cuánto tarda la implementación?',
+      answer: 'El tiempo estimado es de 5 a 7 días. Si necesitas algo más personalizado, el plazo se define contigo.',
+    },
+    {
+      question: '¿Tienen soporte?',
+      answer: 'Sí. Contamos con soporte 24/7.',
+    },
   ],
   cta: {
     title: '¿Qué proceso quieres automatizar?',
     text: 'Cuéntanos qué herramientas usas y diseñamos el flujo juntos.',
     button: 'Solicitar reunión',
   },
+  relatedPosts: ['integraciones', 'procesos-automatizar', 'ia-atencion-clientes'],
   related: [
     { label: 'WhatsApp', path: '/integraciones/whatsapp' },
     { label: 'Meta', path: '/integraciones/meta' },

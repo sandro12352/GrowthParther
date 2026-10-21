@@ -2,13 +2,12 @@ import { Component } from '@angular/core';
 import { PageContent } from '../../../shared/models/page-content.model';
 import { IntegrationLayoutComponent } from '../integration-layout/integration-layout.component';
 
-// GoHighLevel: los nombres de las capacidades salen del FAQ real; las descripciones y el paso 4 son PROVISIONALES. Sin logo por ahora.
 const CONTENT: PageContent = {
   path: 'integraciones/gohighlevel',
   visual: 'ghl',
-  draft: true,
+  draft: false,
   seo: {
-    title: 'GoHighLevel: CRM y automatizaciones | GrowthProject AI',
+    title: 'GoHighLevel: CRM y workflows | GrowthProject AI',
     description: 'Trabajamos con GoHighLevel para estructurar CRM, workflows, automatizaciones, conversaciones, seguimiento y oportunidades.',
   },
   hero: {
@@ -42,6 +41,16 @@ const CONTENT: PageContent = {
       { icon: 'lucideDatabase', label: 'CRM', note: 'Contactos y oportunidades' },
     ],
   },
+  audience: {
+    eyebrow: 'Para quién es',
+    title: 'Para negocios que quieren ordenar su proceso comercial',
+    intro: 'Si tus contactos, conversaciones y oportunidades están repartidos, los estructuramos en un solo sistema.',
+    items: [
+      'Negocios que gestionan leads y oportunidades en varios lugares a la vez.',
+      'Equipos que quieren ver el historial de cada contacto y el estado de cada oportunidad.',
+      'Empresas que quieren apoyar su seguimiento comercial con workflows y automatizaciones.',
+    ],
+  },
   steps: {
     eyebrow: 'Cómo trabajamos',
     title: 'De tu proceso actual al sistema conectado',
@@ -58,7 +67,7 @@ const CONTENT: PageContent = {
       },
       {
         title: 'Probamos y acompañamos',
-        text: 'PROVISIONAL · Por definir con el equipo: pruebas, puesta en marcha y soporte posterior.',
+        text: 'Probamos el flujo antes de activarlo. El tiempo estimado es de 5 a 7 días y después cuentas con soporte 24/7.',
       },
     ],
   },
@@ -75,12 +84,21 @@ const CONTENT: PageContent = {
       question: '¿Pueden conectar las herramientas que ya utiliza mi empresa?',
       answer: 'Sí. Evaluamos las herramientas que utilizas actualmente y, cuando existen las integraciones o conexiones necesarias, podemos incorporarlas dentro del flujo de automatización.',
     },
+    {
+      question: '¿Cuánto tarda la implementación?',
+      answer: 'El tiempo estimado es de 5 a 7 días. Si necesitas algo más personalizado, el plazo se define contigo.',
+    },
+    {
+      question: '¿Tienen soporte?',
+      answer: 'Sí. Contamos con soporte 24/7.',
+    },
   ],
   cta: {
     title: '¿Quieres ordenar tu proceso comercial?',
     text: 'Cuéntanos cómo trabajas hoy y vemos cómo estructurarlo.',
     button: 'Solicitar reunión',
   },
+  relatedPosts: ['crm-seguimiento', 'sistema-seguimiento', 'integraciones'],
   related: [
     { label: 'WhatsApp', path: '/integraciones/whatsapp' },
     { label: 'Meta', path: '/integraciones/meta' },

@@ -19,17 +19,18 @@ import { SeoService } from '../../../core/seo.service';
 import { SequenceDirective } from '../../../core/sequence.directive';
 import { MeetingDialogService } from '../../../shared/components/services/meeting-dialog.service';
 import { PageClosingComponent } from '../../../shared/page-closing/page-closing.component';
+import { RelatedPostsComponent } from '../../../shared/related-posts/related-posts.component';
 import { PageContent } from '../../../shared/models/page-content.model';
 
 /** Página «IA para empresas»: diseño propio (conversación, pestañas de capacidades, reparto IA / equipo). */
 const CONTENT: PageContent = {
   path: 'ia-para-empresas',
-  draft: true,
+  draft: false,
 
   seo: {
-    title: 'IA para empresas | GrowthProject AI',
+    title: 'IA para empresas: agentes y chatbots | GrowthProject AI',
     description:
-      'Asistentes de inteligencia artificial que atienden conversaciones, recopilan información y ejecutan procesos definidos, con tu equipo interviniendo cuando hace falta.',
+      'Agentes de inteligencia artificial que atienden conversaciones, recopilan datos y califican prospectos, con tu equipo interviniendo cuando hace falta.',
   },
 
   hero: {
@@ -125,7 +126,7 @@ const CONTENT: PageContent = {
       },
       {
         title: 'Probamos y acompañamos',
-        text: 'PROVISIONAL · Por definir con el equipo: pruebas, puesta en marcha y soporte posterior.',
+        text: 'Probamos el asistente antes de activarlo. El tiempo estimado es de 5 a 7 días y después cuentas con soporte 24/7.',
       },
     ],
   },
@@ -146,6 +147,15 @@ const CONTENT: PageContent = {
       answer:
         'Sí. Podemos trabajar flujos donde WhatsApp forme parte de la captación, atención, seguimiento, calificación y comunicación automática con tus prospectos o clientes.',
     },
+    {
+      question: '¿Cuánto tarda en estar funcionando?',
+      answer:
+        'El tiempo estimado es de 5 a 7 días. Si necesitas algo más personalizado, el plazo se define contigo.',
+    },
+    {
+      question: '¿Hay soporte si algo falla?',
+      answer: 'Sí. Contamos con soporte 24/7.',
+    },
   ],
 
   cta: {
@@ -154,6 +164,7 @@ const CONTENT: PageContent = {
     button: 'Solicitar reunión',
   },
 
+  relatedPosts: ['ia-atencion-clientes', 'whatsapp-automatizado', 'procesos-automatizar'],
   related: [
     { label: 'Automatización de procesos', path: '/automatizacion' },
     { label: 'CRM', path: '/crm' },
@@ -163,7 +174,7 @@ const CONTENT: PageContent = {
 
 @Component({
   selector: 'app-ai-for-business',
-  imports: [NgIcon, RevealDirective, SequenceDirective, PageClosingComponent],
+  imports: [NgIcon, RevealDirective, SequenceDirective, PageClosingComponent, RelatedPostsComponent],
   providers: [
     provideIcons({
       lucideArrowRight,

@@ -197,8 +197,41 @@
 
 
 <!-- ===================================================== -->
+<!-- PARA QUIÉN ES: título a la izquierda, lista con marcas a la derecha -->
+<!-- ===================================================== -->
+@if (page().audience; as audience) {
+<section class="bg-white py-24 lg:py-32">
+    <div class="mx-auto grid items-center gap-12 px-6 lg:max-w-[80vw] lg:grid-cols-[0.9fr_1.1fr] lg:gap-20 lg:px-8">
+
+        <div appReveal revealStagger>
+            <span class="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-[#5b49d6]">
+                <span class="h-1.5 w-1.5 rounded-full bg-[#6C5CE7]"></span>
+                {{ audience.eyebrow }}
+            </span>
+            <h2 class="mt-5 text-3xl font-bold leading-[1.1] tracking-tight text-[#080911] md:text-5xl">{{ audience.title }}</h2>
+            <p class="mt-5 max-w-xl text-base leading-7 text-black/70 md:text-lg">{{ audience.intro }}</p>
+        </div>
+
+        <ul appReveal revealStagger class="space-y-4">
+            @for (item of audience.items; track item) {
+            <li class="flex items-start gap-4 rounded-2xl border border-black/10 bg-[#f7f7fa] p-5">
+                <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-[#6C5CE7] to-[#00b8c4] text-white">
+                    <ng-icon name="lucideCheck" size="16" />
+                </span>
+                <span class="text-base leading-7 text-black/80">{{ item }}</span>
+            </li>
+            }
+        </ul>
+
+    </div>
+</section>
+}
+
+
+<!-- ===================================================== -->
 <!-- CÓMO TRABAJAMOS: pasos en columnas con línea superior -->
 <!-- ===================================================== -->
+
 <section class="bg-[#f7f7fa] py-24 lg:py-32">
     <div class="mx-auto px-6 lg:max-w-[80vw] lg:px-8">
 
@@ -223,5 +256,7 @@
 
     </div>
 </section>
+
+<app-related-posts [slugs]="page().relatedPosts ?? []" />
 
 <app-page-closing [page]="page()" [related]="page().related" [note]="brandNote" />
