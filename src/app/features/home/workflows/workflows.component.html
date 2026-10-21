@@ -63,7 +63,7 @@
                         [attr.inert]="pinned() && active() !== i ? '' : null">
 
                         <!-- TEXTO -->
-                        <div class="order-2 lg:order-1">
+                        <div class="order-1">
 
                             <div class="flex items-center gap-3">
                                 <span class="text-xs font-semibold tabular-nums text-[#B9AFFF]">0{{ i + 1 }}</span>
@@ -102,7 +102,7 @@
                         </div>
 
                         <!-- CAPTURA -->
-                        <div [class.has-result]="!!item.result" class="wf-shot group relative order-1 overflow-hidden rounded-[24px] border border-white/10 bg-[#10111A] shadow-[0_30px_100px_rgba(0,0,0,.45)] lg:order-2">
+                        <div [class.has-result]="!!item.result" class="wf-shot group relative order-2 overflow-hidden rounded-[24px] border border-white/10 bg-[#10111A] shadow-[0_30px_100px_rgba(0,0,0,.45)]">
 
                             @if (item.result; as result) {
                             <div class="relative">

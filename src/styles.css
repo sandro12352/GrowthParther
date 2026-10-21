@@ -159,6 +159,41 @@ html:has(dialog[open]) {
 
 /* ---------- Pantalla de carga ---------- */
 /* Ya vista en esta sesión, o sin animaciones: no se muestra. */
+/* Entrada del splash (la "G" y las letras): animación CSS que arranca con la clase splash-go de <html>.
+   Va aquí y no en el componente porque los estilos del componente no alcanzan a <html>. */
+html.splash-go .splash-icon {
+  /* power3.out de GSAP (easeOutQuart) */
+  animation: splash-icon-in 0.9s cubic-bezier(0.165, 0.84, 0.44, 1) both;
+}
+
+html.splash-go .splash-letter {
+  /* power2.out de GSAP (easeOutCubic) */
+  animation: splash-letter-in 0.45s cubic-bezier(0.215, 0.61, 0.355, 1) both;
+  animation-delay: calc(0.55s + var(--i) * 0.05s);
+}
+
+@keyframes splash-icon-in {
+  from {
+    opacity: 0;
+    transform: scale(1.4);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes splash-letter-in {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
 html.no-splash app-splash {
   display: none;
 }

@@ -11,5 +11,8 @@
 </head>
 <body>
   <app-root></app-root>
+  <!-- Red de seguridad del splash: la entrada la lanza el componente cuando Angular ya arrancó (así no se pierde el inicio
+       del desvanecido); si por algún motivo no lo hiciera, se lanza sola a los 2,5 s. -->
+  <script>setTimeout(function(){var d=document.documentElement;if(!d.classList.contains("no-splash")&&!d.classList.contains("splash-go")){window.__splashGo=performance.now();d.classList.add("splash-go")}},2500)</script>
 </body>
 </html>

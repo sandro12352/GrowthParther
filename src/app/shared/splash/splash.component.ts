@@ -1,14 +1,14 @@
 import { Component, ElementRef, afterNextRender, inject, viewChild } from '@angular/core';
 import { GsapService } from '../../core/gsap.service';
 import { SplashService } from '../../core/splash.service';
-import { SPLASH_LETTERS, SPLASH_NAME_ASPECT } from './splash-letters';
+import { SPLASH_LETTERS, SPLASH_NAME_ASPECT, SPLASH_TEXT_COLOR } from './splash-letters';
 
 const SESSION_KEY = 'shinkia-splash';
 const LOCKED_KEYS = new Set([' ', 'PageUp', 'PageDown', 'Home', 'End', 'ArrowUp', 'ArrowDown']);
 
 /**
  * Pantalla de carga: la "G" aparece grande y, debajo, el nombre se escribe letra a letra de izquierda a derecha;
- * después sube una cortina que descubre el hero.
+ * después sube una cortina que descubre el hero. La entrada es CSS (ver splash.component.css) y la salida, GSAP.
  * Se renderiza en el HTML del servidor (cubre el hero desde el primer pintado) y,
  * una vez vista en la sesión, no se vuelve a mostrar (la oculta un script en index.html).
  *
@@ -30,6 +30,7 @@ export class SplashComponent {
 
   public readonly letters = SPLASH_LETTERS;
   public readonly nameAspect = SPLASH_NAME_ASPECT;
+  public readonly textColor = SPLASH_TEXT_COLOR;
 
   private unlockScroll?: () => void;
   private finished = false;
@@ -48,6 +49,19 @@ export class SplashComponent {
       return;
     }
 
+    // La entrada (CSS) arranca con la clase splash-go, que se pone aquí: Angular ya arrancó e hidrató la página, así que
+    // no habrá tareas pesadas que retrasen el primer fotograma y se pierda el inicio del desvanecido. Es antes de cargar GSAP.
+    const root = document.documentElement;
+    const logoEl = this.logo().nativeElement;
+    if (!root.classList.contains('splash-go')) {
+      const icon = logoEl.querySelector('img');
+      await Promise.race([icon?.decode().catch(() => undefined), new Promise((resolve) => window.setTimeout(resolve, 1200))]);
+      // dos fotogramas: que el splash ya esté pintado antes de empezar (si no, se pierde el inicio del desvanecido)
+      await new Promise<void>((resolve) => requestAnimationFrame(() => requestAnimationFrame(() => resolve())));
+      (window as unknown as { __splashGo?: number }).__splashGo = performance.now();
+      root.classList.add('splash-go');
+    }
+
     const kit = await this.gsapService.load();
     if (!kit) {
       this.finish();
@@ -57,33 +71,19 @@ export class SplashComponent {
     const { gsap } = kit;
     const overlay = this.overlay().nativeElement;
     const logo = this.logo().nativeElement;
-    const icon = logo.querySelector('.splash-icon');
-    const letters = logo.querySelectorAll('.splash-letter');
 
     this.unlockScroll = this.lockScroll();
     // Si la animación llegara a atascarse, el scroll nunca debe quedar bloqueado.
     window.setTimeout(() => this.finish(), 6000);
 
-    // Las letras son imágenes sueltas: se espera a que estén listas para que no "salten" al aparecer.
-    const images = Array.from(logo.querySelectorAll('img'));
-    await Promise.race([
-      Promise.all(images.map((image) => image.decode().catch(() => undefined))),
-      new Promise((resolve) => window.setTimeout(resolve, 1500)),
-    ]);
+    // La salida se programa respecto al inicio real de la entrada: si Angular tardó en arrancar, no se corta nada.
+    const start = (window as unknown as { __splashGo?: number }).__splashGo ?? performance.now();
+    const exitAt = Math.max(0, 2.0 - (performance.now() - start) / 1000);
 
     gsap
       .timeline({ onComplete: () => this.finish() })
-      // 1) La "G" entra grande y se asienta.
-      .fromTo(icon, { opacity: 0, scale: 1.4 }, { opacity: 1, scale: 1, duration: 0.9, ease: 'power3.out' }, 0)
-      // 2) El nombre se escribe letra a letra, de izquierda a derecha.
-      .fromTo(
-        letters,
-        { opacity: 0, y: 14 },
-        { opacity: 1, y: 0, duration: 0.45, ease: 'power2.out', stagger: 0.05 },
-        0.55,
-      )
-      // 3) Pausa breve y sale todo; la cortina sube.
-      .to(logo, { opacity: 0, y: -12, duration: 0.25, ease: 'power2.in' }, 2.0)
+      // Pausa breve y sale todo; la cortina sube.
+      .to(logo, { opacity: 0, y: -12, duration: 0.25, ease: 'power2.in' }, exitAt)
       .to(overlay, { yPercent: -100, duration: 0.75, ease: 'power4.inOut' }, '<0.05')
       // El hero empieza a entrar cuando la cortina ya va a mitad de camino.
       .add(() => this.splash.done.set(true), '-=0.4');

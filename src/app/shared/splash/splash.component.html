@@ -1,15 +1,29 @@
 <div #overlay class="splash fixed inset-0 z-[100] flex items-center justify-center bg-white" aria-hidden="true">
+
+    <!-- Degradado violeta → azul de las letras «A» e «I» (compartido por sus SVG) -->
+    <svg width="0" height="0" class="absolute" focusable="false">
+        <defs>
+            <linearGradient id="splash-ai" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#c040f0" />
+                <stop offset="0.55" stop-color="#7a4cf5" />
+                <stop offset="1" stop-color="#2a10ff" />
+            </linearGradient>
+        </defs>
+    </svg>
+
     <div #logo class="flex flex-col items-center">
 
         <!-- La "G", grande -->
         <img class="splash-icon w-32 sm:w-44" src="/branding/icono.webp" alt="" width="950" height="902" fetchpriority="high" />
 
-        <!-- El nombre, debajo: cada letra es una imagen aparte, apiladas en su posición exacta -->
+        <!-- El nombre, debajo: cada letra es un SVG vectorial, en su posición exacta -->
         <div class="relative mt-6 w-60 sm:w-80" [style.aspect-ratio]="nameAspect">
-            @for (letter of letters; track letter.file) {
-            <img class="splash-letter absolute" [src]="'/branding/splash/' + letter.file" alt=""
+            @for (letter of letters; track $index; let i = $index) {
+            <svg class="splash-letter absolute" [attr.viewBox]="'0 0 ' + letter.box[0] + ' ' + letter.box[1]"
                 [style.left.%]="letter.left" [style.top.%]="letter.top" [style.width.%]="letter.width"
-                [style.height.%]="letter.height" />
+                [style.height.%]="letter.height" [style.--i]="i" focusable="false">
+                <path fill-rule="evenodd" [attr.d]="letter.d" [attr.fill]="letter.ai ? 'url(#splash-ai)' : textColor" />
+            </svg>
             }
         </div>
 

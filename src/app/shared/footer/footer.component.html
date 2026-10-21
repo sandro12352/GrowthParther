@@ -95,7 +95,7 @@
                     </a>
 
                     <a
-                        href="#"
+                        [attr.href]="whatsapp || null"
                         target="_blank"
                         rel="noopener noreferrer"
                         aria-label="WhatsApp"
@@ -110,282 +110,36 @@
 
 
             <!-- ================================= -->
-            <!-- SOLUCIONES -->
+            <!-- COLUMNAS DE ENLACES (ver footer.component.ts) -->
             <!-- ================================= -->
 
+            @for (column of columns; track column.title) {
             <div>
 
-                <h3
-                    class="text-xs font-semibold
-                           uppercase tracking-[0.18em]
-                           text-white/30"
-                >
-                    Soluciones
+                <h3 class="text-xs font-semibold uppercase tracking-[0.18em] text-white/30">
+                    {{ column.title }}
                 </h3>
 
-
                 <div class="mt-6 space-y-4">
-
-                    <a
-                        routerLink="/automatizacion"
-                        class="group flex items-center gap-2
-                               text-sm text-white/55
-                               transition hover:text-white"
-                    >
-                        Automatización
-
-                        <ng-icon
-                            name="lucideArrowUpRight"
-                            size="13"
-                            class="opacity-0
-                                   transition
-                                   group-hover:opacity-100"
-                        />
+                    @for (link of column.links; track link.label) {
+                    @if (link.path) {
+                    <a [routerLink]="link.path"
+                        class="group flex items-center gap-2 text-sm text-white/55 transition hover:text-white">
+                        {{ link.label }}
+                        <ng-icon name="lucideArrowUpRight" size="13" class="opacity-0 transition group-hover:opacity-100" />
                     </a>
-
-
-                    <a
-                        routerLink="/inteligencia-artificial"
-                        class="group flex items-center gap-2
-                               text-sm text-white/55
-                               transition hover:text-white"
-                    >
-                        Inteligencia Artificial
-
-                        <ng-icon
-                            name="lucideArrowUpRight"
-                            size="13"
-                            class="opacity-0
-                                   transition
-                                   group-hover:opacity-100"
-                        />
-                    </a>
-
-
-                    <a
-                        routerLink="/crm"
-                        class="group flex items-center gap-2
-                               text-sm text-white/55
-                               transition hover:text-white"
-                    >
-                        CRM
-
-                        <ng-icon
-                            name="lucideArrowUpRight"
-                            size="13"
-                            class="opacity-0
-                                   transition
-                                   group-hover:opacity-100"
-                        />
-                    </a>
-
-
-                    <a
-                        routerLink="/integraciones"
-                        class="group flex items-center gap-2
-                               text-sm text-white/55
-                               transition hover:text-white"
-                    >
-                        Integraciones
-
-                        <ng-icon
-                            name="lucideArrowUpRight"
-                            size="13"
-                            class="opacity-0
-                                   transition
-                                   group-hover:opacity-100"
-                        />
-                    </a>
-
+                    } @else {
+                    <button type="button" (click)="openMeetingDialog()"
+                        class="group flex items-center gap-2 text-sm text-white/55 transition hover:cursor-pointer hover:text-white">
+                        {{ link.label }}
+                        <ng-icon name="lucideArrowUpRight" size="13" class="opacity-0 transition group-hover:opacity-100" />
+                    </button>
+                    }
+                    }
                 </div>
 
             </div>
-
-
-            <!-- ================================= -->
-            <!-- RECURSOS -->
-            <!-- ================================= -->
-
-            <div>
-
-                <h3
-                    class="text-xs font-semibold
-                           uppercase tracking-[0.18em]
-                           text-white/30"
-                >
-                    Recursos
-                </h3>
-
-
-                <div class="mt-6 space-y-4">
-
-                    <a
-                        routerLink="/blog"
-                        class="group flex items-center gap-2
-                               text-sm text-white/55
-                               transition hover:text-white"
-                    >
-                        Blog
-
-                        <ng-icon
-                            name="lucideArrowUpRight"
-                            size="13"
-                            class="opacity-0
-                                   transition
-                                   group-hover:opacity-100"
-                        />
-                    </a>
-
-
-                    <a
-                        routerLink="/casos-de-exito"
-                        class="group flex items-center gap-2
-                               text-sm text-white/55
-                               transition hover:text-white"
-                    >
-                        Casos de éxito
-
-                        <ng-icon
-                            name="lucideArrowUpRight"
-                            size="13"
-                            class="opacity-0
-                                   transition
-                                   group-hover:opacity-100"
-                        />
-                    </a>
-
-
-                    <a
-                        routerLink="/flujos"
-                        class="group flex items-center gap-2
-                               text-sm text-white/55
-                               transition hover:text-white"
-                    >
-                        Flujos automáticos
-
-                        <ng-icon
-                            name="lucideArrowUpRight"
-                            size="13"
-                            class="opacity-0
-                                   transition
-                                   group-hover:opacity-100"
-                        />
-                    </a>
-
-
-                    <a
-                        routerLink="/soluciones"
-                        class="group flex items-center gap-2
-                               text-sm text-white/55
-                               transition hover:text-white"
-                    >
-                        Soluciones
-
-                        <ng-icon
-                            name="lucideArrowUpRight"
-                            size="13"
-                            class="opacity-0
-                                   transition
-                                   group-hover:opacity-100"
-                        />
-                    </a>
-
-                </div>
-
-            </div>
-
-
-            <!-- ================================= -->
-            <!-- EMPRESA -->
-            <!-- ================================= -->
-
-            <div>
-
-                <h3
-                    class="text-xs font-semibold
-                           uppercase tracking-[0.18em]
-                           text-white/30"
-                >
-                    Empresa
-                </h3>
-
-
-                <div class="mt-6 space-y-4">
-
-                    <a
-                        routerLink="/nosotros"
-                        class="group flex items-center gap-2
-                               text-sm text-white/55
-                               transition hover:text-white"
-                    >
-                        Nosotros
-
-                        <ng-icon
-                            name="lucideArrowUpRight"
-                            size="13"
-                            class="opacity-0
-                                   transition
-                                   group-hover:opacity-100"
-                        />
-                    </a>
-
-
-                    <a
-                        routerLink="/contacto"
-                        class="group flex items-center gap-2
-                               text-sm text-white/55
-                               transition hover:text-white"
-                    >
-                        Contacto
-
-                        <ng-icon
-                            name="lucideArrowUpRight"
-                            size="13"
-                            class="opacity-0
-                                   transition
-                                   group-hover:opacity-100"
-                        />
-                    </a>
-
-
-                    <a
-                        (click)="openMeetingDialog()"
-                        class="group flex items-center gap-2
-                               text-sm text-white/55
-                               transition hover:text-white"
-                    >
-                        Solicitar reunión
-
-                        <ng-icon
-                            name="lucideArrowUpRight"
-                            size="13"
-                            class="opacity-0
-                                   transition
-                                   group-hover:opacity-100"
-                        />
-                    </a>
-
-
-                    <a
-                        routerLink="/politica-privacidad"
-                        class="group flex items-center gap-2
-                               text-sm text-white/55
-                               transition hover:text-white"
-                    >
-                        Política de privacidad
-
-                        <ng-icon
-                            name="lucideArrowUpRight"
-                            size="13"
-                            class="opacity-0
-                                   transition
-                                   group-hover:opacity-100"
-                        />
-                    </a>
-
-                </div>
-
-            </div>
+            }
 
         </div>
 

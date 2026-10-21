@@ -1,0 +1,27 @@
+<div class="fab fixed bottom-4 right-4 z-40 sm:bottom-6 sm:right-6" [class.is-visible]="splash.done()">
+
+    <!-- Etiqueta: solo al pasar el mouse o enfocar el botón con el teclado -->
+    <span class="fab-label pointer-events-none absolute right-full top-1/2 mr-3 hidden -translate-y-1/2 whitespace-nowrap rounded-xl bg-[#080911] px-4 py-2.5 text-sm font-semibold text-white shadow-[0_12px_35px_rgba(8,9,17,0.35)] ring-1 ring-white/10 sm:block" aria-hidden="true">
+        ¿Hablamos? <span class="text-[#00F2FE]">{{ whatsapp ? 'Escríbenos por WhatsApp' : 'Agenda una reunión' }}</span>
+    </span>
+
+    <a [attr.href]="whatsapp || null" [attr.target]="whatsapp ? '_blank' : null" [attr.rel]="whatsapp ? 'noopener noreferrer' : null" role="link" tabindex="0"
+        (click)="onClick($event)" [attr.aria-label]="whatsapp ? 'Escribir por WhatsApp a GrowthProject AI' : 'Agendar una reunión con GrowthProject AI'"
+        class="fab-button group relative flex h-16 w-16 items-center justify-center rounded-full hover:cursor-pointer sm:h-[4.5rem] sm:w-[4.5rem]">
+
+        <!-- Aro que late despacio -->
+        <span class="fab-ring absolute inset-0 rounded-full" aria-hidden="true"></span>
+
+        <!-- Círculo con el robot (cabeza y antena) -->
+        <span class="relative flex h-full w-full items-center justify-center overflow-hidden rounded-full bg-gradient-to-br from-[#6C5CE7] via-[#6C8CFF] to-[#00F2FE] p-[3px] shadow-[0_14px_35px_rgba(108,92,231,0.45)] transition duration-300 group-hover:scale-105 group-hover:shadow-[0_18px_44px_rgba(0,242,254,0.35)]">
+            <span class="flex h-full w-full items-center justify-center overflow-hidden rounded-full bg-[#150c3d]">
+                <img src="/branding/robot-chat.webp" alt="" aria-hidden="true" width="288" height="288" decoding="async"
+                    class="fab-robot block h-full w-full object-cover" />
+            </span>
+        </span>
+
+        <!-- Punto verde de «en línea» -->
+        <span class="absolute bottom-0.5 right-0.5 h-3.5 w-3.5 rounded-full border-2 border-white bg-[#19e3a1]" aria-hidden="true"></span>
+    </a>
+
+</div>

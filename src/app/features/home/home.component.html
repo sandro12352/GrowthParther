@@ -112,7 +112,7 @@
 
 
             <!-- CTA SECUNDARIO -->
-            <a routerLink="/soluciones" class="btn-fx [--fx:#6C5CE7] inline-flex
+            <a routerLink="/" fragment="como-funciona" class="btn-fx [--fx:#6C5CE7] inline-flex
                w-full
                items-center
                justify-center
@@ -1120,7 +1120,7 @@
                 <div class="mt-8
                             sm:mt-10">
 
-                    <a (click)="openMeetingDialog()" class="btn-fx [--fx:#080911] group inline-flex
+                    <a routerLink="/nosotros" class="btn-fx [--fx:#080911] group inline-flex
                                w-full
                                items-center
                                justify-center
@@ -1922,7 +1922,7 @@
      SECCIÓN 3 — CONSTRUIMOS SISTEMAS
 ========================================================= -->
 
-<section class="relative overflow-hidden
+<section id="como-funciona" class="scroll-mt-20 relative overflow-hidden
            bg-white
            py-24
            text-[#080911]">
@@ -2153,7 +2153,7 @@
 
             <div class="mt-9">
 
-                <a (click)="openMeetingDialog()" class="btn-fx [--fx:#080911] inline-flex
+                <button type="button" (click)="openMeetingDialog()" class="btn-fx [--fx:#080911] inline-flex
                            items-center
                            gap-3
                            rounded-xl
@@ -2175,7 +2175,7 @@
 
                     <ng-icon class="btn-arrow" name="lucideArrowRight" size="19" />
 
-                </a>
+                </button>
 
             </div>
 
@@ -3545,7 +3545,7 @@
 
             <!-- CTA -->
 
-            <a (click)="openMeetingDialog()" class="btn-fx [--fx:#080911] hover:text-white mt-7
+            <button type="button" (click)="openMeetingDialog()" class="btn-fx [--fx:#080911] hover:text-white mt-7
                        inline-flex
                        items-center
                        gap-3
@@ -3571,7 +3571,7 @@
 
                 <ng-icon class="btn-arrow" name="lucideArrowRight" size="19" />
 
-            </a>
+            </button>
 
         </div>
 

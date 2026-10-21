@@ -50,12 +50,12 @@
             <article class="grid items-center gap-8 lg:gap-14" [class]="i % 2 === 1 ? 'lg:grid-cols-[1fr_1.25fr]' : 'lg:grid-cols-[1.25fr_1fr]'">
 
                 @if (item.cutout; as cutout) {
-                <div [class.lg:order-2]="i % 2 === 1">
+                <div [class]="i % 2 === 1 ? 'order-2 lg:order-2' : 'order-2 lg:order-1'">
                     <app-case-scene [scene]="cutout" />
                 </div>
                 } @else {
                     <div class="overflow-hidden rounded-[24px] border border-black/10 bg-[#10111A] shadow-[0_30px_80px_rgba(8,9,17,0.18)]"
-                        [class.lg:order-2]="i % 2 === 1">
+                        [class]="i % 2 === 1 ? 'order-2 lg:order-2' : 'order-2 lg:order-1'">
                         @if (item.result; as result) {
                         <div class="relative">
                             <img [src]="result" [alt]="item.resultAlt ?? ''" width="1342" height="940" loading="lazy" decoding="async" class="block aspect-[10/7] h-full w-full object-cover" />
@@ -80,7 +80,7 @@
                     </div>
                 }
 
-                <div class="min-w-0" [class.lg:order-1]="i % 2 === 1">
+                <div class="min-w-0" [class]="i % 2 === 1 ? 'order-1 lg:order-1' : 'order-1 lg:order-2'">
 
                     <!-- Cabecera: el logo directamente sobre el fondo, sin tarjeta; el nombre queda oculto para lectores de pantalla y buscadores -->
                     <h2 class="sr-only">{{ item.name }}</h2>

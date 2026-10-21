@@ -1,11 +1,22 @@
-/* El icono y las letras empiezan invisibles (así no hay parpadeo antes de que arranque la animación). */
+/*
+ * La entrada (la "G" y las letras) es una animación CSS: transform y opacity se animan en el compositor, fuera del
+ * hilo principal, así no se frena mientras Angular arranca e hidrata la página. Empieza al recibir la clase
+ * `splash-go` (reglas en styles.css, porque la clase está en <html>), que se añade cuando la "G" ya está
+ * decodificada (ver index.html y splash.component.ts).
+ * La salida (cortina) sí la hace GSAP, cuando el hilo principal ya está libre.
+ */
 .splash-icon,
 .splash-letter {
   opacity: 0;
+  will-change: transform, opacity;
 }
 
 .splash-icon {
   height: auto;
+}
+
+.splash-letter {
+  overflow: visible;
 }
 
 /* Red de seguridad: si el JS nunca llega a ejecutarse, la cortina se retira sola a los 5 s. */
