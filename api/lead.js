@@ -125,6 +125,8 @@ module.exports = async function handler(request, response) {
     medium: text(body.medium, 20),
     date: text(body.date, 10),
     time: text(body.time, 5),
+    // Aceptación de la política de privacidad (ya exigida abajo): se guarda en la hoja como prueba.
+    consent: body.consent === true,
   };
 
   const error = validate(lead) || (body.consent === true ? '' : 'Debes aceptar la política de privacidad.');

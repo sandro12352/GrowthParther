@@ -36,6 +36,7 @@ var HEADERS = [
   'Fecha de la reunión',
   'Hora',
   'Estado',
+  'Consentimiento',
 ];
 
 var OBJECTIVE_LABELS = {
@@ -110,6 +111,7 @@ function saveRow_(data) {
     data.date,
     data.time,
     'Pendiente',
+    data.consent === true ? 'Sí' : 'No',
   ]);
 }
 
