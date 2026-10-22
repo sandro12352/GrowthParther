@@ -881,6 +881,28 @@
 
 
                 <!-- ===================================================== -->
+                @if (step() === 1) {
+                <p class="mx-6 mb-3 shrink-0 text-xs leading-5 text-white/55 sm:mx-8">
+                    Usaremos tus datos según nuestra
+                    <a href="/politica-de-privacidad" target="_blank" rel="noopener" class="underline underline-offset-2 hover:text-white">política de privacidad</a>.
+                </p>
+                } @else {
+                <div class="mx-6 mb-3 shrink-0 sm:mx-8">
+                    <label class="flex cursor-pointer items-start gap-3 text-xs leading-5 text-white/75">
+                        <input type="checkbox" formControlName="consent" class="mt-0.5 h-4 w-4 shrink-0 cursor-pointer accent-violet-500"
+                            [attr.aria-invalid]="isInvalid('consent') ? 'true' : null" />
+                        <span>
+                            He leído y acepto la
+                            <a href="/politica-de-privacidad" target="_blank" rel="noopener" class="underline underline-offset-2 hover:text-white">política de privacidad</a>
+                            y autorizo el tratamiento de mis datos para que me contacten. <span class="text-violet-300">*</span>
+                        </span>
+                    </label>
+                    @if (isInvalid('consent')) {
+                    <p role="alert" class="mt-1.5 pl-7 text-xs text-red-300">Debes aceptar la política de privacidad para enviar la solicitud.</p>
+                    }
+                </div>
+                }
+
                 @if (submitError()) {
                 <div role="alert" class="mx-6 mb-3 shrink-0 rounded-xl border border-red-500/30 bg-red-500/10 px-4 py-3 text-sm text-red-300 sm:mx-8">
                     {{ submitError() }}

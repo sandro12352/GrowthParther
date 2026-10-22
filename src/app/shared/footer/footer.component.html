@@ -43,10 +43,10 @@
                 >
 
                     <img
-                        src="/branding/logo-growthproject-horizontal-oscuro.webp"
+                        src="/branding/logo-growthproject-horizontal-oscuro-400.webp"
                         alt="GrowthProject AI"
-                        width="1174"
-                        height="291"
+                        width="400"
+                        height="99"
                         class="h-12 w-auto object-contain
                                transition-transform duration-300
                                group-hover:scale-[1.02]"
@@ -58,7 +58,7 @@
                 <p
                     class="mt-6 max-w-sm
                            text-sm leading-7
-                           text-white/40"
+                           text-white/55"
                 >
                     Automatizamos procesos, conectamos herramientas
                     y utilizamos inteligencia artificial para ayudar
@@ -70,7 +70,7 @@
 
                 <!-- Síguenos en: logos oficiales sin modificar (ver public/branding/partners/README.txt).
  -->
-                <p class="mt-7 text-xs font-medium uppercase tracking-[0.18em] text-white/30">Síguenos en</p>
+                <p class="mt-7 text-xs font-medium uppercase tracking-[0.18em] text-white/55">Síguenos en</p>
 
                 <div class="mt-3 flex items-center gap-3">
 
@@ -116,7 +116,7 @@
             @for (column of columns; track column.title) {
             <div>
 
-                <h3 class="text-xs font-semibold uppercase tracking-[0.18em] text-white/30">
+                <h3 class="text-xs font-semibold uppercase tracking-[0.18em] text-white/55">
                     {{ column.title }}
                 </h3>
 
@@ -205,7 +205,7 @@
 
                     <p
                         class="mt-2 text-sm
-                               text-white/35"
+                               text-white/55"
                     >
                         Diseñemos juntos tu próximo sistema de automatización.
                     </p>
@@ -213,7 +213,8 @@
                 </div>
 
 
-                <a
+                <button
+                    type="button"
                     hlmBtn
                     (click)="openMeetingDialog()"
                     class="group inline-flex
@@ -243,7 +244,7 @@
                                group-hover:-translate-y-0.5"
                     />
 
-                </a>
+                </button>
 
             </div>
 
@@ -263,9 +264,14 @@
                    md:justify-between"
         >
 
-            <p class="text-xs text-white/25">
-                © 2026 GrowthProject AI. Todos los derechos reservados.
-            </p>
+            <div class="flex flex-wrap items-center gap-x-5 gap-y-2">
+                <p class="text-xs text-white/55">
+                    © 2026 GrowthProject AI. Todos los derechos reservados.
+                </p>
+                <a routerLink="/politica-de-privacidad" class="text-xs text-white/60 underline-offset-4 transition hover:text-white hover:underline">
+                    Política de privacidad
+                </a>
+            </div>
 
 
             <div
@@ -274,7 +280,7 @@
             >
 
                 <span
-                    class="text-xs text-white/20"
+                    class="text-xs text-white/50"
                 >
                     Automatización
                 </span>
@@ -285,7 +291,7 @@
                 ></span>
 
                 <span
-                    class="text-xs text-white/20"
+                    class="text-xs text-white/50"
                 >
                     IA
                 </span>
@@ -296,7 +302,7 @@
                 ></span>
 
                 <span
-                    class="text-xs text-white/20"
+                    class="text-xs text-white/50"
                 >
                     CRM
                 </span>
@@ -307,7 +313,7 @@
                 ></span>
 
                 <span
-                    class="text-xs text-white/20"
+                    class="text-xs text-white/50"
                 >
                     Integraciones
                 </span>

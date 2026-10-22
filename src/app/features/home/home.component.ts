@@ -14,7 +14,7 @@ import { DrawPathsDirective } from '../../core/draw-paths.directive';
 import { HeroIntroDirective } from '../../core/hero-intro.directive';
 import { WorkflowsComponent } from './workflows/workflows.component';
 import { NetworkBgComponent } from '../../shared/network-bg/network-bg.component';
-import { POSTS, formatPostDate } from '../blog/blog.data';
+import { POSTS, formatPostDate, postImage } from '../blog/blog.data';
 import { MeetingDialogService } from '../../shared/components/services/meeting-dialog.service';
 import { SeoService } from '../../core/seo.service';
 
@@ -211,7 +211,7 @@ export class HomeComponent implements OnDestroy {
       readTime: post.readTime,
       title: post.title,
       description: post.description,
-      image: post.image,
+      image: postImage(post, 720),
       link: '/blog/' + post.slug,
     }));
 

@@ -30,6 +30,15 @@ export interface BlogPost {
   body: PostBlock[];
 }
 
+/**
+ * Portada reducida del artículo (public/blog/<nombre>-<ancho>.webp): 720 para las miniaturas de las tarjetas y 1280 para
+ * la portada grande (destacado del listado y cabecera del artículo). El original (`image`) queda como respaldo.
+ * Al añadir un artículo, genera los dos tamaños junto a su portada.
+ */
+export function postImage(post: BlogPost, width: 720 | 1280): string {
+  return post.image.replace(/\.webp$/, `-${width}.webp`);
+}
+
 const MONTHS = ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'];
 
 /** «2026-09-24» → «24 Sep 2026». */

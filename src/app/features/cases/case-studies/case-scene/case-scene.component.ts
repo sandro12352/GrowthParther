@@ -102,18 +102,18 @@ export class CaseSceneComponent {
     timeline.fromTo(
       phone,
       { opacity: 0, y: 40, scale: 0.96, transformOrigin: '50% 60%' },
-      { opacity: 1, y: 0, scale: 1, duration: 1, ease: 'power3.out', force3D: true },
+      { opacity: 1, y: 0, scale: 1, duration: 0.7, ease: 'power3.out', force3D: true },
       0,
     );
-    timeline.fromTo(paths, { opacity: 0 }, { opacity: 1, duration: 0.8, ease: 'power1.inOut', stagger: 0.15 }, 0.9);
-    timeline.fromTo(dots, { opacity: 0 }, { opacity: 1, duration: 0.8, ease: 'power1.inOut', stagger: 0.15 }, 0.9);
+    timeline.fromTo(paths, { opacity: 0 }, { opacity: 1, duration: 0.4, ease: 'power1.inOut', stagger: 0.1 }, 0.5);
+    timeline.fromTo(dots, { opacity: 0 }, { opacity: 1, duration: 0.4, ease: 'power1.inOut', stagger: 0.1 }, 0.5);
     timeline.fromTo(
       cards,
       { opacity: 0, xPercent: (index) => (cards[index].dataset['side'] === 'left' ? 6 : -6), y: 8 },
-      { opacity: 1, xPercent: 0, y: 0, duration: 0.8, ease: 'power2.out', stagger: 0.15, force3D: true },
-      1.7,
+      { opacity: 1, xPercent: 0, y: 0, duration: 0.4, ease: 'power2.out', stagger: 0.1, force3D: true },
+      0.9,
     );
-    timeline.fromTo(checks, { opacity: 0 }, { opacity: 1, duration: 0.6, ease: 'power1.inOut', stagger: 0.12 }, 2.5);
+    timeline.fromTo(checks, { opacity: 0 }, { opacity: 1, duration: 0.4, ease: 'power1.inOut', stagger: 0.08 }, 1.4);
 
     // desde aquí manda GSAP: la red de seguridad del CSS deja de actuar
     root.setAttribute('data-scene-js', '');

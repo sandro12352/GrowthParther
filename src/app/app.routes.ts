@@ -67,6 +67,12 @@ export const routes: Routes = [
                 loadComponent: () => import('./features/blog/blog-post/blog-post.component').then(m => m.BlogPostComponent),
             },
 
+            // Legal
+            {
+                path: 'politica-de-privacidad',
+                loadComponent: () => import('./features/legal/privacy-policy/privacy-policy.component').then(m => m.PrivacyPolicyComponent),
+            },
+
             // Direcciones que aún no existen (otras opciones del menú): llevan al inicio en lugar de fallar.
             { path: '**', redirectTo: '' },
         ]

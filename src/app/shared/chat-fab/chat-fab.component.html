@@ -1,8 +1,9 @@
 <div class="fab fixed bottom-4 right-4 z-40 sm:bottom-6 sm:right-6" [class.is-visible]="splash.done()" [class.hint-open]="hint()">
 
-    <!-- Mensaje: aparece solo unos segundos después de cargar la página y también al pasar el mouse o enfocar el botón -->
-    <span class="fab-label pointer-events-none absolute bottom-full right-0 mb-7 w-max max-w-[calc(100vw-2rem)] rounded-xl bg-[#080911] px-4 py-2.5 text-sm font-semibold text-white shadow-[0_12px_35px_rgba(8,9,17,0.35)] ring-1 ring-white/10 sm:bottom-auto sm:right-full sm:top-1/2 sm:mb-0 sm:mr-9" aria-hidden="true">
-        ¿Hablamos? <span class="text-[#00F2FE]">{{ whatsapp ? 'Escríbenos por WhatsApp' : 'Agenda una reunión' }}</span>
+    <!-- Mensaje: aparece solo unos segundos después de cargar la página, se queda visible y también se ve al pasar el mouse o enfocar el botón.
+         En móvil es una pastilla corta ("¿Hablamos?") junto al robot; desde sm se muestra la frase completa. -->
+    <span class="fab-label pointer-events-none absolute right-full top-1/2 mr-8 w-max rounded-xl bg-[#080911] px-3.5 py-2 text-sm font-semibold text-white shadow-[0_12px_35px_rgba(8,9,17,0.35)] ring-1 ring-white/10 sm:mr-9 sm:px-4 sm:py-2.5" aria-hidden="true">
+        ¿Hablamos?<span class="hidden text-[#00F2FE] sm:inline">&nbsp;{{ whatsapp ? 'Escríbenos por WhatsApp' : 'Agenda una reunión' }}</span>
     </span>
 
     <a [attr.href]="whatsapp || null" [attr.target]="whatsapp ? '_blank' : null" [attr.rel]="whatsapp ? 'noopener noreferrer' : null" role="link" tabindex="0"
@@ -15,14 +16,14 @@
         <!-- Círculo (la burbuja) con el robot dentro -->
         <span class="fab-bubble relative block h-full w-full overflow-hidden rounded-full bg-gradient-to-br from-[#6C5CE7] via-[#6C8CFF] to-[#00F2FE] p-[3px] shadow-[0_14px_35px_rgba(108,92,231,0.45)] transition duration-300 group-hover:shadow-[0_18px_44px_rgba(0,242,254,0.35)]">
             <span class="relative block h-full w-full overflow-hidden rounded-full bg-[#150c3d]">
-                <img src="/branding/robot-chat-full.webp" alt="" aria-hidden="true" width="360" height="344" decoding="async"
+                <img src="/branding/robot-chat-full-240.webp" alt="" aria-hidden="true" width="240" height="229" decoding="async"
                     class="fab-robot absolute max-w-none" />
             </span>
         </span>
 
         <!-- Mismo robot, recortado para que solo asome lo que sale de la burbuja: la mano que saluda y la antena -->
         <span class="fab-pop pointer-events-none absolute inset-0" aria-hidden="true">
-            <img src="/branding/robot-chat-full.webp" alt="" width="360" height="344" decoding="async"
+            <img src="/branding/robot-chat-full-240.webp" alt="" width="240" height="229" decoding="async"
                 class="fab-robot fab-robot-pop absolute max-w-none" />
         </span>
 

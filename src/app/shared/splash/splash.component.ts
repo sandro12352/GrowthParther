@@ -86,7 +86,10 @@ export class SplashComponent {
       .to(logo, { opacity: 0, y: -12, duration: 0.25, ease: 'power2.in' }, exitAt)
       .to(overlay, { yPercent: -100, duration: 0.75, ease: 'power4.inOut' }, '<0.05')
       // El hero empieza a entrar cuando la cortina ya va a mitad de camino.
-      .add(() => this.splash.done.set(true), '-=0.4');
+      .add(() => {
+        document.documentElement.classList.add('splash-over');
+        this.splash.done.set(true);
+      }, '-=0.4');
   }
 
   /** Bloquea el scroll sin tocar la barra (rueda, táctil y teclado). */
@@ -112,6 +115,7 @@ export class SplashComponent {
     this.finished = true;
 
     this.unlockScroll?.();
+    document.documentElement.classList.add('splash-over');
     this.splash.done.set(true);
     this.overlay().nativeElement.style.display = 'none';
 

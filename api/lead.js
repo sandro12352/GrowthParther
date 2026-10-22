@@ -127,7 +127,7 @@ module.exports = async function handler(request, response) {
     time: text(body.time, 5),
   };
 
-  const error = validate(lead);
+  const error = validate(lead) || (body.consent === true ? '' : 'Debes aceptar la política de privacidad.');
   if (error) {
     response.status(400).json({ ok: false, error });
     return;

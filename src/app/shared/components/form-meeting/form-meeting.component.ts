@@ -158,10 +158,12 @@ export class FormMeetingComponent {
     medium: new FormControl('', { nonNullable: true, validators: [Validators.required] }),
     date: new FormControl('', { nonNullable: true, validators: [Validators.required] }),
     time: new FormControl('', { nonNullable: true, validators: [Validators.required] }),
+    /** Aceptación de la política de privacidad (casilla obligatoria del paso 2). */
+    consent: new FormControl(false, { nonNullable: true, validators: [Validators.requiredTrue] }),
   });
 
   private readonly stepOneControls = ['name', 'email', 'company', 'phone'] as const;
-  private readonly stepTwoControls = ['objective', 'otherDetail', 'medium', 'date', 'time'] as const;
+  private readonly stepTwoControls = ['objective', 'otherDetail', 'medium', 'date', 'time', 'consent'] as const;
 
   constructor() {
     effect(() => {
@@ -235,7 +237,7 @@ export class FormMeetingComponent {
     if (time.value && !stillAvailable) time.setValue('');
   }
 
-  public isInvalid(control: 'medium' | 'date' | 'time' | 'otherDetail'): boolean {
+  public isInvalid(control: 'medium' | 'date' | 'time' | 'otherDetail' | 'consent'): boolean {
     const field = this.meetingForm.controls[control];
     return field.invalid && field.touched;
   }

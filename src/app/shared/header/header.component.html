@@ -16,7 +16,7 @@
 
             <a routerLink="/" class="group flex items-center">
 
-                <img src="/branding/logo-growthproject-horizontal-claro.webp" alt="GrowthProject AI" width="1174" height="291" class="h-10 w-auto
+                <img src="/branding/logo-growthproject-horizontal-claro-330.webp" alt="GrowthProject AI" width="330" height="82" class="h-10 w-auto
                            object-contain
                            transition-transform duration-300
                            group-hover:scale-[1.02]" />
@@ -372,90 +372,67 @@
         </nav>
 
 
-        <hlm-sheet side="right" class="ml-auto mr-2 flex xl:hidden">
+        <hlm-sheet side="right" [scrollStrategy]="sheetScroll" class="ml-auto mr-2 flex xl:hidden">
             <button type="button" hlmSheetTrigger aria-label="Abrir menú de navegación"
                 class="flex h-10 w-10 items-center justify-center rounded-lg border border-black/10
                        text-[#080911]/75 transition hover:bg-black/[0.035] xl:hidden">
                 <ng-icon name="lucideMenu" size="20" />
             </button>
 
-            <hlm-sheet-content *hlmSheetPortal class="w-[min(88vw,380px)] p-0">
-                <div hlmSheetHeader class="border-b border-border">
-                    <h2 hlmSheetTitle class="text-lg font-bold">Menú de navegación</h2>
-                    <p hlmSheetDescription>
-                        Explora nuestras soluciones de automatización y crecimiento.
-                    </p>
+            <!-- Menú móvil: panel claro como el header; lista de opciones con título y descripción corta -->
+            <hlm-sheet-content *hlmSheetPortal [showCloseButton]="false"
+                class="gap-0 overflow-hidden border-l border-black/10 bg-white p-0 text-[#080911] data-[side=right]:w-[min(88vw,380px)] data-[side=right]:sm:max-w-[380px]">
+
+                <div hlmSheetHeader class="flex-row items-center justify-between gap-3 border-b border-black/10 px-5 py-4">
+                    <img src="/branding/logo-growthproject-horizontal-claro-330.webp" alt="GrowthProject AI" width="330" height="82" class="h-9 w-auto" />
+                    <h2 hlmSheetTitle class="sr-only">Menú de navegación</h2>
+                    <p hlmSheetDescription class="sr-only">Explora nuestras soluciones de automatización y crecimiento.</p>
+                    <button hlmSheetClose type="button"
+                        class="inline-flex h-10 items-center gap-2 rounded-full border border-black/15 pl-4 pr-3.5 text-sm font-medium text-[#080911]/75 transition hover:border-black/30 hover:text-[#080911]">
+                        Cerrar
+                        <ng-icon name="lucideX" size="16" />
+                    </button>
                 </div>
 
-                <nav aria-label="Navegación móvil" class="flex flex-col gap-5 overflow-y-auto px-4 py-5">
-                    <div class="flex flex-col gap-1">
-                        <p class="px-3 pb-2 text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">
-                            Soluciones
+                <nav aria-label="Navegación móvil" class="flex flex-1 flex-col gap-6 overflow-y-auto px-3 py-5">
+                    @for (group of mobileGroups; track group.label) {
+                    <div class="flex flex-col gap-0.5">
+                        <p class="flex items-center gap-2 px-3 pb-1.5 text-[11px] font-semibold uppercase tracking-[0.2em] text-[#5b49d6]">
+                            <span class="h-1.5 w-1.5 rounded-full bg-[#6C5CE7]"></span>
+                            {{ group.label }}
                         </p>
-                        <button hlmSheetClose routerLink="/automatizacion" type="button"
-                            class="rounded-lg px-3 py-2.5 text-left text-sm font-medium transition hover:bg-accent">
-                            Automatización de procesos
+                        @for (item of group.items; track item.path) {
+                        <button hlmSheetClose type="button" [routerLink]="item.path" routerLinkActive="menu-active"
+                            [routerLinkActiveOptions]="{ exact: item.path === '/integraciones' }"
+                            class="menu-link flex w-full flex-col rounded-xl px-3 py-2.5 text-left transition hover:bg-[#f7f7fa] active:bg-[#efeffa]">
+                            <span class="menu-title text-[17px] font-semibold leading-tight text-[#080911]">{{ item.title }}</span>
+                            <span class="mt-0.5 text-[13px] leading-snug text-black/55">{{ item.text }}</span>
                         </button>
-                        <button hlmSheetClose routerLink="/ia-para-empresas" type="button"
-                            class="rounded-lg px-3 py-2.5 text-left text-sm font-medium transition hover:bg-accent">
-                            IA para empresas
-                        </button>
-                        <button hlmSheetClose routerLink="/crm" type="button"
-                            class="rounded-lg px-3 py-2.5 text-left text-sm font-medium transition hover:bg-accent">
-                            CRM
-                        </button>
+                        }
                     </div>
-
-                    <div class="flex flex-col gap-1">
-                        <p class="px-3 pb-2 text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">
-                            Integraciones
-                        </p>
-                        <button hlmSheetClose routerLink="/integraciones" type="button"
-                            class="rounded-lg px-3 py-2.5 text-left text-sm font-medium transition hover:bg-accent">
-                            Todas las integraciones
-                        </button>
-                        <button hlmSheetClose routerLink="/integraciones/whatsapp" type="button"
-                            class="rounded-lg px-3 py-2.5 text-left text-sm font-medium transition hover:bg-accent">
-                            WhatsApp
-                        </button>
-                        <button hlmSheetClose routerLink="/integraciones/meta" type="button"
-                            class="rounded-lg px-3 py-2.5 text-left text-sm font-medium transition hover:bg-accent">
-                            Meta: Facebook + Instagram
-                        </button>
-                        <button hlmSheetClose routerLink="/integraciones/n8n" type="button"
-                            class="rounded-lg px-3 py-2.5 text-left text-sm font-medium transition hover:bg-accent">
-                            n8n
-                        </button>
-                        <button hlmSheetClose routerLink="/integraciones/gohighlevel" type="button"
-                            class="rounded-lg px-3 py-2.5 text-left text-sm font-medium transition hover:bg-accent">
-                            GoHighLevel
-                        </button>
-                    </div>
-
-                    <div class="flex flex-col gap-1">
-                        <p class="px-3 pb-2 text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">
-                            Empresa
-                        </p>
-                        <button hlmSheetClose routerLink="/casos-de-exito" type="button"
-                            class="rounded-lg px-3 py-2.5 text-left text-sm font-medium transition hover:bg-accent">
-                            Casos de éxito
-                        </button>
-                        <button hlmSheetClose routerLink="/blog" type="button"
-                            class="rounded-lg px-3 py-2.5 text-left text-sm font-medium transition hover:bg-accent">
-                            Blog
-                        </button>
-                        <button hlmSheetClose routerLink="/nosotros" type="button"
-                            class="rounded-lg px-3 py-2.5 text-left text-sm font-medium transition hover:bg-accent">
-                            Nosotros
-                        </button>
-                    </div>
+                    }
                 </nav>
 
-                <div class="mt-auto flex flex-col gap-2 border-t border-border p-4">
+                <div class="flex flex-col gap-3 border-t border-black/10 bg-white p-4">
                     <button hlmSheetClose (click)="openMeetingDialog()" type="button"
-                        class="rounded-lg bg-primary px-4 py-2.5 text-sm font-semibold text-primary-foreground transition hover:opacity-90">
+                        class="inline-flex h-12 items-center justify-center gap-2.5 rounded-xl bg-[#491eff] text-[15px] font-bold text-white shadow-[0_8px_25px_rgba(73,30,255,0.20)] transition hover:bg-[#5b32ff] active:scale-[0.98]">
+                        <ng-icon name="lucideCalendar" size="18" />
                         Solicitar reunión
                     </button>
+
+                    @if (whatsapp) {
+                    <a [href]="whatsapp" target="_blank" rel="noopener noreferrer"
+                        class="inline-flex h-12 items-center justify-center gap-2.5 rounded-xl border border-black/15 bg-white text-[15px] font-semibold text-[#080911] transition hover:border-black/30 active:scale-[0.98]">
+                        <ng-icon name="lucideMessageCircle" size="18" class="text-[#25D366]" />
+                        Escríbenos por WhatsApp
+                    </a>
+                    }
+
+                    <div class="flex flex-wrap items-center gap-x-5 gap-y-1 pt-1 text-xs text-black/60 [@media(max-height:700px)]:hidden">
+                        <a hlmSheetClose routerLink="/politica-de-privacidad" class="underline-offset-4 transition hover:text-[#080911] hover:underline">Política de privacidad</a>
+                        <a href="https://www.instagram.com/growthprojectaiperu/" target="_blank" rel="noopener noreferrer" class="underline-offset-4 transition hover:text-[#080911] hover:underline">Instagram</a>
+                        <a href="https://www.facebook.com/profile.php?id=61595478930809" target="_blank" rel="noopener noreferrer" class="underline-offset-4 transition hover:text-[#080911] hover:underline">Facebook</a>
+                    </div>
                 </div>
             </hlm-sheet-content>
         </hlm-sheet>
@@ -488,7 +465,7 @@
 
             <!-- CTA -->
 
-            <a hlmBtn (click)="openMeetingDialog()" class="btn-fx [--fx:#080911] group relative
+            <button type="button" hlmBtn (click)="openMeetingDialog()" class="btn-fx [--fx:#080911] group relative
                        inline-flex
                        h-11
                        items-center
@@ -532,7 +509,7 @@
                            group-hover:translate-x-0.5
                            group-hover:-translate-y-0.5" />
 
-            </a>
+            </button>
 
         </div>
 

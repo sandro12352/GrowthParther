@@ -1,0 +1,8 @@
+/* Menú móvil: la opción de la página actual se marca con un fondo suave y el título en el morado de acento. */
+.menu-link.menu-active {
+  background: #f1eeff;
+}
+
+.menu-link.menu-active .menu-title {
+  color: #491eff;
+}

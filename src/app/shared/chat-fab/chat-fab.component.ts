@@ -9,7 +9,7 @@ import { MeetingDialogService } from '../components/services/meeting-dialog.serv
  * Abre el chat de WhatsApp (número en core/contact.config.ts); si todavía no hay número configurado, abre el formulario
  * de «Agendar una reunión». Aparece cuando termina la pantalla de carga.
  * Muestra una etiqueta al pasar el mouse (o enfocarlo con el teclado) y, además, aparece sola unos segundos después de
- * terminar la carga (una vez por visita); no abre ninguna ventana por sí sola.
+ * terminar la carga y se queda visible; no abre ninguna ventana por sí sola.
  */
 @Component({
   selector: 'app-chat-fab',
@@ -24,30 +24,19 @@ export class ChatFabComponent {
   /** Dirección de WhatsApp ('' si no hay número). */
   protected readonly whatsapp = whatsappUrl();
 
-  /** true mientras el mensaje se muestra solo (sin mouse encima). */
+  /** true cuando el mensaje se muestra solo (sin mouse encima); una vez activado, no se oculta. */
   protected readonly hint = signal(false);
 
   constructor() {
     const timers: ReturnType<typeof setTimeout>[] = [];
     inject(DestroyRef).onDestroy(() => timers.forEach(clearTimeout));
 
-    // Cuando termina la pantalla de carga y pasan unos segundos, el mensaje se muestra solo y se oculta a los 7 s (una vez por visita).
+    // Cuando termina la pantalla de carga y pasan unos segundos, el mensaje aparece solo y se queda visible.
     let started = false;
     effect(() => {
       if (!this.splash.done() || started || !isPlatformBrowser(this.platformId)) return;
       started = true;
-      try {
-        if (sessionStorage.getItem('fab-hint')) return;
-        sessionStorage.setItem('fab-hint', '1');
-      } catch {
-        // sin almacenamiento: se muestra igual
-      }
-      timers.push(
-        setTimeout(() => {
-          this.hint.set(true);
-          timers.push(setTimeout(() => this.hint.set(false), 7000));
-        }, 4000),
-      );
+      timers.push(setTimeout(() => this.hint.set(true), 4000));
     });
   }
 

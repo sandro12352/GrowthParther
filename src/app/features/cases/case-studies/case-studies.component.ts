@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnDestroy, computed, inject, signal, viewChild } from '@angular/core';
+import { Component, ElementRef, OnDestroy, inject, signal, viewChild } from '@angular/core';
 import { NgIcon, provideIcons } from '@ng-icons/core';
 import { lucideMaximize2, lucideX } from '@ng-icons/lucide';
 import { RevealDirective } from '../../../core/reveal.directive';
@@ -8,7 +8,7 @@ import { PageClosingComponent } from '../../../shared/page-closing/page-closing.
 import { CASES, WorkflowCase } from './cases.data';
 import { PageContent } from '../../../shared/models/page-content.model';
 
-/** Página «Casos de éxito»: los workflows reales de `cases.data.ts`, con filtro por etiqueta y visor ampliado. */
+/** Página «Casos de éxito»: los workflows reales de `cases.data.ts`, con visor ampliado. */
 @Component({
   selector: 'app-case-studies',
   imports: [NgIcon, RevealDirective, PageClosingComponent, CaseSceneComponent],
@@ -20,16 +20,6 @@ export class CaseStudiesComponent implements OnDestroy {
   private readonly viewer = viewChild<ElementRef<HTMLDialogElement>>('viewer');
 
   public readonly cases = CASES;
-
-  /** Etiquetas sin repetir, en el orden en que aparecen en los casos. */
-  public readonly tags = [...new Set(CASES.flatMap((item) => item.tags))];
-
-  public readonly filter = signal<string | null>(null);
-
-  public readonly visible = computed(() => {
-    const tag = this.filter();
-    return tag ? CASES.filter((item) => item.tags.includes(tag)) : CASES;
-  });
 
   /** Caso abierto en el visor (null con el visor cerrado). */
   public readonly viewing = signal<WorkflowCase | null>(null);

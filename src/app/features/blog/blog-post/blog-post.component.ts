@@ -7,7 +7,7 @@ import { SeoService } from '../../../core/seo.service';
 import { PageContent } from '../../../shared/models/page-content.model';
 import { PageClosingComponent } from '../../../shared/page-closing/page-closing.component';
 import { BlogCardComponent } from '../blog-card/blog-card.component';
-import { BLOG_DRAFT, BlogPost, POSTS, findPost, formatPostDate } from '../blog.data';
+import { BLOG_DRAFT, BlogPost, POSTS, findPost, formatPostDate, postImage } from '../blog.data';
 
 /** Página de un artículo: cabecera, portada, cuerpo por bloques, «Sigue leyendo» y llamada a la acción. */
 @Component({
@@ -22,6 +22,7 @@ export class BlogPostComponent implements OnDestroy {
 
   public readonly post: BlogPost | undefined = findPost(inject(ActivatedRoute).snapshot.paramMap.get('slug'));
   public readonly date = formatPostDate;
+  public readonly cover = postImage;
 
   /** Otros artículos: primero los de la misma categoría y, si faltan, los más recientes. */
   public readonly related = computed(() => {

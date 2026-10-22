@@ -7,7 +7,9 @@
 
 <app-footer></app-footer>
 
+@defer (when meetingRequested(); prefetch on idle) {
 <app-form-meeting></app-form-meeting>
+}
 
 <!-- Botón flotante con el robot: abre el formulario de reunión -->
 <app-chat-fab></app-chat-fab>

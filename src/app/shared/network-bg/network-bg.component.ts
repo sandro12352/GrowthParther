@@ -196,6 +196,9 @@ export class NetworkBgComponent {
       raf = requestAnimationFrame(frame);
       const dt = Math.min(3, (now - last) / 16.667 || 1);
       last = now;
+      // Con un panel o diálogo abierto (CDK bloquea el scroll) la página queda tapada: no se dibuja y el menú anima fluido.
+      const root = document.documentElement;
+      if (root.classList.contains('cdk-global-scrollblock') || root.hasAttribute('data-overlay-open')) return;
       const { mx, my, has } = pointerInCanvas();
       update(dt, mx, my, has);
       draw(mx, my, has);

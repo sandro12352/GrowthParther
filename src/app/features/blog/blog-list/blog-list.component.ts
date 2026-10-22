@@ -7,7 +7,7 @@ import { SeoService } from '../../../core/seo.service';
 import { PageContent } from '../../../shared/models/page-content.model';
 import { PageClosingComponent } from '../../../shared/page-closing/page-closing.component';
 import { BlogCardComponent } from '../blog-card/blog-card.component';
-import { BLOG_DRAFT, CATEGORIES, POSTS, formatPostDate } from '../blog.data';
+import { BLOG_DRAFT, CATEGORIES, POSTS, formatPostDate, postImage } from '../blog.data';
 
 /** Listado del blog: artículo destacado, filtro por categoría y cuadrícula del resto. */
 @Component({
@@ -21,6 +21,7 @@ export class BlogListComponent implements OnDestroy {
 
   public readonly categories = CATEGORIES;
   public readonly date = formatPostDate;
+  public readonly cover = postImage;
 
   /** Categoría elegida (null = todas). */
   public readonly filter = signal<string | null>(null);

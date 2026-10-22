@@ -2,7 +2,7 @@ import { Component, input } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { NgIcon, provideIcons } from '@ng-icons/core';
 import { lucideArrowRight } from '@ng-icons/lucide';
-import { BlogPost, formatPostDate } from '../blog.data';
+import { BlogPost, formatPostDate, postImage } from '../blog.data';
 
 /** Tarjeta de un artículo (imagen, categoría, fecha, título y resumen). La usan el listado y «Sigue leyendo». */
 @Component({
@@ -13,7 +13,7 @@ import { BlogPost, formatPostDate } from '../blog.data';
     @let p = post();
     <a [routerLink]="['/blog', p.slug]" class="group flex h-full flex-col">
       <div class="overflow-hidden rounded-2xl border border-black/10 bg-[#10111A]">
-        <img [src]="p.image" [alt]="p.imageAlt" width="1672" height="941" loading="lazy" decoding="async"
+        <img [src]="cover(p, 720)" [alt]="p.imageAlt" width="720" height="405" loading="lazy" decoding="async"
           class="aspect-video w-full object-cover transition duration-500 group-hover:scale-[1.04]" />
       </div>
       <div class="mt-5 flex flex-wrap items-center gap-x-3 gap-y-1 text-xs">
@@ -32,4 +32,5 @@ import { BlogPost, formatPostDate } from '../blog.data';
 export class BlogCardComponent {
   public readonly post = input.required<BlogPost>();
   public readonly date = formatPostDate;
+  public readonly cover = postImage;
 }

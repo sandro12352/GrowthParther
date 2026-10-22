@@ -204,25 +204,33 @@ html.no-splash app-splash {
   }
 }
 
+/* Calentamiento del menú móvil (ver header.component.ts): mientras dura, los overlays no se ven. */
+html[data-menu-prewarm] .cdk-overlay-container {
+  visibility: hidden;
+}
+
 /* ---------- Entrada del hero (ver core/hero-intro.directive.ts) ----------
    Los elementos esperan ocultos hasta que su animación los muestra. Si el JS no llegara a ejecutarse,
-   a los 5 s se muestran igualmente. */
+   a los 5 s se muestran igualmente.
+   Mientras la cortina del splash cubre la página (primera visita, <html> sin .no-splash ni .splash-over) el hero
+   está VISIBLE debajo de ella: nadie lo ve, pero el navegador lo pinta enseguida y lo cuenta como contenido
+   principal (LCP) en lugar de esperar a que la cortina suba. La animación lo oculta justo antes de revelarlo. */
 [data-hero] {
   animation: hero-failsafe 0s linear 5s forwards;
 }
 
-[data-hero='fade'],
-[data-hero='dash'],
-[data-hero='chip'],
-[data-hero='robot'] {
+:is(html.no-splash, html.splash-over) [data-hero='fade'],
+:is(html.no-splash, html.splash-over) [data-hero='dash'],
+:is(html.no-splash, html.splash-over) [data-hero='chip'],
+:is(html.no-splash, html.splash-over) [data-hero='robot'] {
   opacity: 0;
 }
 
-[data-hero='line'] {
+:is(html.no-splash, html.splash-over) [data-hero='line'] {
   transform: translateY(110%);
 }
 
-[data-hero='connector'] {
+:is(html.no-splash, html.splash-over) [data-hero='connector'] {
   transform: scaleX(0);
   transform-origin: left center;
 }

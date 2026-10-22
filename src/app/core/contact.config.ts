@@ -7,6 +7,9 @@
  */
 export const WHATSAPP_NUMBER = '51992444788';
 
+/** Correo de contacto de la empresa (se muestra en la política de privacidad). */
+export const CONTACT_EMAIL = 'growthproject.of@gmail.com';
+
 /** Mensaje que aparece escrito al abrir el chat de WhatsApp (la persona solo tiene que enviarlo). */
 export const WHATSAPP_MESSAGE = 'Hola, quiero información sobre automatización para mi negocio.';
 
