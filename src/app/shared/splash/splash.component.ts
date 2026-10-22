@@ -3,14 +3,14 @@ import { GsapService } from '../../core/gsap.service';
 import { SplashService } from '../../core/splash.service';
 import { SPLASH_LETTERS, SPLASH_NAME_ASPECT, SPLASH_TEXT_COLOR } from './splash-letters';
 
-const SESSION_KEY = 'shinkia-splash';
 const LOCKED_KEYS = new Set([' ', 'PageUp', 'PageDown', 'Home', 'End', 'ArrowUp', 'ArrowDown']);
 
 /**
  * Pantalla de carga: la "G" aparece grande y, debajo, el nombre se escribe letra a letra de izquierda a derecha;
  * después sube una cortina que descubre el hero. La entrada es CSS (ver splash.component.css) y la salida, GSAP.
  * Se renderiza en el HTML del servidor (cubre el hero desde el primer pintado) y,
- * una vez vista en la sesión, no se vuelve a mostrar (la oculta un script en index.html).
+ * sale en cada carga de la página (también al refrescar); al navegar entre páginas dentro de la web no vuelve a salir,
+ * porque la web no se recarga.
  *
  * Importante: NO se oculta la barra de scroll mientras dura. Si apareciera de golpe al terminar,
  * el ancho de la página cambiaría y las posiciones que ScrollTrigger ya midió quedarían desfasadas.
@@ -118,12 +118,6 @@ export class SplashComponent {
     document.documentElement.classList.add('splash-over');
     this.splash.done.set(true);
     this.overlay().nativeElement.style.display = 'none';
-
-    try {
-      sessionStorage.setItem(SESSION_KEY, '1');
-    } catch {
-      /* sessionStorage no disponible: la pantalla se mostrará en cada carga. */
-    }
 
     // Seguro adicional: vuelve a medir las animaciones ancladas al scroll.
     void this.gsapService.load().then((kit) => kit?.ScrollTrigger.refresh());
