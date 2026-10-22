@@ -43,7 +43,7 @@ const CONTENT: PageContent = {
   seo: {
     title: 'Automatización de procesos para empresas | GrowthProject AI',
     description:
-      'Automatizamos respuestas, seguimiento, agendamiento y actualización del CRM con flujos a medida. Implementación estimada de 5 a 7 días y soporte 24/7.',
+      'Automatizamos respuestas, seguimiento, agendamiento y actualización del CRM con flujos a medida. Implementación estimada de 5 a 7 días y atención automática 24/7.',
   },
 
   hero: {
@@ -123,7 +123,7 @@ const CONTENT: PageContent = {
       },
       {
         title: 'Probamos y acompañamos',
-        text: 'Probamos el flujo antes de activarlo. El tiempo estimado es de 5 a 7 días y después cuentas con soporte 24/7.',
+        text: 'Probamos el flujo antes de activarlo. El tiempo estimado es de 5 a 7 días. Después tienes soporte técnico en el horario acordado y tu automatización sigue funcionando 24/7.',
       },
     ],
   },
@@ -166,7 +166,7 @@ const CONTENT: PageContent = {
     },
     {
       question: '¿Tienen soporte después de la puesta en marcha?',
-      answer: 'Sí. Contamos con soporte 24/7 para que tu automatización siga funcionando con normalidad.',
+      answer: 'Sí. Tienes soporte técnico en el horario acordado, y tu automatización sigue funcionando 24/7.',
     },
   ],
 

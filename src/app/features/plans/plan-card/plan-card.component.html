@@ -1,0 +1,96 @@
+@let p = plan();
+@let t = theme();
+
+    <article class="group relative flex w-full transition-all duration-500"
+    [class]="articleClass()">
+
+        <!-- Marco (borde / gradiente) -->
+        <div class="flex w-full rounded-[28px] p-px" [class]="frameClass()">
+
+            <div class="relative flex w-full flex-col overflow-hidden rounded-[27px] p-7" [class]="t.card">
+
+                <div class="pointer-events-none absolute -right-20 -top-20 h-52 w-52 rounded-full blur-[70px]"
+                    [class]="t.glow"></div>
+
+                <div class="relative flex h-full flex-col">
+
+                    <!-- TOP -->
+                    <div class="flex items-center justify-between">
+                        <span class="text-xs font-semibold uppercase tracking-[0.2em]" [class]="t.eyebrow">
+                            Plan {{ p.number }}
+                        </span>
+                        <span class="rounded-full px-3 py-1 text-xs font-bold" [class]="t.badge">
+                            {{ p.badge }}
+                        </span>
+                    </div>
+
+                    <!-- TITULO -->
+                    <h3 class="mt-6 text-3xl font-black tracking-tight" [class]="t.title">
+                        {{ p.name }}
+                    </h3>
+
+                    <p class="mt-2 text-sm" [class]="t.text">
+                        {{ p.tagline }}
+                    </p>
+
+                    <!-- PRECIOS -->
+                    <div class="mt-7 rounded-2xl border p-5" [class]="t.priceBox">
+
+                        <span class="block text-4xl font-black tracking-tight" [class]="t.setup">
+                            US$ {{ p.setup }}
+                        </span>
+                        <p class="mt-1 text-sm" [class]="t.text">Implementación única</p>
+
+                        <div class="my-4 h-px" [class]="t.divider"></div>
+
+                        <div class="flex items-baseline gap-2">
+                            <span class="text-4xl font-black tracking-tight" [class]="t.monthly">
+                                US$ {{ p.monthly }}
+                            </span>
+                            <span class="text-sm" [class]="t.text">/ mes</span>
+                        </div>
+                        <p class="mt-1 text-sm" [class]="t.text">Mensualidad · {{ p.conversations }}</p>
+
+                    </div>
+
+                    <!-- INCLUYE -->
+                    <h4 class="mt-8 text-sm font-bold" [class]="t.title">{{ p.card.includesTitle }}</h4>
+
+                    <ul class="mt-4 space-y-3">
+                        @for (feature of p.card.features; track feature.title) {
+                        <li class="flex items-start gap-3 text-sm" [class]="t.text">
+                            <ng-icon name="lucideCheck" size="16" class="mt-0.5 shrink-0" [class]="t.check" />
+                            <span>
+                                <span class="font-semibold" [class]="t.title">{{ feature.title }}</span>
+                                @if (feature.detail) {
+                                <span class="opacity-80"> · {{ feature.detail }}</span>
+                                }
+                            </span>
+                        </li>
+                        }
+                    </ul>
+
+                    <!-- IDEAL PARA -->
+                    <div class="mt-8 rounded-xl border-l-4 px-4 py-3 text-sm" [class]="t.ideal">
+                        <span class="font-bold">Ideal para</span> {{ p.idealFor }}
+                    </div>
+
+                    <!-- CTA -->
+                    <div class="mt-auto pt-8">
+                        <button type="button" (click)="openMeetingDialog()"
+                            class="flex h-12 w-full items-center justify-center gap-2 rounded-xl text-sm font-bold transition hover:cursor-pointer"
+                            [class]="t.button">
+                            Elegir plan
+                            <ng-icon class="btn-arrow" name="lucideArrowRight" size="16" />
+                        </button>
+                        <a [routerLink]="['/planes', p.slug]"
+                            class="mt-4 flex items-center justify-center gap-1.5 text-sm font-semibold underline-offset-4 transition hover:underline"
+                            [class]="t.title">
+                            Ver más detalles del plan
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </article>

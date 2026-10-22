@@ -1,0 +1,103 @@
+<!-- ===================================================== -->
+<!-- PORTADA -->
+<!-- ===================================================== -->
+<section class="relative overflow-hidden bg-[#130735] pb-20 pt-40 text-white lg:pb-28 lg:pt-48">
+
+    <div class="pointer-events-none absolute inset-0 overflow-hidden">
+        <div class="absolute -left-40 top-1/3 h-[400px] w-[400px] rounded-full bg-[#6C5CE7]/15 blur-[100px] lg:h-[500px] lg:w-[500px]"></div>
+        <div class="absolute -right-40 top-1/4 h-[400px] w-[400px] rounded-full bg-[#00F2FE]/[0.06] blur-[100px] lg:h-[500px] lg:w-[500px]"></div>
+    </div>
+
+    <div appReveal revealStagger class="relative mx-auto max-w-4xl px-6 text-center">
+        <div class="mb-6 inline-flex rounded-full border border-[#6C5CE7]/30 bg-[#6C5CE7]/10 px-4 py-2">
+            <span class="text-xs font-semibold uppercase tracking-[0.2em] text-[#B9AFFF]">Planes</span>
+        </div>
+        <h1 class="text-balance text-4xl font-extrabold leading-[1.05] tracking-tight sm:text-5xl lg:text-6xl">
+            Elige cómo automatizar
+            <span class="block bg-gradient-to-r from-[#8f82ff] via-[#6C8CFF] to-[#00F2FE] bg-clip-text text-transparent">tu atención y tus ventas.</span>
+        </h1>
+        <p class="mx-auto mt-6 max-w-2xl text-base leading-7 text-white/75 md:text-lg">
+            Tres planes con implementación única y mensualidad fija. Todos incluyen pruebas y capacitación de tu equipo.
+        </p>
+    </div>
+</section>
+
+
+<!-- ===================================================== -->
+<!-- LOS TRES PLANES -->
+<!-- ===================================================== -->
+<section class="bg-white py-24 lg:py-32">
+    <div class="mx-auto px-6 lg:max-w-[80vw] lg:px-8">
+
+        <div appReveal revealStagger class="grid gap-6 lg:grid-cols-3 lg:items-stretch">
+            @for (plan of plans; track plan.slug) {
+            <app-plan-card [plan]="plan" />
+            }
+        </div>
+
+    </div>
+</section>
+
+
+<!-- ===================================================== -->
+<!-- COMPARACIÓN -->
+<!-- ===================================================== -->
+<section class="bg-[#f7f7fa] py-24 lg:py-32">
+    <div class="mx-auto px-6 lg:max-w-[80vw] lg:px-8">
+
+        <div appReveal revealStagger class="mx-auto max-w-3xl text-center">
+            <span class="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-[#5b49d6]">
+                <span class="h-1.5 w-1.5 rounded-full bg-[#6C5CE7]"></span>
+                Comparación
+            </span>
+            <h2 class="mt-5 text-3xl font-bold leading-[1.1] tracking-tight text-[#080911] md:text-5xl">Qué incluye cada plan</h2>
+        </div>
+
+        <div appReveal class="mt-12 overflow-x-auto rounded-3xl border border-black/10 bg-white">
+            <table class="w-full min-w-[720px] border-collapse text-left text-sm">
+                <caption class="sr-only">Comparación de los planes Básico, Comercial y Avanzado</caption>
+                <thead>
+                    <tr class="border-b border-black/10">
+                        <th scope="col" class="sticky left-0 z-10 bg-white px-5 py-5 font-semibold text-black/60">Característica</th>
+                        @for (plan of plans; track plan.slug) {
+                        <th scope="col" class="px-5 py-5 text-base font-bold text-[#080911]" [class]="plan.featured ? 'bg-[#f4f1ff]' : ''">
+                            {{ plan.name }}
+                            @if (plan.featured) {
+                            <span class="ml-2 rounded-full bg-[#491eff] px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-white">Recomendado</span>
+                            }
+                        </th>
+                        }
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (row of comparison; track row.label) {
+                    <tr class="border-b border-black/5 last:border-b-0">
+                        <th scope="row" class="sticky left-0 z-10 bg-white px-5 py-4 font-medium text-[#080911]">{{ row.label }}</th>
+                        @for (cell of row.values; track $index; let i = $index) {
+                        <td class="px-5 py-4 text-black/75" [class]="plans[i].featured ? 'bg-[#f4f1ff]' : ''">
+                            @if (cell === 'yes') {
+                            <ng-icon name="lucideCheck" size="18" class="text-[#5b49d6]" />
+                            <span class="sr-only">Incluido</span>
+                            } @else if (cell === 'no') {
+                            <span aria-hidden="true" class="text-black/30">—</span>
+                            <span class="sr-only">No incluido</span>
+                            } @else {
+                            {{ cell }}
+                            }
+                        </td>
+                        }
+                    </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+        <p appReveal class="mx-auto mt-8 max-w-3xl text-center text-xs leading-6 text-black/60">
+            Precios en dólares, IGV incluido, vigentes en {{ pricesAsOf }}. La implementación se paga 50 % al iniciar y 50 % a la entrega final.
+            Las tarifas de WhatsApp (Meta), las licencias externas y las campañas de publicidad no están incluidas.
+        </p>
+
+    </div>
+</section>
+
+<app-page-closing [page]="closing" [related]="related" />

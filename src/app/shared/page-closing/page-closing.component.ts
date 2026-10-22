@@ -1,7 +1,7 @@
 import { Component, effect, inject, input } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { NgIcon, provideIcons } from '@ng-icons/core';
-import { lucideArrowRight, lucidePlus } from '@ng-icons/lucide';
+import { lucideArrowRight, lucideMessageCircle, lucidePlus } from '@ng-icons/lucide';
 import { RevealDirective } from '../../core/reveal.directive';
 import { SeoService } from '../../core/seo.service';
 import { MeetingDialogService } from '../components/services/meeting-dialog.service';
@@ -11,7 +11,7 @@ import { PageContent } from '../models/page-content.model';
 @Component({
   selector: 'app-page-closing',
   imports: [NgIcon, RouterLink, RevealDirective],
-  providers: [provideIcons({ lucideArrowRight, lucidePlus })],
+  providers: [provideIcons({ lucideArrowRight, lucideMessageCircle, lucidePlus })],
   templateUrl: './page-closing.component.html',
 })
 export class PageClosingComponent {
@@ -21,6 +21,8 @@ export class PageClosingComponent {
   public readonly page = input.required<Pick<PageContent, 'faqs' | 'cta'>>();
   /** Nota pequeña al pie (por ejemplo, aviso de marcas de terceros). */
   public readonly note = input<string>('');
+  /** Enlace de WhatsApp: si se indica, la llamada a la acción añade el botón «Consultar por WhatsApp». */
+  public readonly whatsapp = input<string>('');
   public readonly related = input<{ label: string; path: string }[]>([]);
 
   constructor() {

@@ -15,6 +15,8 @@ import { HeroIntroDirective } from '../../core/hero-intro.directive';
 import { WorkflowsComponent } from './workflows/workflows.component';
 import { NetworkBgComponent } from '../../shared/network-bg/network-bg.component';
 import { POSTS, formatPostDate, postImage } from '../blog/blog.data';
+import { PLANS } from '../plans/plans.data';
+import { PlanCardComponent } from '../plans/plan-card/plan-card.component';
 import { MeetingDialogService } from '../../shared/components/services/meeting-dialog.service';
 import { SeoService } from '../../core/seo.service';
 
@@ -28,6 +30,7 @@ import { SeoService } from '../../core/seo.service';
     HlmCardImports,
     HlmInputImports,
     WorkflowsComponent,
+    PlanCardComponent,
     NetworkBgComponent,
     RevealDirective,
     DrawPathsDirective,
@@ -86,7 +89,7 @@ export class HomeComponent implements OnDestroy {
     this.seo.apply({
       title: 'Automatización de procesos con IA y CRM | GrowthProject AI',
       description:
-        'Automatizamos la atención por WhatsApp, el seguimiento de leads y tu CRM con inteligencia artificial. Implementación estimada de 5 a 7 días y soporte 24/7.',
+        'Automatizamos la atención por WhatsApp, el seguimiento de leads y tu CRM con inteligencia artificial. Implementación estimada de 5 a 7 días y atención automática 24/7.',
       path: '/',
     });
   }
@@ -216,135 +219,8 @@ export class HomeComponent implements OnDestroy {
     }));
 
 
-  // Escalera de valor: del plan más simple (claro, neutro) al más completo (oscuro, gradiente).
-  private readonly planThemes = {
-    basic: {
-      frame: 'bg-black/10 shadow-[0_20px_50px_rgba(8,9,17,0.08)]',
-      card: 'bg-[#f4f4f7]',
-      glow: 'bg-[#6C8CFF]/10',
-      eyebrow: 'text-[#5b49d6]',
-      badge: 'border border-black/10 bg-black/[0.04] text-black/65',
-      title: 'text-[#080911]',
-      text: 'text-black/65',
-      priceBox: 'border-black/10 bg-white',
-      divider: 'bg-black/10',
-      setup: 'text-[#080911]',
-      monthly: 'text-[#5b49d6]',
-      check: 'text-[#5b49d6]',
-      ideal: 'border-[#6C5CE7] bg-[#6C5CE7]/10 text-[#080911]/80',
-      button: 'btn-fx [--fx:#080911] border border-[#080911]/15 bg-white text-[#080911] hover:text-white',
-    },
-    commercial: {
-      frame: 'bg-gradient-to-br from-[#A99CFF] via-[#6C5CE7] to-[#6C8CFF] shadow-[0_30px_80px_rgba(108,92,231,0.4)]',
-      card: 'bg-gradient-to-b from-[#5b49d6] to-[#3a2a9e]',
-      glow: 'bg-white/25',
-      eyebrow: 'text-white/80',
-      badge: 'bg-white text-[#3a2a9e]',
-      title: 'text-white',
-      text: 'text-white/80',
-      priceBox: 'border-white/20 bg-white/10',
-      divider: 'bg-white/20',
-      setup: 'text-white',
-      monthly: 'text-white',
-      check: 'text-[#00F2FE]',
-      ideal: 'border-white bg-white/10 text-white/90',
-      button: 'btn-fx [--fx:#080911] bg-white text-[#3a2a9e] hover:text-white hover:shadow-[0_10px_30px_rgba(8,9,17,0.35)]',
-    },
-    advanced: {
-      frame: 'bg-gradient-to-br from-[#6C5CE7] via-[#6C8CFF] to-[#00F2FE] shadow-[0_30px_90px_rgba(0,242,254,0.25)]',
-      card: 'bg-[#080911]',
-      glow: 'bg-[#00F2FE]/25',
-      eyebrow: 'text-[#00F2FE]',
-      badge: 'bg-gradient-to-r from-[#6C5CE7] to-[#00F2FE] text-[#080911]',
-      title: 'text-white',
-      text: 'text-white/75',
-      priceBox: 'border-white/10 bg-white/[0.04]',
-      divider: 'bg-white/10',
-      setup: 'text-white',
-      monthly: 'bg-gradient-to-r from-[#A99CFF] to-[#00F2FE] bg-clip-text text-transparent',
-      check: 'text-[#00F2FE]',
-      ideal: 'border-[#00F2FE] bg-[#00F2FE]/10 text-white/85',
-      button: 'btn-fx [--fx:#6C5CE7] bg-gradient-to-r from-[#6C5CE7] via-[#6C8CFF] to-[#00F2FE] text-[#080911] hover:text-white hover:shadow-[0_10px_30px_rgba(0,242,254,0.4)]',
-    },
-  };
-
-  public plans = [
-    {
-      id: 1,
-      number: '01',
-      name: 'Plan Básico',
-      badge: 'Simple',
-      featured: false,
-      tilt: 'lg:-rotate-2',
-      theme: this.planThemes.basic,
-      tagline: 'Un chatbot que responde por ti en WhatsApp.',
-      setup: '400',
-      monthly: '90',
-      conversations: '300 conversaciones/mes',
-      includesTitle: 'Incluye',
-      features: [
-        { title: 'Chatbot con IA', detail: 'para preguntas frecuentes' },
-        { title: 'Información del negocio', detail: 'servicios, precios y horarios' },
-        { title: 'Atención automática por WhatsApp' },
-        { title: 'Derivación a una persona', detail: 'cuando sea necesario' },
-        { title: 'Supervisión y mantenimiento básico' },
-      ],
-      idealFor: 'pequeños negocios que reciben preguntas repetitivas.',
-    },
-    {
-      id: 2,
-      number: '02',
-      name: 'Plan Comercial',
-      badge: 'Recomendado',
-      featured: true,
-      tilt: 'lg:-translate-y-4',
-      theme: this.planThemes.commercial,
-      tagline: 'Convierte consultas en oportunidades de venta.',
-      setup: '750',
-      monthly: '180',
-      conversations: '1.000 conversaciones/mes',
-      includesTitle: 'Todo el Plan Básico, más:',
-      features: [
-        { title: 'Calificación de clientes potenciales' },
-        { title: 'Captura de nombre, teléfono y necesidad' },
-        { title: 'Flujos de conversación personalizados' },
-        { title: 'Registro de leads', detail: 'en Google Sheets o una base de datos' },
-        { title: 'Seguimientos automáticos básicos' },
-      ],
-      idealFor: 'empresas que quieren convertir consultas en oportunidades comerciales.',
-    },
-    {
-      id: 3,
-      number: '03',
-      name: 'Plan Avanzado',
-      badge: 'Integraciones',
-      featured: false,
-      tilt: 'lg:rotate-2',
-      theme: this.planThemes.advanced,
-      tagline: 'Procesos de venta completos, conectados a tus sistemas.',
-      setup: '1.500',
-      monthly: '350',
-      conversations: 'Conversaciones ilimitadas',
-      includesTitle: 'Todo el Plan Comercial, más:',
-      // Las 5 características clave: así los tres planes muestran el mismo número y mantienen la misma altura.
-      features: [
-        { title: 'Agendamiento', detail: 'con Google Calendar' },
-        { title: 'CRM y APIs', detail: 'hasta 2 integraciones' },
-        { title: 'Pipelines de venta', detail: 'etapas y seguimiento' },
-        { title: 'Agentes de IA', detail: 'modelos OpenAI avanzados' },
-        { title: 'Pasarelas de pago', detail: 'Stripe, Mercado Pago y más' },
-      ],
-      // Resto de lo que incluye este plan: no se muestra en las tarjetas (por ahora).
-      extraFeatures: [
-        { title: 'Inventario en vivo', detail: 'stock, precios, horarios' },
-        { title: 'Cotizaciones', detail: 'creadas en el chat' },
-        { title: 'Landing page', detail: 'formulario directo al CRM' },
-        { title: 'Imagen, video y audio', detail: 'reconocimiento con IA' },
-        { title: 'Flujos a medida', detail: 'condiciones y acciones' },
-      ],
-      idealFor: 'inmobiliarias, concesionarios y empresas con procesos de venta complejos.',
-    },
-  ];
+  /** Los planes salen de features/plans/plans.data.ts (la misma fuente que las páginas de cada plan); se dibujan con app-plan-card. */
+  public readonly plans = PLANS;
 
   public faqs = [
     {

@@ -82,6 +82,7 @@ export class HeaderComponent {
     {
       label: 'Empresa',
       items: [
+        { path: '/planes', title: 'Planes', text: 'Precios y qué incluye cada uno' },
         { path: '/casos-de-exito', title: 'Casos de éxito', text: 'Procesos reales' },
         { path: '/blog', title: 'Blog', text: 'Guías de automatización' },
         { path: '/nosotros', title: 'Nosotros', text: 'Quiénes somos' },
@@ -117,14 +118,29 @@ export class HeaderComponent {
 
     const warm = () => {
       const sheet = this.sheet();
-      if (!sheet || window.scrollY > 40 || document.hidden) return;
+      // Si ya hay un menú o un diálogo abierto (por ejemplo, la persona abrió el menú justo ahora), no se toca nada.
+      if (!sheet || window.scrollY > 40 || document.hidden || document.querySelector('hlm-sheet-content, .cdk-overlay-pane:not(:empty)')) return;
+
+      // Si la persona toca el botón del menú mientras corre el calentamiento (unos 0,7 s en toda la visita),
+      // se espera a que termine y entonces se le abre el menú: no se pierde su toque.
+      let wantsMenu = false;
+      const onTap = (event: Event) => {
+        if ((event.target as Element | null)?.closest?.('button[aria-label="Abrir menú de navegación"]')) wantsMenu = true;
+      };
+      document.addEventListener('pointerdown', onTap, true);
 
       root.setAttribute('data-menu-prewarm', '');
       sheet.open();
       timers.push(
         setTimeout(() => {
           sheet.close();
-          timers.push(setTimeout(() => root.removeAttribute('data-menu-prewarm'), 500));
+          timers.push(
+            setTimeout(() => {
+              document.removeEventListener('pointerdown', onTap, true);
+              root.removeAttribute('data-menu-prewarm');
+              if (wantsMenu) sheet.open();
+            }, 500),
+          );
         }, 150),
       );
     };

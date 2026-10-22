@@ -67,6 +67,16 @@ export const routes: Routes = [
                 loadComponent: () => import('./features/blog/blog-post/blog-post.component').then(m => m.BlogPostComponent),
             },
 
+            // Planes
+            {
+                path: 'planes',
+                loadComponent: () => import('./features/plans/plans-overview/plans-overview.component').then(m => m.PlansOverviewComponent),
+            },
+            {
+                path: 'planes/:slug',
+                loadComponent: () => import('./features/plans/plan-detail/plan-detail.component').then(m => m.PlanDetailComponent),
+            },
+
             // Legal
             {
                 path: 'politica-de-privacidad',

@@ -104,6 +104,17 @@ html:has(dialog[open]) {
   position: relative;
   overflow: hidden;
   isolation: isolate;
+  /* El color del texto cambia justo cuando el relleno (que arranca rápido) pasa por detrás del texto (a los 0,04 s), no antes:
+     si cambiara antes, el texto blanco quedaría sobre el fondo claro y desaparecería. Al salir ocurre igual.
+     Estas transiciones sustituyen a las de Tailwind en estos botones (translate y scale son las del hover:-translate-y). */
+  transition:
+    color 0.1s ease 0.04s,
+    background-color 0.15s ease,
+    border-color 0.15s ease,
+    box-shadow 0.3s ease,
+    translate 0.3s ease,
+    scale 0.3s ease,
+    opacity 0.15s ease;
 }
 
 .btn-fx::before {
@@ -112,14 +123,24 @@ html:has(dialog[open]) {
   inset: 0;
   z-index: -1;
   background: var(--fx, #080911);
-  border-radius: inherit;
-  transform: translateY(101%);
-  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+  /* El relleno no se desplaza: se REVELA de abajo arriba con un recorte (clip-path). Antes se movía con transform y, al estar
+     en su propia capa de la GPU, junto a un botón con esquinas redondeadas y dentro de una tarjeta inclinada, podía quedar
+     una línea oscura de 1 px en el borde hasta que el navegador descartaba la capa unos segundos después.
+     En reposo el recorte es de altura cero y además es invisible (visibility): no hay nada que pueda quedar dibujado. */
+  clip-path: inset(100% 0 0 0);
+  visibility: hidden;
+  transition:
+    clip-path 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    visibility 0s linear 0.45s; /* se oculta del todo cuando termina de bajar */
 }
 
 .btn-fx:hover::before,
 .btn-fx:focus-visible::before {
-  transform: translateY(0);
+  clip-path: inset(0 0 0 0);
+  visibility: visible;
+  transition:
+    clip-path 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    visibility 0s;
 }
 
 .btn-fx:hover .btn-arrow,
@@ -147,7 +168,9 @@ html:has(dialog[open]) {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .btn-fx::before {
+  .btn-fx::before,
+  .btn-fx:hover::before,
+  .btn-fx:focus-visible::before {
     transition: none;
   }
 

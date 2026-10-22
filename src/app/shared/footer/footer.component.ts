@@ -59,6 +59,7 @@ export class FooterComponent {
       links: [
         { label: 'Nosotros', path: '/nosotros' },
         { label: 'Casos de éxito', path: '/casos-de-exito' },
+        { label: 'Planes', path: '/planes' },
         { label: 'Blog', path: '/blog' },
         { label: 'Solicitar reunión', action: 'meeting' },
       ],

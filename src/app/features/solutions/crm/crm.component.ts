@@ -130,7 +130,7 @@ const CONTENT: PageContent = {
       },
       {
         title: 'Probamos y acompañamos',
-        text: 'Probamos todo antes de activarlo. El tiempo estimado es de 5 a 7 días y después cuentas con soporte 24/7.',
+        text: 'Probamos todo antes de activarlo. El tiempo estimado es de 5 a 7 días. Después tienes soporte técnico en el horario acordado y tu sistema sigue funcionando 24/7.',
       },
     ],
   },
@@ -159,7 +159,7 @@ const CONTENT: PageContent = {
     },
     {
       question: '¿Tienen soporte?',
-      answer: 'Sí. Contamos con soporte 24/7.',
+      answer: 'Sí. Tienes soporte técnico en el horario acordado, y tu sistema sigue funcionando 24/7.',
     },
   ],
 
