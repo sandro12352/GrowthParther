@@ -22,7 +22,6 @@ export interface PlanPayment {
 }
 
 export interface Plan {
-  /** Dirección: /planes/<slug> */
   slug: 'basico' | 'comercial' | 'avanzado';
   number: string;
   name: string;
@@ -366,10 +365,6 @@ export const PLANS: Plan[] = [
 
   },
 ];
-
-export function findPlan(slug: string | null | undefined): Plan | undefined {
-  return PLANS.find((plan) => plan.slug === slug);
-}
 
 /** Filas de la tabla comparativa de /planes: un valor por plan, en el orden de PLANS. «yes» = incluido y «no» = no incluido. */
 export type Cell = string | 'yes' | 'no';

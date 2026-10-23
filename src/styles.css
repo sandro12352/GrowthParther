@@ -102,7 +102,6 @@ html:has(dialog[open]) {
    Si el texto debe cambiar de color sobre el relleno, añadir `hover:text-white` (o similar). */
 .btn-fx {
   position: relative;
-  overflow: hidden;
   isolation: isolate;
   /* El color del texto cambia justo cuando el relleno (que arranca rápido) pasa por detrás del texto (a los 0,04 s), no antes:
      si cambiara antes, el texto blanco quedaría sobre el fondo claro y desaparecería. Al salir ocurre igual.
@@ -120,7 +119,12 @@ html:has(dialog[open]) {
 .btn-fx::before {
   content: '';
   position: absolute;
-  inset: 0;
+  /* El relleno es 1 px más grande por cada lado y tiene las mismas esquinas que el botón, sin recorte (overflow: hidden).
+     Con la pantalla a una escala fraccionaria (125 %, 150 %) el navegador dibuja el fondo del botón y el recorte con redondeos
+     distintos y quedaba una línea de 1 px del color original en el borde inferior y derecho, y un halo en las esquinas.
+     Al ser más grande, el relleno tapa siempre el fondo y el borde del botón. */
+  inset: -1px;
+  border-radius: inherit;
   z-index: -1;
   background: var(--fx, #080911);
   /* El relleno no se desplaza: se REVELA de abajo arriba con un recorte (clip-path). Antes se movía con transform y, al estar
@@ -132,6 +136,14 @@ html:has(dialog[open]) {
   transition:
     clip-path 0.45s cubic-bezier(0.22, 1, 0.36, 1),
     visibility 0s linear 0.45s; /* se oculta del todo cuando termina de bajar */
+}
+
+/* El borde (si lo hay) queda fuera del recorte del botón: al pasar el cursor toma el color del relleno, para no dejar un aro del
+   color original alrededor. Entra un poco después de que el relleno haya subido. */
+.btn-fx:hover,
+.btn-fx:focus-visible {
+  border-color: var(--fx, #080911);
+  transition-delay: 0.04s, 0s, 0.25s, 0s, 0s, 0s, 0s;
 }
 
 .btn-fx:hover::before,

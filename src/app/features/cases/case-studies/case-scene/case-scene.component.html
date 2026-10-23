@@ -1,7 +1,7 @@
 @let s = scene();
 <div class="scene" role="img" [attr.aria-label]="s.alt" [style.aspect-ratio]="s.width + ' / ' + s.height">
 
-    <img data-s="phone" class="phone" [src]="s.phone" [attr.width]="s.width" [attr.height]="s.height" alt="" loading="lazy" decoding="async" />
+    <img data-s="phone" class="phone" [src]="small(s.phone)" [attr.srcset]="small(s.phone) + ' 960w, ' + s.phone + ' 1400w'" sizes="(min-width: 1024px) 800px, 92vw" [attr.width]="s.width" [attr.height]="s.height" alt="" loading="lazy" decoding="async" />
 
     <svg class="lines" [attr.viewBox]="'0 0 ' + s.width + ' ' + s.height" aria-hidden="true">
         @for (line of s.lines; track $index; let i = $index) {

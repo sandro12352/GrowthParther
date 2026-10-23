@@ -29,9 +29,11 @@
 <section class="bg-white py-24 lg:py-32">
     <div class="mx-auto px-6 lg:max-w-[80vw] lg:px-8">
 
+        <h2 class="sr-only">Planes de automatización con IA</h2>
+
         <div appReveal revealStagger class="grid gap-6 lg:grid-cols-3 lg:items-stretch">
             @for (plan of plans; track plan.slug) {
-            <app-plan-card [plan]="plan" />
+            <app-plan-card [plan]="plan" [full]="true" />
             }
         </div>
 

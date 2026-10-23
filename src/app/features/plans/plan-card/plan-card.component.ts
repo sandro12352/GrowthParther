@@ -1,8 +1,8 @@
-import { Component, computed, inject, input } from '@angular/core';
+import { Component, computed, input } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { NgIcon, provideIcons } from '@ng-icons/core';
 import { lucideArrowRight, lucideCheck } from '@ng-icons/lucide';
-import { MeetingDialogService } from '../../../shared/components/services/meeting-dialog.service';
+import { whatsappUrl } from '../../../core/contact.config';
 import { Plan } from '../plans.data';
 
 /** Escalera de valor: del plan más simple (claro, neutro) al más completo (oscuro, gradiente). */
@@ -79,11 +79,21 @@ const TILTS: Record<Plan['slug'], string> = {
   templateUrl: './plan-card.component.html',
 })
 export class PlanCardComponent {
-  private readonly meetingDialogService = inject(MeetingDialogService);
-
   public readonly plan = input.required<Plan>();
   /** true en el inicio (tarjetas ligeramente inclinadas y desniveladas); false en /planes (alineadas, para comparar). */
   public readonly tilted = input(false);
+  /** true en /planes: en vez del resumen, lista todo lo que incluye la implementación y el servicio mensual. */
+  public readonly full = input(false);
+
+  /** Todo lo incluido en la implementación (lo del plan anterior, lo propio y, en el Avanzado, las capacidades adicionales). */
+  protected readonly fullIncluded = computed(() => {
+    const p = this.plan();
+    return [...(p.included.base ? [p.included.base.title] : []), ...p.included.items.map((i) => i.title), ...(p.extras?.items.map((i) => i.title) ?? [])];
+  });
+  protected readonly fullMonthly = computed(() => this.plan().monthlyService.items.map((i) => i.title));
+
+  /** «Elegir plan» abre WhatsApp con el plan ya indicado en el mensaje. */
+  protected readonly whatsapp = computed(() => whatsappUrl(`Hola, quiero contratar el ${this.plan().name}.`));
 
   protected readonly theme = computed(() => PLAN_THEMES[this.plan().slug]);
   /**
@@ -99,7 +109,4 @@ export class PlanCardComponent {
     return this.tilted() ? t.frame : `${t.frame} transition-shadow duration-500 ${t.hoverShadow}`;
   });
 
-  public openMeetingDialog(): void {
-    this.meetingDialogService.requestOpen();
-  }
 }

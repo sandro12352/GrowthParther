@@ -32,11 +32,32 @@ import { CASES } from '../../cases/case-studies/cases.data';
 export class AboutUsComponent implements OnDestroy {
   private readonly seo = inject(SeoService);
 
+  /** Las cuatro áreas, cada una con un ejemplo concreto y un enlace a su página. */
   public readonly areas = [
-    { icon: 'lucideWorkflow', title: 'Automatización', text: 'Procesos que avanzan automáticamente.' },
-    { icon: 'lucideSparkles', title: 'Inteligencia Artificial', text: 'Sistemas que entienden y responden.' },
-    { icon: 'lucideDatabase', title: 'CRM', text: 'Información centralizada y organizada.' },
-    { icon: 'lucideLink', title: 'Integraciones', text: 'Todas tus herramientas trabajando juntas.' },
+    {
+      icon: 'lucideWorkflow',
+      title: 'Automatización',
+      text: 'Registramos al prospecto, avisamos a tu asesor y hacemos el seguimiento sin que nadie tenga que acordarse.',
+      path: '/automatizacion',
+    },
+    {
+      icon: 'lucideSparkles',
+      title: 'Inteligencia Artificial',
+      text: 'Un asistente que atiende a tus clientes por WhatsApp a cualquier hora, con la información de tu negocio.',
+      path: '/ia-para-empresas',
+    },
+    {
+      icon: 'lucideDatabase',
+      title: 'CRM',
+      text: 'Cada contacto y cada etapa de la venta, ordenados en un solo lugar con GoHighLevel.',
+      path: '/crm',
+    },
+    {
+      icon: 'lucideLink',
+      title: 'Integraciones',
+      text: 'WhatsApp, Facebook, Instagram, TikTok y n8n trabajando juntos, en lugar de cada uno por su lado.',
+      path: '/integraciones',
+    },
   ];
 
   // Historia: coincide con cómo empezó el negocio (sin fechas, nombres ni cifras).

@@ -72,10 +72,6 @@ export const routes: Routes = [
                 path: 'planes',
                 loadComponent: () => import('./features/plans/plans-overview/plans-overview.component').then(m => m.PlansOverviewComponent),
             },
-            {
-                path: 'planes/:slug',
-                loadComponent: () => import('./features/plans/plan-detail/plan-detail.component').then(m => m.PlanDetailComponent),
-            },
 
             // Legal
             {

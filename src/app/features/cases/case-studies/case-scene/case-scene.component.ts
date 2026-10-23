@@ -53,6 +53,15 @@ export class CaseSceneComponent {
   /** Prefijo único para los ids de los degradados de las líneas (varias escenas en la misma página). */
   protected readonly uid = CaseSceneComponent.nextId++;
 
+  /**
+   * Teléfono reducido (public/cases/cutout/<nombre>-960.webp, calidad 90): lo usan las pantallas normales; la original (1400), las de alta
+   * densidad. Con 720 px y calidad 82 el texto del chat salía algo borroso (≈80 % de la nitidez de la original); a 960 px iguala o supera a la original.
+   * En `sizes` (html) el ancho de escritorio es 800 px, mayor que el real (~575), a propósito: así las pantallas al 125 % o más reciben la original.
+   */
+  protected small(phone: string): string {
+    return phone.replace(/.webp$/, '-960.webp');
+  }
+
   constructor() {
     afterNextRender(() => void this.init());
     this.destroyRef.onDestroy(() => {

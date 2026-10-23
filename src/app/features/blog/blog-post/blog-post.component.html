@@ -1,15 +1,16 @@
-@if (post; as p) {
+@if (post(); as p) {
 
 <!-- ===================================================== -->
 <!-- CABECERA DEL ARTÍCULO -->
 <!-- ===================================================== -->
-<section class="relative overflow-hidden bg-[#130735] pb-24 pt-36 text-white lg:pb-32 lg:pt-44">
+<section class="relative isolate overflow-hidden bg-[#080911] pb-20 pt-36 text-white lg:pb-28 lg:pt-48">
 
-    <div class="pointer-events-none absolute inset-0 overflow-hidden">
-        <div class="absolute left-1/2 top-1/4 h-[420px] w-[620px] -translate-x-1/2 rounded-full bg-[#6C5CE7]/20 blur-[120px]"></div>
-    </div>
+    <!-- La portada del artículo es el fondo; la capa oscura mantiene el texto legible sobre cualquier imagen -->
+    <img [src]="cover(p, 1280)" [alt]="p.imageAlt" width="1280" height="720" fetchpriority="high" decoding="async"
+        class="absolute inset-0 -z-20 h-full w-full object-cover" />
+    <div class="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-t from-[#080911] via-[#080911]/80 to-[#080911]/55"></div>
 
-    <div appReveal revealStagger class="relative mx-auto max-w-4xl px-6">
+    <div appReveal revealStagger class="relative mx-auto max-w-3xl px-6">
         <a routerLink="/blog" class="inline-flex items-center gap-2 text-sm font-medium text-white/70 transition hover:text-white">
             <ng-icon name="lucideArrowLeft" size="16" />
             Volver al blog
@@ -21,22 +22,17 @@
         </div>
 
         <h1 class="mt-5 text-balance text-3xl font-extrabold leading-[1.1] tracking-tight sm:text-4xl lg:text-5xl">{{ p.title }}</h1>
-        <p class="mt-5 max-w-3xl text-base leading-7 text-white/75 md:text-lg">{{ p.description }}</p>
+        <p class="mt-5 text-base leading-7 text-white/75 md:text-lg">{{ p.description }}</p>
     </div>
 </section>
 
 
 <!-- ===================================================== -->
-<!-- ARTÍCULO: portada que sube sobre la cabecera y cuerpo en una sola columna -->
+<!-- ARTÍCULO: cuerpo en una sola columna -->
 <!-- ===================================================== -->
 <article class="bg-white pb-20 lg:pb-28">
 
-    <div class="relative mx-auto -mt-14 max-w-5xl px-6 lg:-mt-20">
-        <img [src]="cover(p, 1280)" [alt]="p.imageAlt" width="1280" height="720" fetchpriority="high" decoding="async"
-            class="aspect-video w-full rounded-[28px] border border-black/10 object-cover shadow-[0_30px_80px_rgba(8,9,17,0.25)]" />
-    </div>
-
-    <div class="mx-auto mt-14 max-w-3xl px-6">
+    <div class="mx-auto max-w-3xl px-6 pt-12 lg:pt-16">
         @for (block of p.body; track $index) {
         @switch (block.type) {
         @case ('h2') {
@@ -63,7 +59,7 @@
         }
         }
 
-        @if (service; as s) {
+        @if (service(); as s) {
         <p class="mt-12 rounded-2xl border border-black/10 bg-[#f7f7fa] px-6 py-5 text-base leading-7 text-black/75">
             ¿Quieres aplicarlo en tu negocio? Conoce nuestro servicio de
             <a [routerLink]="s.path" class="font-semibold text-[#5b49d6] underline underline-offset-4 hover:text-[#6C5CE7]">{{ s.label }}</a>.

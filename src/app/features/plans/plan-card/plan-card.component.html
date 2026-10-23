@@ -56,6 +56,26 @@
                     <!-- INCLUYE -->
                     <h4 class="mt-8 text-sm font-bold" [class]="t.title">{{ p.card.includesTitle }}</h4>
 
+                    @if (full()) {
+                    <ul class="mt-4 space-y-3">
+                        @for (title of fullIncluded(); track title) {
+                        <li class="flex items-start gap-3 text-sm font-semibold" [class]="t.title">
+                            <ng-icon name="lucideCheck" size="16" class="mt-0.5 shrink-0" [class]="t.check" />
+                            <span>{{ title }}</span>
+                        </li>
+                        }
+                    </ul>
+
+                    <h4 class="mt-8 text-sm font-bold" [class]="t.title">Servicio mensual:</h4>
+                    <ul class="mt-4 space-y-3">
+                        @for (title of fullMonthly(); track title) {
+                        <li class="flex items-start gap-3 text-sm" [class]="t.text">
+                            <ng-icon name="lucideCheck" size="16" class="mt-0.5 shrink-0" [class]="t.check" />
+                            <span>{{ title }}</span>
+                        </li>
+                        }
+                    </ul>
+                    } @else {
                     <ul class="mt-4 space-y-3">
                         @for (feature of p.card.features; track feature.title) {
                         <li class="flex items-start gap-3 text-sm" [class]="t.text">
@@ -69,6 +89,7 @@
                         </li>
                         }
                     </ul>
+                    }
 
                     <!-- IDEAL PARA -->
                     <div class="mt-8 rounded-xl border-l-4 px-4 py-3 text-sm" [class]="t.ideal">
@@ -77,17 +98,19 @@
 
                     <!-- CTA -->
                     <div class="mt-auto pt-8">
-                        <button type="button" (click)="openMeetingDialog()"
+                        <a [href]="whatsapp()" target="_blank" rel="noopener noreferrer"
                             class="flex h-12 w-full items-center justify-center gap-2 rounded-xl text-sm font-bold transition hover:cursor-pointer"
                             [class]="t.button">
                             Elegir plan
                             <ng-icon class="btn-arrow" name="lucideArrowRight" size="16" />
-                        </button>
-                        <a [routerLink]="['/planes', p.slug]"
+                        </a>
+                        @if (!full()) {
+                        <a routerLink="/planes"
                             class="mt-4 flex items-center justify-center gap-1.5 text-sm font-semibold underline-offset-4 transition hover:underline"
                             [class]="t.title">
-                            Ver más detalles del plan
+                            Ver todo lo que incluye cada plan
                         </a>
+                        }
                     </div>
 
                 </div>
