@@ -17,6 +17,7 @@ import { NetworkBgComponent } from '../../shared/network-bg/network-bg.component
 import { POSTS, formatPostDate, postImage } from '../blog/blog.data';
 import { PLANS } from '../plans/plans.data';
 import { PlanCardComponent } from '../plans/plan-card/plan-card.component';
+import { TestimonialsComponent } from '../testimonials/testimonials.component';
 import { MeetingDialogService } from '../../shared/components/services/meeting-dialog.service';
 import { SeoService } from '../../core/seo.service';
 
@@ -31,6 +32,7 @@ import { SeoService } from '../../core/seo.service';
     HlmInputImports,
     WorkflowsComponent,
     PlanCardComponent,
+    TestimonialsComponent,
     NetworkBgComponent,
     RevealDirective,
     DrawPathsDirective,
