@@ -133,6 +133,7 @@ const CONTENT: PageContent = {
     eyebrow: 'Un ejemplo real',
     title: 'Así se ve un proceso automatizado',
     name: 'GRIN',
+    logo: '/cases/logos/grin.webp',
     description:
       'Automatización del proceso de pedidos y seguimiento desde el primer contacto hasta las diferentes condiciones del proceso.',
     tags: ['WhatsApp', 'Condiciones', 'Seguimiento'],

@@ -38,6 +38,8 @@ export interface PageContent {
     eyebrow: string;
     title: string;
     name: string;
+    /** Logo del cliente (480x240, webp transparente, public/cases/logos/): si existe, se muestra en lugar del nombre en texto. */
+    logo?: string;
     description: string;
     tags: string[];
     image: string;

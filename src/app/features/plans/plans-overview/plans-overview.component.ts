@@ -22,6 +22,11 @@ export class PlansOverviewComponent implements OnDestroy {
   public readonly comparison = COMPARISON;
   public readonly pricesAsOf = PRICES_AS_OF;
 
+  /** «Plan Básico» → «Básico»: nombre corto para las celdas de la comparación en móvil. */
+  protected shortName(name: string): string {
+    return name.replace(/^Plan\s+/i, '');
+  }
+
   public readonly closing: Pick<PageContent, 'faqs' | 'cta'> = {
     faqs: PLANS_FAQS,
     cta: {

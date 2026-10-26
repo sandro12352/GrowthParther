@@ -218,12 +218,18 @@
 
         <div appReveal class="mt-14 grid items-center gap-10 lg:grid-cols-[0.7fr_1.6fr] lg:gap-12">
 
-            <div class="order-2 lg:order-1">
+            <div class="order-1">
                 <div class="flex items-center gap-3">
                     <span class="h-px w-10 bg-white/20"></span>
                     <span class="text-xs font-semibold uppercase tracking-[0.2em] text-white/70">Caso real</span>
                 </div>
+                @if (study.logo) {
+                <h3 class="sr-only">{{ study.name }}</h3>
+                <img [src]="study.logo" [alt]="'Logo de ' + study.name" width="480" height="240" loading="lazy" decoding="async"
+                    class="mt-3 h-32 w-64 object-contain object-left sm:h-36 sm:w-72" />
+                } @else {
                 <h3 class="mt-5 text-4xl font-extrabold tracking-tight">{{ study.name }}</h3>
+                }
                 <p class="mt-4 text-base leading-7 text-white/70">{{ study.description }}</p>
                 <ul class="mt-6 flex flex-wrap gap-2">
                     @for (tag of study.tags; track tag) {
@@ -232,7 +238,7 @@
                 </ul>
             </div>
 
-            <div class="order-1 overflow-hidden rounded-[24px] border border-white/10 bg-[#10111A] shadow-[0_30px_100px_rgba(0,0,0,.45)] lg:order-2">
+            <div class="order-2 overflow-hidden rounded-[24px] border border-white/10 bg-[#10111A] shadow-[0_30px_100px_rgba(0,0,0,.45)]">
                 <div class="flex h-11 items-center gap-2 border-b border-white/10 px-5">
                     <span class="h-2 w-2 rounded-full bg-white/20"></span>
                     <span class="h-2 w-2 rounded-full bg-white/20"></span>
