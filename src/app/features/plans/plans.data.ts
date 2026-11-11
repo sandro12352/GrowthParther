@@ -1,7 +1,7 @@
 /**
- * Planes de GrowthProject AI. Contenido tomado de las proformas (octubre 2026): precios, alcance, condiciones de pago y límites.
+ * Planes de GrowthProject AI. Contenido de los planes: precios (solo pago mensual, sin implementación), alcance y límites.
  * Es la ÚNICA fuente: el inicio (tarjetas), la página de cada plan y la comparación leen de aquí.
- * Si cambia un precio o un alcance, se cambia solo en este archivo (y se actualiza `PRICES_AS_OF` si procede).
+ * Si cambia un precio o un alcance, se cambia solo en este archivo.
  *
  * El plazo de implementación («5 a 7 días») es una estimación de la web y no figura en las proformas.
  */
@@ -13,14 +13,6 @@ export interface PlanItem {
   icon?: string;
 }
 
-export interface PlanPayment {
-  rows: { concept: string; when: string; amount: string }[];
-  totalLabel: string;
-  totalWhen: string;
-  total: string;
-  note: string;
-}
-
 export interface Plan {
   slug: 'basico' | 'comercial' | 'avanzado';
   number: string;
@@ -30,9 +22,7 @@ export interface Plan {
   tagline: string;
   /** Continúa la frase «Ideal para …». */
   idealFor: string;
-  /** Implementación única, en dólares, sin símbolo (formato es: 1.500). */
-  setup: string;
-  /** Servicio mensual, en dólares. */
+  /** Pago mensual único, en dólares (incluye configuración e integración). */
   monthly: string;
   /** Texto corto del límite de conversaciones (tarjetas y cabecera). */
   conversations: string;
@@ -49,11 +39,8 @@ export interface Plan {
   monthlyService: { intro: string; items: PlanItem[] };
   needs: string[];
   notIncluded: string[];
-  payment: PlanPayment;
 }
 
-/** Mes de las proformas de las que sale la información. */
-export const PRICES_AS_OF = 'octubre 2026';
 
 /**
  * Preguntas frecuentes de los planes. Solo se muestran en /planes (las páginas de cada plan no las llevan: eran las mismas
@@ -72,7 +59,7 @@ export const PLANS_FAQS: { question: string; answer: string }[] = [
   {
     question: '¿Cómo se paga?',
     answer:
-      'La implementación se paga una sola vez: 50 % al iniciar y 50 % a la entrega final. La mensualidad empieza con la puesta en marcha. Los precios son fijos, en dólares y con IGV incluido.',
+      'Con un solo pago mensual. La configuración, las integraciones, las pruebas y la capacitación para tu negocio están incluidas: no hay costo de implementación. Los precios son fijos, en dólares y con IGV incluido.',
   },
   {
     question: '¿Qué cuenta como una conversación?',
@@ -94,14 +81,13 @@ export const PLANS: Plan[] = [
     featured: false,
     tagline: 'Tu asistente de IA atiende WhatsApp 24/7 y ordena tus prospectos.',
     idealFor: 'pequeños negocios que reciben preguntas repetitivas y quieren responder de forma rápida y ordenada.',
-    setup: '400',
-    monthly: '90',
+    monthly: '50',
     conversations: 'Hasta 300 conversaciones al mes',
 
     seo: {
       title: 'Plan Básico: asistente de IA en WhatsApp | GrowthProject AI',
       description:
-        'Asistente de IA en WhatsApp para pequeños negocios: responde 24/7, captura datos y ordena tus prospectos. Implementación US$ 400 y US$ 90 al mes.',
+        'Asistente de IA en WhatsApp para pequeños negocios: responde 24/7, captura datos y ordena tus prospectos. Desde US$ 50 al mes, con configuración e integración incluidas.',
     },
 
     card: {
@@ -116,7 +102,7 @@ export const PLANS: Plan[] = [
     },
 
     included: {
-      intro: 'Lo que configuramos y dejamos funcionando en tu negocio, con un solo pago.',
+      intro: 'Lo que configuramos y dejamos funcionando en tu negocio, incluido en tu mensualidad.',
       items: [
         { title: 'Un canal de atención: WhatsApp', icon: 'lucideMessageCircle', text: 'Tu asistente atiende en tu número de WhatsApp Business. Otros canales se cotizan aparte.' },
         { title: 'Asistente de IA entrenado', icon: 'lucideBot', text: 'Lo entrenamos con la información de tu negocio para que responda como lo haría tu equipo.' },
@@ -155,18 +141,6 @@ export const PLANS: Plan[] = [
       'Campañas de publicidad.',
     ],
 
-    payment: {
-      rows: [
-        { concept: 'Implementación · 1.er pago', when: 'Al iniciar', amount: 'US$ 200' },
-        { concept: 'Implementación · 2.º pago', when: 'A la entrega final', amount: 'US$ 200' },
-        { concept: 'Servicio mensual (300 conversaciones)', when: 'Desde la puesta en marcha, cada mes', amount: 'US$ 90' },
-      ],
-      totalLabel: 'Total primer mes',
-      totalWhen: 'Implementación + 1.ª mensualidad',
-      total: 'US$ 490',
-      note: 'Precios fijos en dólares. IGV incluido. El consumo de IA está incluido en el plan.',
-    },
-
   },
 
   {
@@ -177,14 +151,13 @@ export const PLANS: Plan[] = [
     featured: true,
     tagline: 'Convierte consultas en oportunidades comerciales.',
     idealFor: 'empresas con equipo comercial que quieren calificar, asignar y dar seguimiento a cada oportunidad.',
-    setup: '750',
     monthly: '180',
     conversations: 'Hasta 1.000 conversaciones al mes',
 
     seo: {
       title: 'Plan Comercial: califica y da seguimiento a leads | GrowthProject AI',
       description:
-        'Asistente de IA que califica prospectos, agenda citas, asigna leads y da seguimiento automático. Implementación US$ 750 y US$ 180 al mes.',
+        'Asistente de IA que califica prospectos, agenda citas, asigna leads y da seguimiento automático. US$ 180 al mes, con configuración e integración incluidas.',
     },
 
     card: {
@@ -245,18 +218,6 @@ export const PLANS: Plan[] = [
       'Campañas de publicidad.',
     ],
 
-    payment: {
-      rows: [
-        { concept: 'Implementación · 1.er pago', when: 'Al iniciar', amount: 'US$ 375' },
-        { concept: 'Implementación · 2.º pago', when: 'A la entrega final', amount: 'US$ 375' },
-        { concept: 'Servicio mensual (1.000 conversaciones)', when: 'Desde la puesta en marcha, cada mes', amount: 'US$ 180' },
-      ],
-      totalLabel: 'Total primer mes',
-      totalWhen: 'Implementación + 1.ª mensualidad',
-      total: 'US$ 930',
-      note: 'Precios fijos en dólares. IGV incluido. El consumo de IA está incluido en el plan.',
-    },
-
   },
 
   {
@@ -267,14 +228,13 @@ export const PLANS: Plan[] = [
     featured: false,
     tagline: 'Conecta tus canales, sistemas y procesos de venta.',
     idealFor: 'inmobiliarias, concesionarios y empresas con procesos de venta complejos.',
-    setup: '1.500',
-    monthly: '350',
+    monthly: '250',
     conversations: 'Conversaciones ilimitadas',
 
     seo: {
       title: 'Plan Avanzado: canales e integraciones | GrowthProject AI',
       description:
-        'Atención multicanal, integración con tus sistemas, flujos con n8n, pagos y automatización posventa. Implementación US$ 1.500 y US$ 350 al mes.',
+        'Atención multicanal, integración con tus sistemas, flujos con n8n, pagos y automatización posventa. US$ 250 al mes, con configuración e integración incluidas.',
     },
 
     card: {
@@ -351,26 +311,13 @@ export const PLANS: Plan[] = [
       'Campañas de publicidad y cuentas adicionales.',
     ],
 
-    payment: {
-      rows: [
-        { concept: 'Implementación · 1.er pago', when: 'Al iniciar', amount: 'US$ 750' },
-        { concept: 'Implementación · 2.º pago', when: 'A la entrega final', amount: 'US$ 750' },
-        { concept: 'Servicio mensual', when: 'Desde la puesta en marcha, cada mes', amount: 'US$ 350' },
-      ],
-      totalLabel: 'Total primer mes',
-      totalWhen: 'Implementación + 1.ª mensualidad',
-      total: 'US$ 1.850',
-      note: 'Precios en dólares. IGV incluido. El consumo de IA contemplado en el plan está incluido; tarifas y licencias externas no incluidas.',
-    },
-
   },
 ];
 
 /** Filas de la tabla comparativa de /planes: un valor por plan, en el orden de PLANS. «yes» = incluido y «no» = no incluido. */
 export type Cell = string | 'yes' | 'no';
 export const COMPARISON: { label: string; values: [Cell, Cell, Cell] }[] = [
-  { label: 'Implementación única', values: ['US$ 400', 'US$ 750', 'US$ 1.500'] },
-  { label: 'Servicio mensual', values: ['US$ 90', 'US$ 180', 'US$ 350'] },
+  { label: 'Pago mensual (configuración e integración incluidas)', values: ['US$ 50', 'US$ 180', 'US$ 250'] },
   { label: 'Conversaciones al mes', values: ['300', '1.000', 'Ilimitadas'] },
   { label: 'Canales de atención', values: ['WhatsApp', 'WhatsApp', 'Hasta 3 canales'] },
   { label: 'Asistente de IA entrenado', values: ['yes', 'yes', 'yes'] },

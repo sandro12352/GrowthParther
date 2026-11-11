@@ -36,20 +36,20 @@
                     <!-- PRECIOS -->
                     <div class="mt-7 rounded-2xl border p-5" [class]="t.priceBox">
 
-                        <span class="block text-4xl font-black tracking-tight" [class]="t.setup">
-                            US$ {{ p.setup }}
-                        </span>
-                        <p class="mt-1 text-sm" [class]="t.text">Implementación única</p>
-
-                        <div class="my-4 h-px" [class]="t.divider"></div>
-
                         <div class="flex items-baseline gap-2">
                             <span class="text-4xl font-black tracking-tight" [class]="t.monthly">
                                 US$ {{ p.monthly }}
                             </span>
                             <span class="text-sm" [class]="t.text">/ mes</span>
                         </div>
-                        <p class="mt-1 text-sm" [class]="t.text">Mensualidad · {{ p.conversations }}</p>
+                        <p class="mt-1 text-sm" [class]="t.text">{{ p.conversations }}</p>
+
+                        <div class="my-4 h-px" [class]="t.divider"></div>
+
+                        <p class="text-sm" [class]="t.text">
+                            <span class="font-bold" [class]="t.title">Todo incluido en tu mensualidad.</span>
+                            Nosotros hacemos la configuración, las integraciones, las pruebas y la capacitación para tu negocio. Sin costo de implementación.
+                        </p>
 
                     </div>
 

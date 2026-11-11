@@ -6,7 +6,7 @@ import { SeoService } from '../../../core/seo.service';
 import { PageClosingComponent } from '../../../shared/page-closing/page-closing.component';
 import { PageContent } from '../../../shared/models/page-content.model';
 import { PlanCardComponent } from '../plan-card/plan-card.component';
-import { COMPARISON, PLANS, PLANS_FAQS, PRICES_AS_OF } from '../plans.data';
+import { COMPARISON, PLANS, PLANS_FAQS } from '../plans.data';
 
 /** Página «Planes» (/planes): los tres planes y una tabla comparativa. El contenido sale de plans.data.ts. */
 @Component({
@@ -20,7 +20,6 @@ export class PlansOverviewComponent implements OnDestroy {
 
   public readonly plans = PLANS;
   public readonly comparison = COMPARISON;
-  public readonly pricesAsOf = PRICES_AS_OF;
 
   /** «Plan Básico» → «Básico»: nombre corto para las celdas de la comparación en móvil. */
   protected shortName(name: string): string {
